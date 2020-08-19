@@ -1,0 +1,117 @@
+/*------------------------------
+    2.4 WELCOME SLIDER AREA
+--------------------------------*/
+
+.welcome-slider-area {
+  height: 100vh;
+  position: relative;
+  z-index: 9;
+}
+
+.welcome-slider-area.owl-carousel div:not(.owl-controls) {
+  height: 100vh;
+}
+
+.welcome-single-slide {
+  z-index: 9;
+  position: relative;
+}
+
+.welcome-single-slide:before {
+  background: #3c4147;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0.7;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.welcome-slider-area .welcome-text {
+  color: #ffffff;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.welcome-text h4 {
+  margin-bottom: 30px;
+}
+
+.welcome-text h2 {
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.welcome-slider-area.home-button {
+  height: auto !important;
+}
+
+.owl-item.active .welcome-single-slide .welcome-text h1 {
+  -webkit-animation: 1s ease 0.5s normal both 1 running fadeInUp;
+  animation: 1s ease 0.5s normal both 1 running fadeInUp;
+}
+
+.owl-item.active .welcome-single-slide .welcome-text p {
+  -webkit-animation: 1s ease 0.8s normal both 1 running fadeInUp;
+  animation: 1s ease 0.8s normal both 1 running fadeInUp;
+}
+
+.owl-item.active .welcome-single-slide .home-button {
+  -webkit-animation: 1s ease 1s normal both 1 running fadeInUp;
+  animation: 1s ease 1s normal both 1 running fadeInUp;
+}
+
+.slider-bg-one {
+  background: url('../../assets/images/slider1.jpg') no-repeat scroll center
+    center / cover;
+}
+
+.slider-bg-two {
+  background: url('../../assets/images/slider2.jpg') no-repeat scroll center
+    center / cover;
+}
+
+.slider-bg-three {
+  background: url('../../assets/images/slider3.jpg') no-repeat scroll center
+    center / cover;
+}
+
+.welcome-slider-area.owl-carousel .owl-nav > div {
+  background: transparent none repeat scroll 0 0;
+  display: inline-block;
+  font-size: 30px;
+  height: 40px;
+  margin: 0 5px;
+  padding-top: 5px;
+  text-align: center;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  width: 40px;
+  border: 1px solid rgba(243, 52, 18, 0.3);
+}
+
+.welcome-slider-area.owl-carousel .owl-controls {
+  bottom: 7%;
+  position: absolute;
+  right: 8.4%;
+}
+
+.welcome-slider-area.owl-carousel .owl-nav > div:hover {
+  color: #bf1e2e;
+  border: 1px solid rgba(191, 30, 46, 0.9);
+}
