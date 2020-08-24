@@ -4,6 +4,7 @@ import styles from './HeroSection.module.scss';
 import Truck2 from '../../assets/images/hero2-truck.jpg';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Layout from '../Layout';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,6 +71,7 @@ const HeroSection = () => {
         data-section-1
         ref={(el) => (app = el)}
       >
+        <SectionTitle>Usługi transportowe - Szwecja - Polska</SectionTitle>
         <div className={styles.heroContainer}>
           <div className={styles.heroInner}>
             <div className={styles.heroContent}>

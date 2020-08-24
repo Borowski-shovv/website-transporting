@@ -19,6 +19,7 @@ const Ul = styled.ul`
     position: relative;
     z-index: 1;
     padding: 20px 10px 20px 30px;
+    transition: all 0.3s ease-out 0s;
 
     &::before {
       content: '';
@@ -29,7 +30,7 @@ const Ul = styled.ul`
       bottom: 0%;
       top: 0%;
       background-image: url(${NavTruck});
-      transition: 0.3s ease-in;
+      transition: all 0.3s ease-in 0s;
       opacity: 0;
     }
 
@@ -43,7 +44,7 @@ const Ul = styled.ul`
       bottom: 0%;
       background-image: url(${Wheel});
       background-repeat: no-repeat;
-      transition: 0.1s ease-in;
+      transition: all 0.1s ease-in 0s;
       opacity: 0;
     }
   }
