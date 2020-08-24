@@ -6,13 +6,13 @@
   padding-top: 40px;
 }
 
-.hero-container {
-  width: 1440px;
-  min-width: 1440px;
+.heroContainer {
+  /* width: 1440px;
+  min-width: 1440px; */
   margin: 0 auto;
 }
 
-.hero-inner {
+.heroInner {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -20,30 +20,30 @@
   height: 50vh;
 }
 
-.hero-content {
+.heroContent {
   width: 50%;
   height: 50vh;
 }
 
-.hero-content-inner {
+.heroContentInner {
   /* width: 400px; */
   margin: 0 auto;
   color: #323232 !important;
 }
 
-.hero-content-inner h1 {
+.heroContentInner h1 {
   font-weight: 500;
   font-size: 32px;
   margin-bottom: 24px;
 }
 
-.hero-content-inner h1 .hero-content-line {
+.heroContentInner h1 .heroContentLine {
   margin: 0;
   height: 44px;
   overflow: hidden;
 }
 
-.hero-content-inner p {
+.heroContentInner p {
   font-size: 14px;
   line-height: 24px;
   font-weight: 300;
@@ -51,11 +51,11 @@
   margin-bottom: 56px;
 }
 
-.hero-content-inner .btn-row {
+.heroContentInner .btnRow {
   position: relative;
 }
 
-.hero-content-inner .btn-row:before {
+.heroContentInner .btnRow:before {
   position: absolute;
   content: '';
   width: 56px;
@@ -65,7 +65,7 @@
   left: -68px;
 }
 
-.btn-row button {
+.btnRow button {
   background: none;
   border: none;
   font-size: 12px;
@@ -79,94 +79,98 @@
   position: relative;
 }
 
-.btn-row:focus {
+.btnRow:focus {
   outline: none;
 }
 
-.arrow-icon {
-  font-size: 30px;
-  margin-left: 10px;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  line-height: 50px;
-}
+// .arrow-icon {
+//   font-size: 30px;
+//   margin-left: 10px;
+//   border-radius: 50%;
+//   height: 50px;
+//   width: 50px;
+//   line-height: 50px;
+// }
 
-.hero-images {
+.heroImages {
   width: 50%;
   /* height: 100vh; */
   position: relative;
 }
 
-.hero-images-inner .hero-image {
+.heroImagesInner .heroImage {
   position: absolute;
   overflow: hidden;
 }
 
-.hero-images-inner .truck-1 {
+.heroImagesInner .truck1 {
   top: 0;
   right: 0;
   width: 45%;
   height: auto;
 }
 
-.hero-images-inner .truck-2 {
+.heroImagesInner .truck2 {
   top: 0px;
   left: 0px;
   width: 45%;
   height: auto;
 }
 
-/* .hero-image img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-} */
+// .heroImage img {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+// }
 
 @media (max-width: 768px) {
   .hero {
     height: auto;
   }
 
-  .hero-container {
+  .heroContainer {
     width: 100%;
     min-width: auto;
   }
 
-  .hero-content {
+  .heroContent {
     width: 100%;
     min-width: 100%;
   }
 
-  .hero-inner {
+  .heroInner {
     height: auto;
     flex-direction: column;
   }
 
-  .hero-content {
+  .heroContent {
     width: 100%;
+    height: 70vh;
   }
 
-  .hero-images {
+  .heroImages {
     position: static;
     width: 100%;
     height: auto;
   }
 
-  .hero-images-inner .hero-image {
+  .heroImagesInner .heroImage {
     position: static;
   }
 
-  .hero-images-inner .truck-1 {
-    width: 100%;
-    height: auto;
+  .heroImage {
+    margin-top: 20px;
   }
 
-  .hero-images-inner .truck-2 {
+  .heroImagesInner .truck1 {
     width: 100%;
-    height: auto;
+    height: 300px;
+  }
+
+  .heroImagesInner .truck2 {
+    display: none;
   }
 }

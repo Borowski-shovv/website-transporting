@@ -115,3 +115,9 @@
   color: #bf1e2e;
   border: 1px solid rgba(191, 30, 46, 0.9);
 }
+
+@media (max-width: 768px) {
+  .welcome-text h1 {
+    font-size: 24px !important;
+  }
+}

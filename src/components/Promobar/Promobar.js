@@ -19,14 +19,16 @@ const Promobar = () => {
             xs={12}
             className={styles.textCenter}
           >
-            <div className={styles.promBottomContent}>
-              <h2>
-                Zbieramy przesyłki z całej Polski &amp; dostarczamy je na
-                terenie całej Szwecji
-              </h2>
-              <Link to="/" className={styles.readMore}>
-                Kontakt
-              </Link>
+            <div className="container">
+              <div className={styles.promBottomContent}>
+                <h2>
+                  Zbieramy przesyłki z całej Polski &amp; dostarczamy je na
+                  terenie całej Szwecji
+                </h2>
+                <Link to="/" className={styles.readMore}>
+                  Kontakt
+                </Link>
+              </div>
             </div>
           </Col>
         </Row>
