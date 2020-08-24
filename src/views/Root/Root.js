@@ -4,10 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CompanyView from '../CompanyView/CompanyView';
-import ContactView from '../ContactView/ContactView';
 import HomeView from '../HomeView/HomeView';
 import Navigation from '../../components/Navigation/Navigation';
-// import Layout from '../../components/Layout';
+
+const routes = [
+  { path: '/', name: 'Home', Component: HomeView },
+  { path: '/firma', name: 'Firma', Component: CompanyView },
+];
 
 function Root() {
   return (
@@ -15,9 +18,13 @@ function Root() {
       <Router>
         <Navigation />
         <Switch>
-          <Route exact path="/" component={HomeView} />
-          <Route path="/firma" component={CompanyView} />
-          <Route path="/kontakt" component={ContactView} />
+          {routes.map(({ path, Component }) => (
+            <Route key="name" path={path} exact>
+              <div className="page">
+                <Component />
+              </div>
+            </Route>
+          ))}
         </Switch>
       </Router>
     </>

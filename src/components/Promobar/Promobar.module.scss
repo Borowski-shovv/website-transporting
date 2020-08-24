@@ -1,0 +1,63 @@
+/* -----------------------------
+    8. PROMO BOTTOM AREA
+----------------------------- */
+
+.promoBottomArea {
+  position: relative;
+  padding: 100px 0;
+  margin-top: 30px;
+}
+
+.sectionPadding {
+  padding: 100px 0;
+}
+
+.promoBottomAreaBg {
+  background: rgba(0, 0, 0, 0) url('../../assets/images/slider1.jpg') no-repeat
+    scroll bottom center / cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.promoBottomAreaBg::after {
+  background: #3c4a62 none repeat scroll 0 0;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.promoBottomArea h2 {
+  color: #fff;
+  font-size: 26px;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.readMore {
+  display: inline-block;
+  color: white;
+  margin-top: 15px;
+  text-align: center;
+  background: #bf1e2e none repeat scroll 0 0;
+  font-weight: bold;
+  height: auto;
+  letter-spacing: 1px;
+  padding: 14px;
+  text-transform: uppercase;
+  width: 180px;
+}
+
+.promoBottomArea .readMore:hover,
+.promoBottomArea .readMore:focus {
+  background: #fff none repeat scroll 0 0;
+  color: #bf1e2e;
+}

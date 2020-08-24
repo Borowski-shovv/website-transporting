@@ -1,0 +1,172 @@
+/* SEKCJA USLUGI - STRONA GLOWNA */
+
+.hero {
+  visibility: hidden;
+  height: 50vh;
+  padding-top: 40px;
+}
+
+.hero-container {
+  width: 1440px;
+  min-width: 1440px;
+  margin: 0 auto;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 24px;
+  height: 50vh;
+}
+
+.hero-content {
+  width: 50%;
+  height: 50vh;
+}
+
+.hero-content-inner {
+  /* width: 400px; */
+  margin: 0 auto;
+  color: #323232 !important;
+}
+
+.hero-content-inner h1 {
+  font-weight: 500;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.hero-content-inner h1 .hero-content-line {
+  margin: 0;
+  height: 44px;
+  overflow: hidden;
+}
+
+.hero-content-inner p {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 300;
+  padding-right: 48px;
+  margin-bottom: 56px;
+}
+
+.hero-content-inner .btn-row {
+  position: relative;
+}
+
+.hero-content-inner .btn-row:before {
+  position: absolute;
+  content: '';
+  width: 56px;
+  height: 1px;
+  background: #dfdfdf;
+  top: 50%;
+  left: -68px;
+}
+
+.btn-row button {
+  background: none;
+  border: none;
+  font-size: 12px;
+  padding: 0;
+  /* cursor: pointer; */
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.btn-row:focus {
+  outline: none;
+}
+
+.arrow-icon {
+  font-size: 30px;
+  margin-left: 10px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+}
+
+.hero-images {
+  width: 50%;
+  /* height: 100vh; */
+  position: relative;
+}
+
+.hero-images-inner .hero-image {
+  position: absolute;
+  overflow: hidden;
+}
+
+.hero-images-inner .truck-1 {
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: auto;
+}
+
+.hero-images-inner .truck-2 {
+  top: 0px;
+  left: 0px;
+  width: 45%;
+  height: auto;
+}
+
+/* .hero-image img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+} */
+
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+  }
+
+  .hero-container {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .hero-content {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .hero-inner {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-images {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-images-inner .hero-image {
+    position: static;
+  }
+
+  .hero-images-inner .truck-1 {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-images-inner .truck-2 {
+    width: 100%;
+    height: auto;
+  }
+}
