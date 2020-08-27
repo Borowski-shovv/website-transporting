@@ -5,6 +5,7 @@ import Promobar from '../../components/Promobar/Promobar';
 // import { Link } from 'react-router-dom';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import styles from './HomeView.module.scss';
+import HowItWorks from '../../components/HowItWorks/HowItWorks'
 
 const HomeView = () => {
   // let anchorRef = useRef(null);
@@ -25,6 +26,7 @@ const HomeView = () => {
       </Link>
       <HeroSection />
       <Promobar />
+      <HowItWorks />
     </>
   );
 };

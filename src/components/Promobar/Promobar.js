@@ -14,7 +14,7 @@ const Promobar = () => {
   });
 
   return (
-    <div data-aos="fade-up" className={styles.promoBottomArea}>
+    <div className={styles.promoBottomArea}>
       <div
         className={styles.promoBottomAreaBg}
         data-stellar-background-ratio="0.6"
@@ -28,7 +28,7 @@ const Promobar = () => {
             xs={12}
             className={styles.textCenter}
           >
-            <div className="container">
+            <div data-aos="fade-up" className="container">
               <div className={styles.promBottomContent}>
                 <h3 className={styles.promoTitle}>Skontaktuj się z nami</h3>
                 <p>
