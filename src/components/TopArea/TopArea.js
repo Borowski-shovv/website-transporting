@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './TopArea.module.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const TopArea = () => {
+const TopArea = ({children}) => {
   return (
     <header className={styles.topAreaSinglePage} id="home">
       <div
@@ -16,7 +16,7 @@ const TopArea = () => {
           <Row className={styles.flexCenter}>
             <Col md={12} lg={12} sm={12} xs={12}>
               <div className={styles.welcomeText}>
-                <h2>O firmie</h2>
+                <h2>{children}</h2>
                 <ul className={styles.pageLocation}>
                   <li>
                     <Link to="/">Home</Link>

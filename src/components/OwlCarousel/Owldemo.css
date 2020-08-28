@@ -60,6 +60,7 @@
   opacity: 0.6;
   /* animation: skew 3s infinite; */
   transform: skew(-20deg);
+  width: 110%;
   /* animation-direction: alternate; */
 }
 
@@ -75,7 +76,6 @@
 
 .welcome-text p {
   position:relative;
-  left: -10%;
   width: 70%;
 }
 
@@ -97,7 +97,6 @@
   -webkit-animation: 1s ease 1s normal both 1 running fadeInUp;
   animation: 1s ease 1s normal both 1 running fadeInUp;
   position: relative;
-  left: -20%;
   margin-top: 40px;
 }
 

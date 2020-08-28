@@ -7,10 +7,12 @@ import CompanyView from '../CompanyView/CompanyView';
 import HomeView from '../HomeView/HomeView';
 import Navigation from '../../components/Navigation/Navigation';
 import Footer from '../../components/Footer/Footer';
+import RegulaminView from '../RegulaminView/RegulaminView';
 
 const routes = [
   { path: '/', name: 'Home', Component: HomeView },
   { path: '/firma', name: 'Firma', Component: CompanyView },
+  { path: '/regulamin', name: 'Regulamin', Component: RegulaminView},
 ];
 
 function Root() {
