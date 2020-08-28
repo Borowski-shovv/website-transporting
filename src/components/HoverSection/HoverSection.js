@@ -22,13 +22,14 @@ const solutions = [
 const handleCity = (city, target) => {
     gsap.to(target, {
       duration: 0,
-      background: `url(${city}) bottom center`,
-      backgroundSize: 'cover',
+      background: `url(${city})`,
+    
     });
     gsap.to(target, {
       duration: 1.6,
       opacity: 1,
       ease: "power3.inOut",
+      backgroundSize: "cover",
       y: 10
     });
     gsap.from(target, {
@@ -60,8 +61,7 @@ const handleCity = (city, target) => {
                 <div ref={el => (changingPhoto = el)} className="photo lazy">
                     {/* <img src={Truck0} alt=""/>  */}
                 </div>
-                
-            </div>		
+            </div>	
             <div className="collection-content color-banner" >
                 <div className="collection-content-wrapper">
                 <div className="collection-content-text">
@@ -73,6 +73,7 @@ const handleCity = (city, target) => {
                                 key={el.name}
                                 onMouseEnter={() => handleCity(el.image, changingPhoto)}
                                 onMouseOut={() => handleCityReturn(changingPhoto)} 
+                                className="solutions-truck"
                                 >
                                 {el.name}
                             </span>
