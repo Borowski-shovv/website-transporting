@@ -17,6 +17,8 @@ class Owldemo1 extends Component {
       <div className="info-bar">
         <div>
          <img src={plflag} alt=""/><i className="fa fa-phone"></i><span>+48 735 130 862</span>
+        </div>
+        <div>
           <img src={seflag} alt=""/><i className="fa fa-phone"></i><span>+48 764 012 966</span>
         </div>
       </div>
@@ -33,7 +35,7 @@ class Owldemo1 extends Component {
               <div className="row flex-v-center">
                 <div className="col-md-10 col-md-offset-1">
                   <div className="welcome-text text-center">
-                    <h1>Kurierzy zrobią dla Ciebie zakupy</h1>
+                    <h2>Kurierzy zrobią dla Ciebie zakupy</h2>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -53,7 +55,7 @@ class Owldemo1 extends Component {
               <div className="row flex-v-center">
                 <div className="col-md-10 col-md-offset-1">
                   <div className="welcome-text text-center">
-                    <h1>Rysia zrobi dla Ciebie zakupy</h1>
+                    <h2>Rysia zrobi dla Ciebie zakupy</h2>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -73,7 +75,7 @@ class Owldemo1 extends Component {
               <div className="row flex-v-center">
                 <div className="col-md-10 col-md-offset-1">
                   <div className="welcome-text text-center">
-                    <h1>Kurierzy zrobią dla Ciebie zakupy</h1>
+                    <h2>Kurierzy zrobią dla Ciebie zakupy</h2>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna

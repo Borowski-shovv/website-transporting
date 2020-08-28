@@ -69,7 +69,7 @@
 
 .welcome-text h2 {
   color: #fff;
-  line-height: 1;
+  /* line-height: 1; */
   margin-bottom: 30px;
 }
 
@@ -83,7 +83,7 @@
   height: auto !important;
 }
 
-.owl-item.active .welcome-single-slide .welcome-text h1 {
+.owl-item.active .welcome-single-slide .welcome-text h2 {
   -webkit-animation: 1s ease 0.5s normal both 1 running fadeInUp;
   animation: 1s ease 0.5s normal both 1 running fadeInUp;
 }
@@ -101,43 +101,6 @@
   margin-top: 40px;
 }
 
-@media (max-width: 768px) {
-  .welcome-slider-area {
-    height: 100vh;
-  }
-
-  .welcome-slider-area.owl-carousel div:not(.owl-controls) {
-    height: 100vh;
-  }
-
-
-  .welcome-slider-area .welcome-text {
-    width: 100%;
-  }
-
-  .welcome-slider-area .welcome-text h1 {
-    width: 100%;
-    font-size: 18px;
-  }
-
-  .welcome-slider-area .welcome-text p {
-    width: 100%;
-    left: 0;
-    font-size: 12px;
-  }
-
-  .welcome-slider-area .welcome-text::before {
-    display: none;
-  }
-
-  .owl-item.active .welcome-single-slide .home-button {
-    left: 0;
-  }
-
-  .navbar {
-    margin-top: 20px;
-  }
-}
 
 .slider-bg-one {
   background: url('../../assets/images/slider1.jpg') no-repeat scroll center
@@ -186,6 +149,10 @@
   background:  #1d1c1c;
 }
 
+.info-bar:nth-last-child() {
+  margin-left: 10px;
+}
+
 .info-bar span {
   margin: 0 10px;
   color: white;
@@ -203,5 +170,50 @@
 @media (max-width: 768px) {
   .welcome-text h1 {
     font-size: 24px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-bar {
+    flex-direction: column;
+    align-items: left;
+    padding-left: 20px;
+  };
+
+  .welcome-slider-area {
+    height: 100vh;
+  }
+
+  .welcome-slider-area.owl-carousel div:not(.owl-controls) {
+    height: 100vh;
+  }
+
+
+  .welcome-slider-area .welcome-text {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .welcome-slider-area .welcome-text h1 {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .welcome-slider-area .welcome-text p {
+    width: 100%;
+    left: 0;
+    font-size: 12px;
+  }
+
+  .welcome-slider-area .welcome-text::before {
+    display: none;
+  }
+
+  .owl-item.active .welcome-single-slide .home-button {
+    left: 0;
+  }
+
+  .navbar {
+    margin-top: 30px;
   }
 }

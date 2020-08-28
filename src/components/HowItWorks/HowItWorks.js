@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import styles from './HowItWorks.module.scss';
-import SectionTitle from '../SectionTitle/SectionTitle';
 import '../../assets/icomoon/style.css';
+import AOS from 'aos';
+
 
 const HowItWorks = () => {
+  useEffect(() => {
+    AOS.init(); 
+    AOS.refresh(); 
+  })
     return (
         <div className={`${styles.siteSection} ${styles.bgImage} ${styles.overlay}`}>
         <Container className={styles.wrapper}>

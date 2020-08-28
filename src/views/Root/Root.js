@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CompanyView from '../CompanyView/CompanyView';
 import HomeView from '../HomeView/HomeView';
 import Navigation from '../../components/Navigation/Navigation';
+import Footer from '../../components/Footer/Footer';
 
 const routes = [
   { path: '/', name: 'Home', Component: HomeView },
@@ -26,6 +27,7 @@ function Root() {
             </Route>
           ))}
         </Switch>
+        <Footer></Footer>
       </Router>
     </>
   );
