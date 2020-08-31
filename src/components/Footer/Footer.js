@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './Footer.css';
 import logoShovv from '../../assets/images/made-by-shovv.png';
 import solidFach from '../../assets/images/solidfach.svg';
+import '../../assets/libraries/font-awesome.min.css';
 
 const Footer = () => {
  return (
@@ -43,7 +44,11 @@ const Footer = () => {
 				</div>
 				<div className="col-sm-6 col-md-3 footer-sidebar-wrap">			
 					<img className="footer-logo" src={solidFach} alt="" />
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fugiat accusamus, error, excepturi et magnam voluptatum repellendus maxime quas soluta possimus vel adipisci repudiandae quod. Sint voluptatibus vitae reprehenderit obcaecati</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fugiat accusamus, error, excepturi et magnam voluptatum</p>
+					<div className="social-buttons">
+						<Link to={{pathname: "https://facebook.com/"}} target="_blank"><i className="fa fa-facebook"></i></Link>
+						<Link to={{pathname: "https://www.instagram.com/solidfach_plse/"}} target="_blank"><i className="fa fa-instagram"></i></Link>
+					</div>
 				</div>
             </div>
         </div>
@@ -55,7 +60,7 @@ const Footer = () => {
                         WDROŻENIE:
 
                         <Link
-                        to="https://shovv.pl"
+                        to={{pathname: "https://shovv.pl"}}
                         target="_blank"
                         title="Fotografia reklamowa i strony internetowe Białystok"
                         ><img src={logoShovv} alt="SHOVV - Fotografia"

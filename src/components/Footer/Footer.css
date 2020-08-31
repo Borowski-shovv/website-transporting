@@ -148,6 +148,17 @@ input.tnp-submit:hover {
 
 /* footer */
 
+.social-buttons a{
+  display: inline-block;
+  font-size: 30px;
+  color: white;
+  margin-right: 10px;
+}
+
+.social-buttons a:hover {
+  color: 
+}
+
 
 .manufacturer {
     width: 100%;

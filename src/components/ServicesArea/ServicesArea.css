@@ -1,0 +1,66 @@
+.service-area {
+    background-color: #ddd;
+}
+
+.service-content h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.service-content h2::after {
+    border-bottom: 1px dashed rgb(243, 156, 18);
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 50px;
+}
+
+.service-catalouge-content-area {
+    background: rgba(0, 0, 0, 0) url("../../assets/images/service-cargo-bg.png") no-repeat scroll center center / contain;
+    position: relative;
+}
+
+.catalouge-content {
+    background: rgba(243, 156, 18, 0.9) none repeat scroll 0 0;
+    color: #fff;
+    padding: 30px;
+}
+
+.catalouge-content h3 {
+    color: #fff;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.catalouge-content h3::after {
+    border-bottom: 1px dashed;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 50px;
+}
+
+.catalouge-content .read-more:hover,
+.catalouge-content .read-more:focus {
+    background: #fff none repeat scroll 0 0;
+    color: #f39c12;
+}
+
+.catalouge-content ul {
+    margin-top: 40px;
+}
+
+.catalouge-content ul li {
+    margin-bottom: 15px;
+}
+
+.catalouge-content ul li i {
+    margin-right: 15px;
+}

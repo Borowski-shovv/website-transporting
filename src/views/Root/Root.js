@@ -8,6 +8,8 @@ import HomeView from '../HomeView/HomeView';
 import Navigation from '../../components/Navigation/Navigation';
 import Footer from '../../components/Footer/Footer';
 import RegulaminView from '../RegulaminView/RegulaminView';
+import '../../assets/libraries/font-awesome.min.css';
+import ScrollTopButton from '../../components/ScrollToTop/ScrollToTop';
 
 const routes = [
   { path: '/', name: 'Home', Component: HomeView },
@@ -29,6 +31,7 @@ function Root() {
             </Route>
           ))}
         </Switch>
+        <ScrollTopButton></ScrollTopButton>
         <Footer></Footer>
       </Router>
     </>

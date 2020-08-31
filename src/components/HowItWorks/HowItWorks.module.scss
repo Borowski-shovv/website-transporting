@@ -1,6 +1,7 @@
 .siteSection {
     padding: 2.5em 0; 
-    background-image: url('../../assets/images/slider2.jpg');
+    background-image: url('../../assets/images/bridge.jpg');
+    background-size: cover;
 }
 
 @media (min-width: 768px) {
@@ -127,3 +128,37 @@
               color: #8bc34a; }
             .ul-check.primary li:before {
               color: #f89d13; }
+
+              .benefits {
+                margin: 50px 0;
+              }
+              
+              .benefit {
+                font-size: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                opacity: 0.6;
+              }
+              
+              .benefit img {
+                width: 100px;
+                height: auto;
+                margin: 0 auto;
+                opacity: 0.3;
+              }
+            
+              .benefit p {
+                  margin-left: 20px;
+                  opacity: 0.5;
+              }
+              
+              @media (max-width: 768px) {
+                .benefit {
+                  flex-direction: column;
+                }
+                .benefit p {
+                  margin-top: 20px;
+                }
+              }

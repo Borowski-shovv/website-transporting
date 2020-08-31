@@ -3,6 +3,14 @@ import { Container, Row, Col } from 'react-bootstrap';
 import styles from './HowItWorks.module.scss';
 import '../../assets/icomoon/style.css';
 import AOS from 'aos';
+// import '../BenefitsSection/BenefitsSection.css'
+
+
+
+import parcel from '../../assets/images/parcel-white.svg';
+import phone from '../../assets/images/phone-white.svg';
+import truck from '../../assets/images/benefit-truck-white.svg';
+import money from '../../assets/images/money-white.svg';
 
 
 const HowItWorks = () => {
@@ -26,10 +34,10 @@ const HowItWorks = () => {
                 <span className={styles.number}>1</span>
                 <div className="how-it-work-body">
                 <h3 className={styles.smallTitle}>Skontaktuj się z nami</h3>
-                  <p className="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt praesentium dicta consectetur fuga neque fugit a at. Cum quod vero assumenda iusto.</p>
+                  <p className="mb-5">Poznaj szczegóły, wycenę transportu Twoich przedmiotów </p>
                   <ul className={`${styles.ulCheck} list-unstyled white`}>
-                    <li className="text-white">Error minus sint nobis dolor</li>
-                    <li className="text-white">Voluptatum porro expedita labore esse</li>
+                    <li className="text-white">Rzetelna wycena</li>
+                    <li className="text-white">Brak ukrytych kosztów</li>
                     <li className="text-white">Voluptas unde sit pariatur earum</li>
                   </ul>
                 </div>
@@ -41,7 +49,7 @@ const HowItWorks = () => {
                 <span className={styles.number}>2</span>
                 <div className="how-it-work-body">
                   <h3 className={styles.smallTitle}>Zamów kuriera</h3>
-                  <p className="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt praesentium dicta consectetur fuga neque fugit a at. Cum quod vero assumenda iusto.</p>
+                  <p className="mb-5">Ustalmy miejsce wydania i załadunku Twoich przedmiotów</p>
                   <ul className={`${styles.ulCheck} list-unstyled white`}>
                     <li className="text-white">Error minus sint nobis dolor</li>
                     <li className="text-white">Voluptatum porro expedita labore esse</li>
@@ -55,8 +63,8 @@ const HowItWorks = () => {
                 <div className={styles.howItWorkItem}>
                 <span className={styles.number}>3</span>
                 <div className="how-it-work-body">
-                    <h3 className={styles.smallTitle}>Grzecznie czekaj xD</h3>
-                  <p className="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt praesentium dicta consectetur fuga neque fugit a at. Cum quod vero assumenda iusto.</p>
+                    <h3 className={styles.smallTitle}>Oczekuj kuriera</h3>
+                  <p className="mb-5">Ciesz się bezpiecznym dostarczeniem Twoich przesyłek</p>
                   <ul className={`${styles.ulCheck} list-unstyled white`}>
                     <li className="text-white">Error minus sint nobis dolor</li>
                     <li className="text-white">Voluptatum porro expedita labore esse</li>
@@ -65,7 +73,27 @@ const HowItWorks = () => {
                 </div>
               </div>
             </Col>
-  
+            <section className={styles.benefits}  data-aos="fade" data-aos-delay="100">
+               
+                    <Row>
+                        <Col className={`${styles.benefit} ${styles.benefit1}`} sm={3} data-aos="fadeIn" data-aos-delay="100"> 
+                            <img src={truck} alt="" />
+                            <p>Krótki czas dostarczenia</p>
+                        </Col>
+                        <Col className={`${styles.benefit} ${styles.benefit2}`} sm={3} data-aos="fadeIn" data-aos-delay="200">
+                            <img src={parcel} alt=""/>
+                            <p>Gwarancja bezpieczeństwa Twojej przesyłki</p>
+                        </Col>
+                        <Col className={`${styles.benefit} ${styles.benefit3}`} sm={3} data-aos="fadeIn" data-aos-delay="300">
+                            <img src={phone} alt=""/>
+                             <p>Jesteśmy tu dla Ciebie</p>
+                        </Col>
+                        <Col className={`${styles.benefit} ${styles.benefit4}`} sm={3} data-aos="fadeIn" data-aos-delay="300">
+                            <img src={money} alt=""/>
+                            <p>Gwarancja niskich cen</p>
+                        </Col>
+                    </Row>               
+            </section>
           </Row>
         </Container>
       </div>

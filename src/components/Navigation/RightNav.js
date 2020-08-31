@@ -93,16 +93,13 @@ const RightNav = ({ open }) => {
         <Link to="/firma">Firma</Link>
       </li>
       <li>
-        <Link to="/">Usługi</Link>
+        <Link to="/oferta">Oferta</Link>
       </li>
       <li>
-        <Link to="/">Trasy</Link>
+        <Link to="/">Cennik</Link>
       </li>
       <li>
         <Link to="/">Flota</Link>
-      </li>
-      <li>
-        <Link to="/">Galeria</Link>
       </li>
       <li>
         <Link to="/">Kontakt</Link>

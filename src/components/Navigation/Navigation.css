@@ -496,6 +496,16 @@ ul#nav li ul a,
   letter-spacing: 2px;
   padding: 12px 30px;
   text-transform: uppercase;
+  position: relative
+}
+
+.home-button a:after {
+  position: absolute;
+  content: '➜';
+  right: 7px;
+  top: 12px;
+  font-size: 8px;
+  font-weight: 100;
 }
 
 .home-button a:last-child {

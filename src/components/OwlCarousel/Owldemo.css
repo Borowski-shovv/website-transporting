@@ -53,14 +53,14 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: -10%;
   right: 0;
   bottom: 0;
   background: #bf1e2e;
   opacity: 0.6;
   /* animation: skew 3s infinite; */
   transform: skew(-20deg);
-  width: 110%;
+  width: 120%;
   /* animation-direction: alternate; */
 }
 
@@ -81,7 +81,10 @@
 
 .welcome-slider-area.home-button {
   height: auto !important;
+  position: relative;
 }
+
+
 
 .owl-item.active .welcome-single-slide .welcome-text h2 {
   -webkit-animation: 1s ease 0.5s normal both 1 running fadeInUp;
