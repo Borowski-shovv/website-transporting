@@ -31,11 +31,12 @@ const Promobar = () => {
             <div data-aos="fade-up" className="container">
               <div className={styles.promBottomContent}>
                 <h3 className={styles.promoTitle}>Skontaktuj się z nami</h3>
-                <p>
-                  Zbieramy przesyłki z całej Polski &amp; dostarczamy je na
+                <p className={styles.promoText}>
+                  Zbieramy przesyłki z całej Polski i dostarczamy je na
                   terenie całej Szwecji
                 </p>
-                <Link to="/" className={styles.readMore}>
+                <p></p>
+                <Link to="/kontakt" className={styles.readMore}>
                   Kontakt
                 </Link>
               </div>

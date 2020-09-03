@@ -1,0 +1,22 @@
+.unit-4 {
+    display: flex;
+    margin-top: 30px;
+}
+
+.unit-4 h3 {
+    font-size: 20px;
+}
+
+.unit-4-icon {
+    margin-right: 24px;
+}
+
+.unit-4-icon span {
+    line-height: 0;
+    position: relative;
+    font-family: Flaticon;
+    font-size: 40px;
+    color: #c2352d;
+}
+
+

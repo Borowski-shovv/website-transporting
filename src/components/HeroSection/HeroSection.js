@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { TweenMax, TimelineLite, Power3, gsap } from 'gsap';
 import styles from './HeroSection.module.scss';
-import Truck2 from '../../assets/images/hero2-truck.jpg';
+import Truck2 from '../../assets/images/img_1.jpg';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Layout from '../Layout';
 import SectionTitle from '../SectionTitle/SectionTitle';
@@ -40,13 +40,13 @@ const HeroSection = () => {
         { scale: 1.6, ease: Power3.easeOut },
         0.2
       )
-      .from(truck2Image, 2.2, { y: 1280, ease: Power3.easeOut }, 0.2)
-      .from(
-        truck2Image.firstElementChild,
-        2,
-        { scale: 1.6, ease: Power3.easeOut },
-        0.2
-      );
+      // .from(truck2Image, 2.2, { y: 1280, ease: Power3.easeOut }, 0.2)
+      // .from(
+      //   truck2Image.firstElementChild,
+      //   2,
+      //   { scale: 1.6, ease: Power3.easeOut },
+      //   0.2
+      //);
 
     tl.staggerFrom(
       [headlineFirst.children, headlineSecond.children, headlineThird.children],
@@ -119,9 +119,9 @@ const HeroSection = () => {
                 <div className={`${styles.heroImage} ${styles.truck1}`}>
                   <img src={Truck2} alt="" />
                 </div>
-                <div className={`${styles.heroImage} ${styles.truck2}`}>
+                {/* <div className={`${styles.heroImage} ${styles.truck2}`}>
                   <img src={Truck2} alt="" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

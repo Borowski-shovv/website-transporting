@@ -17,6 +17,7 @@ const HomeView = () => {
 
       <Owldemo1 />
       <CardSection />
+      <Promobar />
       <HoverSection />
       <HeroSection />
       <YoutubeSection />

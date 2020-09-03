@@ -11,7 +11,7 @@ const CardSection = () => {
         <section className="blog-area gray-bg">
         <div className="container">
             <div className="row">
-                <h1 className="card-title">Firma transportowa Szwecja-Polska-Szwecja</h1>
+                <h1 className="card-title">Usługi transportowe Szwecja-Polska-Szwecja</h1>
             </div>
             <div className="row">
                 <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="100">
@@ -21,9 +21,9 @@ const CardSection = () => {
                         </div>
                         <div className="blog-details text-center">
                             <div className="blog-meta"><Link to="#" ><i className="fa fa-map"></i></Link></div>
-                            <h3><Link to="single-blog.html">Trasy</Link></h3>
+                            <h3><Link to="/oferta">Trasy</Link></h3>
                             <p>Pokonujemy stałą trasę Polska-Szwecja-Polska. Istnieje możliwość dogadania się i przewiezienia rzeczy w inne miejsce niż na zaznaczonych trasach.</p>
-                            <Link to="firma" className="read-more">Sprawdź</Link>
+                            <Link to="/firma" className="read-more">Sprawdź</Link>
                         </div>
                     </div>
                 </div>

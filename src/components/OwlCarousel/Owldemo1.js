@@ -6,22 +6,13 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import './Owldemo.css';
 import '../../assets/libraries/animate.css';
 import '../../assets/libraries/font-awesome.min.css';
-import plflag from '../../assets/images/pl.png';
-import seflag from '../../assets/images/se.png';
+
 
 
 class Owldemo1 extends Component {
   render() {
     return (
       <>
-      <div className="info-bar">
-        <div>
-         <img src={plflag} alt=""/><i className="fa fa-phone"></i><span>+48 735 130 862</span>
-        </div>
-        <div>
-          <img src={seflag} alt=""/><i className="fa fa-phone"></i><span>+48 764 012 966</span>
-        </div>
-      </div>
  
         <OwlCarousel
           items={1}

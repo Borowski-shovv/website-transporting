@@ -14,7 +14,7 @@
 }
 
 .topAreaBg {
-  background: rgba(0, 0, 0, 0) url('../../assets/images/slider2.jpg') no-repeat
+  background: rgba(0, 0, 0, 0) url('../../assets/images/droga.jpg') no-repeat
     scroll center center / cover;
   height: 100%;
   left: 0;
@@ -23,16 +23,16 @@
   width: 100%;
 }
 
-.topAreaBg::after {
-  background: #3c4147;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0.9;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
+// .topAreaBg::after {
+//   background: #3c4147;
+//   content: '';
+//   height: 100%;
+//   left: 0;
+//   opacity: 0.9;
+//   position: absolute;
+//   top: 0;
+//   width: 100%;
+// }
 
 .headerTopArea {
   left: 0;

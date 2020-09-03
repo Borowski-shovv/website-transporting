@@ -1,0 +1,146 @@
+
+
+
+.about-container {
+    margin: 50px 0;
+}
+
+#about .about-extra {
+    margin-top: 20px;
+  }
+  
+#about h3 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+#about ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+#about li {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+  }
+  
+#about li::before {
+    font-family: 'FontAwesome'; 
+    content: '\f00c';
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    left: 10px;
+    font-size: 30px;
+    text-align: center;
+    color: #c2352d;
+  }
+
+/* PRICES SECTION */
+  .prices {
+    padding: 50px 0;
+    background: #24292e;
+  }
+
+  .prices table {
+      border: 2px solid black;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+  }
+
+  table tbody {
+      border: 1px solid black;
+  }
+
+  th {
+      border: 1px solid black;
+      padding: 8px 16px;
+      text-transform: uppercase;
+      font-size: 20px;
+      color: white;
+  }
+
+  tr {
+      border: 1px solid black;
+  }
+
+  td {
+      border: 1px solid black;
+      padding: 8px 16px;
+      color: white;
+      font-size: 18px;
+  }
+
+  .promo {
+      background: #c2352d;
+      text-transform: uppercase;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+  }
+
+  .prices h3 {
+      text-align: center;
+      color: white;
+  }
+
+  .prices p {
+      text-align: center;
+      color: white;
+  }
+
+ .map-section {
+    min-height: 50vh;
+    position: relative;
+    padding: 50px;
+    background: black;
+ } 
+
+.map-section:after {
+    content: '';
+    background: url('../../assets/images/planeta.jpg') no-repeat center center/cover;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* z-index: 0; */
+    opacity: .3;
+    position: absolute;
+}
+
+.mapa-content h3{
+    text-align: center;
+    color: #fff;
+}
+
+.mapa-content p {
+    text-align: center;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.mapa {
+    position: relative;
+    
+}
+
+@media (max-width: 768px) {
+    .mapa {
+        padding-left: 0;
+    };
+}
+
+
+/* .mapa::after {
+    background: #3c4147;
+    content: '';
+    height: 100%;
+    opacity: 0.9;
+    position: absolute;
+       top: 0;
+       width: 100%;
+     } */

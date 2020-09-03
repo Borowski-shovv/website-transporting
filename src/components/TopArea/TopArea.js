@@ -17,15 +17,6 @@ const TopArea = ({children}) => {
             <Col md={12} lg={12} sm={12} xs={12}>
               <div className={styles.welcomeText}>
                 <h2>{children}</h2>
-                <ul className={styles.pageLocation}>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>/</li>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                </ul>
               </div>
             </Col>
           </Row>

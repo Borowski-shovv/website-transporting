@@ -5,7 +5,6 @@
 .promoBottomArea {
   position: relative;
   padding: 100px 0;
-  margin-top: 30px;
 }
 
 .sectionPadding {
@@ -13,8 +12,7 @@
 }
 
 .promoBottomAreaBg {
-  background: rgba(0, 0, 0, 0) url('../../assets/images/slider1.jpg') no-repeat
-    scroll bottom center / cover;
+  background: #bf1e2e;
   height: 100%;
   left: 0;
   position: absolute;
@@ -22,24 +20,19 @@
   width: 100%;
 }
 
-.promoBottomAreaBg::after {
-  background: #3c4a62 none repeat scroll 0 0;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0.9;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
 
 .promoTitle {
   color: #fff !important;
-  font-size: 24px;
-  line-height: 40px;
+  font-size: 30px;
+  line-height: 26px;
   text-transform: uppercase;
-  margin-bottom: 10px;
-  font-weight: 500;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.promoText {
+  color: #fff;
+  font-size: 16px;
 }
 
 .textCenter {

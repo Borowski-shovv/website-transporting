@@ -29,7 +29,8 @@ const YoutubeSection = () => {
                         <div className={styles.collectionContentWrapper}>
                             <div className={styles.collectionContentText}>
                                 <h4 className={styles.contentHeader}>ZAUFAJ NASZEMU DOŚWIADCZENIU</h4>
-                                <p className={styles.contentParagraph}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nihil cumque laboriosam distinctio aliquid quam architecto fugit sunt, voluptates corrupti, numquam libero consequatur unde aspernatur, voluptatem veniam similique quos laudantium.</p>                            
+                                <p className={styles.contentParagraph}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nihil cumque laboriosam distinctio aliquid quam architecto fugit sunt, voluptates corrupti, numquam libero consequatur unde aspernatur, voluptatem veniam similique quos laudantium.</p>  
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur aperiam, unde dolor ea soluta nesciunt repellendus sapiente vel maiores nobis, accusantium perspiciatis placeat iste eos reiciendis architecto debitis saepe voluptatibus.</p>                          
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,7 @@
 import React from 'react';
-import './ServicesArea.css';
+import './AboutSection.css';
 
-
-const ServicesArea = () => {
+const AboutSection = () => {
     return (
         <>
                 <section className="service-area">
@@ -33,12 +32,12 @@ const ServicesArea = () => {
                                                     <h3>Why Choose Us ?</h3>
                                                     <p>I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you.</p>
                                                     <ul>
-                                                        <li><i className="fa fa-check"></i> Lorem ipsum dolor sit amet, consectetur.</li>
-                                                        <li><i className="fa fa-check"></i> Sed quia consequuntur magni dolores eos.</li>
-                                                        <li><i className="fa fa-check"></i> Nemo enim ipsam voluptatem .</li>
-                                                        <li><i className="fa fa-check"></i> We denounce with righteous indignation.</li>
-                                                    </ul>
-                                                    <a href="service.html" className="read-more">Learn More</a>
+                                                        <li><i className="fa fa-check"></i> Najlepsza oferta cenowa</li>
+                                                        <li><i className="fa fa-check"></i> Dostarczamy w każde miejsce w Szwecji</li>
+                                                        <li><i className="fa fa-check"></i> Szybki przewóz Twoich przesyłek</li>
+                                                        <li><i className="fa fa-check"></i> Starannie zabezpieczamy każdą przesyłkę</li>
+                                                    
+                                                    </ul>                                                  
                                                 </div>
                                             </div>
                                         </div>
@@ -48,9 +47,8 @@ const ServicesArea = () => {
                         </div>
                     </div>
                 </section>
-
         </>
     )
 }
 
-export default ServicesArea
+export default AboutSection;

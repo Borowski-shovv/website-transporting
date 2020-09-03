@@ -1,4 +1,7 @@
 
+.blog-area {
+    padding-bottom: 50px;
+}
 .single-blog {
     border-radius: 5px;
     -webkit-box-shadow: 0 3px 7px #ddd;
