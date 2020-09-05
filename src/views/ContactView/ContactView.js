@@ -30,7 +30,7 @@ class ContactView extends Component  {
                 />
                 <Marker position={position} icon={myIcons}>
                 <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
+                    ul. Strzelecka 6 <br /> 15-345 Białystok.
                 </Popup>
                 </Marker>
           </Map>

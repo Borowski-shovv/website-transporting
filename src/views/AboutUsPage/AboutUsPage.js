@@ -1,11 +1,9 @@
 import React from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import  './AboutUsPage.css';
-import OwlCarousel from '../../components/OwlCarousel/Owldemo1';
 import companyPhoto from '../../assets/images/img_1.jpg';
 import Promobar from '../../components/Promobar/Promobar';
-// import OwlCarousel2 from 'react-owl-carousel';
-// images for cards
+import OwlCarousel from 'react-owl-carousel';
 
 import card1 from '../../assets/images/money.svg'
 import card2 from '../../assets/images/world.svg'
@@ -16,7 +14,7 @@ import card4 from '../../assets/images/safe.svg'
 const AboutUsPage = () => {
   return (
     <>
-    <OwlCarousel />
+
     <div className="company-view-wrapper">
           <Container className="about-section-wrapper">
             <Row>
@@ -108,7 +106,7 @@ const AboutUsPage = () => {
            
           </div>
 
-          <div items={1} autoplay={true} loop className="owl-carousel testimonials-carousel">
+          <OwlCarousel items={1} autoplay={true} loop className="owl-carousel testimonials-carousel">
             <div className="testimonial-item">
               <div className="circle">K</div>
               <h3>Katarzyna Stanisławska</h3>
@@ -151,7 +149,7 @@ const AboutUsPage = () => {
                 <i className="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>
-          </div>
+          </OwlCarousel>
         </div>
       </section>
         </div>

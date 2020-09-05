@@ -1,5 +1,4 @@
 import React from 'react';
-import Owldemo1 from '../../components/OwlCarousel/Owldemo1';
 import HeroSection from '../../components/HeroSection/HeroSection';
 import Promobar from '../../components/Promobar/Promobar';
 import styles from './HomeView.module.scss';
@@ -15,7 +14,7 @@ const HomeView = () => {
   return (
     <>
 
-      <Owldemo1 />
+    
       <CardSection />
       <Promobar />
       <HoverSection />
@@ -23,7 +22,6 @@ const HomeView = () => {
       <YoutubeSection />
       {/* <Promobar /> */}
       <HowItWorks />
-      {/* <BenefitsSection /> */}
     </>
   );
 };

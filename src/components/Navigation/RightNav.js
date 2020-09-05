@@ -67,13 +67,13 @@ const RightNav = ({ open }) => {
         <Link to="/oferta"><span>Oferta</span></Link>
       </li>
       <li>
-        <Link to="/"><span>Cennik</span></Link>
+        <Link to="/cennik"><span>Cennik</span></Link>
       </li>
       <li>
-        <Link to="/"><span>Flota</span></Link>
+        <Link to="/galeria"><span>Galeria</span></Link>
       </li>
       <li>
-        <Link to="/"><span>Kontakt</span></Link>
+        <Link to="/kontakt"><span>Kontakt</span></Link>
       </li>
     </Ul>
   );

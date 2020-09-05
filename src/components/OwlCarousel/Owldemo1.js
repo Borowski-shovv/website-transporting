@@ -26,11 +26,9 @@ class Owldemo1 extends Component {
               <div className="row flex-v-center">
                 <div className="col-md-10 col-md-offset-1">
                   <div className="welcome-text text-center">
-                    <h2>Kurierzy zrobią dla Ciebie zakupy</h2>
+                    <h2>Trasy Polska-Szwecja-Polska</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam.
+                      Dowieziemy Twoją przesyłkę w każde miejsce w Polsce i Szwecji
                     </p>
                     <div className="home-button">
                       <Link to="/">Cennik</Link>
@@ -46,11 +44,9 @@ class Owldemo1 extends Component {
               <div className="row flex-v-center">
                 <div className="col-md-10 col-md-offset-1">
                   <div className="welcome-text text-center">
-                    <h2>Rysia zrobi dla Ciebie zakupy</h2>
+                    <h2>Pomagamy w przeprowadzkach</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam.
+                      Nasi kierowcy pomagają w załadowaniu i rozładowaniu Twoich rzeczy podczas Twojej przeprowadzki
                     </p>
                     <div className="home-button">
                       <Link to="/">Cennik</Link>
@@ -66,11 +62,10 @@ class Owldemo1 extends Component {
               <div className="row flex-v-center">
                 <div className="col-md-10 col-md-offset-1">
                   <div className="welcome-text text-center">
-                    <h2>Kurierzy zrobią dla Ciebie zakupy</h2>
+                    <h2>Szybko oraz bezpiecznie</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam.
+                      Dzięki zdobytemu doświadczeniu czas dostarczenia Twojej przesyłki jest bardzo krótki.
+                      Każda przesyłka jest starannie zabezpieczona.
                     </p>
                     <div className="home-button">
                       <Link to="/">Cennik</Link>

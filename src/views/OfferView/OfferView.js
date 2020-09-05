@@ -1,15 +1,14 @@
 import React from 'react';
-import TopHeader from '../../components/TopArea/TopArea';
 import ServicesSection from '../../components/ServicesSection/ServicesSection';
 import {Container, Row, Col} from 'react-bootstrap';
 import serviceBg from '../../assets/images/service-cargo-bg.png';
 import trasyImg from '../../assets/images/vectorrmap.svg';
 import './OfferView.css';
+import {Link} from 'react-router-dom';
 
 const OfferView = () => {
     return (
         <>
-            <TopHeader>Transport Polska-Szwecja-Polska</TopHeader>
             <section id="about">
                 <Container>
                     <Row className="about-container">

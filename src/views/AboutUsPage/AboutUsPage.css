@@ -196,3 +196,15 @@
     width: 80%;
   }
 }
+
+.circle {
+  height: 120px;
+  width: 120px;
+  background-color: #9da1a5;
+  margin: 0 auto 50px;
+  border-radius: 50%;
+  line-height: 120px;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+}
