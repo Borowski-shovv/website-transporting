@@ -577,11 +577,11 @@ ul#nav li ul a,
 /* .navbar-nav a .name {
   display: none;
 } */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .navbar li {
     padding: 15px;
   }
-}
+} */
 
 .btn-1 a:hover {
   color: red;

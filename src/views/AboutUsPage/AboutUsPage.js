@@ -4,7 +4,7 @@ import  './AboutUsPage.css';
 import companyPhoto from '../../assets/images/img_1.jpg';
 import Promobar from '../../components/Promobar/Promobar';
 import OwlCarousel from 'react-owl-carousel';
-
+import OwlCarousel1 from '../../components/OwlCarousel/Owldemo1';
 import card1 from '../../assets/images/money.svg'
 import card2 from '../../assets/images/world.svg'
 import card3 from '../../assets/images/plane.svg'
@@ -14,7 +14,7 @@ import card4 from '../../assets/images/safe.svg'
 const AboutUsPage = () => {
   return (
     <>
-
+    <OwlCarousel1 />
     <div className="company-view-wrapper">
           <Container className="about-section-wrapper">
             <Row>

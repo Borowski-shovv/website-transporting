@@ -8,6 +8,12 @@
   z-index: 9;
 }
 
+@media (max-width: 768px) {
+  .welcome-slider-area {
+    height: 100vh
+  }
+}
+
 .welcome-slider-area.owl-carousel div:not(.owl-controls) {
   height: 50vh;
 }

@@ -2,8 +2,9 @@ import React from 'react';
 import OwlCarousel from '../../components/OwlCarousel/Owldemo1';
 import './GalleryView.css';
 import Gallery from 'react-grid-gallery';
-import { Container, Row } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 import Footer from '../../components/Footer/Footer';
+
 
 
 // photos 
@@ -92,11 +93,11 @@ thumbnailHeight: 212,
 const FleetView = () => {
     return (
         <>
-             
+                <OwlCarousel />
                 <div className="gallery-wrapper">
-            <Container>
+                <Container>
                     <Gallery images={IMAGES}/>
-            </Container>                              
+                </Container>                              
                 </div>
        
         </>

@@ -1,26 +1,21 @@
 import React from 'react';
-import HeroSection from '../../components/HeroSection/HeroSection';
 import Promobar from '../../components/Promobar/Promobar';
-import styles from './HomeView.module.scss';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
-// import BenefitsSection from '../../components/BenefitsSection/BenefitsSection';
 import HoverSection from '../../components/HoverSection/HoverSection'
 import YoutubeSection from '../../components/YoutubeSection/YoutubeSection';
 import CardSection from '../../components/CardsSection/CardSection';
+import OwlCarousel from '../../components/OwlCarousel/Owldemo1'
 
 const HomeView = () => {
   // let anchorRef = useRef(null);
 
   return (
     <>
-
-    
+      <OwlCarousel />
       <CardSection />
       <Promobar />
       <HoverSection />
-      <HeroSection />
       <YoutubeSection />
-      {/* <Promobar /> */}
       <HowItWorks />
     </>
   );

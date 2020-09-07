@@ -3,3 +3,32 @@
     width: 100%;
     overflow: hidden
 }
+
+.form-wrapper {
+    margin-top: 50px;
+}
+
+.contact-info{
+    margin-bottom: 25px;
+}
+
+.contact-info__icon{
+    margin-right: 20px;
+}
+
+.contact-info i, .contact-info span{
+    color: #8f9195;
+    font-size: 27px;
+}
+    
+  
+.media-body h3 {
+        font-size: 16px;
+        margin-bottom: 0;
+        font-size: 16px;
+        color: #2a2a2a;
+}
+
+.media-body p {
+        color: #8a8a8a;
+}
