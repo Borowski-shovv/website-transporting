@@ -38,7 +38,7 @@ const handleCity = (city, target) => {
       opacity: 1,
       ease: "power3.inOut",
       backgroundSize: "cover",
-      y: 10
+     
     });
     gsap.from(target, {
       duration: 2.4,
@@ -52,7 +52,7 @@ const handleCity = (city, target) => {
     gsap.to(target, {
         duration: 1,
         skew: 0,
-        y: 0,
+      
     });
    }
 

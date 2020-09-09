@@ -28,7 +28,7 @@ const Promobar = () => {
             xs={12}
             className={styles.textCenter}
           >
-            <div data-aos="fade-up" className="container">
+            <div data-aos="fade-in" className="container">
               <div className={styles.promBottomContent}>
                 <h3 className={styles.promoTitle}>Skontaktuj się z nami</h3>
                 <p className={styles.promoText}>

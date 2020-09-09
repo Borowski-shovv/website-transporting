@@ -22,7 +22,7 @@
   z-index: 9;
   position: relative;
 }
-
+/* 
 .welcome-single-slide:before {
   background: #3c4147;
   content: '';
@@ -33,7 +33,7 @@
   top: 0;
   width: 100%;
   z-index: -1;
-}
+} */
 
 .welcome-slider-area .welcome-text {
   position: relative;
@@ -111,7 +111,7 @@
 
 
 .slider-bg-one {
-  background: url('../../assets/images/slider1.jpg') no-repeat scroll center
+  background: url('../../assets/images/slider1.jpg') no-repeat scroll bottom
     center / cover;
 }
 
@@ -121,7 +121,7 @@
 }
 
 .slider-bg-three {
-  background: url('../../assets/images/slider3.jpg') no-repeat scroll center
+  background: url('../../assets/images/droga.jpg') no-repeat scroll center
     center / cover;
 }
 
@@ -152,13 +152,23 @@
 
 .info-bar {
   display: flex;
-  justify-content: flex-end;
-  padding-left: 50px;
-  background:  #1d1c1c;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #bf1e2e;
+  padding-bottom: 5px;
 }
 
-.info-bar:nth-last-child() {
-  margin-left: 10px;
+/* .info-bar-wrapper {
+  border-bottom: 1px solid #bf1e2e;
+} */
+
+.info-bar-number:nth-of-type(2) {
+  margin-left: 20px;
+}
+
+.info-bar-number:nth-of-type(3) {
+  margin-left: 20px;
 }
 
 .info-bar span {
@@ -179,14 +189,29 @@
   .welcome-text h1 {
     font-size: 24px !important;
   }
+
 }
 
 @media (max-width: 768px) {
-  .info-bar {
-    flex-direction: column;
+  .info-bar { 
+    display: none;
     align-items: left;
     padding-left: 20px;
   };
+
+  .info-bar-wrapper {
+    flex-direction: column;
+  }
+
+  .info-bar-wrapper a {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .info-bar-number {
+    margin:5px 10px !important;
+    width: 100%;
+  }
 
   .welcome-slider-area {
     height: 100vh;

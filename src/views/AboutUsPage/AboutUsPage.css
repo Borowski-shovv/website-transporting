@@ -54,7 +54,7 @@
   overflow: hidden;
   margin: 0 0 40px 0;
   /* background: radial-gradient(circle, rgba(175,80,75,1) 0%, rgba(180,166,166,1) 100%); */
-   background: radial-gradient(circle, rgba(241,236,236,1) 0%, rgba(180,166,166,1) 100%);
+   /* background: radial-gradient(circle, rgba(241,236,236,1) 0%, rgba(180,166,166,1) 100%); */
    
    /* background: radial-gradient(circle, rgba(180,166,166,1) 0%, rgba(241,236,236,1) 100%); */
   box-shadow: 0 5px 26px 0 rgba(68, 88, 144, 0.14);

@@ -3,8 +3,9 @@ import OwlCarousel from '../../components/OwlCarousel/Owldemo1';
 import './GalleryView.css';
 import Gallery from 'react-grid-gallery';
 import { Container} from 'react-bootstrap';
-import Footer from '../../components/Footer/Footer';
-
+import Navigation from '../../components/Navigation/Navigation';
+import { TweenMax, TimelineMax, Power3, Power4 } from "gsap";
+import { useRef, useEffect } from "react";
 
 
 // photos 
@@ -91,15 +92,55 @@ thumbnailHeight: 212,
 },
 ]
 const FleetView = () => {
+    let screen = useRef(null);
+    let body = useRef(null);
+    useEffect(() => {
+      var tl = new TimelineMax();
+      tl.to(screen, {
+        duration: 1.2,
+        height: "100%",
+        ease: Power3.easeInOut,
+      });
+      tl.to(screen, {
+        duration: 1,
+        top: "100%",
+        ease: Power3.easeInOut,
+        delay: 0.3,
+      });
+      tl.set(screen, { left: "-100%" });
+      TweenMax.to(body, .3, {
+        css: {
+          opacity: "1",
+          pointerEvents: "auto",
+          ease: Power4.easeInOut
+        }
+      }).delay(2);
+      return () => {
+        TweenMax.to(body, 1, {
+          css: {
+            opacity: "0",
+            pointerEvents: 'none'
+          }
+        });
+      }
+    });
+
     return (
         <>
+            <div className="load-container">
+                <div className="load-screen1" ref={(el) => (screen = el)}></div>
+            </div>
+            <div data-barba="container" className="Home">
+            <div ref={(el) => (body = el)} className="Headd">    
+                <Navigation />
                 <OwlCarousel />
                 <div className="gallery-wrapper">
-                <Container>
-                    <Gallery images={IMAGES}/>
-                </Container>                              
+                    <Container>
+                        <Gallery images={IMAGES}/>
+                    </Container>                              
                 </div>
-       
+            </div> 
+            </div>
         </>
     )
 }

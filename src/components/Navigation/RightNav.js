@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const Ul = styled.ul`
@@ -32,7 +32,7 @@ const Ul = styled.ul`
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: #bf1e2e;
+    background-color: #24292e;
     position: fixed;
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     top: 0;
@@ -44,7 +44,6 @@ const Ul = styled.ul`
 
     li {
       color: #fff;
-      
     }
 
     a::before,
@@ -55,27 +54,42 @@ const Ul = styled.ul`
 `;
 
 const RightNav = ({ open }) => {
+ 
   return (
+    <>
     <Ul className="btn-10" open={open}>
-      <li>
-        <Link to="/"><span>Strona główna</span></Link>
-      </li>
-      <li>
-        <Link to="/firma"><span>Firma</span></Link>
-      </li>
-      <li>
-        <Link to="/oferta"><span>Oferta</span></Link>
-      </li>
-      <li>
-        <Link to="/cennik"><span>Cennik</span></Link>
-      </li>
-      <li>
-        <Link to="/galeria"><span>Galeria</span></Link>
-      </li>
-      <li>
-        <Link to="/kontakt"><span>Kontakt</span></Link>
-      </li>
-    </Ul>
+    <li>
+      <NavLink exact 
+      activeClassName="navigationItemLinkActive"
+      className="navigationItemLink" to="/"><span>Strona główna</span></NavLink>
+    </li>
+    <li>
+      <NavLink 
+      activeClassName="navigationItemLinkActive"
+      className="navigationItemLink" to="/firma"><span>Firma</span></NavLink>
+    </li>
+    <li>
+      <NavLink 
+      activeClassName="navigationItemLinkActive"
+      className="navigationItemLink" to="/oferta"><span>Oferta</span></NavLink>
+    </li>
+    <li>
+      <NavLink 
+      activeClassName="navigationItemLinkActive"
+      className="navigationItemLink" to="/cennik"><span>Cennik</span></NavLink>
+    </li>
+    <li>
+      <NavLink 
+      activeClassName="navigationItemLinkActive"
+      className="navigationItemLink" to="/galeria"><span>Galeria</span></NavLink>
+    </li>
+    <li>
+      <NavLink 
+      activeClassName="navigationItemLinkActive"
+      className="navigationItemLink" to="/kontakt"><span>Kontakt</span></NavLink>
+    </li>
+  </Ul>
+  </>
   );
 };
 

@@ -25,7 +25,6 @@ const ServicesSection = () => {
                   <h3>TRANSPORT EKSPRESOWY</h3>
                   <p>Niezależnie od tego co chcesz przewieźć, chętnie Ci w tym pomożemy. W ekspresowych sprawach sugerujemy kontakt telefoniczny.
                     Zadzwoń i przedstaw sytuacje, na pewno uda się nam Tobie pomóc.</p>
-                  
                 </div>
               </div>
             </Col>

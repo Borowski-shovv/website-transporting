@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.load-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+
+.load-screen1 {
+  position: relative;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: #bf1e2e;
+  width: 100%;
+  height: 0%;
+}
+
+.Headd {
+  opacity: 0;
+  pointer-events: none;
+}

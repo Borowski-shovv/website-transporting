@@ -74,7 +74,7 @@ const HowItWorks = () => {
               </div>
             </Col>
             <section className={styles.benefits}  data-aos="fade" data-aos-delay="100">
-               
+               <Container>
                     <Row>
                         <Col className={`${styles.benefit} ${styles.benefit1}`} sm={3} data-aos="fadeIn" data-aos-delay="100"> 
                             <img src={truck} alt="" />
@@ -92,7 +92,8 @@ const HowItWorks = () => {
                             <img src={money} alt=""/>
                             <p>Gwarancja niskich cen</p>
                         </Col>
-                    </Row>               
+                    </Row>   
+                  </Container>            
             </section>
           </Row>
         </Container>

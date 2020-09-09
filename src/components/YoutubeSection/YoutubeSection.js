@@ -25,7 +25,7 @@ const YoutubeSection = () => {
 
                             </div>
                     </div>		
-                    <div className={`${styles.collectionContent} ${styles.colorBanner}`} data-aos="zoom-in-left" data-aos-duration="1000" data-aos-delay="1000">
+                    <div className={`${styles.collectionContent} ${styles.colorBanner}`} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1000">
                         <div className={styles.collectionContentWrapper}>
                             <div className={styles.collectionContentText}>
                                 <h4 className={styles.contentHeader}>ZAUFAJ NASZEMU DOŚWIADCZENIU</h4>

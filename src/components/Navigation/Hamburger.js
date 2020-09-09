@@ -6,10 +6,11 @@ const StyledBurger = styled.div`
   width: 2rem;
   height: 2rem;
   position: absolute;
-  top: -23px;
-  right: 20px;
+  top: 40px;
+  right: 40px;
   z-index: 20;
   display: none;
+  position: fixed;
 
   @media (max-width: 768px) {
     display: flex;
@@ -20,7 +21,7 @@ const StyledBurger = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => (open ? '#ccc' : '#fff')};
+    background-color: ${({ open }) => (open ? '#ccc' : '#a4a1a1')};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;

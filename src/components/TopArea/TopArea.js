@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './TopArea.module.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 

@@ -144,3 +144,10 @@
        top: 0;
        width: 100%;
      } */
+
+.contact-offer-btn {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10%;
+}
