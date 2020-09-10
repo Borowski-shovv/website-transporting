@@ -80,11 +80,22 @@
   margin-bottom: 30px;
 }
 
+
 .welcome-text p {
   position:relative;
   width: 70%;
 }
 
+@media (max-width: 768px) {
+  .welcome-text h2 {
+    font-size: 30px;    
+    text-shadow: #000 2px 0 10px;
+  }
+  
+  .welcome-text p {
+    text-shadow: #000 2px 0 10px;
+  }
+}
 .welcome-slider-area.home-button {
   height: auto !important;
   position: relative;
@@ -111,17 +122,17 @@
 
 
 .slider-bg-one {
-  background: url('../../assets/images/slider1.jpg') no-repeat scroll bottom
+  background: url('../../assets/images/fast.jpg') no-repeat scroll center
     center / cover;
 }
 
 .slider-bg-two {
-  background: url('../../assets/images/slider2.jpg') no-repeat scroll center
+  background: url('../../assets/images/road.jpg') no-repeat scroll center
     center / cover;
 }
 
 .slider-bg-three {
-  background: url('../../assets/images/droga.jpg') no-repeat scroll center
+  background: url('../../assets/images/statek.jpg') no-repeat scroll center
     center / cover;
 }
 

@@ -32,3 +32,10 @@
 .media-body p {
         color: #8a8a8a;
 }
+
+.email-contact {
+    font-size: 11px;
+    color: black;
+    font-weight: 700;
+    text-transform: uppercase;
+}

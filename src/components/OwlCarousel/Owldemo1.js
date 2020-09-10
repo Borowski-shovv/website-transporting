@@ -31,8 +31,8 @@ class Owldemo1 extends Component {
                       Dowieziemy Twoją przesyłkę w każde miejsce w Polsce i Szwecji
                     </p>
                     <div className="home-button">
-                      <Link to="/">Cennik</Link>
-                      <Link to="/">Kontakt</Link>
+                      <Link to="/oferta">Cennik</Link>
+                      <Link to="/kontakt">Kontakt</Link>
                     </div>
                   </div>
                 </div>
@@ -49,8 +49,8 @@ class Owldemo1 extends Component {
                       Nasi kierowcy pomagają w załadowaniu i rozładowaniu Twoich rzeczy podczas Twojej przeprowadzki
                     </p>
                     <div className="home-button">
-                      <Link to="/">Cennik</Link>
-                      <Link to="/">Kontakt</Link>
+                      <Link to="/oferta">Cennik</Link>
+                      <Link to="/kontakt">Kontakt</Link>
                     </div>
                   </div>
                 </div>
@@ -68,8 +68,8 @@ class Owldemo1 extends Component {
                       Każda przesyłka jest starannie zabezpieczona.
                     </p>
                     <div className="home-button">
-                      <Link to="/">Cennik</Link>
-                      <Link to="/">Kontakt</Link>
+                      <Link to="/oferta">Cennik</Link>
+                      <Link to="/kontakt">Kontakt</Link>
                     </div>
                   </div>
                 </div>

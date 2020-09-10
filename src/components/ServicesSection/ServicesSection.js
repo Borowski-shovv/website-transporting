@@ -7,6 +7,11 @@ const ServicesSection = () => {
     return (
         <div className="site-section bg-light">
         <Container>
+        <div className="section-title">
+          <h2>
+            Usługi
+          </h2>
+          </div>
           <Row className="align-items-stretch">
             <Col md={6} lg={4} >
               <div className="unit-4">

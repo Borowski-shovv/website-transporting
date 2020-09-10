@@ -151,3 +151,9 @@
     transform: translateX(-50%);
     top: 10%;
 }
+
+@media (max-width: 991px) {
+    .oferta-title {
+        margin-top: 100px;
+    }
+}

@@ -136,6 +136,11 @@ const FleetView = () => {
                 <OwlCarousel />
                 <div className="gallery-wrapper">
                     <Container>
+                    <div className="section-title">
+                    <h2>
+                      Galeria
+                    </h2>
+                    </div>
                         <Gallery images={IMAGES}/>
                     </Container>                              
                 </div>

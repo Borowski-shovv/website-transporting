@@ -58,9 +58,9 @@ const OfferView = () => {
                         <Container>
                             <Row className="about-container">
                                 <Col lg={{span:6, order: 1}}  xs={{order: 2}}>
-                                    <div className="section-title">
+                                    <div className="section-title oferta-title">
                                         <h2>
-                                            Usługi     
+                                            Oferta     
                                         </h2>
                                     </div>
                                     <p>

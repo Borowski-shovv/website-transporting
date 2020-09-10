@@ -1,10 +1,10 @@
 import React from 'react';
-import TopArea from '../../components/TopArea/TopArea';
+
 
 const RegulaminView = () => {
     return (
         <>
-        <TopArea >Regulamin</TopArea>
+        
             <div className="container">
                 <div class="priacyPolicy">
                     <ol type="1">

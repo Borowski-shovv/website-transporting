@@ -1,8 +1,10 @@
 import React, { useRef, useEffect} from 'react';
-import Truck3 from '../../assets/images/truck3.jpg';
-import Truck2 from '../../assets/images/slider1.jpg';
-import Truck1 from '../../assets/images/slider2.jpg';
-// import Truck0 from '../../assets/images/slider3.jpg';
+import movingHouse from '../../assets/images/przeprowadzka.jpg';
+import furnitures from '../../assets/images/meble.jpg';
+import drobnica from '../../assets/images/transport-drobnicy.jpg';
+import ponadgabarytowy from '../../assets/images/ponadgabarytowy.jpg';
+import fast from '../../assets/images/ff.jpg';
+
 import './HoverSection.css';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom';
@@ -10,19 +12,19 @@ import AOS from 'aos';
 
 const solutions = [
     {
-        name: "Transport Mebli", image: Truck3
+        name: "Transport drobnicowy", image: drobnica
     },
     {
-        name: "Przeprowadzki", image: Truck3
+        name: "Przeprowadzki", image: movingHouse
     },
     {
-        name: "Transport drobnicowy", image: Truck2
+        name: "Transport Mebli", image: furnitures
     },
     {
-        name: "Transport ponadgabarytowy", image: Truck1
+        name: "Transport ponadgabarytowy", image: ponadgabarytowy
     },
     {
-        name: "Transport Ekspresowy", image: Truck3
+        name: "Transport Ekspresowy", image: fast
     },
 ];
 

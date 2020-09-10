@@ -11,7 +11,7 @@
     transition: opacity 0.4s;
     opacity: 0.5;
     color: #bf1e2e;
-    right: 0;
+    right: 30px;
   }
   
   .scrollTop:hover{

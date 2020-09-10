@@ -21,6 +21,11 @@ const YoutubeSection = () => {
                                     width="100%"
                                     height="100%"
                                     data-aos="zoom-in-right" data-aos-duration="1000"
+                                    config={{ file: { 
+                                        attributes: {
+                                          controlsList: 'nodownload'  //<- this is the important bit
+                                        }
+                                    }}}
                                 />
 
                             </div>

@@ -66,12 +66,12 @@ const RightNav = ({ open }) => {
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/firma"><span>Firma</span></NavLink>
+      className="navigationItemLink" to="/oferta"><span>Oferta</span></NavLink>
     </li>
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/oferta"><span>Oferta</span></NavLink>
+      className="navigationItemLink" to="/firma"><span>Firma</span></NavLink>
     </li>
     <li>
       <NavLink 

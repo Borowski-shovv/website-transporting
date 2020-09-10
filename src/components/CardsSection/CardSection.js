@@ -2,7 +2,8 @@ import React from 'react';
 import './CardSection.css';
 import { Link } from 'react-router-dom';
 
-import blog1 from '../../assets/images/europe-map.jpg'
+import blog1 from '../../assets/images/sweplmap.jpg'
+// import blog1 from '../../assets/images/europe-map.jpg'
 import blog2 from '../../assets/images/price-list.jpg'
 import blog3 from '../../assets/images/flota.jpg'
 
@@ -22,8 +23,8 @@ const CardSection = () => {
                         <div className="blog-details text-center">
                             <div className="blog-meta"><Link to="#" ><i className="fa fa-map"></i></Link></div>
                             <h3><Link to="/oferta">Trasy</Link></h3>
-                            <p>Pokonujemy stałą trasę Polska-Szwecja-Polska. Istnieje możliwość dogadania się i przewiezienia rzeczy w inne miejsce niż na zaznaczonych trasach.</p>
-                            <Link to="/firma" className="read-more">Sprawdź</Link>
+                            <p>Pokonujemy stałą trasę Polska-Szwecja-Polska. Istnieje możliwość porozumienia się i przewiezienia rzeczy w inne miejsce niż na zaznaczonych trasach.</p>
+                            <Link to="/oferta" className="read-more">Sprawdź</Link>
                         </div>
                     </div>
                 </div>
@@ -34,9 +35,9 @@ const CardSection = () => {
                         </div>
                         <div className="blog-details text-center">
                             <div className="blog-meta"><Link  to="#"><i className="fa fa-money"></i></Link ></div>
-                            <h3><Link to="single-blog.html">Cennik</Link></h3>
+                            <h3><Link to="/oferta">Cennik</Link></h3>
                             <p>Gwarantujemy najlepsze ceny na rynku, w przypadku przesyłek niestandardowych satysfakcjonującą cenę ustalimy indywidualnie</p>
-                            <Link to="single-blog.html" className="read-more">Sprawdź</Link>
+                            <Link to="/oferta" className="read-more">Sprawdź</Link>
                         </div>
                     </div>
                 </div>
@@ -47,9 +48,9 @@ const CardSection = () => {
                         </div>
                         <div className="blog-details text-center">
                             <div className="blog-meta"><Link  to="#"><i className="fa fa-truck"></i></Link ></div>
-                            <h3><Link to="single-blog.html">Flota</Link></h3>
+                            <h3><Link to="/galeria">Flota</Link></h3>
                             <p>Samochody ciężarowe oraz dostawcze wchodzące w skład naszej floty zapewniają dokładne dopasowanie ładunków do potrzeb przewozów.</p>
-                            <Link to="single-blog.html" className="read-more">Sprawdź</Link>
+                            <Link to="/galeria" className="read-more">Sprawdź</Link>
                         </div>
                     </div>
                 </div>
