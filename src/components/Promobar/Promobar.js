@@ -30,7 +30,7 @@ const Promobar = () => {
           >
             <div data-aos="fade-in" className="container">
               <div className={styles.promBottomContent}>
-                <h3 className={styles.promoTitle}>Skontaktuj się z nami</h3>
+                <h3 className={styles.promoTitle}>Darmowa wycena w 15 minut</h3>
                 <p className={styles.promoText}>
                   Zbieramy przesyłki z całej Polski i dostarczamy je na
                   terenie całej Szwecji

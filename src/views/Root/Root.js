@@ -17,6 +17,7 @@ import ScrollTopButton from '../../components/ScrollToTop/ScrollToTop';
 import ScrollToTop from 'react-router-scroll-top'
 import CookieConsent from "react-cookie-consent";
 import PricesView from '../PricesView/PricesView';
+import OrderView from '../OrderView/OrderView'
 
 const routes = [
   { path: '/', name: 'Home', Component: HomeView },
@@ -26,6 +27,7 @@ const routes = [
   { path: '/kontakt', name: 'Kontakt', Component: ContactView},
   { path: '/galeria', name: 'Galeria', Component: GalleryView},
   { path: '/cennik', name: 'Cennik', Component: PricesView},
+  { path: '/zamowienie', name: 'Cennik', Component: OrderView},
 ];
 
 
@@ -46,7 +48,7 @@ function Root() {
         <ScrollTopButton></ScrollTopButton>
         <Footer />
           <CookieConsent acceptOnScroll={true}
-            acceptOnScrollPercentage={50} contentStyle={{flex: "0 auto", margin: "0px", padding: "0px 15px"}}  buttonText="ZGODA" style={{alignItems: "center", justifyContent:"center", background: "#24292e", fontSize: '12px'}}  buttonStyle={{margin: '5px', display: 'flex', background: "#bf1e2e", color: "white", fontSize: "13px" }}>
+            acceptOnScrollPercentage={50} contentStyle={{flex: "0 auto", margin: "0px", padding: "0px 15px", textAlign: "center"}}  buttonText="ZGODA" style={{alignItems: "center", justifyContent:"center", background: "#24292e", fontSize: '12px'}}  buttonStyle={{margin: '5px', display: 'flex', background: "#bf1e2e", color: "white", fontSize: "13px" }}>
             
               Ta strona korzysta z plików cookie, aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, zgodę na ich użycie.
             

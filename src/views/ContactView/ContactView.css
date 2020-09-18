@@ -39,3 +39,17 @@
     font-weight: 700;
     text-transform: uppercase;
 }
+
+.success  {
+    margin: 20px 0;
+    border: 1px solid green;
+    padding: 7px;
+    font-weight: bold;
+  }
+  
+  .error {
+    margin: 20px 0;
+    border: 1px solid red;
+    padding: 7px;
+    font-weight: bold;
+  }

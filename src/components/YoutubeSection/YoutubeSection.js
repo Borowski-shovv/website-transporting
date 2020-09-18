@@ -5,7 +5,7 @@ import AOS from 'aos';
 
 const YoutubeSection = () => {
     useEffect(() => {
-        AOS.init(); 
+        AOS.init({ once: true }); 
         AOS.refresh(); 
       })
 

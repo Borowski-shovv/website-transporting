@@ -506,3 +506,26 @@
   .description-span {
     color:red;
   }
+
+  @media (max-width: 768px) {
+    .banner-categories .banner-collections {
+      margin-top: 10px;
+    }
+
+
+    .photo-wrapper {
+      display: none;
+    }
+
+    .collection-content-text .content-header {
+      margin: 30px auto;
+    }
+
+    .solutions span::before {
+      display: none;
+    } 
+
+    .collection-content-wrapper {
+      text-align: center;
+    }
+  }

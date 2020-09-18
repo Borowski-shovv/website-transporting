@@ -64,7 +64,7 @@ const handleCity = (city, target) => {
       let changingPhoto = useRef(null);
 
       useEffect(() => {
-        AOS.init(); 
+        AOS.init({ once: true }); 
         AOS.refresh(); 
       })
     return (

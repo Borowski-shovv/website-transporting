@@ -367,7 +367,7 @@ input:-webkit-autofill:focus {
 .navbar {
   border-bottom: 0 none;
   border-top: 0 none;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.9);
   margin-bottom: 0;
 }
 
@@ -598,7 +598,7 @@ ul#nav li ul a,
   content:""; display:block;
 }
 .btn-10 a{padding:0;}
-.btn-10 a span{display:block; padding:0 30px; letter-spacing: 2px;}
+.btn-10 a span{display:block; padding:0 15px; letter-spacing: 2px;}
 .btn-10 a:before, .btn-10 a:after, .btn-10 a span:before, .btn-10 a span:after{position:absolute; background-color:#bf1e2e;}
 .btn-10 a:before{width:3px; height:0; left:0; bottom:0; -webkit-transition:all .1s .3s; -o-transition:all .1s .3s; transition:all .1s .3s;}
 .btn-10 a:after{width:0; height:3px; left:0; top:0; -webkit-transition:all .1s .2s; -o-transition:all .1s .2s; transition:all .1s .2s;}

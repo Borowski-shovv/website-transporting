@@ -26,6 +26,15 @@
   color: #bf1e2e !important;
 }
 
+.section-title h2.order-form {
+  color: black !important;
+}
+
+.section-title h2.order-form span{
+  color: #bf1e2e !important;
+  display: block;
+}
+
 .section-title h2::before {
   content: '';
   position: absolute;
@@ -46,6 +55,12 @@
   background: #bf1e2e;
   bottom: 0;
   left: calc(50% - 20px);
+}
+
+@media (max-width: 768px) {
+  .section-title h2 {
+    font-size: 25px;
+  }
 }
 
 .services .icon-box {

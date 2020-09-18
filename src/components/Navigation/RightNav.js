@@ -81,6 +81,11 @@ const RightNav = ({ open }) => {
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
+      className="navigationItemLink" to="/zamowienie"><span>Złóż zamówienie</span></NavLink>
+    </li>
+    <li>
+      <NavLink 
+      activeClassName="navigationItemLinkActive"
       className="navigationItemLink" to="/galeria"><span>Galeria</span></NavLink>
     </li>
     <li>

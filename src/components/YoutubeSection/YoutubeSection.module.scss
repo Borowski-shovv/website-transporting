@@ -370,3 +370,10 @@
 // .banner-categories .banner-collections:nth-of-type(even) .collection-content {
 //     order: 1;
 // }
+
+
+@media (max-width: 768px) {
+  .youtubeSection .collectionContentWrapper {
+    margin-top: 30px;
+  }
+}
