@@ -4,6 +4,12 @@ import { Container, Row, Col } from 'react-bootstrap';
 import wozek from '../../assets/images/contact-right.png';
 import './SendParcel.css';
 
+import paleta from '../../assets/images/wholesale.svg';
+import car from '../../assets/images/car.svg';
+import movingTruck from '../../assets/images/moving-truck.svg';
+import gabaryty from '../../assets/images/truck-icon.svg';
+import box from '../../assets/images/box.svg';
+
 
 const title = {
   paczka: 'przewóz paczki',
@@ -136,38 +142,54 @@ const SendParcel = () => {
                   
                 </div>
             </Col>
+           
             <div className="col-lg-12">                                        
                 <form action="#">
-                  <Row>
-                 
-                  <label className="radio" style={activeOption === descriptions.paczka ? {background: '#eee'} : {background: 'none'}} htmlFor="paczka">
-                    <input id="paczka" checked={activeOption === descriptions.paczka} value={descriptions.paczka} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
-                    
-                    <div className="radioButton" />
-                    Paczki
-                  </label>
-                  
-                  <label className="radio" style={activeOption === descriptions.paleta ? {background: '#eee'} : {background: 'none'}} htmlFor="paleta">
-                    <input id="paleta" checked={activeOption === descriptions.paleta} value={descriptions.paleta} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
-                    <div className="radioButton" />
-                    Paleta
-                  </label>
+                  <Row className="label-container">
+                  <div className="label-wrapper" style={activeOption === descriptions.paczka ? {background: '#eee'} : {background: 'none'}}>
+                    <img src={box} alt=""/>  
+                    <label className="radio" style={activeOption === descriptions.paczka ? {background: '#eee'} : {background: 'none'}} htmlFor="paczka">
+                      <input id="paczka" checked={activeOption === descriptions.paczka} value={descriptions.paczka} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
+                      
+                      <div className="radioButton" />
+                      Paczki
+                    </label>
+                  </div>
 
-                  <label className="radio" style={activeOption === descriptions.samochody ? {background: '#eee'} : {background: 'none'}} htmlFor="auta">
-                    <input id="auta" checked={activeOption === descriptions.samochody} value={descriptions.samochody} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
-                    <div className="radioButton" />                    
-                    Transport auta
-                  </label>                  
+                  <div className="label-wrapper" style={activeOption === descriptions.paleta ? {background: '#eee'} : {background: 'none'}}>
+                    <img src={paleta} alt=""/>
+                    <label className="radio" style={activeOption === descriptions.paleta ? {background: '#eee'} : {background: 'none'}} htmlFor="paleta">
+                      <input id="paleta" checked={activeOption === descriptions.paleta} value={descriptions.paleta} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
+                      <div className="radioButton" />
+                      Paleta
+                    </label>
+                  </div>
+
+                  <div className="label-wrapper" style={activeOption === descriptions.samochody ? {background: '#eee'} : {background: 'none'}}>
+                    <img src={car} alt=""/>
+                    <label className="radio" style={activeOption === descriptions.samochody ? {background: '#eee'} : {background: 'none'}} htmlFor="auta">
+                      <input id="auta" checked={activeOption === descriptions.samochody} value={descriptions.samochody} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
+                      <div className="radioButton" />                    
+                      Transport auta
+                    </label>
+                  </div>
+                  <div className="label-wrapper" style={activeOption === descriptions.przeprowadzka ? {background: '#eee'} : {background: 'none'}}>
+                    <img src={movingTruck} alt=""/>
                   <label className="radio" style={activeOption === descriptions.przeprowadzka ? {background: '#eee'} : {background: 'none'}} htmlFor={descriptions.przeprowadzka}>
                   <input id={descriptions.przeprowadzka} checked={activeOption === descriptions.przeprowadzka} value={descriptions.przeprowadzka} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
                     <div className="radioButton" />                    
                     Przeprowadzka
                   </label> 
+                </div>
+                  <div className="label-wrapper" style={activeOption === descriptions.ponadgabarytowy ? {background: '#eee'} : {background: 'none'}}>
+                    <img src={gabaryty} alt=""/>
                   <label className="radio" style={activeOption === descriptions.ponadgabarytowy ? {background: '#eee'} : {background: 'none'}} htmlFor={descriptions.ponadgabarytowy}>
                   <input id={descriptions.ponadgabarytowy} checked={activeOption === descriptions.ponadgabarytowy} value={descriptions.ponadgabarytowy} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
+                  
                   <div className="radioButton" />                    
-                    Transport Ponadgabarytowy              
+                    Ponadgabarytowy              
                   </label> 
+                  </div>
                   </Row>
                     <Row  className="order-wrapper" >    
                      <h5 className="text-center col-sm-12">Dane kontaktowe</h5>                      

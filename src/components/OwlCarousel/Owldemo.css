@@ -202,7 +202,28 @@
 
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1025px) and (max-width: 1600px) {
+  /* .btn-10 a span {
+    padding: 0px 5px !important;
+
+  } */
+
+  
+.welcome-slider-area.owl-carousel div:not(.owl-controls) {
+  height: 50vh !important;
+}
+
+.welcome-text h2 {
+  margin-top: 30px !important;
+  font-size: 26px !important
+}
+
+.home-button a {
+  margin-bottom: 20px !important;
+}
+}
+
+@media (max-width: 1024px) {
   .info-bar { 
     display: none;
     align-items: left;

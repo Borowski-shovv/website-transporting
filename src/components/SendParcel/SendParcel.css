@@ -2,12 +2,13 @@
     position: relative;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     margin: 10px 10px 0 0;
     font-weight: 700;
     color: black;
     padding: 10px 10px;
     background: white; 
-  
+    width: 100%;
 } 
 
 .radio input {
@@ -51,8 +52,48 @@ input:checked + .radioButton {
 
  .order-wrapper {
     background: #eee
- }
+}
 
-  .order-wrapper h5 {
-      padding: 15px;
+.order-wrapper h5 {
+    padding: 15px;
+}
+
+.label-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    
+  }
+
+  .label-wrapper label {
+      margin: 0 auto;
+  }
+
+
+  form img {
+      max-width: 80px;
+        padding-top: 30px;
+        margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+      .label-container {
+          flex-direction: column;
+      }
+
+      .label-wrapper {
+          width: 100%;
+          flex-direction: row;
+          padding-left: 30px;
+      }
+
+      .radio {
+          justify-content: flex-start;
+          padding-left: 60px;
+      }
+
+      .label-wrapper img {
+        max-width: 50px;
+        padding-top: 10px;
+      }
   }

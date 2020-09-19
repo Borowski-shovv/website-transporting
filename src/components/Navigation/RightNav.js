@@ -8,6 +8,7 @@ const Ul = styled.ul`
   display: flex;
   flex-flow: row nowrap;
   overflow: hidden;
+  margin-top: 5px;
   li {
     position: relative;
   }
@@ -16,7 +17,7 @@ const Ul = styled.ul`
     text-transform: uppercase;
     color: white;    
     z-index: 1;
-    padding: 20px 10px 20px 30px;
+  
     transition: all 0.3s ease-out 0s;
   }
 
@@ -31,6 +32,8 @@ const Ul = styled.ul`
   }
 
   @media (max-width: 768px) {
+    padding: 20px 10px 20px 30px;
+    margin-top: 0;
     flex-flow: column nowrap;
     background-color: #24292e;
     position: fixed;
