@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
 import axios from "axios";
 import { Container, Row, Col } from 'react-bootstrap';
 import wozek from '../../assets/images/contact-right.png';
@@ -135,273 +136,276 @@ const SendParcel = () => {
 
     return ( 
         <Container>
-        <Row>
+          <Row>
             <Col lg={12} className="prices-form-wrapper">
                 <div className="section-title ">
                     <h2 className="text-primary order-form">Złóż zamówienie na <span>{title[activeOption]}</span></h2>
                   
                 </div>
             </Col>
-           
+            
             <div className="col-lg-12">                                        
-                <form action="#">
-                  <Row className="label-container">
-                  <div className="label-wrapper" style={activeOption === descriptions.paczka ? {background: '#eee'} : {background: 'none'}}>
-                    <img src={box} alt=""/>  
-                    <label className="radio" style={activeOption === descriptions.paczka ? {background: '#eee'} : {background: 'none'}} htmlFor="paczka">
-                      <input id="paczka" checked={activeOption === descriptions.paczka} value={descriptions.paczka} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
+                  <form action="#">
+                    <Row className="label-container">
+                      <div className="label-wrapper" style={activeOption === descriptions.paczka ? {background: '#eee'} : {background: 'none'}}>
+                        <img src={box} alt=""/>  
+                        <label className="radio" style={activeOption === descriptions.paczka ? {background: '#eee'} : {background: 'none'}} htmlFor="paczka">
+                          <input id="paczka" checked={activeOption === descriptions.paczka} value={descriptions.paczka} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
+                          
+                          <div className="radioButton" />
+                          Paczki
+                        </label>
+                      </div>
+
+                      <div className="label-wrapper" style={activeOption === descriptions.paleta ? {background: '#eee'} : {background: 'none'}}>
+                        <img src={paleta} alt=""/>
+                        <label className="radio" style={activeOption === descriptions.paleta ? {background: '#eee'} : {background: 'none'}} htmlFor="paleta">
+                          <input id="paleta" checked={activeOption === descriptions.paleta} value={descriptions.paleta} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
+                          <div className="radioButton" />
+                          Paleta
+                        </label>
+                      </div>
+
+                      <div className="label-wrapper" style={activeOption === descriptions.samochody ? {background: '#eee'} : {background: 'none'}}>
+                        <img src={car} alt=""/>
+                        <label className="radio" style={activeOption === descriptions.samochody ? {background: '#eee'} : {background: 'none'}} htmlFor="auta">
+                          <input id="auta" checked={activeOption === descriptions.samochody} value={descriptions.samochody} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
+                          <div className="radioButton" />                    
+                          Transport auta
+                        </label>
+                      </div>
+                      <div className="label-wrapper" style={activeOption === descriptions.przeprowadzka ? {background: '#eee'} : {background: 'none'}}>
+                        <img src={movingTruck} alt=""/>
+                      <label className="radio" style={activeOption === descriptions.przeprowadzka ? {background: '#eee'} : {background: 'none'}} htmlFor={descriptions.przeprowadzka}>
+                      <input id={descriptions.przeprowadzka} checked={activeOption === descriptions.przeprowadzka} value={descriptions.przeprowadzka} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
+                        <div className="radioButton" />                    
+                        Przeprowadzka
+                      </label> 
+                    </div>
+                      <div className="label-wrapper" style={activeOption === descriptions.ponadgabarytowy ? {background: '#eee'} : {background: 'none'}}>
+                        <img src={gabaryty} alt=""/>
+                      <label className="radio" style={activeOption === descriptions.ponadgabarytowy ? {background: '#eee'} : {background: 'none'}} htmlFor={descriptions.ponadgabarytowy}>
+                      <input id={descriptions.ponadgabarytowy} checked={activeOption === descriptions.ponadgabarytowy} value={descriptions.ponadgabarytowy} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
                       
-                      <div className="radioButton" />
-                      Paczki
-                    </label>
-                  </div>
-
-                  <div className="label-wrapper" style={activeOption === descriptions.paleta ? {background: '#eee'} : {background: 'none'}}>
-                    <img src={paleta} alt=""/>
-                    <label className="radio" style={activeOption === descriptions.paleta ? {background: '#eee'} : {background: 'none'}} htmlFor="paleta">
-                      <input id="paleta" checked={activeOption === descriptions.paleta} value={descriptions.paleta} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
-                      <div className="radioButton" />
-                      Paleta
-                    </label>
-                  </div>
-
-                  <div className="label-wrapper" style={activeOption === descriptions.samochody ? {background: '#eee'} : {background: 'none'}}>
-                    <img src={car} alt=""/>
-                    <label className="radio" style={activeOption === descriptions.samochody ? {background: '#eee'} : {background: 'none'}} htmlFor="auta">
-                      <input id="auta" checked={activeOption === descriptions.samochody} value={descriptions.samochody} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
                       <div className="radioButton" />                    
-                      Transport auta
-                    </label>
-                  </div>
-                  <div className="label-wrapper" style={activeOption === descriptions.przeprowadzka ? {background: '#eee'} : {background: 'none'}}>
-                    <img src={movingTruck} alt=""/>
-                  <label className="radio" style={activeOption === descriptions.przeprowadzka ? {background: '#eee'} : {background: 'none'}} htmlFor={descriptions.przeprowadzka}>
-                  <input id={descriptions.przeprowadzka} checked={activeOption === descriptions.przeprowadzka} value={descriptions.przeprowadzka} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
-                    <div className="radioButton" />                    
-                    Przeprowadzka
-                  </label> 
-                </div>
-                  <div className="label-wrapper" style={activeOption === descriptions.ponadgabarytowy ? {background: '#eee'} : {background: 'none'}}>
-                    <img src={gabaryty} alt=""/>
-                  <label className="radio" style={activeOption === descriptions.ponadgabarytowy ? {background: '#eee'} : {background: 'none'}} htmlFor={descriptions.ponadgabarytowy}>
-                  <input id={descriptions.ponadgabarytowy} checked={activeOption === descriptions.ponadgabarytowy} value={descriptions.ponadgabarytowy} onChange={(e) => handleRadioButtonChange(e)} type="radio"/>
-                  
-                  <div className="radioButton" />                    
-                    Ponadgabarytowy              
-                  </label> 
-                  </div>
-                  </Row>
-                    <Row  className="order-wrapper" >    
-                     <h5 className="text-center col-sm-12">Dane kontaktowe</h5>                      
-                                <div className="col-sm-6">
-                                    <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control valid"
-                                        placeholder= "Twoje imię"
-                                        name="name"
-                                        id="1"                                
-                                        value={inputName}                                
-                                        onChange={e => handleChange(e, 'name')}
-                                        required
-                                    />
-                                    </div>
-                                </div>
-                                <div className="col-sm-6">
-                                    <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control valid"
-                                        placeholder= "Twoje nazwisko"
-                                        name="lastname"
-                                        id="2"                                
-                                        value={inputLastName}                                
-                                        onChange={e => handleChange(e, 'lastname')}
-                                        required
-                                    />
-                                    </div>
-                                </div>
-                                <div className="col-sm-6">
-                                    <div className="form-group">
-                                    <input
-                                        type="email"
-                                        className="form-control valid"
-                                        placeholder= "Email"
-                                        name="email"
-                                        id="3"                                
-                                        value={inputEmail}                                
-                                        onChange={e => handleChange(e, 'email')}
-                                        required
-                                    />
-                                    </div>
-                                </div>
-                                <div className="col-sm-6">
-                                    <div className="form-group">
-                                    <input
-                                        type="number"
-                                        className="form-control valid"
-                                        placeholder= "Telefon kontaktowy"
-                                        name="phone"
-                                        id="4"                                
-                                        value={inputPhone}                                
-                                        onChange={e => handleChange(e, 'phone')}
-                                        required
-                                    />
-                                    </div>
-                                </div>
-                                <h5 className="text-center col-sm-12">Miejsce załadunku</h5>  
-                                <div className="col-sm-12">
-                                    <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control valid"
-                                        placeholder= "Ulica i nr budynku załadunku"
-                                        name="ulicazaladunek"
-                                        id="5"                                
-                                        value={ulicaZaladunek}                                
-                                        onChange={e => handleChange(e, 'ulicazaladunek')}
-                                        required
-                                    />
-                                    </div>
-                                </div>
-                                <div className="col-sm-6">
-                                    <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control valid"
-                                        placeholder= "Miasto załadunku"
-                                        name="miastozaladunek"
-                                        id="6"                                
-                                        value={miastoZaladunek}                                
-                                        onChange={e => handleChange(e, 'miastozaladunek')}
-                                        required
-                                    />
-                                    </div>
-                                </div>
-                                <div className="col-sm-6">
-                                    <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control valid"
-                                        placeholder= "Kod pocztowy załadunku"
-                                        name="kodpocztowyzaladunek"
-                                        id="7"                                
-                                        value={kodPocztowyZaladunek}                                
-                                        onChange={e => handleChange(e, 'kodpocztowyzaladunek')}
-                                        required
-                                    />
-                                    </div>
-                                </div>
-                                <h5 className="text-center col-sm-12">Miejsce rozładunku</h5>  
-                                <div className="col-sm-12">
-                                    <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control valid"
-                                        placeholder= "Ulica i nr budynku rozładunku"
-                                        name="ulicarozladunek"
-                                        id="8"                                
-                                        value={ulicaRozladunek}                                
-                                        onChange={e => handleChange(e, 'ulicarozladunek')}
-                                        required
-                                    />
-                                    </div>
-                                </div>
-                                <div className="col-sm-6">
-                                    <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control valid"
-                                        placeholder= "Miasto rozładunku"
-                                        name="miastorozladunek"
-                                        id="9"                                
-                                        value={miastoRozladunek}                                
-                                        onChange={e => handleChange(e, 'miastorozladunek')}
-                                        required
-                                    />
-                                    </div>
-                                </div>
-                                <div className="col-sm-6">
-                                    <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control valid"
-                                        placeholder= "Kod pocztowy rozładunku"
-                                        name="kodpocztowyrozladunek"
-                                        id="10"                                
-                                        value={kodPocztowyRozladunek}                                
-                                        onChange={e => handleChange(e, 'kodpocztowyrozladunek')}
-                                        required
-                                    />
-                                    </div>
-                                </div>
-                                <h5 className="text-center col-sm-12">Specyfikacja Twojego ładunku</h5>  
-                                { activeOption === descriptions.paczka ? 
-                                <div className="col-sm-12">
-                                    <label>
-                                        <input className="radioInput" type="radio" name="radiobtn" value="do 30 kg" checked={radioBtn === "do 30 kg"} onChange={e => handleChange(e, 'radiobtn')} />
-                                        do 30kg
-                                    </label>
-                                    <label 
-                                    >
-                                        <input className="radioInput" type="radio" name="radiobtn" value="powyżej 30 kg" checked={radioBtn === "powyżej 30 kg"} onChange={e => handleChange(e, 'radiobtn')} />
-                                        powyżej 30kg
-                                    </label>
-                                    <label >
-                                        <input className="radioInput" type="radio" name="radiobtn" value="waga niestandardowa" checked={radioBtn === "waga niestandardowa"} onChange={e => handleChange(e, 'radiobtn')} />
-                                        waga niestandardowa
-                                    </label>
-                                </div> : null}
-                                { activeOption === descriptions.paleta ? 
-                                <div className="col-sm-12">
-                                    <label>
-                                        <input className="radioInput" type="radio" name="radiobtn" value="do 30 kg" checked={radioBtn === "do 30 kg"} onChange={e => handleChange(e, 'radiobtn')} />
-                                        300kg
-                                    </label>
-                                    <label 
-                                    >
-                                        <input className="radioInput" type="radio" name="radiobtn" value="powyżej 30 kg" checked={radioBtn === "powyżej 30 kg"} onChange={e => handleChange(e, 'radiobtn')} />
-                                        powyżej 300kg
-                                    </label>
-                                    <label >
-                                        <input className="radioInput" type="radio" name="radiobtn" value="waga niestandardowa" checked={radioBtn === "waga niestandardowa"} onChange={e => handleChange(e, 'radiobtn')} />
-                                        waga niestandardowa
-                                    </label>
-                                </div> : null}
-                                
-                                <div className="col-12">
-                                    <div className="form-group">
-                                    <textarea  
-                                    cols="30"
-                                    rows="9" 
-                                    name="msg"
-                                    id="11"  
-                                    className="form-control w-100" 
-                                    placeholder="Twoja wiadmość" 
-                                    onChange={e => handleChange(e, "msg")} 
-                                    value={inputMsg}
-                                    required
-                                    />
-                                    </div>
-                                </div>    
+                        Ponadgabarytowy              
+                      </label> 
+                      </div>
                     </Row>
-                    <p>* - pola wymagane</p>
-                    <div className="form-group mt-3">
-                    <input className="read-more" type="submit" onClick={e => handleFormSubmit(e)} value="Wyślij" />
-                    </div>
-                    <div>
-                    {mailSent && <div className="success">Twoja wiadomość została pomyślnie wysłana</div>}
-                    {error && <div className="error">Uzupełnij wszystkie wymagane pola</div>}
-                    </div>
-                </form>
+                    <Row  className="order-wrapper" >    
+                      <h5 className="text-center col-sm-12">Dane kontaktowe</h5>                      
+                                  <div className="col-sm-6">
+                                      <div className="form-group">
+                                      <input
+                                          type="text"
+                                          className="form-control valid"
+                                          placeholder= "Twoje imię"
+                                          name="name"
+                                          id="1"                                
+                                          value={inputName}                                
+                                          onChange={e => handleChange(e, 'name')}
+                                          required
+                                      />
+                                      </div>
+                                  </div>
+                                  <div className="col-sm-6">
+                                      <div className="form-group">
+                                      <input
+                                          type="text"
+                                          className="form-control valid"
+                                          placeholder= "Twoje nazwisko"
+                                          name="lastname"
+                                          id="2"                                
+                                          value={inputLastName}                                
+                                          onChange={e => handleChange(e, 'lastname')}
+                                          required
+                                      />
+                                      </div>
+                                  </div>
+                                  <div className="col-sm-6">
+                                      <div className="form-group">
+                                      <input
+                                          type="email"
+                                          className="form-control valid"
+                                          placeholder= "Email"
+                                          name="email"
+                                          id="3"                                
+                                          value={inputEmail}                                
+                                          onChange={e => handleChange(e, 'email')}
+                                          required
+                                      />
+                                      </div>
+                                  </div>
+                                  <div className="col-sm-6">
+                                      <div className="form-group">
+                                      <input
+                                          type="number"
+                                          className="form-control valid"
+                                          placeholder= "Telefon kontaktowy"
+                                          name="phone"
+                                          id="4"                                
+                                          value={inputPhone}                                
+                                          onChange={e => handleChange(e, 'phone')}
+                                          required
+                                      />
+                                      </div>
+                                  </div>
+                                  <h5 className="text-center col-sm-12">Miejsce załadunku</h5>  
+                                  <div className="col-sm-12">
+                                      <div className="form-group">
+                                      <input
+                                          type="text"
+                                          className="form-control valid"
+                                          placeholder= "Ulica i nr budynku załadunku"
+                                          name="ulicazaladunek"
+                                          id="5"                                
+                                          value={ulicaZaladunek}                                
+                                          onChange={e => handleChange(e, 'ulicazaladunek')}
+                                          required
+                                      />
+                                      </div>
+                                  </div>
+                                  <div className="col-sm-6">
+                                      <div className="form-group">
+                                      <input
+                                          type="text"
+                                          className="form-control valid"
+                                          placeholder= "Miasto załadunku"
+                                          name="miastozaladunek"
+                                          id="6"                                
+                                          value={miastoZaladunek}                                
+                                          onChange={e => handleChange(e, 'miastozaladunek')}
+                                          required
+                                      />
+                                      </div>
+                                  </div>
+                                  <div className="col-sm-6">
+                                      <div className="form-group">
+                                      <input
+                                          type="text"
+                                          className="form-control valid"
+                                          placeholder= "Kod pocztowy załadunku"
+                                          name="kodpocztowyzaladunek"
+                                          id="7"                                
+                                          value={kodPocztowyZaladunek}                                
+                                          onChange={e => handleChange(e, 'kodpocztowyzaladunek')}
+                                          required
+                                      />
+                                      </div>
+                                  </div>
+                                  <h5 className="text-center col-sm-12">Miejsce rozładunku</h5>  
+                                  <div className="col-sm-12">
+                                      <div className="form-group">
+                                      <input
+                                          type="text"
+                                          className="form-control valid"
+                                          placeholder= "Ulica i nr budynku rozładunku"
+                                          name="ulicarozladunek"
+                                          id="8"                                
+                                          value={ulicaRozladunek}                                
+                                          onChange={e => handleChange(e, 'ulicarozladunek')}
+                                          required
+                                      />
+                                      </div>
+                                  </div>
+                                  <div className="col-sm-6">
+                                      <div className="form-group">
+                                      <input
+                                          type="text"
+                                          className="form-control valid"
+                                          placeholder= "Miasto rozładunku"
+                                          name="miastorozladunek"
+                                          id="9"                                
+                                          value={miastoRozladunek}                                
+                                          onChange={e => handleChange(e, 'miastorozladunek')}
+                                          required
+                                      />
+                                      </div>
+                                  </div>
+                                  <div className="col-sm-6">
+                                      <div className="form-group">
+                                      <input
+                                          type="text"
+                                          className="form-control valid"
+                                          placeholder= "Kod pocztowy rozładunku"
+                                          name="kodpocztowyrozladunek"
+                                          id="10"                                
+                                          value={kodPocztowyRozladunek}                                
+                                          onChange={e => handleChange(e, 'kodpocztowyrozladunek')}
+                                          required
+                                      />
+                                      </div>
+                                  </div>
+                                  <h5 className="text-center col-sm-12">Specyfikacja Twojego ładunku</h5>  
+                                  { activeOption === descriptions.paczka ? 
+                                  <div className="col-sm-12">
+                                      <label>
+                                          <input className="radioInput" type="radio" name="radiobtn" value="do 30 kg" checked={radioBtn === "do 30 kg"} onChange={e => handleChange(e, 'radiobtn')} />
+                                          do 30kg
+                                      </label>
+                                      <label 
+                                      >
+                                          <input className="radioInput" type="radio" name="radiobtn" value="powyżej 30 kg" checked={radioBtn === "powyżej 30 kg"} onChange={e => handleChange(e, 'radiobtn')} />
+                                          powyżej 30kg
+                                      </label>
+                                      <label >
+                                          <input className="radioInput" type="radio" name="radiobtn" value="waga niestandardowa" checked={radioBtn === "waga niestandardowa"} onChange={e => handleChange(e, 'radiobtn')} />
+                                          waga niestandardowa
+                                      </label>
+                                  </div> : null}
+                                  { activeOption === descriptions.paleta ? 
+                                  <div className="col-sm-12">
+                                      <label>
+                                          <input className="radioInput" type="radio" name="radiobtn" value="do 30 kg" checked={radioBtn === "do 30 kg"} onChange={e => handleChange(e, 'radiobtn')} />
+                                          300kg
+                                      </label>
+                                      <label 
+                                      >
+                                          <input className="radioInput" type="radio" name="radiobtn" value="powyżej 30 kg" checked={radioBtn === "powyżej 30 kg"} onChange={e => handleChange(e, 'radiobtn')} />
+                                          powyżej 300kg
+                                      </label>
+                                      <label >
+                                          <input className="radioInput" type="radio" name="radiobtn" value="waga niestandardowa" checked={radioBtn === "waga niestandardowa"} onChange={e => handleChange(e, 'radiobtn')} />
+                                          waga niestandardowa
+                                      </label>
+                                  </div> : null}
+                                  
+                                  <div className="col-12">
+                                      <div className="form-group">
+                                      <textarea  
+                                      cols="30"
+                                      rows="9" 
+                                      name="msg"
+                                      id="11"  
+                                      className="form-control w-100" 
+                                      placeholder="Twoja wiadmość" 
+                                      onChange={e => handleChange(e, "msg")} 
+                                      value={inputMsg}
+                                      required
+                                      />
+                                      </div>
+                                  </div>    
+                    </Row>
+                      <p>* - pola wymagane</p>
+                      <div className="form-group mt-3">
+                      <input className="read-more" type="submit" onClick={e => handleFormSubmit(e)} value="Wyślij" />
+                      </div>
+                      <div>
+                      {mailSent && <div className="success">Twoja wiadomość została pomyślnie wysłana</div>}
+                      {error && <div className="error">Uzupełnij wszystkie wymagane pola</div>}
+                      </div>
+                  </form>
                 </div>
        
-            <div className="col-lg-4">
-                <img className="imgFluid" src={wozek} alt=""/>
-            </div>
-    </Row>
-</Container>
+                <div className="col-lg-4">
+                    <img className="imgFluid" src={wozek} alt=""/>
+                </div>
+            </Row>
+        </Container>
      );
 }
+
+const mapStateToProps = ({formData}) => ({formData});
+
  
-export default SendParcel;
+export default connect(mapStateToProps)(SendParcel);

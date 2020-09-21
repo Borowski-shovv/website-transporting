@@ -3,21 +3,32 @@ import './Root.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '../../store/index';
+
+// pages
 import AboutUsPage from '../AboutUsPage/AboutUsPage';
 import HomeView from '../HomeView/HomeView';
 import ContactView from '../ContactView/ContactView';
-import Footer from '../../components/Footer/Footer';
 import RegulaminView from '../RegulaminView/RegulaminView';
 import OfferView from '../OfferView/OfferView';
 import GalleryView from '../GalleryView/GalleryView';
+import PricesView from '../PricesView/PricesView';
+import OrderView from '../OrderView/OrderView';
+import CheckoutView from '../CheckoutView/checkout';
+
+//common components 
+import Footer from '../../components/Footer/Footer';
+
+
 import '../../assets/libraries/font-awesome.min.css';
 import '../../assets/themify-icons/themify-icons.css';
 // scroll top
 import ScrollTopButton from '../../components/ScrollToTop/ScrollToTop';
 import ScrollToTop from 'react-router-scroll-top'
+
+// cookies
 import CookieConsent from "react-cookie-consent";
-import PricesView from '../PricesView/PricesView';
-import OrderView from '../OrderView/OrderView'
 
 const routes = [
   { path: '/', name: 'Home', Component: HomeView },
@@ -28,12 +39,14 @@ const routes = [
   { path: '/galeria', name: 'Galeria', Component: GalleryView},
   { path: '/cennik', name: 'Cennik', Component: PricesView},
   { path: '/zamowienie', name: 'Cennik', Component: OrderView},
+  { path: '/koszyk', name: 'Koszyk', Component: CheckoutView},
 ];
 
 
 function Root() {
   return (
-    <>
+    <Provider store={store}>
+    
       <Router>
         <ScrollToTop>       
         <Switch>
@@ -55,8 +68,8 @@ function Root() {
           </CookieConsent>
           </ScrollToTop> 
       </Router>
-
-    </>
+     
+    </Provider>
   );
 }
 
