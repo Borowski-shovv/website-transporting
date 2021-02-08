@@ -618,6 +618,18 @@ ul#nav li ul a,
   font-weight: 700;
 }
 
+.order {
+  display: flex;
 
+}
+
+.order img {
+  max-width: 30px;
+}
+
+.order span {
+  color: white;
+  margin-left: 15px;
+}
 
 

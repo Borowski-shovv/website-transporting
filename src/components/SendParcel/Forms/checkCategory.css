@@ -1,0 +1,33 @@
+input[type="radio"] {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-size: cover;
+    -webkit-appearance: none;
+}
+
+input[type="radio"]:checked {
+    overflow: visible;
+    /* border: 5px solid red; */
+}
+
+input[type="radio"].paczka {
+    background: url('../../../assets/images/formImages/box.svg');
+}
+
+input[type="radio"].paleta {
+    
+    background: url('../../../assets/images/formImages/wholesale.svg');
+}
+
+input[type="radio"].przeprowadzka {
+    background: url('../../../assets/images/formImages/couch.svg');
+}
+
+input[type="radio"].auto {
+    background: url('../../../assets/images/formImages/trailer.svg');
+}
+
+input[type="radio"].ponadgabarytowy {
+    background: url('../../../assets/images/formImages/truck.svg');
+}

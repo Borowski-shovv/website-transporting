@@ -2,6 +2,8 @@ import React from 'react';
 import './Root.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../../store/index';
@@ -46,7 +48,7 @@ const routes = [
 function Root() {
   return (
     <Provider store={store}>
-    
+      
       <Router>
         <ScrollToTop>       
         <Switch>
@@ -59,7 +61,7 @@ function Root() {
           ))}
         </Switch>
         <ScrollTopButton></ScrollTopButton>
-        <Footer />
+        {/* <Footer /> */}
           <CookieConsent acceptOnScroll={true}
             acceptOnScrollPercentage={50} contentStyle={{flex: "0 auto", margin: "0px", padding: "0px 15px", textAlign: "center"}}  buttonText="ZGODA" style={{alignItems: "center", justifyContent:"center", background: "#24292e", fontSize: '12px'}}  buttonStyle={{margin: '5px', display: 'flex', background: "#bf1e2e", color: "white", fontSize: "13px" }}>
             

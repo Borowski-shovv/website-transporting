@@ -3,10 +3,16 @@ import { Link } from 'react-router-dom';
 import './Navigation.css';
 import Logo from '../../assets/images/solidfach.svg';
 import Hamburger from './Hamburger';
+import { connect } from 'react-redux';
+
 import plflag from '../../assets/images/pl.png';
 import seflag from '../../assets/images/se.png';
 
-const Navigation = () => {
+import orderbox from '../../assets/images/parcel-white.svg';
+
+
+const Navigation = ({paczka}) => {
+  
   return (
     <>
       <header className="top-area" id="home">
@@ -32,11 +38,15 @@ const Navigation = () => {
               </div> 
               <div className="container">
                 <div className="navbar-header">
-                  <a href="#home" className="navbar-brand">
+                  <Link to="/" className="navbar-brand">
                     <img src={Logo} alt="logo" />
-                  </a>
+                  </Link>
                 </div>
                 <Hamburger />
+                <Link to="/koszyk"className="order">
+                  <img src={orderbox} alt=""/>
+                  <span>{paczka.length}</span> 
+                </Link>
               </div>
             </nav>
           </div>
@@ -49,4 +59,8 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+const mapStateToProps = (state) => {
+  return state;
+}
+
+export default connect(mapStateToProps)(Navigation);

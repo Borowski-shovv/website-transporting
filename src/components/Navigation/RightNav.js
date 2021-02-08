@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
@@ -84,7 +84,7 @@ const RightNav = ({ open }) => {
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/zamowienie"><span>Złóż zamówienie</span></NavLink>
+      className="navigationItemLink" to="/zamowienie"><span>Nadaj przesyłkę</span></NavLink>
     </li>
     <li>
       <NavLink 
