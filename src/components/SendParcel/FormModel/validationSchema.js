@@ -22,6 +22,7 @@ const visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 export default [
   Yup.object().shape({
     [email.name]: Yup.string().required(`${email.requiredErrorMsg}`),
+    parcelCategory: Yup.string().required("Wybierz kategorie przesyłki"),
   }),
   Yup.object().shape({
     [firstName.name]: Yup.string().required(`${firstName.requiredErrorMsg}`),

@@ -16,7 +16,10 @@ const {
   }, 
 } = sendParcelModel;
 
+
+
 export default {
+  parcelCategory: '',
   [email.name]: '',
   [firstName.name]: '',
   [lastName.name]: '',

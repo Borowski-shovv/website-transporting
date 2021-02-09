@@ -7,7 +7,7 @@ import { useFormikContext } from 'formik';
 
 export default function CheckCategory(props) {
     const { formField: { email }} = props;
-    // const { formParcelCategory: {category1, category2, category3, category4, category5 }} = props;
+    const { formParcelCategory: {category1, category2, category3, category4, category5 }} = props;
     const { values: formValues } = useFormikContext();
     console.log(formValues);
     return (
@@ -17,7 +17,7 @@ export default function CheckCategory(props) {
             </Typography>
             <Grid container spacing={3}>
                 <Grid item xs={6} sm={2}>
-                    <Field className="paczka" type="radio" name="parcelCategory" id="paczka" value="paczka"/>
+                    <InputField className="paczka" type="radio" name="parcelCategory" id="paczka" value="paczka"/>
 
                 </Grid>
                 <Grid item xs={6} sm={2}>
