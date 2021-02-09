@@ -22,13 +22,13 @@ import { Formik, Form } from 'formik';
 import useStyles from './styles';
 
 const steps = ['Kategoria przesyłki', 'Shipping address', 'Payment details', 'Review your order'];
-const { formId, formField, formCategoryImages } = sendParcelModel;
+const { formId, formField, formParcelCategory } = sendParcelModel;
 
 
 function _renderStepContent(step) {
   switch (step) {
     case 0:
-      return <CheckCategory formCategoryImages={formCategoryImages} />;
+      return <CheckCategory formParcelCategory={formParcelCategory} formField={formField} />;
     case 1:
       return <AddressForm formField={formField} />;
     case 2:
@@ -87,16 +87,16 @@ const SendParcel = () => {
     <React.Fragment>
       {activeStep === steps.length ? (
         <CheckoutSuccess />
-      ) : (
-        <Formik
+        ) : (
+          <Formik
           initialValues={formInitialValues}
           validationSchema={currentValidationSchema}
           onSubmit={_handleSubmit}
-        >
+          >
           {({ isSubmitting }) => (
             <Form id={formId}>
               {_renderStepContent(activeStep)}
-
+              
               <div className={classes.buttons}>
                 {activeStep !== 0 && (
                   <Button onClick={_handleBack} className={classes.button}>

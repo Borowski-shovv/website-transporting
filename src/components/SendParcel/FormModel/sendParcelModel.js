@@ -1,13 +1,12 @@
-import icon1 from '../../../assets/images/formImages/box.svg';
-import icon4 from '../../../assets/images/formImages/couch.svg';
-import icon5 from '../../../assets/images/formImages/trailer.svg';
-import icon3 from '../../../assets/images/formImages/truck.svg';
-import icon2 from '../../../assets/images/formImages/wholesale.svg';
-
 
 export default {
-    formId: 'checkoutForm',
+    formId: 'sendOrder',
     formField: {
+      email: {
+        name: 'userEmail',
+        label: 'Email*',
+        requiredErrorMsg: 'Wpisz swój adres email',
+      },
       firstName: {
         name: 'firstName',
         label: 'First name*',
@@ -75,25 +74,20 @@ export default {
         invalidErrorMsg: 'CVV is invalid (e.g. 357)'
       }
     },
-    formCategoryImages: {
+    formParcelCategory: {
       category1: {
-        image: icon1,
         name: 'Paczka',
       },
       category2: {
-        image: icon2,
         name: 'Paleta',
       },
       category3: {
-        image: icon3,
         name: 'Transport auta',
       },
       category4: {
-        image: icon4,
         name: 'Przeprowadzka',
       },
       category5: {
-        image: icon5,
         name: 'Transport Ponadgabarytowy',
       },
     }

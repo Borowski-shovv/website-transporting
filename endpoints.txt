@@ -1,0 +1,115 @@
+POST  'users/registration'  -> rejestracja nowego uzytkownika
+	{
+        name: 'Jan',
+        surname: 'Kowalski',
+        email: '',
+        password: '',
+        passwordCheck: '', // Zamiast 2 haseł to weryfikacja po stronie frontend. Do api tylko HASH hasła.
+        address: '',
+        houseNumber: '',
+        postCode: '',
+        city: '',
+        country: '',
+    } = req.body;
+
+	ZAPISANIE DO BAZY DANYCH;
+
+POST '/users/login' -> logowanie uzytkownika
+
+	const { userEmail, password } = req.body;
+
+	res.json({
+		token: '',
+		name: '',
+		userEmail: '',
+        userStatus: int  // 1 - aktywny, 2 - brak danych, 3 - "usunięty".
+	})
+
+GET '/users/:id -> pobranie danych zalogowanego uzytkownika 
+    res.json({
+        token: '',
+        name: '',
+        orders {
+            category: '',
+            amount: '',
+            shippingAddress {
+                address: '',
+                houseNumber: '',
+                postCode: '',
+                city: '',
+                country: '',
+            },
+            pickupAddress {
+                address: '',
+                houseNumber: '',
+                postCode: '',
+                city: '',
+                country: '',
+            },
+        },
+        "limit": 5,
+    })
+
+PUT 'users_update/:id' -> nadpisanie danych kontaktowych usera
+// Marek: jakie dane będą przesyłane?
+
+GET '/order/:id/:userid' -> // informacje o konkretnym zamowieniu
+
+
+
+POST '/order_insert/' -> wysłanie danych dotyczących nadawanej paczki
+    res.json({
+        user_id: '' // NULL accepted, ale jesli jest to dodac
+        email: '', //
+        order {
+            category: '',  // typ/kategoria przesylki
+            amount: '',    //ilosc palet, paczek,
+            senderAddress {  //adres osoby wysyłającej
+                address: '',
+                houseNumber: '',
+                postCode: '',
+                city: '',
+                country: '',
+                phoneNumber: '',
+                fullName: '',
+                pickupHourFrom: '', // Zakres daty i godziny zaladunku
+                pickupHourTo: '',
+                pickupDateFrom: '',
+                pickupDateTo: '',
+                comment: '',
+            },
+            deliveryAddress {  // miejsce dostarczenia
+                address: '',
+                houseNumber: '',
+                postCode: '',
+                city: '',
+                country: '',
+                phoneNumber: '',
+                fullName: '',
+                deliveryHourFrom: '', // Zakres dat i godzin rozladunku
+                deliveryHourTo: '',
+                deliveryDateFrom: '',
+                deliveryDateTo: '',
+                comment: '',
+            },
+            specification { //specyfikacja przesyłki
+                weight: '',
+                height: '',
+                width: '',
+                images: '', 
+                description: '',
+            },
+            loadingHelp: "" //pomoc przy załadunku/rozładunku
+            images: "" //,
+            paymentMethod: ""  //metoda płatnosci 
+            orderCreationDate: ""
+            orderStatus: ""
+        },
+})
+
+GET '/orders/:id' -> pobranie wszystkich zamówień konkretnego klienta;
+
+tabela platnosci;
+
+
+

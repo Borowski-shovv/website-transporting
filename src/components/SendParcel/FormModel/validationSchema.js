@@ -3,6 +3,7 @@ import moment from 'moment';
 import sendParcelModel from './sendParcelModel';
 const {
   formField: {
+    email,
     firstName,
     lastName,
     address1,
@@ -19,6 +20,9 @@ const {
 const visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 
 export default [
+  Yup.object().shape({
+    [email.name]: Yup.string().required(`${email.requiredErrorMsg}`),
+  }),
   Yup.object().shape({
     [firstName.name]: Yup.string().required(`${firstName.requiredErrorMsg}`),
     [lastName.name]: Yup.string().required(`${lastName.requiredErrorMsg}`),

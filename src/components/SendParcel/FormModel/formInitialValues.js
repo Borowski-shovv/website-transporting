@@ -1,6 +1,7 @@
 import sendParcelModel from './sendParcelModel';
 const {
   formField: {
+    email,
     firstName,
     lastName,
     address1,
@@ -12,10 +13,11 @@ const {
     cardNumber,
     expiryDate,
     cvv
-  }
+  }, 
 } = sendParcelModel;
 
 export default {
+  [email.name]: '',
   [firstName.name]: '',
   [lastName.name]: '',
   [address1.name]: '',
