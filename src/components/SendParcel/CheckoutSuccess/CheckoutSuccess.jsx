@@ -5,11 +5,10 @@ function CheckoutSuccess() {
   return (
     <React.Fragment>
       <Typography variant="h5" gutterBottom>
-        Thank you for your order.
+        Dziekujemy za nadanie przesyłki
       </Typography>
       <Typography variant="subtitle1">
-        Your order number is #2001539. We have emailed your order confirmation,
-        and will send you an update when your order has shipped.
+        Skontaktujemy się z Tobą w celu ustalenia szczegółów transportu Twojej przesyłki
       </Typography>
     </React.Fragment>
   );

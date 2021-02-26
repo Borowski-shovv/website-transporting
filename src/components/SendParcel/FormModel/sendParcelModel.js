@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 
 export default {
     formId: 'sendOrder',
@@ -5,46 +6,73 @@ export default {
       email: {
         name: 'userEmail',
         label: 'Email*',
-        requiredErrorMsg: 'Wpisz swój adres email',
+        requiredErrorMsg: 'Wpisz swój adres email.',
       },
       firstName: {
         name: 'firstName',
-        label: 'First name*',
-        requiredErrorMsg: 'First name is required'
+        label: 'Imię*',
+        requiredErrorMsg: 'Imię jest wymagane.'
+      },
+      firstName2: {
+        name: 'firstName2',
+        label: 'Imię*',
+        requiredErrorMsg: 'Imię jest wymagane.'
       },
       lastName: {
         name: 'lastName',
-        label: 'Last name*',
-        requiredErrorMsg: 'Last name is required'
+        label: 'Nazwisko*',
+        requiredErrorMsg: 'Nazwisko jest wymagane.'
+      },
+      lastName2: {
+        name: 'lastName2',
+        label: 'Nazwisko*',
+        requiredErrorMsg: 'Nazwisko jest wymagane.'
       },
       address1: {
         name: 'address1',
-        label: 'Address Line 1*',
-        requiredErrorMsg: 'Address Line 1 is required'
+        label: 'Adres odbioru Twojej przesyłki*',
+        requiredErrorMsg: 'Adres odbioru Twojej przesyłki jest wymagany.'
       },
       address2: {
         name: 'address2',
-        label: 'Address Line 2'
+        label: 'Adres dostawy Twojej przesyłki*',
+        requiredErrorMsg: 'Adres dostawy Twojej przesyłki jest wymagany.'
       },
       city: {
         name: 'city',
-        label: 'City*',
-        requiredErrorMsg: 'City is required'
+        label: 'Miasto*',
+        requiredErrorMsg: 'Miasto odbioru Twojej przesyłki jest wymagane.'
+      },
+      city2: {
+        name: 'city2',
+        label: 'Miasto*',
+        requiredErrorMsg: 'Miasto odbioru Twojej przesyłki jest wymagane.'
       },
       state: {
-        name: 'state',
+        name: '',
         label: 'State/Province/Region'
       },
       zipcode: {
         name: 'zipcode',
-        label: 'Zipcode*',
-        requiredErrorMsg: 'Zipcode is required',
+        label: 'Kod pocztowy*',
+        requiredErrorMsg: 'Kod pocztowy jest wymagany',
+        invalidErrorMsg: 'Zipcode is not valid (e.g. 70000)'
+      },
+      zipcode2: {
+        name: 'zipcode2',
+        label: 'Kod pocztowy*',
+        requiredErrorMsg: 'Kod pocztowy jest wymagany',
         invalidErrorMsg: 'Zipcode is not valid (e.g. 70000)'
       },
       country: {
         name: 'country',
-        label: 'Country*',
-        requiredErrorMsg: 'Country is required'
+        label: 'Państwo*',
+        requiredErrorMsg: 'Wybierz państwo z którego będzie odbierana Twoja przesyłka'
+      },
+      country2: {
+        name: 'country2',
+        label: 'Państwo*',
+        requiredErrorMsg: 'Wybierz państwo z którego będzie odbierana Twoja przesyłka'
       },
       useAddressForPaymentDetails: {
         name: 'useAddressForPaymentDetails',

@@ -3,16 +3,18 @@ const {
   formField: {
     email,
     firstName,
+    firstName2,
     lastName,
+    lastName2,
     address1,
+    address2,
     city,
+    city2,
     zipcode,
+    zipcode2,
     country,
-    useAddressForPaymentDetails,
-    nameOnCard,
-    cardNumber,
+    country2,
     expiryDate,
-    cvv
   }, 
 } = sendParcelModel;
 
@@ -22,14 +24,16 @@ export default {
   parcelCategory: '',
   [email.name]: '',
   [firstName.name]: '',
+  [firstName2.name]: '',
   [lastName.name]: '',
+  [lastName2.name]: '',
   [address1.name]: '',
+  [address2.name]: '',
   [city.name]: '',
+  [city2.name]: '',
   [zipcode.name]: '',
+  [zipcode2.name]: '',
   [country.name]: '',
-  [useAddressForPaymentDetails.name]: false,
-  [nameOnCard.name]: '',
-  [cardNumber.name]: '',
+  [country2.name]: '',
   [expiryDate.name]: '',
-  [cvv.name]: ''
 };

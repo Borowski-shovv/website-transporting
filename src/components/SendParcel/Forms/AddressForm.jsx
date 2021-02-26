@@ -1,83 +1,48 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { InputField, CheckboxField, SelectField } from '../FormFields';
+import { useFormikContext } from 'formik';
+import './AddressForm.css';
 
-const cities = [
-  {
-    value: undefined,
-    label: 'None'
-  },
-  {
-    value: '1',
-    label: 'New York'
-  },
-  {
-    value: '2',
-    label: 'Chicago'
-  },
-  {
-    value: '3',
-    label: 'Saigon'
-  }
-];
-
-const states = [
-  {
-    value: undefined,
-    label: 'None'
-  },
-  {
-    value: '11',
-    label: 'Florida'
-  },
-  {
-    value: '22',
-    label: 'Michigan'
-  },
-  {
-    value: '33',
-    label: 'Texas'
-  }
-];
 
 const countries = [
   {
-    value: null,
-    label: 'None'
+
+    value: 'Polska',
+    label: 'Polska'
   },
   {
-    value: '111',
-    label: 'United States'
+
+    value: 'Szwecja',
+    label: 'Szwecja'
   },
-  {
-    value: '222',
-    label: 'Italy'
-  },
-  {
-    value: '333',
-    label: 'Vietnam'
-  }
 ];
 
 export default function AddressForm(props) {
   const {
     formField: {
       firstName,
+      firstName2,
       lastName,
+      lastName2,
       address1,
       address2,
       city,
-      state,
+      city2,  
       zipcode,
+      zipcode2,
       country,
-      useAddressForPaymentDetails
+      country2,
     }
   } = props;
+
+  const { values: formValues } = useFormikContext();
+console.log(formValues)
 
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Shipping address
+        Dane adresowe nadania paczki
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
@@ -89,24 +54,8 @@ export default function AddressForm(props) {
         <Grid item xs={12}>
           <InputField name={address1.name} label={address1.label} fullWidth />
         </Grid>
-        <Grid item xs={12}>
-          <InputField name={address2.name} label={address2.label} fullWidth />
-        </Grid>
         <Grid item xs={12} sm={6}>
-          <SelectField
-            name={city.name}
-            label={city.label}
-            data={cities}
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <SelectField
-            name={state.name}
-            label={state.label}
-            data={states}
-            fullWidth
-          />
+          <InputField name={city.name} label={city.label} fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
           <InputField name={zipcode.name} label={zipcode.label} fullWidth />
@@ -119,13 +68,35 @@ export default function AddressForm(props) {
             fullWidth
           />
         </Grid>
-        <Grid item xs={12}>
-          <CheckboxField
-            name={useAddressForPaymentDetails.name}
-            label={useAddressForPaymentDetails.label}
-          />
-        </Grid>
       </Grid>
+        <Typography className="second-steptitle" variant="h6" gutterBottom>
+          Dane adresowe odbioru paczki
+        </Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+              <InputField name={firstName2.name} label={firstName2.label} fullWidth />
+            </Grid>
+             <Grid item xs={12} sm={6}>
+              <InputField name={lastName2.name} label={lastName2.label} fullWidth />
+            </Grid>
+            <Grid item xs={12}>
+              <InputField name={address2.name} label={address2.label} fullWidth />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <InputField name={city2.name} label={city2.label} fullWidth />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <InputField name={zipcode2.name} label={zipcode2.label} fullWidth />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <SelectField
+                name={country2.name}
+                label={country2.label}
+                data={countries}
+                fullWidth
+              />
+            </Grid> 
+        </Grid> 
     </React.Fragment>
   );
 }

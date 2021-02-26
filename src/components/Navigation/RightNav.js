@@ -96,6 +96,11 @@ const RightNav = ({ open }) => {
       activeClassName="navigationItemLinkActive"
       className="navigationItemLink" to="/kontakt"><span>Kontakt</span></NavLink>
     </li>
+    <li>
+      <NavLink 
+      activeClassName="navigationItemLinkActive"
+      className="navigationItemLink" to="/zaloguj"><span>Zaloguj</span></NavLink>
+    </li>
   </Ul>
   </>
   );

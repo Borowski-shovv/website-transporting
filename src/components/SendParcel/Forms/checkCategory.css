@@ -1,3 +1,15 @@
+.Step1-wrapper .MuiGrid-spacing-xs-2 > .MuiGrid-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Step1-wrapper .MuiFormControlLabel-root {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 input[type="radio"] {
     width: 100px;
     height: 100px;
@@ -11,7 +23,7 @@ input[type="radio"]:checked {
     /* border: 5px solid red; */
 }
 
-input[type="radio"].paczka {
+/* input[type="radio"].paczka {
     background: url('../../../assets/images/formImages/box.svg');
 }
 
@@ -30,4 +42,29 @@ input[type="radio"].auto {
 
 input[type="radio"].ponadgabarytowy {
     background: url('../../../assets/images/formImages/truck.svg');
+} */
+
+.categoryIconImage {
+    width: 100px;
+    height: 100px;
+    background: url('../../../assets/images/formImages/box.svg');
+    background-size: cover;
+}
+
+.Step1-wrapper .MuiGrid-spacing-xs-2 > .checkbox-grid-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.Step1-wrapper .MuiGrid-spacing-xs-2 > .email-grid-wrapper {
+    margin-right: auto;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+
+.checkpackage-checkbox label.MuiFormControlLabel-root {
+    width: auto;
+    height: auto;
 }

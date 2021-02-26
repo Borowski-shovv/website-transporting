@@ -1,0 +1,10 @@
+@media (max-width: 768px) {
+    .MuiStepper-horizontal {
+        flex-direction: column !important;   
+        align-items: flex-start !important;
+    }
+
+    .MuiStep-horizontal {
+        margin: 10px;
+    }
+}

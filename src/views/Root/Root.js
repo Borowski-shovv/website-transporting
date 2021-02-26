@@ -1,9 +1,5 @@
 import React from 'react';
 import './Root.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
-
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../../store/index';
@@ -18,6 +14,7 @@ import GalleryView from '../GalleryView/GalleryView';
 import PricesView from '../PricesView/PricesView';
 import OrderView from '../OrderView/OrderView';
 import CheckoutView from '../CheckoutView/checkout';
+import LoginView from '../LoginView/LoginView';
 
 //common components 
 import Footer from '../../components/Footer/Footer';
@@ -28,9 +25,9 @@ import '../../assets/themify-icons/themify-icons.css';
 // scroll top
 import ScrollTopButton from '../../components/ScrollToTop/ScrollToTop';
 import ScrollToTop from 'react-router-scroll-top'
-
 // cookies
 import CookieConsent from "react-cookie-consent";
+
 
 const routes = [
   { path: '/', name: 'Home', Component: HomeView },
@@ -42,8 +39,8 @@ const routes = [
   { path: '/cennik', name: 'Cennik', Component: PricesView},
   { path: '/zamowienie', name: 'Cennik', Component: OrderView},
   { path: '/koszyk', name: 'Koszyk', Component: CheckoutView},
+  { path: '/zaloguj', name: 'Logowanie', Component: LoginView},
 ];
-
 
 function Root() {
   return (

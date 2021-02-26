@@ -1,0 +1,23 @@
+.react-datepicker-wrapper {
+    display: block;
+    margin-top: 10px;
+} 
+
+.datePicker-label {
+    color: rgba(0,0,0,0.54);
+    font-size: 1rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0.00938em;
+}
+
+.react-datepicker__input-container input {
+    padding: 6px 12px;
+    color: rgba(0,0,0,0.54);
+    font-size: 1rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0.00938em;
+}
