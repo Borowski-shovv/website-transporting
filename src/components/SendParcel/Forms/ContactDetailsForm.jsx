@@ -4,7 +4,7 @@ import { InputField, CheckboxField, SelectField } from '../FormFields';
 import DatePicker from '../FormFields/DatePicker';
 import './ContactDetailsForm.css';
 import { useFormikContext } from 'formik';
-import { useDropzone } from "react-dropzone";
+import { MultipleFileUploadField } from '../FormFields/UploadField/MultipleFileUploadField';
 
 const months = ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']
 const days = ['Ndz', 'Pon', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob']
@@ -16,7 +16,14 @@ const locale = {
   },
   formatLong: {}
 }
-  
+
+export default function ContactDetailsForm(props) {
+  // const {
+   
+  // } = props;
+
+  const { values: formValues, values, setFieldValue } = useFormikContext();
+
   return (
     <React.Fragment>
       <Typography className="second-steptitle" variant="h6" gutterBottom>
@@ -37,6 +44,9 @@ const locale = {
         <Typography className="second-steptitle" variant="h6" gutterBottom>
         Wstaw zdjęcia Twojej przysłki
         </Typography>
+        <Grid container spacing={2} direction='column'>
+          <MultipleFileUploadField name="files" />
+        </Grid>
       </Grid>
     
     </React.Fragment>

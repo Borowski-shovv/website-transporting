@@ -24,39 +24,37 @@ import { Formik, Form } from 'formik';
 import useStyles from './styles';
 import './SendParcel.css';
 
-// const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', 'Informacje dotyczące płatności', 'Podsumowanie zamówienia'];
-const steps = ['Preferowane terminy', 'Informacje dotyczące płatności', 'Podsumowanie zamówienia'];
+const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', 'Podsumowanie zamówienia'];
+// const steps = ['Preferowane terminy', 'Informacje dotyczące płatności', 'Podsumowanie zamówienia'];
 const { formId, formField, formParcelCategory, files} = sendParcelModel;
 
 
-// function _renderStepContent(step) {
-//   switch (step) {
-//     case 0:
-//       return <CheckCategory formParcelCategory={formParcelCategory} formField={formField} />;
-//     case 1:
-//       return <AddressForm formField={formField} />;
-//     case 2:
-//       return <ContactDetailsForm files={files} formField={formField}/>;
-//     case 3:
-//       return <DatesForm formField={formField} />;
-//     case 4:
-//       return <ReviewOrder />;
-//     default:
-//       return <div>Not Found</div>;
-//   }
-// }
 function _renderStepContent(step) {
   switch (step) {
     case 0:
-      return <ContactDetailsForm files={files} formField={formField}/>;
+      return <CheckCategory formParcelCategory={formParcelCategory} formField={formField} />;
     case 1:
-      return <DatesForm formField={formField} />;
+      return <AddressForm formField={formField} />;
     case 2:
+      return <ContactDetailsForm files={files} formField={formField}/>;
+    case 3:
       return <ReviewOrder />;
     default:
       return <div>Not Found</div>;
   }
 }
+// function _renderStepContent(step) {
+//   switch (step) {
+//     case 0:
+//       return <ContactDetailsForm files={files} formField={formField}/>;
+//     case 1:
+//       return <DatesForm formField={formField} />;
+//     case 2:
+//       return <ReviewOrder />;
+//     default:
+//       return <div>Not Found</div>;
+//   }
+// }
 
 const SendParcel = () => {
   const classes = useStyles();
@@ -67,10 +65,15 @@ const SendParcel = () => {
 
   async function _submitForm(values, actions) {
     // await _sleep(1000);
-    alert(JSON.stringify(values, null, 2));
-    actions.setSubmitting(false);
+    // actions.setSubmitting(false);
 
     setActiveStep(activeStep + 1);
+
+    return new Promise((res) => setTimeout(() => {
+      res();
+      console.log('odpowiedz po wyslaniu')
+      console.log('dane z formularza', values)
+    }, 2000))
   }
 
   function _handleSubmit(values, actions) {

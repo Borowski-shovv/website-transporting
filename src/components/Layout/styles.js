@@ -3,12 +3,12 @@ import {
     responsiveFontSizes,
     makeStyles,
   } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
+import { red, blue } from '@material-ui/core/colors';
 
 
 
   let theme = createMuiTheme({
-    palette: { type: 'light', primary: red, secondary: red },
+    palette: { type: 'light', primary: red, secondary: blue},
   });
   theme = responsiveFontSizes(theme);
 

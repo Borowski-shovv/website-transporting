@@ -108,30 +108,30 @@ export default function CheckCategory(props) {
                                                             <p className="p-label">Co chcesz przewieźć</p>
                                                             <InputField className="long-input" variant="outlined" name={`parcel[${index}].name`}/>
                                                         </Grid>
-                                                        <Grid item >
+                                                        <Grid item>
                                                             <p className="p-label">waga</p>
                                                             <InputField type="number" variant="outlined" name={`parcel[${index}].weight`}  />
                                                         </Grid><p className="p-unit">kg</p>
-                                                        <Grid item >
+                                                        <Grid item>
                                                             <p className="p-label">wysokość</p>
                                                             <InputField type="number" variant="outlined" name={`parcel[${index}].height`} />
                                                         </Grid><p className="p-unit">cm</p>
-                                                        <Grid item  >
+                                                        <Grid item>
                                                             <p className="p-label">szerokość</p>
                                                             <InputField type="number" variant="outlined" name={`parcel[${index}].width`} />
                                                         </Grid><p className="p-unit">cm</p>
                                                         <Grid item  >
                                                             <p className="p-label">długość</p>
                                                             <InputField type="number" variant="outlined" name={`parcel[${index}].length`} />
-                                                        </Grid><p  className="p-unit">cm</p>
-                                                        <Grid item >
+                                                        </Grid><p className="p-unit">cm</p>
+                                                        <Grid item>
                                                             <p className="p-label">ilość</p>
                                                             <InputField 
                                                                 type="number"
                                                                 variant="outlined" 
                                                                 name={`parcel[${index}].amount`} 
                                                             />  
-                                                        </Grid><p  className="p-unit">szt</p>
+                                                        </Grid><p className="p-unit">szt</p>
                                                         <Grid item >
                                                             <p className="p-label">sposób zapakowania</p>
                                                             <SelectField
