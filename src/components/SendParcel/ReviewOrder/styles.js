@@ -8,5 +8,5 @@ export default makeStyles(theme => ({
   },
   title: {
     marginTop: theme.spacing(2)
-  }
+  },
 }));

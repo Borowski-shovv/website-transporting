@@ -5,7 +5,8 @@ import {
   StepLabel,
   Button,
   Typography,
-  CircularProgress
+  CircularProgress,
+  Paper
 } from '@material-ui/core';
 
 import AddressForm from './Forms/AddressForm';
@@ -17,28 +18,40 @@ import CheckoutSuccess from './CheckoutSuccess';
 import validationSchema from './FormModel/validationSchema';
 import sendParcelModel from './FormModel/sendParcelModel';
 import formInitialValues from './FormModel/formInitialValues';
-
 import { Formik, Form } from 'formik';
-import { useFormikContext } from 'formik';
+// import { useFormikContext } from 'formik';
 
 import useStyles from './styles';
 import './SendParcel.css';
 
-const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Dane kontaktowe i terminy', 'Informacje dotyczące płatności', 'Podsumowanie zamówienia'];
-const { formId, formField, formParcelCategory } = sendParcelModel;
+// const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', 'Informacje dotyczące płatności', 'Podsumowanie zamówienia'];
+const steps = ['Preferowane terminy', 'Informacje dotyczące płatności', 'Podsumowanie zamówienia'];
+const { formId, formField, formParcelCategory, files} = sendParcelModel;
 
 
+// function _renderStepContent(step) {
+//   switch (step) {
+//     case 0:
+//       return <CheckCategory formParcelCategory={formParcelCategory} formField={formField} />;
+//     case 1:
+//       return <AddressForm formField={formField} />;
+//     case 2:
+//       return <ContactDetailsForm files={files} formField={formField}/>;
+//     case 3:
+//       return <DatesForm formField={formField} />;
+//     case 4:
+//       return <ReviewOrder />;
+//     default:
+//       return <div>Not Found</div>;
+//   }
+// }
 function _renderStepContent(step) {
   switch (step) {
     case 0:
-      return <CheckCategory formParcelCategory={formParcelCategory} formField={formField} />;
+      return <ContactDetailsForm files={files} formField={formField}/>;
     case 1:
-      return <AddressForm formField={formField} />;
-    case 2:
-      return <ContactDetailsForm formField={formField}/>;
-    case 3:
       return <DatesForm formField={formField} />;
-    case 4:
+    case 2:
       return <ReviewOrder />;
     default:
       return <div>Not Found</div>;
@@ -76,16 +89,18 @@ const SendParcel = () => {
 
   return(
     <React.Fragment>
-    <Typography component="h1" variant="h4" align="center">
+    <Typography component="h1" variant="h4" align="center" className={classes.titleForm}>
       Nadaj przesyłkę
     </Typography>
-    <Stepper activeStep={activeStep} className={classes.stepper}>
-      {steps.map(label => (
-        <Step key={label}>
-          <StepLabel>{label}</StepLabel>
-        </Step>
-      ))}
-    </Stepper>
+    <Paper >
+      <Stepper activeStep={activeStep} className={classes.stepper}>
+        {steps.map(label => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+    </Paper>
     <React.Fragment>
       {activeStep === steps.length ? (
         <CheckoutSuccess />
@@ -96,9 +111,11 @@ const SendParcel = () => {
           onSubmit={_handleSubmit}
           >
      
-          {({ isSubmitting }) => (
+          {({ isSubmitting, values, errors }) => (
             <Form id={formId}>
-              {_renderStepContent(activeStep)}
+            
+                {_renderStepContent(activeStep)}
+              
              
               <div className={classes.buttons}>
                 {activeStep !== 0 && (
@@ -124,6 +141,7 @@ const SendParcel = () => {
                   )}
                 </div>
               </div>
+              <pre>{JSON.stringify({values, errors}, null, 4)}</pre>
             </Form>
           )}
         </Formik>

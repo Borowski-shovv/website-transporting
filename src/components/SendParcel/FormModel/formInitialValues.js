@@ -1,11 +1,10 @@
+/* eslint-disable import/no-anonymous-default-export */
 import sendParcelModel from './sendParcelModel';
 const {
   formField: {
     email,
     firstName,
     firstName2,
-    lastName,
-    lastName2,
     address1,
     address2,
     city,
@@ -14,10 +13,12 @@ const {
     zipcode2,
     country,
     country2,
-    expiryDate,
-  }, 
+    contactNumber,
+    contactNumber2,
+    contactPerson,
+    contactPerson2
+  },
 } = sendParcelModel;
-
 
 
 export default {
@@ -25,8 +26,8 @@ export default {
   [email.name]: '',
   [firstName.name]: '',
   [firstName2.name]: '',
-  [lastName.name]: '',
-  [lastName2.name]: '',
+  [contactPerson.name]: '',
+  [contactPerson2.name]: '',
   [address1.name]: '',
   [address2.name]: '',
   [city.name]: '',
@@ -35,5 +36,29 @@ export default {
   [zipcode2.name]: '',
   [country.name]: '',
   [country2.name]: '',
-  [expiryDate.name]: '',
+  [contactNumber.name]: '',
+  [contactNumber2.name]: '',
+  files: [],
+  numberOfPackages: '',
+  parcel: [
+    {
+      name: '',
+      weight: '',
+      height: '',
+      width: '', 
+      length: '',
+      amount: '',
+      kindOfpackage: '',
+    }  
+  ],
+  pallet: [
+    {
+      name: '',
+      weight: '',
+      height: '',
+      width: '', 
+      length: '',
+      amount: '',
+    }
+  ]
 };

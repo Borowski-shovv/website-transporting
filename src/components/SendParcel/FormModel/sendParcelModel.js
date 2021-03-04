@@ -10,23 +10,23 @@ export default {
       },
       firstName: {
         name: 'firstName',
-        label: 'Imię*',
+        label: 'Imię i nazwisko lub nazwa firmy*',
         requiredErrorMsg: 'Imię jest wymagane.'
       },
       firstName2: {
         name: 'firstName2',
-        label: 'Imię*',
+        label: 'Imię i nazwisko lub nazwa firmy*',
         requiredErrorMsg: 'Imię jest wymagane.'
       },
-      lastName: {
-        name: 'lastName',
-        label: 'Nazwisko*',
-        requiredErrorMsg: 'Nazwisko jest wymagane.'
+      contactPerson: {
+        name: 'contactPerson',
+        label: 'Osoba kontaktowa*',
+        requiredErrorMsg: 'Osoba kontaktowa jest wymagana.'
       },
-      lastName2: {
-        name: 'lastName2',
-        label: 'Nazwisko*',
-        requiredErrorMsg: 'Nazwisko jest wymagane.'
+      contactPerson2: {
+        name: 'contactPerson2',
+        label: 'Osoba kontaktowa*',
+        requiredErrorMsg: 'Osoba kontaktowa jest wymagana.'
       },
       address1: {
         name: 'address1',
@@ -74,50 +74,23 @@ export default {
         label: 'Państwo*',
         requiredErrorMsg: 'Wybierz państwo z którego będzie odbierana Twoja przesyłka'
       },
-      useAddressForPaymentDetails: {
-        name: 'useAddressForPaymentDetails',
-        label: 'Use this address for payment details'
+      contactNumber: {
+        name: 'contactNumber',
+        label: 'Numer kontaktowy nadawcy paczki*',
+        requiredErrorMsg: 'Numer kontaktowy nadawcy jest wymagany'
       },
-      nameOnCard: {
-        name: 'nameOnCard',
-        label: 'Name on card*',
-        requiredErrorMsg: 'Name on card is required'
+      contactNumber2: {
+        name: 'contactNumber2',
+        label: 'Numer kontaktowy odbiorcy paczki*',
+        requiredErrorMsg: 'Numer kontaktowy odbiorcy jest wymagany'
       },
-      cardNumber: {
-        name: 'cardNumber',
-        label: 'Card number*',
-        requiredErrorMsg: 'Card number is required',
-        invalidErrorMsg: 'Card number is not valid (e.g. 4111111111111)'
+      parcelCategory: {
+        name: 'parcelCategory',
+        requiredErrorMsg: 'Wybierz kategorie paczki'
       },
-      expiryDate: {
-        name: 'expiryDate',
-        label: 'Expiry date*',
-        requiredErrorMsg: 'Expiry date is required',
-        invalidErrorMsg: 'Expiry date is not valid'
-      },
-      cvv: {
-        name: 'cvv',
-        label: 'CVV*',
-        requiredErrorMsg: 'CVV is required',
-        invalidErrorMsg: 'CVV is invalid (e.g. 357)'
-      }
     },
-    formParcelCategory: {
-      category1: {
-        name: 'Paczka',
-      },
-      category2: {
-        name: 'Paleta',
-      },
-      category3: {
-        name: 'Transport auta',
-      },
-      category4: {
-        name: 'Przeprowadzka',
-      },
-      category5: {
-        name: 'Transport Ponadgabarytowy',
-      },
-    }
+    files: [],
+    
+    parcel: [],
   };
   

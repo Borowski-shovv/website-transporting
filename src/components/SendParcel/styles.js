@@ -22,5 +22,8 @@ export default makeStyles(theme => ({
     top: '50%',
     left: '50%'
   },
+  titleForm: {
+    marginBottom: theme.spacing(3)
+  }
   
 }));

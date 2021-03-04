@@ -10,7 +10,7 @@ export default function ReviewOrder() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Order summary
+        Podsumowanie Twojej wysyłki
       </Typography>
       <ProductDetails />
       <Grid container spacing={2}>

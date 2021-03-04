@@ -3,11 +3,17 @@ import {
     responsiveFontSizes,
     makeStyles,
   } from '@material-ui/core/styles';
-  import { red } from '@material-ui/core/colors';
+import { red } from '@material-ui/core/colors';
+
+
+
   let theme = createMuiTheme({
     palette: { type: 'light', primary: red, secondary: red },
   });
   theme = responsiveFontSizes(theme);
+
+
+
   const useStyle = makeStyles(() => ({
     root: {
       width: 'auto',
@@ -18,10 +24,12 @@ import {
         marginLeft: 'auto',
         marginRight: 'auto',
       },
-      backgroundColor: theme.palette.background.default,
+      // backgroundColor: theme.palette.background.default,
+      backgroundColor: '#ebebeb',
       color: theme.palette.text.primary,
     },
     paper: {
+      backgroundColor: '#ebebeb',
       marginTop: theme.spacing(3),
       marginBottom: theme.spacing(3),
       padding: theme.spacing(2),
@@ -31,5 +39,9 @@ import {
         padding: theme.spacing(3),
       },
     },
+    addressPaper: {
+      justifyContent: 'center',
+      padding: '30px 0px',
+    }
   }));
   export { theme, useStyle };

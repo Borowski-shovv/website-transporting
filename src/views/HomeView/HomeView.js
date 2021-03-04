@@ -2,7 +2,6 @@ import React from 'react';
 import Promobar from '../../components/Promobar/Promobar';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import HoverSection from '../../components/HoverSection/HoverSection'
-import YoutubeSection from '../../components/YoutubeSection/YoutubeSection';
 import CardSection from '../../components/CardsSection/CardSection';
 import OwlCarousel from '../../components/OwlCarousel/Owldemo1';
 import Navigation from '../../components/Navigation/Navigation'
@@ -56,7 +55,6 @@ const HomeView = () => {
           <CardSection />
           <Promobar />
           <HoverSection />
-          <YoutubeSection />
           <HowItWorks />  
         </div>
       </div>
