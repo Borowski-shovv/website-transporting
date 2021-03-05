@@ -35,16 +35,15 @@ export default [
     parcel: Yup 
       .mixed()
       .when("parcelCategory", {
-       
       is: (parcelCategory => parcelCategory === 'paczka'),
       then:  Yup.array().of(
         Yup.object().shape({
           name: Yup.string().min(2, 'Nazwa jest za krótka.').required('Napisz co przewozisz.'),
-          weight: Yup.number().required('Waga paczki jest wymagana.'),
-          height: Yup.number().required('Wysokość paczki jest wymagana.'),
-          width: Yup.number().required('Szerokość paczki jest wymagana.'),
-          length: Yup.number().required('Długość paczki jest wymagana.'),
-          amount: Yup.number().required('Wpisz ilość paczek.'),
+          weight: Yup.number().min(1).required('Waga paczki jest wymagana.'),
+          height: Yup.number().min(1).required('Wysokość paczki jest wymagana.'),
+          width: Yup.number().min(1).required('Szerokość paczki jest wymagana.'),
+          length: Yup.number().min(1).required('Długość paczki jest wymagana.'),
+          amount: Yup.number().min(1).required('Wpisz ilość paczek.'),
           kindOfpackage: Yup.string().required('Wybierz typ opakowania.')
         })
       )
@@ -53,7 +52,7 @@ export default [
       .mixed()
       .when("parcelCategory", {   
       is: (parcelCategory => parcelCategory === 'paleta'),
-      then:  Yup.array().of(
+      then: Yup.array().of(
         Yup.object().shape({
           name: Yup.string().min(2, 'Nazwa jest za krótka').required('Rodzaj palety jest wymagany'),
           weight: Yup.number().required('Waga palety jest wymagana'),

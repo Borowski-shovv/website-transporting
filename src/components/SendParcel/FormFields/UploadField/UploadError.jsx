@@ -7,6 +7,7 @@ import {
   import React from 'react';
   import { FileError } from 'react-dropzone';
   import { FileHeader } from './FileHeader';
+
   
   const ErrorLinearProgress = withStyles((theme) =>
     createStyles({
@@ -15,8 +16,10 @@ import {
       },
     })
   )(LinearProgress);
-  
+ 
+
   export function UploadError({ file, onDelete, errors }) {
+
     return (
       <React.Fragment>
         <FileHeader file={file} onDelete={onDelete} />

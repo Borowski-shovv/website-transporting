@@ -1,18 +1,15 @@
 import React from 'react';
 import { Grid, TextField, Typography, Box, MenuItem, FormGroup, Button, Paper} from '@material-ui/core';
-import { InputField, InputRadio, CheckboxField, SelectField } from '../FormFields';
+import { InputField, InputRadio, CheckboxField, SelectField, UnitField, PackageType } from '../FormFields';
 import { useFormikContext, Field, FieldArray, ErrorMessage } from 'formik';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import './CheckCategory.css';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import SaveIcon from '@material-ui/icons/Save';
-import DeleteIcon from '@material-ui/icons/Delete';
+
 import { makeStyles } from '@material-ui/core';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     clientChoice: {
        textAlign: 'center',
        marginTop: '50px',
@@ -35,8 +32,12 @@ const useStyles = makeStyles({
     },
     marginTopBtn: {
         marginTop: '20px',
+    },
+    errorColor: {
+        // borderColor: theme.palette.error.main,
+        borderColor: '#000'
     }
-  })
+  }))
 
   const kindOfPackage = [
     {
@@ -60,7 +61,7 @@ const useStyles = makeStyles({
 export default function CheckCategory(props) {
     const classes = useStyles()
     const { formField: { email } } = props;
-    const { values: formValues } = useFormikContext();
+    const { values: formValues, errors } = useFormikContext();
 
     
     return (
@@ -95,7 +96,6 @@ export default function CheckCategory(props) {
                 {formValues.parcelCategory === "paczka" ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                     <Grid container >
-                        
                         <Grid xs={12} item>
                             <FieldArray 
                                 name="parcel"
@@ -106,27 +106,28 @@ export default function CheckCategory(props) {
                                                     <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
                                                         <Grid item>
                                                             <p className="p-label">Co chcesz przewieźć</p>
-                                                            <InputField className="long-input" variant="outlined" name={`parcel[${index}].name`}/>
+                                                            <UnitField className="long-input" variant="outlined" name={`parcel[${index}].name`}/> 
+                                                            {/* <UnitField name={`parcel[${index}].name`} variant="outlined"/> */}
                                                         </Grid>
                                                         <Grid item>
                                                             <p className="p-label">waga</p>
-                                                            <InputField type="number" variant="outlined" name={`parcel[${index}].weight`}  />
+                                                            <UnitField type="number" variant="outlined" name={`parcel[${index}].weight`}  />
                                                         </Grid><p className="p-unit">kg</p>
                                                         <Grid item>
                                                             <p className="p-label">wysokość</p>
-                                                            <InputField type="number" variant="outlined" name={`parcel[${index}].height`} />
+                                                            <UnitField type="number" variant="outlined" name={`parcel[${index}].height`} />
                                                         </Grid><p className="p-unit">cm</p>
                                                         <Grid item>
                                                             <p className="p-label">szerokość</p>
-                                                            <InputField type="number" variant="outlined" name={`parcel[${index}].width`} />
+                                                            <UnitField type="number" variant="outlined" name={`parcel[${index}].width`} />
                                                         </Grid><p className="p-unit">cm</p>
                                                         <Grid item  >
                                                             <p className="p-label">długość</p>
-                                                            <InputField type="number" variant="outlined" name={`parcel[${index}].length`} />
+                                                            <UnitField type="number" variant="outlined" name={`parcel[${index}].length`} />
                                                         </Grid><p className="p-unit">cm</p>
                                                         <Grid item>
                                                             <p className="p-label">ilość</p>
-                                                            <InputField 
+                                                            <UnitField 
                                                                 type="number"
                                                                 variant="outlined" 
                                                                 name={`parcel[${index}].amount`} 
@@ -134,7 +135,7 @@ export default function CheckCategory(props) {
                                                         </Grid><p className="p-unit">szt</p>
                                                         <Grid item >
                                                             <p className="p-label">sposób zapakowania</p>
-                                                            <SelectField
+                                                            <PackageType
                                                                 className="long-input"
                                                                 variant="outlined"
                                                                 name={`parcel[${index}].kindOfpackage`}
@@ -146,7 +147,7 @@ export default function CheckCategory(props) {
                                                             type="button"
                                                             onClick={() => arrayHelpers.remove(index)}
                                                         >
-                                                            <RemoveCircleIcon color="secondary"/>   
+                                                            <RemoveCircleIcon color="primary"/>   
                                                         </Button>
                                                     </Grid>
                                                 </div>
@@ -157,7 +158,7 @@ export default function CheckCategory(props) {
                                          
                                             <Button 
                                                 variant="contained" 
-                                                color="secondary" 
+                                                color="primary" 
                                                 className={classes.marginTopBtn}
                                                 type="button" 
                                                 onClick={() => arrayHelpers.push({ name: '', weight: '', height: '', width: '', length: '', kindOfpackage: ''})}>
@@ -174,7 +175,7 @@ export default function CheckCategory(props) {
 
                 {formValues.parcelCategory === "paleta" ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
-                        <Grid container >
+                        <Grid container>
                             
                             <Grid xs={12} item>
                                 <FieldArray 
@@ -185,32 +186,31 @@ export default function CheckCategory(props) {
                                                     <div className="addNewParcel-wrapper" key={index}>
                                                         <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
                                                             <Grid item>
-                                                                <p className="p-label">Rodzaj palety</p>
-                                                                <InputField className="long-input" variant="outlined" name={`pallet[${index}].name`}/>
+                                                                <p className="p-label">rodzaj palety</p>
+                                                                <UnitField className="long-input" variant="outlined" name={`pallet[${index}].name`}/>
                                                             </Grid>
                                                             <Grid item >
                                                                 <p className="p-label">waga</p>
-                                                                <InputField variant="outlined" name={`pallet[${index}].weight`}  />
+                                                                <UnitField variant="outlined" name={`pallet[${index}].weight`}  />
                                                             </Grid><p className="p-unit">kg</p>
                                                             <Grid item >
                                                                 <p className="p-label">wysokość</p>
-                                                                <InputField variant="outlined" name={`pallet[${index}].height`} />
+                                                                <UnitField variant="outlined" name={`pallet[${index}].height`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item  >
                                                                 <p className="p-label">szerokość</p>
-                                                                <InputField variant="outlined" name={`pallet[${index}].width`} />
+                                                                <UnitField variant="outlined" name={`pallet[${index}].width`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item  >
                                                                 <p className="p-label">długość</p>
-                                                                <InputField variant="outlined" name={`pallet[${index}].length`} />
-                                                            </Grid><p  className="p-unit">cm</p>
+                                                                <UnitField variant="outlined" name={`pallet[${index}].length`} />
+                                                            </Grid><p className="p-unit">cm</p>
                                                             <Grid item >
                                                                 <p className="p-label">ilość</p>
-                                                                <InputField 
-                                                                    type="number"
+                                                                <UnitField
                                                                     variant="outlined" 
                                                                     name={`pallet[${index}].amount`} 
-                                                                    
+                                                                
                                                                 />  
                                                             </Grid><p  className="p-unit">szt</p>
                                                         
@@ -219,14 +219,14 @@ export default function CheckCategory(props) {
                                                                 type="button"
                                                                 onClick={() => arrayHelpers.remove(index)}
                                                             >
-                                                                <RemoveCircleIcon color="secondary"/>   
+                                                                <RemoveCircleIcon color="primary"/>   
                                                             </Button>
                                                         </Grid>
                                                     </div>
                                                 ))}
                                                 <Button 
                                                     variant="contained" 
-                                                    color="secondary" 
+                                                    color="primary" 
                                                     className={classes.marginTopBtn}
                                                     type="button" 
                                                     onClick={() => arrayHelpers.push({ name: '', weight: '', height: '', width: '', length: '',})}>
@@ -243,11 +243,14 @@ export default function CheckCategory(props) {
     
 
                 <Paper elevation={3} className={classes.CustomPaper}>
-                    <Grid className="email-grid-wrapper" container direction="row" item xs={12} sm={6}> 
-                        <InputField name={email.name} label={email.label} fullWidth />
-                    </Grid>
-                    <Grid className="checkbox-grid-wrapper" container direction="row" item xs={12} sm={12}> 
-                        <CheckboxField className="checkpackage-checkbox" name='pomoc przy załadunku i rozładunku' label="Pomoc przy załadunku i rozładunku"/>
+                    <Grid container spacing={2}>
+                        <Grid className="email-grid-wrapper" container direction="row" item xs={12} sm={6}> 
+                            <InputField name={email.name} label={email.label} fullWidth />
+                        </Grid>
+                        <Grid className="checkbox-grid-wrapper" container direction="row" item xs={12} sm={12}> 
+                            <CheckboxField className="checkpackage-checkbox" name='pomoc przy załadunku i rozładunku' label="Pomoc przy załadunku i rozładunku"/>
+                        </Grid>
+
                     </Grid>
                 </Paper>
             

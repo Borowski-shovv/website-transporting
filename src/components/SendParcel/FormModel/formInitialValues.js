@@ -47,7 +47,8 @@ export default {
       height: '',
       width: '', 
       length: '',
-      amount: '',
+      lengthh: '',
+      amount: '', 
       kindOfpackage: '',
     }  
   ],
