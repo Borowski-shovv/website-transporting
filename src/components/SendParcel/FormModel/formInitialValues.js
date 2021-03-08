@@ -41,16 +41,16 @@ export default {
   files: [],
   numberOfPackages: '',
   parcel: [
-    {
-      name: '',
-      weight: '',
-      height: '',
-      width: '', 
-      length: '',
-      lengthh: '',
-      amount: '', 
-      kindOfpackage: '',
-    }  
+    // {
+    //   name: '',
+    //   weight: '',
+    //   height: '',
+    //   width: '', 
+    //   length: '',
+    //   lengthh: '',
+    //   amount: '', 
+    //   kindOfpackage: '',
+    // }  
   ],
   pallet: [
     {
@@ -66,11 +66,12 @@ export default {
     {
       type: '',
       brand: '',
+      model: '',
     }
   ],
   removal: [
-    {
-      type: '',
-    }
+    // {
+    //   type: '',
+    // }
   ]
 };

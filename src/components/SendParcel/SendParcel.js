@@ -19,10 +19,9 @@ import validationSchema from './FormModel/validationSchema';
 import sendParcelModel from './FormModel/sendParcelModel';
 import formInitialValues from './FormModel/formInitialValues';
 import { Formik, Form } from 'formik';
-// import { useFormikContext } from 'formik';
-
 import useStyles from './styles';
 import './SendParcel.css';
+
 
 const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', 'Podsumowanie zamówienia'];
 // const steps = ['Preferowane terminy', 'Informacje dotyczące płatności', 'Podsumowanie zamówienia'];
@@ -93,7 +92,7 @@ const SendParcel = () => {
   return(
     <React.Fragment>
     <Typography component="h1" variant="h4" align="center" className={classes.titleForm}>
-      Nadaj przesyłkę
+      Wyceń przesyłkę
     </Typography>
     <Paper >
       <Stepper activeStep={activeStep} className={classes.stepper}>
@@ -144,6 +143,8 @@ const SendParcel = () => {
                   )}
                 </div>
               </div>
+             
+              
               <pre>{JSON.stringify({values, errors}, null, 4)}</pre>
             </Form>
           )}

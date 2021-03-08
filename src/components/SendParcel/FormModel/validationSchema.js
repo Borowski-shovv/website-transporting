@@ -49,10 +49,9 @@ export default [
           kindOfpackage: Yup.string().required('Wybierz typ opakowania.')
         })
       )
-      .min(1, 'Uzupełnij dane dotyczące Twojej paczki')
-      .max(2, 'Możesz dodać maksymalnie 5 kategorii paczek')
-     }),
-     pallet: Yup 
+      .min(1, 'Dodaj paczkę i uzupełnij dane dotyczące Twojej paczki')
+    }),
+    pallet: Yup 
       .mixed()
       .when("parcelCategory", {   
       is: (parcelCategory => parcelCategory === 'paleta'),
@@ -65,8 +64,24 @@ export default [
           length: Yup.number().required('Długość palety jest wymagana.'),
           amount: Yup.number().required('Wpisz ilość palet.'),
         })
-        ),
-     })
+      )
+      .min(1, 'Dodaj paletę i uzupełnij specyfikacje palety')
+    }),
+    car: Yup
+      .mixed()
+      .when("parcelCategory", {
+        is: (parcelCategory => parcelCategory === 'auto'),
+        then: Yup.array().of(
+          Yup.object().shape({
+            type: Yup.string().required(),
+            brand: Yup.string().required(),
+            model: Yup.string().required(),
+            weight: Yup.string().required(),
+            length: Yup.string().required()
+          })
+        )
+        .min(1, 'Dodaj auto i uzupełnij szczegóły o aucie')
+      }) 
   }),
   Yup.object().shape({
     [firstName.name]: Yup.string().required(`${firstName.requiredErrorMsg}`),
