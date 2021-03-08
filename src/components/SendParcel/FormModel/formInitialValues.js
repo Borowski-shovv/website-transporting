@@ -22,7 +22,7 @@ const {
 
 
 export default {
-  parcelCategory: '',
+  parcelCategory: [],
   [email.name]: '',
   [firstName.name]: '',
   [firstName2.name]: '',
@@ -60,6 +60,17 @@ export default {
       width: '', 
       length: '',
       amount: '',
+    }
+  ],
+  car: [
+    {
+      type: '',
+      brand: '',
+    }
+  ],
+  removal: [
+    {
+      type: '',
     }
   ]
 };

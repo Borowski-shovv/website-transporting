@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as Yup from 'yup';
-import { mixed } from 'yup';
-import moment from 'moment';
+// import { mixed } from 'yup';
+// import moment from 'moment';
 import sendParcelModel from './sendParcelModel';
 const { formField: {
     email,
@@ -32,10 +32,12 @@ export default [
   Yup.object().shape({
     [email.name]: Yup.string().email().required("Wypisz swój adres email."),
     parcelCategory: Yup.string().required("Wybierz kategorie przesyłki."),
+    // parcelCategory: Yup.array(Yup.string().oneOf(['paczka', 'paleta', 'auto', 'przeprowadzka', 'ponadgabarytowy'])).min(1, "Wybierz kategorie przesyłki."),
     parcel: Yup 
       .mixed()
       .when("parcelCategory", {
       is: (parcelCategory => parcelCategory === 'paczka'),
+      // is: (parcelCategory => parcelCategory.find(c => c === 'paczka')),
       then:  Yup.array().of(
         Yup.object().shape({
           name: Yup.string().min(2, 'Nazwa jest za krótka.').required('Napisz co przewozisz.'),
@@ -47,6 +49,8 @@ export default [
           kindOfpackage: Yup.string().required('Wybierz typ opakowania.')
         })
       )
+      .min(1, 'Uzupełnij dane dotyczące Twojej paczki')
+      .max(2, 'Możesz dodać maksymalnie 5 kategorii paczek')
      }),
      pallet: Yup 
       .mixed()

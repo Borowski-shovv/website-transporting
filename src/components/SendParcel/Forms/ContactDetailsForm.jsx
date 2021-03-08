@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
 import { InputField, CheckboxField, SelectField } from '../FormFields';
 import DatePicker from '../FormFields/DatePicker';
 import './ContactDetailsForm.css';
@@ -17,29 +17,42 @@ const locale = {
   formatLong: {}
 }
 
-export default function ContactDetailsForm(props) {
-  // const {
-   
-  // } = props;
+const useStyles = makeStyles(theme => ({
+  CustomPaper: {
+      marginBottom: '20px',
+      padding: '30px',
+      marginTop: '20px'
+  },
+ 
+}))
 
+export default function ContactDetailsForm(props) {
+  const classes = useStyles();
   const { values: formValues, values, setFieldValue } = useFormikContext();
 
   return (
     <React.Fragment>
-      <Typography className="second-steptitle" variant="h6" gutterBottom>
-        Termin odbioru i dostawy
-      </Typography>
-      <Grid container spacing={3}>
-         <Grid item xs={12} md={6}>
-          <DatePicker locale={locale} minDate={new Date()} name="preferowana data nadania" label="Preferowana data nadania paczki"/>
+      <Paper elevation={3} className={classes.CustomPaper}>
+        <Typography variant="h6" gutterBottom>
+          Termin odbioru i dostawy
+        </Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <DatePicker locale={locale} minDate={new Date()} name="preferowana data nadania" label="Preferowana data nadania paczki"/>
+          </Grid>
+          <Grid item xs={12} md={6}>
+              <DatePicker locale={locale} minDate={new Date()} name="preferowana data odbioru" label="Preferowana data odbioru paczki"/>
+          </Grid>
         </Grid>
-         <Grid item xs={12} md={6}>
-            <DatePicker locale={locale} minDate={new Date()} name="preferowana data odbioru" label="Preferowana data odbioru paczki"/>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <InputField variant="outlined" multiline rows={4} name='uwagi klienta' label={'Dodatkowe informacje dotyczące przesyłki'} fullWidth />
-        </Grid>
-      </Grid>
+      </Paper>
+      <Paper>
+          <Grid item xs={12} md={6}>
+            <InputField variant="outlined" multiline rows={4} name='uwagi klienta' label={'Dodatkowe informacje dotyczące przesyłki'} fullWidth />
+          </Grid>
+          <Grid className="checkbox-grid-wrapper" container direction="row" item xs={12} sm={12}> 
+                            <CheckboxField className="checkpackage-checkbox" name='faktura' label='potrzebuję faktury VAT'/>
+                        </Grid>
+      </Paper>
       <Grid>
         <Typography className="second-steptitle" variant="h6" gutterBottom>
         Wstaw zdjęcia Twojej przysłki

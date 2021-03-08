@@ -25,7 +25,8 @@ export function SingleFileUploadWithProgress({file, onDelete, onUpload}) {
 }
 
 function uploadFile(file, onProgress) {
-    const url = 'https://api.cloudinary.com/v1_1/demo/image/upload';
+    // const url = 'https://api.cloudinary.com/v1_1/demo/image/upload';
+    const url = 'https://najtanszapaczkaszwecja.pl/api/users/upload';
     const key = 'docs_upload_example_us_preset';
 
     return new Promise((res,rej) => {
@@ -35,7 +36,7 @@ function uploadFile(file, onProgress) {
         xhr.onload = () => {
             const resp = JSON.parse(xhr.responseText);
             res(resp.secure_url);
-
+            console.log(resp.files)
         }
 
         xhr.onerror = (evt) => rej(evt);

@@ -152,10 +152,11 @@ export default function CheckCategory(props) {
                                                     </Grid>
                                                 </div>
                                             ))}
-                                        
-                                            
-                                        
-                                         
+
+                                    <Grid item>
+                                        {typeof errors.parcel === 'string' ? <Typography color="error">{errors.parcel}</Typography> : null}
+                                    </Grid>
+                                
                                             <Button 
                                                 variant="contained" 
                                                 color="primary" 
@@ -241,7 +242,95 @@ export default function CheckCategory(props) {
                     </Paper>
                 : null}
     
+             
+                       {formValues.parcelCategory === "auto" ? 
+                       <Paper elevation={3} className={classes.CustomPaper}>
+                           <Grid container>
+                               <Grid xs={12} item>
+                                   <FieldArray 
+                                       name="car"
+                                       render={arrayHelpers => (
+                                           <div>
+                                                   {formValues.car.map((car, index) => (
+                                                       <div className="addNewParcel-wrapper" key={index}>
+                                                           <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
+                                                               <Grid item>
+                                                                   <p className="p-label">rodzaj</p>
+                                                                   <InputField className="long-input" variant="outlined" name={`car[${index}].type`}/>
+                                                               </Grid>
+                                                               <Grid item>
+                                                                   <p className="p-label">marka</p>
+                                                                   <InputField className="long-input" variant="outlined" name={`car[${index}].brand`}/>
+                                                               </Grid>
+                                                               <Button
+                                                                   type="button"
+                                                                   onClick={() => arrayHelpers.remove(index)}
+                                                               >
+                                                                   <RemoveCircleIcon color="primary"/>   
+                                                               </Button>
+                                                           </Grid>
+                                                       </div>
+                                                   ))}
+                                                   <Button 
+                                                       variant="contained" 
+                                                       color="primary" 
+                                                       className={classes.marginTopBtn}
+                                                       type="button" 
+                                                       onClick={() => arrayHelpers.push({ type: '', brand: ''})}>
+                                                           Dodaj auto <AddOutlinedIcon style={{ color: 'white' }}
+                                                       />
+                                                   </Button>
+                                           </div>
+                                       )}
+                                   />   
+                               </Grid>
+                           </Grid> 
+                       </Paper>
+                   : null}
 
+                   
+                       {formValues.parcelCategory === "przeprowadzka" ? 
+                       <Paper elevation={3} className={classes.CustomPaper}>
+                           <Grid container>
+                           
+                               <Grid xs={12} item>
+                                   <FieldArray 
+                                       name="removal"
+                                       render={arrayHelpers => (
+                                           <div>
+                                                   {formValues.removal.map((furniture, index) => (
+                                                       <div className="addNewParcel-wrapper" key={index}>
+                                                           <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
+                                                               <Grid item>
+                                                                   <p className="p-label">rodzaj mebla</p>
+                                                                   <InputField className="long-input" variant="outlined" name={`furniture[${index}].type`}/>
+                                                               </Grid>
+                                                               <Button
+                                                                   type="button"
+                                                                   onClick={() => arrayHelpers.remove(index)}
+                                                               >
+                                                                   <RemoveCircleIcon color="primary"/>   
+                                                               </Button>
+                                                           </Grid>
+                                                       </div>
+                                                   ))}
+                                                   <Button 
+                                                       variant="contained" 
+                                                       color="primary" 
+                                                       className={classes.marginTopBtn}
+                                                       type="button" 
+                                                       onClick={() => arrayHelpers.push({ type: '', brand: ''})}>
+                                                           Dodaj mebel <AddOutlinedIcon style={{ color: 'white' }}
+                                                       />
+                                                   </Button>
+                                           </div>
+                                       )}
+                                   />   
+                               </Grid>
+                           </Grid> 
+                       </Paper>
+                   : null}
+              
                 <Paper elevation={3} className={classes.CustomPaper}>
                     <Grid container spacing={2}>
                         <Grid className="email-grid-wrapper" container direction="row" item xs={12} sm={6}> 
@@ -253,28 +342,6 @@ export default function CheckCategory(props) {
 
                     </Grid>
                 </Paper>
-            
-            
-        
         </div>
     )
 }
-
-
-
-    {/* <Grid item xs={2}>
-                            <FormGroup>       
-                                <Field
-                                    name="numberOfPackages"
-                                    label="Ilość paczek"
-                                    as={TextField}
-                                    select 
-                                >
-                                    <MenuItem value={numberOfPackages ? numberOfPackages : "1-5"}>1-5</MenuItem>
-                                    <MenuItem value={numberOfPackages ? numberOfPackages : "6-10"}>6-10</MenuItem>
-                                    <MenuItem value={numberOfPackages ? numberOfPackages : "11-20"}>11-20</MenuItem>
-                                    <MenuItem value={numberOfPackages ? numberOfPackages : "21-30"}>21-30</MenuItem>
-                                    <MenuItem value={numberOfPackages ? numberOfPackages : "31-50"}>31-50</MenuItem>
-                                </Field>
-                            </FormGroup>
-                        </Grid> */}
