@@ -7,13 +7,13 @@ import {UploadError} from './UploadError';
 
 const useStyles = makeStyles((theme) => ({
     dropzone: {
-      border: `2px dashed ${theme.palette.secondary.main}`,
+      border: `2px dashed ${theme.palette.primary.main}`,
       borderRadius: theme.shape.borderRadius,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       background: theme.palette.background.default,
-      height: theme.spacing(10),
+      height: theme.spacing(12),
       outline: 'none',
       padding: '30px',
     },
@@ -53,7 +53,7 @@ export function MultipleFileUploadField({name}) {
 
   return (
     <>
-        <Grid xs={12} sm={6} item>
+        <Grid xs={12} item>
             <div {...getRootProps({className: classes.dropzone})}>
                 <input {...getInputProps()} />
                 <p>Przeciągnij i upuść Twoje zdjęcia w tym miejscu, lub naciśnij, aby wybrać zdjęcie</p>

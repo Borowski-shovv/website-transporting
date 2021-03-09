@@ -22,7 +22,7 @@ function OrderSummary() {
                 <Grid xs={12} item> 
                 {
                 formValues.parcelCategory === 'paczka' ||  formValues.parcelCategory === 'paleta'
-                || formValues.parcelCategory === 'auto' ? 
+                || formValues.parcelCategory === 'auto' || formValues.parcelCategory === 'przeprowadzka' ? 
                     <>
                         {
                             formValues.parcel.map((p,idx) => {
@@ -231,6 +231,38 @@ function OrderSummary() {
                                                     <Grid item>{c.length + ' m'}</Grid>
                                                 </Grid>
                                             </Grid>
+                                        </Grid>
+                                    </div>
+                                )
+                            })
+                        }
+
+                        {
+                            formValues.removal.map((f, idx) => {
+                                return (
+                                    <div className="summaryOrderRow" key={idx}>
+                                          <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={1}>
+                                            <Grid item sm={2}>
+                                                <Grid className="long-column" container direction="column">
+                                                    <Grid item>
+                                                        <Typography variant="h6" gutterBottom>
+                                                            Rodzaj mebla:
+                                                        </Typography>
+                                                    </Grid>
+                                                    <Grid item>{f.name}</Grid>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid item sm={2}>
+                                                <Grid className="long-column" container direction="column">
+                                                    <Grid item>
+                                                        <Typography variant="h6" gutterBottom>
+                                                            Ilość:
+                                                        </Typography>
+                                                    </Grid>
+                                                    <Grid item>{f.amount}</Grid>
+                                                </Grid>
+                                            </Grid>
+                
                                         </Grid>
                                     </div>
                                 )

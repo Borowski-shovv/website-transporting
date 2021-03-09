@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, Typography, Box, Paper } from '@material-ui/core';
 import { InputField, CheckboxField, SelectField } from '../FormFields';
 import { useFormikContext } from 'formik';
@@ -16,6 +16,10 @@ const countries = [
     label: 'Szwecja'
   },
 ];
+
+////
+// contextFormiAPi value dostane emaila
+// wysylanie geta z emailem axiosem
 
 export default function AddressForm(props) {
   const {
@@ -38,7 +42,6 @@ export default function AddressForm(props) {
   } = props;
   const classes = useStyle();
   // const { values: formValues } = useFormikContext();
-
 
   return (
     <React.Fragment>

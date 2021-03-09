@@ -2,6 +2,8 @@ import React from 'react';
 import { Typography, List, ListItem, ListItemText } from '@material-ui/core';
 import useStyles from './styles';
 
+
+
 const products = [
   { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
   { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
@@ -10,12 +12,12 @@ const products = [
   { name: 'Shipping', desc: '', price: 'Free' }
 ];
 
-function ProductDetails() {
+function ProductDetails({formValues}) {
   const classes = useStyles();
   return (
     <List disablePadding>
-      {products.map(product => (
-        <ListItem className={classes.listItem} key={product.name}>
+      {products.map((product, idx ) => (
+        <ListItem className={classes.listItem} key={idx}>
           <ListItemText primary={product.name} secondary={product.desc} />
           <Typography variant="body2">{product.price}</Typography>
         </ListItem>

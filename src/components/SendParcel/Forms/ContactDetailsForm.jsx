@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
+import { Grid, Typography, Paper, makeStyles, Box } from '@material-ui/core';
 import { InputField, CheckboxField, SelectField } from '../FormFields';
 import DatePicker from '../FormFields/DatePicker';
 import './ContactDetailsForm.css';
@@ -8,6 +8,25 @@ import { MultipleFileUploadField } from '../FormFields/UploadField/MultipleFileU
 
 const months = ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']
 const days = ['Ndz', 'Pon', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob']
+
+const servicesType = [
+  {
+    value: 'tylko transport',
+    label: 'tylko transport',
+  },
+  {
+    value: 'transport i pomoc kierowcy w zniesieniu i wniesieniu',
+    label: 'transport i pomoc kierowcy w zniesieniu i wniesieniu',
+  },
+  {
+    value: 'transport i pomoc kilku osób w zniesieniu i wniesieniu',
+    label: 'transport i pomoc kilku osób w zniesieniu i wniesieniu',
+  },
+  {
+    value: 'kompleksowa obsługa (bez mojego udziału w znoszeniu i wnoszeniu)',
+    label: 'kompleksowa obsługa (bez mojego udziału w znoszeniu i wnoszeniu)'
+  },
+]
 
 const locale = {
   localize: {
@@ -23,12 +42,18 @@ const useStyles = makeStyles(theme => ({
       padding: '30px',
       marginTop: '20px'
   },
+  bgcWhite: {
+    backgroundColor: 'white'
+  },
+  mrgTop: {
+    marginTop: 20,
+  }
  
 }))
 
 export default function ContactDetailsForm(props) {
   const classes = useStyles();
-  const { values: formValues, values, setFieldValue } = useFormikContext();
+  // const { values: formValues, values, setFieldValue } = useFormikContext();
 
   return (
     <React.Fragment>
@@ -43,24 +68,42 @@ export default function ContactDetailsForm(props) {
           <Grid item xs={12} md={6}>
               <DatePicker locale={locale} minDate={new Date()} name="preferowana data odbioru" label="Preferowana data odbioru paczki"/>
           </Grid>
+         
         </Grid>
       </Paper>
-      <Paper>
-          <Grid item xs={12} md={6}>
-            <InputField variant="outlined" multiline rows={4} name='uwagi klienta' label={'Dodatkowe informacje dotyczące przesyłki'} fullWidth />
-          </Grid>
-          <Grid className="checkbox-grid-wrapper" container direction="row" item xs={12} sm={12}> 
-                            <CheckboxField className="checkpackage-checkbox" name='faktura' label='potrzebuję faktury VAT'/>
-                        </Grid>
-      </Paper>
-      <Grid>
-        <Typography className="second-steptitle" variant="h6" gutterBottom>
-        Wstaw zdjęcia Twojej przysłki
-        </Typography>
-        <Grid container spacing={2} direction='column'>
-          <MultipleFileUploadField name="files" />
+      <Grid container spacing={3}>
+
+        <Grid item xs={12} sm={6}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <InputField className={classes.bgcWhite} variant="outlined" multiline rows={4} name='clientComment' label={'Dodatkowe informacje dotyczące przesyłki'} fullWidth />
+              </Grid>
+              <Grid item xs={12}> 
+                <SelectField
+                  className={classes.bgcWhite}
+                  label="Typ usługi"
+                  name='servicesType'
+                  data={servicesType}
+                  fullWidth
+                />
+              </Grid>
+            </Grid>
+        
+        
         </Grid>
+
+        <Grid item xs={12} sm={6}>
+            <Typography variant="h6" gutterBottom>
+            Wstaw zdjęcia Twojej przysłki
+            </Typography>
+           
+            <MultipleFileUploadField name="files" />
+        </Grid>
+      
       </Grid>
+      
+ 
+      
     
     </React.Fragment>
   );

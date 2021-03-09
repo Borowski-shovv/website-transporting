@@ -80,7 +80,19 @@ export default [
             length: Yup.number()
           })
         )
-        .min(1, 'Dodaj auto i uzupełnij szczegóły o aucie')
+        .min(1, 'Dodaj auto, które chcesz przewieźć')
+      }), 
+    removal: Yup
+      .mixed()
+      .when("parcelCategory", {
+        is: (parcelCategory => parcelCategory === 'przeprowadzka'),
+        then: Yup.array().of(
+          Yup.object().shape({
+            name: Yup.string().required(),
+            amount: Yup.string().required(),
+          })
+        )
+        .min(1, 'Dodaj mebel, który chcesz przewieźć')
       }) 
   }),
   Yup.object().shape({

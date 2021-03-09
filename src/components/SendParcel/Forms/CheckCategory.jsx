@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid, TextField, Typography, Box, MenuItem, FormGroup, Button, Paper} from '@material-ui/core';
-import { InputField, InputRadio, CheckboxField, SelectField, UnitField, PackageType } from '../FormFields';
-import { useFormikContext, Field, FieldArray, ErrorMessage } from 'formik';
+import { Grid, Typography, Button, Paper} from '@material-ui/core';
+import { InputField, InputRadio, UnitField, PackageType } from '../FormFields';
+import { useFormikContext, FieldArray } from 'formik';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import './CheckCategory.css';
 import OrderSummary from './OrderSummary';
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     categoryName: {
         textAlign: 'center',
         marginTop: 0,
-        color: '#323232',
+        color: '#838383',
     },
     titleCenter: {
         textAlign: 'center',
@@ -83,95 +83,11 @@ const palletType = [
 
 ]
 
-const furnitures = [
-    {
-        value: 'Inny mebel',
-        label: 'Inny mebel'
-    },
-    {
-        value: 'Biurko',
-        label: 'Biurko'
-    },
-    {
-        value: 'Łóżko',
-        label: 'Łóżko',
-    },
-    {
-        value: 'Łóżko podwójne z materacem',
-        label: 'Łóżko podwójne z materacem',
-    },
-    {
-        value: 'Łóżko o dużych rozmiarach',
-        label: 'Łóżko o dużych rozmiarach'
-    },
-    {
-        value: 'Fotel',
-        label: 'Fotel'
-    },
-    {
-        value: 'Fotel biurowy',
-        label: 'Fotel biurowy'
-    },
-    {
-        value: 'Krzesło',
-        label: 'Krzesło'
-    },
-    {   
-        value: 'Kanapa',
-        label: 'Kanapa'
-    },
-    {   
-        value: 'Komoda',
-        label: 'Komoda'
-    },
-    {
-        value: 'Komputer',
-        label: 'Komputer'
-    },
-    {
-        value: 'Lodówka',
-        label: 'Lodówka'
-    },
-    {
-        value: 'Materac',
-        label: 'Materac'
-    },
-    {
-        value: 'Szafa',
-        label: 'Szafa'
-    },
-    {
-        value: 'Szafka',
-        label: 'Szafka'
-    },
-    {
-        value: 'Szafka RTV',
-        label: 'Szafka RTV'
-    },
-    {
-        value: 'Sofa',
-        label: 'Sofa'
-    },
-    {
-        value: 'Stół',
-        label: 'Stół'
-    },
-    {
-        value: 'Witryna',
-        label: 'Witryna'
-    },
-    {
-        value: 'Urządzenie do ćwiczeń',
-        label: 'Urządzenie do ćwiczeń'
-    },
-]
-
 export default function CheckCategory(props) {
     const classes = useStyles()
     const { formField: { email } } = props;
     const { values: formValues, errors } = useFormikContext();
 
-    
     return (
         <>
         <div className="Step1-wrapper">
@@ -203,7 +119,8 @@ export default function CheckCategory(props) {
                 </Grid>
             </Paper>
            
-                {formValues.parcelCategory === "paczka" ? 
+                {
+                formValues.parcelCategory === "paczka" ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                     <Grid container >
                         <Grid xs={12} item>
@@ -281,7 +198,8 @@ export default function CheckCategory(props) {
                         </Grid>
                     </Grid> 
                 </Paper>
-                : null}
+                : null
+                }
 
                 {formValues.parcelCategory === "paleta" ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
@@ -437,66 +355,47 @@ export default function CheckCategory(props) {
 
                 {formValues.parcelCategory === "przeprowadzka" ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
-                           <Grid container>                           
+                        <Grid container>                           
                                <Grid xs={12} item>
                                    <FieldArray 
                                        name="removal"
                                        render={arrayHelpers => (
                                            <div>
-                                                    <Typography variant="body2">Jeżeli Twojego przedmiotu na liście, wybierz 'Inny' i uzupełnij pole Inne</Typography>
-                                                   {formValues.removal.map((furniture, index) => (
-                                                       <div className="addNewParcel-wrapper" key={index}>
-                                                           <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
-                                                                   <Grid item >
-                                                                        <p className="p-label">rodzaj mebla*</p>
-                                                                        <PackageType
-                                                                            className="long-input"
-                                                                            variant="outlined"
-                                                                            name={`furniture[${index}].type`}
-                                                                            data={furnitures}
-                                                                        />
-                                                                    </Grid>
-                                                                    <Grid item >
-                                                                <p className="p-label">ilość*</p>
-                                                                <UnitField
-                                                                    type="number"
-                                                                    variant="outlined" 
-                                                                    name={`furniture[${index}].amount`} 
+                                                        {formValues.removal.map((removal, index) => (
+                                                            <div className="addNewParcel-wrapper" key={index}>                                                        
+                                                                <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
+                                                                        <Grid item>
+                                                                    <p className="p-label">rodzaj mebla*</p>
+                                                                    <InputField className="long-input" variant="outlined" name={`removal[${index}].name`}/>
+                                                                </Grid>
+                                                                <Grid item >
+                                                                    <p className="p-label">ilość*</p>
+                                                                    <UnitField
+                                                                        type="number"
+                                                                        variant="outlined" 
+                                                                        name={`removal[${index}].amount`} 
                                                                     />  
-                                                                    {console.log(`pallet[${index}].amount`)}
-                                                                </Grid><p  className="p-unit">szt</p>
-                                                              
-                                                           </Grid>
-                                                           <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
-                                                                     <Grid item>
-                                                                   <p className="p-label">Inne</p>
-                                                                   <InputField className="long-input" variant="outlined" name={`furniture[${index}].name`}/>
-                                                               </Grid>
-                                                               <Grid item >
-                                                                <p className="p-label">ilość*</p>
-                                                                <UnitField
-                                                                    type="number"
-                                                                    variant="outlined" 
-                                                                    name={`furniture[${index}].others-amount`} 
-                                                                    />  
-                                                                 
-                                                                </Grid><p  className="p-unit">szt</p>
-                                                                <Button
-                                                                className={classes.deleteItem}
-                                                                   type="button"
-                                                                   onClick={() => arrayHelpers.remove(index)}
-                                                               >
-                                                                   <RemoveCircleIcon color="primary"/>   
-                                                               </Button>
-                                                           </Grid>
-                                                       </div>
+                                                                    </Grid><p  className="p-unit">szt</p>
+                                                                    <Button
+                                                                    className={classes.deleteItem}
+                                                                    type="button"
+                                                                    onClick={() => arrayHelpers.remove(index)}
+                                                                >
+                                                                    <RemoveCircleIcon color="primary"/>   
+                                                                </Button>
+                                                                </Grid>
+                                                        </div>
                                                    ))}
+                                                   <Grid item>
+                                                    {typeof errors.removal === 'string' ? <Typography color="error">{errors.removal}</Typography> : null}
+                                                </Grid>
+                                                
                                                    <Button 
                                                        variant="contained" 
                                                        color="primary" 
                                                        className={classes.marginTopBtn}
                                                        type="button" 
-                                                       onClick={() => arrayHelpers.push({ type: '', brand: ''})}>
+                                                       onClick={() => arrayHelpers.push({ name: '', amount: ''})}>
                                                            Dodaj mebel <AddOutlinedIcon style={{ color: 'white' }}
                                                        />
                                                    </Button>
@@ -505,10 +404,30 @@ export default function CheckCategory(props) {
                                    />   
                                </Grid>
                            </Grid> 
-                       </Paper>
+                    </Paper>
                 : null}
 
-                {formValues.parcel.length > 0 || formValues.pallet.length > 0 || formValues.car.length > 0 ? 
+                {
+                formValues.parcelCategory === "ponadgabarytowy" ?  
+                    <Paper elevation={3} className={classes.CustomPaper}>
+                            <Grid container>
+                                <Grid item xs={12} md={6}>
+                                    <InputField 
+                                        variant="outlined" 
+                                        multiline 
+                                        rows={4} 
+                                        name='comment' 
+                                        label={'Co chcesz przewieźć ?'} 
+                                        fullWidth 
+                                    />
+                                </Grid>
+                
+                            </Grid>
+                        </Paper>
+                : null
+                }
+
+                {formValues.parcel.length > 0 || formValues.pallet.length > 0 || formValues.car.length > 0 || formValues.removal.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                         <Typography variant="h6" gutterBottom>
                             Twoja przesyłka
@@ -524,7 +443,7 @@ export default function CheckCategory(props) {
                         </Grid>
                     </Grid>
                 </Paper>
-        </div>
+            </div>
         </>
     )
 }

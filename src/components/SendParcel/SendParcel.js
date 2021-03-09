@@ -10,7 +10,6 @@ import {
 } from '@material-ui/core';
 
 import AddressForm from './Forms/AddressForm';
-import DatesForm from './Forms/DatesDetailsForm';
 import CheckCategory from './Forms/CheckCategory';
 import ReviewOrder from './ReviewOrder';
 import ContactDetailsForm from './Forms/ContactDetailsForm';
@@ -23,8 +22,8 @@ import useStyles from './styles';
 import './SendParcel.css';
 
 
-const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', 'Podsumowanie zamówienia'];
-// const steps = ['Preferowane terminy', 'Informacje dotyczące płatności', 'Podsumowanie zamówienia'];
+const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', 'Podsumowanie'];
+
 const { formId, formField, formParcelCategory, files} = sendParcelModel;
 
 
@@ -39,21 +38,9 @@ function _renderStepContent(step) {
     case 3:
       return <ReviewOrder />;
     default:
-      return <div>Not Found</div>;
+      return <div>Nie znaleziono</div>;
   }
 }
-// function _renderStepContent(step) {
-//   switch (step) {
-//     case 0:
-//       return <ContactDetailsForm files={files} formField={formField}/>;
-//     case 1:
-//       return <DatesForm formField={formField} />;
-//     case 2:
-//       return <ReviewOrder />;
-//     default:
-//       return <div>Not Found</div>;
-//   }
-// }
 
 const SendParcel = () => {
   const classes = useStyles();
@@ -63,8 +50,6 @@ const SendParcel = () => {
 
 
   async function _submitForm(values, actions) {
-    // await _sleep(1000);
-    // actions.setSubmitting(false);
 
     setActiveStep(activeStep + 1);
 
@@ -114,11 +99,10 @@ const SendParcel = () => {
           >
      
           {({ isSubmitting, values, errors }) => (
-            <Form id={formId}>
+            <Form id={formId} autoComplete="off">
             
                 {_renderStepContent(activeStep)}
-              
-             
+
               <div className={classes.buttons}>
                 {activeStep !== 0 && (
                   <Button onClick={_handleBack} className={classes.button}>
@@ -133,7 +117,7 @@ const SendParcel = () => {
                     color="primary"
                     className={classes.button}
                   >
-                    {isLastStep ? 'Nadaj przesyłkę' : 'Dalej'}
+                    {isLastStep ? 'Wyceń Przesyłkę' : 'Dalej'}
                   </Button>
                   {isSubmitting && (
                     <CircularProgress
