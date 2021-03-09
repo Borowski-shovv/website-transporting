@@ -22,7 +22,7 @@ const {
 
 
 export default {
-  parcelCategory: [],
+  parcelCategory: '',
   [email.name]: '',
   [firstName.name]: '',
   [firstName2.name]: '',

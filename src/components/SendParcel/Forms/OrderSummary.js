@@ -1,10 +1,18 @@
 import React from 'react';
 import { Card, CardContent, Grid, Box, Typography } from '@material-ui/core';
 import { useFormikContext } from 'formik';
+import { makeStyles } from '@material-ui/core';
 
-function FormSummary() {
-    const { values: formValues} =  useFormikContext()
+const useStyles = makeStyles(theme => ({
+    textCenter: {
+       textAlign: 'center',
+    },
+    
+  }))
 
+function OrderSummary() {
+    const { values: formValues} =  useFormikContext();
+    const classes = useStyles();
     console.log('wartosci do podsumowania', formValues)
 
     return (
@@ -23,10 +31,10 @@ function FormSummary() {
                                         <Grid container direction="column">
                                             <Grid item>
                                             <Typography variant="h6" fontSize={'18px'} gutterBottom>
-                                                Paczka:
+                                                Typ paczki:
                                             </Typography>
                                             </Grid>
-                                            <Grid item>{p.name}</Grid>
+                                            <Grid  item>{p.name}</Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item sm={2}>
@@ -36,17 +44,17 @@ function FormSummary() {
                                                 Waga:
                                             </Typography>
                                             </Grid>
-                                            <Grid item>{p.weight}</Grid>
+                                            <Grid item>{p.weight + ' kg'}</Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item sm={2}>
                                         <Grid container direction="column">
                                             <Grid item>
-                                            <Typography variant="h6" fontSize={'18px'} gutterBottom>
-                                                Wysokość:
-                                            </Typography>
+                                                <Typography variant="h6" fontSize={'18px'} gutterBottom>
+                                                    Wysokość:
+                                                </Typography>
                                             </Grid>
-                                            <Grid item>{p.height}</Grid>
+                                            <Grid item>{p.height + ' cm'}</Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item sm={2}>
@@ -56,7 +64,7 @@ function FormSummary() {
                                                 Szerokość:
                                             </Typography>
                                             </Grid>
-                                            <Grid item>{p.width}</Grid>
+                                            <Grid item>{p.width + ' cm'}</Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item sm={2}>
@@ -66,7 +74,7 @@ function FormSummary() {
                                                 Długość:
                                             </Typography>
                                             </Grid>
-                                            <Grid item>{p.length}</Grid>
+                                            <Grid item>{p.length + ' cm'}</Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item sm={2}>
@@ -76,11 +84,11 @@ function FormSummary() {
                                                 Ilość:
                                             </Typography>
                                             </Grid>
-                                            <Grid item>{p.amount}</Grid>
+                                            <Grid item>{p.amount + ' szt'}</Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item sm={2}>
-                                        <Grid container direction="column">
+                                        <Grid  className="long-column" container direction="column">
                                             <Grid item>
                                             <Typography variant="h6" fontSize={'18px'} gutterBottom>
                                                 Sposób pakowania:
@@ -89,7 +97,6 @@ function FormSummary() {
                                             <Grid item>{p.kindOfpackage}</Grid>
                                         </Grid>
                                     </Grid>
-
                                 </Grid>
                             </div>
                             )
@@ -104,5 +111,5 @@ function FormSummary() {
     )
 }
 
-export default FormSummary
+export default OrderSummary
 

@@ -2,7 +2,7 @@ import React from 'react';
 import OwlCarousel from '../../components/OwlCarousel/Owldemo1';
 import './GalleryView.css';
 import Gallery from 'react-grid-gallery';
-import { Container} from 'react-bootstrap';
+// import { Container} from 'react-bootstrap';
 import Navigation from '../../components/Navigation/Navigation';
 import { TweenMax, TimelineMax, Power3, Power4 } from "gsap";
 import { useRef, useEffect } from "react";
@@ -135,14 +135,14 @@ const FleetView = () => {
                 <Navigation />
                 <OwlCarousel />
                 <div className="gallery-wrapper">
-                    <Container>
+                    
                     <div className="section-title">
                     <h2>
                       Galeria
                     </h2>
                     </div>
                         <Gallery images={IMAGES}/>
-                    </Container>                              
+                                               
                 </div>
             </div> 
             </div>

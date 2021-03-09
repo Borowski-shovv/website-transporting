@@ -4,7 +4,7 @@ import { InputField, InputRadio, CheckboxField, SelectField, UnitField, PackageT
 import { useFormikContext, Field, FieldArray, ErrorMessage } from 'formik';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import './CheckCategory.css';
-import FormSummary from './FormSummary';
+import OrderSummary from './OrderSummary';
 import { makeStyles } from '@material-ui/core';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 
@@ -43,22 +43,22 @@ const useStyles = makeStyles(theme => ({
 
 const kindOfPackage = [
     {
-      value: 'karton o kształcie prostopadłościanu lub koperta',
-      label: 'karton o kształcie prostopadłościanu lub koperta'
+      value: 'karton lub koperta',
+      label: 'karton lub koperta'
     },
     {
-      value: 'folia stretch (el. niestandardowy)',
-      label: 'folia stretch (el. niestandardowy)'
+      value: 'folia stretch',
+      label: 'folia stretch'
     },
     {
-        value: 'folia bąbelkowa (el. niestandardowy)',
-        label: 'folia bąbelkowa (el. niestandardowy)'
+        value: 'folia bąbelkowa',
+        label: 'folia bąbelkowa'
     },
     {
         value: 'przesyłka niestandardowa',
         label: 'przesyłka niestandardowa'
     }
-  ];
+];
 
 const carType = [
       {
@@ -69,7 +69,7 @@ const carType = [
           value: 'dostawcze',
           label: 'dostawcze',
       },
-  ]
+]
 
 export default function CheckCategory(props) {
     const classes = useStyles()
@@ -120,7 +120,7 @@ export default function CheckCategory(props) {
                                                 <div className="addNewParcel-wrapper" key={index}>
                                                     <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
                                                         <Grid item>
-                                                            <p className="p-label">Co chcesz przewieźć</p>
+                                                            <p className="p-label">Co chcesz przewieźć ?</p>
                                                             <UnitField className="long-input" variant="outlined" name={`parcel[${index}].name`}/> 
                                                             {/* <UnitField name={`parcel[${index}].name`} variant="outlined"/> */}
                                                         </Grid>
@@ -380,7 +380,7 @@ export default function CheckCategory(props) {
                         <Typography variant="h6" gutterBottom>
                             Twoja przesyłka
                         </Typography>
-                            <FormSummary/> 
+                            <OrderSummary/> 
                     </Paper>
                 : null
                 }

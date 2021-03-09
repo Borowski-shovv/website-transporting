@@ -5,16 +5,16 @@ import { Provider } from 'react-redux';
 import store from '../../store/index';
 
 // pages
-import AboutUsPage from '../AboutUsPage/AboutUsPage';
-import HomeView from '../HomeView/HomeView';
-import ContactView from '../ContactView/ContactView';
-import RegulaminView from '../RegulaminView/RegulaminView';
-import OfferView from '../OfferView/OfferView';
-import GalleryView from '../GalleryView/GalleryView';
-import PricesView from '../PricesView/PricesView';
+// import AboutUsPage from '../AboutUsPage/AboutUsPage';
+// import HomeView from '../HomeView/HomeView';
+// import ContactView from '../ContactView/ContactView';
+// import RegulaminView from '../RegulaminView/RegulaminView';
+// import OfferView from '../OfferView/OfferView';
+// import GalleryView from '../GalleryView/GalleryView';
+// import PricesView from '../PricesView/PricesView';
 import OrderView from '../OrderView/OrderView';
-import CheckoutView from '../CheckoutView/checkout';
-import LoginView from '../LoginView/LoginView';
+// import CheckoutView from '../CheckoutView/checkout';
+// import LoginView from '../LoginView/LoginView';
 
 //common components 
 import Footer from '../../components/Footer/Footer';
@@ -30,16 +30,16 @@ import CookieConsent from "react-cookie-consent";
 
 
 const routes = [
-  { path: '/', name: 'Home', Component: HomeView },
-  { path: '/oferta', name: 'Oferta', Component: OfferView},
-  { path: '/firma', name: 'Firma', Component: AboutUsPage },
-  { path: '/regulamin', name: 'Regulamin', Component: RegulaminView},
-  { path: '/kontakt', name: 'Kontakt', Component: ContactView},
-  { path: '/galeria', name: 'Galeria', Component: GalleryView},
-  { path: '/cennik', name: 'Cennik', Component: PricesView},
+  // { path: '/', name: 'Home', Component: HomeView },
+  // { path: '/oferta', name: 'Oferta', Component: OfferView},
+  // { path: '/firma', name: 'Firma', Component: AboutUsPage },
+  // { path: '/regulamin', name: 'Regulamin', Component: RegulaminView},
+  // { path: '/kontakt', name: 'Kontakt', Component: ContactView},
+  // { path: '/galeria', name: 'Galeria', Component: GalleryView},
+  // { path: '/cennik', name: 'Cennik', Component: PricesView},
   { path: '/zamowienie', name: 'Cennik', Component: OrderView},
-  { path: '/koszyk', name: 'Koszyk', Component: CheckoutView},
-  { path: '/zaloguj', name: 'Logowanie', Component: LoginView},
+  // { path: '/koszyk', name: 'Koszyk', Component: CheckoutView},
+  // { path: '/zaloguj', name: 'Logowanie', Component: LoginView},
 ];
 
 function Root() {
