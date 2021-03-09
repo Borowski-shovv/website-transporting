@@ -40,7 +40,7 @@ export default [
       // is: (parcelCategory => parcelCategory.find(c => c === 'paczka')),
       then:  Yup.array().of(
         Yup.object().shape({
-          name: Yup.string().min(2, 'Nazwa jest za krótka.').required('Napisz co przewozisz.'),
+          // name: Yup.string().min(2, 'Nazwa jest za krótka.').required('Napisz co przewozisz.'),
           weight: Yup.number().min(1).required('Waga paczki jest wymagana.'),
           height: Yup.number().min(1).required('Wysokość paczki jest wymagana.'),
           width: Yup.number().min(1).required('Szerokość paczki jest wymagana.'),
@@ -57,7 +57,7 @@ export default [
       is: (parcelCategory => parcelCategory === 'paleta'),
       then: Yup.array().of(
         Yup.object().shape({
-          name: Yup.string().min(2, 'Nazwa jest za krótka').required('Rodzaj palety jest wymagany'),
+          type: Yup.string().min(1).required(),
           weight: Yup.number().required('Waga palety jest wymagana'),
           height: Yup.number().required('Wysokość palety jest wymagana.'),
           width: Yup.number().required('Szerokość palety jest wymagana.'),
@@ -76,8 +76,8 @@ export default [
             type: Yup.string().required(),
             brand: Yup.string().required(),
             model: Yup.string().required(),
-            weight: Yup.string().required(),
-            length: Yup.string().required()
+            weight: Yup.number(),
+            length: Yup.number()
           })
         )
         .min(1, 'Dodaj auto i uzupełnij szczegóły o aucie')

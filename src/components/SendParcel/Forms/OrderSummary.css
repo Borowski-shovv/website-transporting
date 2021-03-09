@@ -1,0 +1,50 @@
+/*  */
+/* TABELA Z PODSUMOWANIEM ZAMÓWIENIA*/
+/*  */
+
+
+.summaryOrderRow {
+    display: flex;
+}
+
+@media (min-width: 600px) {
+    .summaryOrderRow .MuiGrid-grid-sm-2 {
+        flex-basis: 12.666667%;
+    }
+}
+
+.summaryOrderRow {
+    margin-top: 20px;
+}
+
+.summaryOrderRow .MuiGrid-root.MuiGrid-container {
+    padding: 0 10px;
+}
+
+.summaryOrderRow .MuiGrid-spacing-xs-3 > .MuiGrid-item {
+    padding: 6px;
+}
+
+.summaryOrderRow .MuiFormControl-root.MuiTextField-root {
+    width: 60px;
+}
+
+ .summaryOrderRow .MuiOutlinedInput-input {
+    padding: 10.5px 5px;
+}
+
+.summaryOrderRow .long-input {
+    width: 150px !important;
+}
+
+.summaryOrderRow .MuiButtonBase-root.MuiButton-root {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    min-width: 20px;
+}
+
+.summaryOrderRow .MuiTypography-h6 {
+    font-size: 13px;
+}

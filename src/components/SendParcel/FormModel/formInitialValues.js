@@ -53,21 +53,21 @@ export default {
     // }  
   ],
   pallet: [
-    {
-      name: '',
-      weight: '',
-      height: '',
-      width: '', 
-      length: '',
-      amount: '',
-    }
+    // {
+    //   name: '',
+    //   weight: '',
+    //   height: '',
+    //   width: '', 
+    //   length: '',
+    //   amount: '',
+    // }
   ],
   car: [
-    {
-      type: '',
-      brand: '',
-      model: '',
-    }
+    // {
+    //   type: '',
+    //   brand: '',
+    //   model: '',
+    // }
   ],
   removal: [
     // {

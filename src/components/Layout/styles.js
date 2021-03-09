@@ -11,7 +11,8 @@ import { red, blue } from '@material-ui/core/colors';
     palette: { type: 'light', primary: red, secondary: blue},
     typography: {
       h6: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        
       }
     }
   });
