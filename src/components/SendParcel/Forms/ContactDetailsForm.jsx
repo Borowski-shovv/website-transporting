@@ -1,9 +1,8 @@
 import React from 'react';
-import { Grid, Typography, Paper, makeStyles, Box } from '@material-ui/core';
-import { InputField, CheckboxField, SelectField } from '../FormFields';
+import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
+import { InputField, SelectField } from '../FormFields';
 import DatePicker from '../FormFields/DatePicker';
 import './ContactDetailsForm.css';
-import { useFormikContext } from 'formik';
 import { MultipleFileUploadField } from '../FormFields/UploadField/MultipleFileUploadField';
 
 const months = ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']
@@ -80,8 +79,9 @@ export default function ContactDetailsForm(props) {
               </Grid>
               <Grid item xs={12}> 
                 <SelectField
+                variant='outlined'
                   className={classes.bgcWhite}
-                  label="Typ usługi"
+                  label={'Typ usługi'}
                   name='servicesType'
                   data={servicesType}
                   fullWidth
