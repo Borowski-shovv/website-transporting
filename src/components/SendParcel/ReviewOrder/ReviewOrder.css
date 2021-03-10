@@ -14,3 +14,12 @@
     align-items: center;
     padding: 0;
 }
+
+.CheckBoxRules label.MuiFormControlLabel-root {
+    width: auto;
+    height: auto;
+}
+
+.CheckBoxRules .MuiFormHelperText-root {
+    color: #f44336;
+}

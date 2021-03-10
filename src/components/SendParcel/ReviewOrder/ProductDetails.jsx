@@ -5,6 +5,7 @@ import boxImg from '../../../assets/images/formImages/box.svg';
 import palletImg from '../../../assets/images/formImages/wholesale.svg';
 import truckImg from '../../../assets/images/formImages/truck.svg';
 import couchImg from '../../../assets/images/formImages/couch.svg';
+import { CheckboxField } from '../FormFields';
 
 function ProductDetails({formValues}) {
   const classes = useStyles();
@@ -15,7 +16,7 @@ function ProductDetails({formValues}) {
               <Grid item xs={12} sm={6}>
                 <Paper elevation={3}>
                   <Grid container direction="column"  justify="center" alignItems="flex-start" >
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" gutterBottom className={classes.title}>
                       Dane adresowe nadawcy
                     </Typography>
                     <Grid item>
@@ -47,7 +48,7 @@ function ProductDetails({formValues}) {
               <Grid item xs={12} sm={6}>
                   <Paper elevation={3}>
                     <Grid container direction="column"  justify="center" alignItems="flex-start">
-                      <Typography variant="h6" gutterBottom>
+                      <Typography variant="h6" gutterBottom className={classes.title}>
                         Dane adresowe odbiorcy
                       </Typography>
                       <Grid item>
@@ -223,6 +224,10 @@ function ProductDetails({formValues}) {
                 </Grid>
             </Grid>
           </Paper>
+      </Box>
+        
+      <Box mt={5}>
+        <CheckboxField className="CheckBoxRules" name="rules" type="checkbox" label="Akceptuję postanowienia Regulaminu i Polityki prywatności" />
       </Box>
     </>
   );

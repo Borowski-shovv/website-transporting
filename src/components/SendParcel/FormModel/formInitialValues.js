@@ -73,5 +73,7 @@ export default {
     // {
     //   type: '',
     // }
-  ]
+  ],
+  rules: false,
+  servicesType: '',
 };
