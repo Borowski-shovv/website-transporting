@@ -221,35 +221,31 @@ export default function CheckCategory(props) {
                                                                     data={palletType}
                                                                 />
                                                             </Grid>
-                                                            {/* <Grid item>
-                                                                <p className="p-label">rodzaj palety</p>
-                                                                <UnitField className="long-input" variant="outlined" name={`pallet[${index}].name`}/>
-                                                            </Grid> */}
+                                                           
                                                             <Grid item >
                                                                 <p className="p-label">waga*</p>
-                                                                <UnitField variant="outlined" name={`pallet[${index}].weight`}  />
+                                                                <UnitField type="number" variant="outlined" name={`pallet[${index}].weight`} />
                                                             </Grid><p className="p-unit">kg</p>
                                                             <Grid item >
                                                                 <p className="p-label">wysokość*</p>
-                                                                <UnitField variant="outlined" name={`pallet[${index}].height`} />
+                                                                <UnitField type="number" variant="outlined" name={`pallet[${index}].height`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item  >
                                                                 <p className="p-label">szerokość*</p>
-                                                                <UnitField variant="outlined" name={`pallet[${index}].width`} />
+                                                                <UnitField type="number" variant="outlined" name={`pallet[${index}].width`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item  >
                                                                 <p className="p-label">długość*</p>
-                                                                <UnitField variant="outlined" name={`pallet[${index}].length`} />
+                                                                <UnitField type="number" variant="outlined" name={`pallet[${index}].length`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item >
                                                                 <p className="p-label">ilość*</p>
                                                                 <UnitField
-                                                                type="number"
+                                                                    type="number"
                                                                     variant="outlined" 
                                                                     name={`pallet[${index}].amount`} 
-                                                                    />  
-                                                                    {console.log(`pallet[${index}].amount`)}
-                                                            </Grid><p  className="p-unit">szt</p>
+                                                                /> 
+                                                            </Grid><p className="p-unit">szt</p>
                                                         
                                                             <Button
                                                                 className={classes.deleteItem}
@@ -366,7 +362,7 @@ export default function CheckCategory(props) {
                                                                 <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
                                                                         <Grid item>
                                                                     <p className="p-label">rodzaj mebla*</p>
-                                                                    <InputField className="long-input" variant="outlined" name={`removal[${index}].name`}/>
+                                                                    <UnitField className="long-input" variant="outlined" name={`removal[${index}].name`}/>
                                                                 </Grid>
                                                                 <Grid item >
                                                                     <p className="p-label">ilość*</p>

@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
       justifyContent: 'center',
       background: theme.palette.background.default,
-      height: theme.spacing(12),
+      height: 'auto',
       outline: 'none',
       padding: '30px',
     },

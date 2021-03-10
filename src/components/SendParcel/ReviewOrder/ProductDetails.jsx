@@ -1,15 +1,19 @@
 import React from 'react';
 import { Typography, List, ListItem, ListItemText, Grid, Paper, Box } from '@material-ui/core';
 import useStyles from './styles';
+import boxImg from '../../../assets/images/formImages/box.svg';
+import palletImg from '../../../assets/images/formImages/wholesale.svg';
+import truckImg from '../../../assets/images/formImages/truck.svg';
+import couchImg from '../../../assets/images/formImages/couch.svg';
 
 function ProductDetails({formValues}) {
   const classes = useStyles();
   return (
     <>
       <Box mt={5}>
-            <Grid container spacing={3}>
+          <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
-                <Paper>
+                <Paper elevation={3}>
                   <Grid container direction="column"  justify="center" alignItems="flex-start" >
                     <Typography variant="h6" gutterBottom>
                       Dane adresowe nadawcy
@@ -41,7 +45,7 @@ function ProductDetails({formValues}) {
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={6}>
-                  <Paper>
+                  <Paper elevation={3}>
                     <Grid container direction="column"  justify="center" alignItems="flex-start">
                       <Typography variant="h6" gutterBottom>
                         Dane adresowe odbiorcy
@@ -73,63 +77,153 @@ function ProductDetails({formValues}) {
                   </Paper>
               </Grid>
             </Grid>
-        {/* <List disablePadding>
-          {products.map((product, idx ) => (
-            <ListItem className={classes.listItem} key={idx}>
-              <ListItemText primary={product.name} secondary={product.desc} />
-              <Typography variant="body2">{product.price}</Typography>
-            </ListItem>
-          ))}
-          <ListItem className={classes.listItem}>
-            <ListItemText primary="Total" />
-            <Typography variant="subtitle1" className={classes.total}>
-              $34.06
-            </Typography>
-          </ListItem>
-        </List> */}
-
       </Box>
-      <Box mt={5}>
+      <Box mt={5} className="summaryTable">
           <Paper elevation={3} >
-            <Grid container>
-              <Grid xs={12} item>
-                {
-                  formValues.parcel.map((p, idx) => {
-                    return (
-                      <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
-                        <Grid item>
-                          <p className='p-label'>sposób zapakowania</p>
+            <Grid container >
+                <Grid xs={12} item>
+                  {
+                    formValues.parcel.map((p, idx) => {
+                      return (
+                        <Grid container spacing={2} key={idx}>
+                          <Grid item>
+                            <img className={classes.imgWidth} src={boxImg} alt='icon'/>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='sposób zapakowania' primary={p.kindOfpackage} />
+                            </ListItem>
+                          </Grid>  
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='waga' primary={p.weight + ' kg'} />
+                            </ListItem>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='wysokość' primary={p.weight + ' cm'} />
+                            </ListItem>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='szerokość' primary={p.weight + ' cm'} />
+                            </ListItem>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='długość' primary={p.weight + ' cm'} />
+                            </ListItem>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='ilość' primary={p.amount} />
+                            </ListItem>
+                          </Grid>
+                          <div className="rowBar"></div>
+                        </Grid>
+                      )
+                    })
+                  }
+                  {
+                    formValues.pallet.map((p, idx) => {
+                      return (
+                        <Grid container spacing={2} key={idx}>
+                          <Grid item>
+                            <img className={classes.imgWidth} src={palletImg} alt='icon'/>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItemSum}>
+                              <ListItemText secondary='rodzaj palety' primary={p.type } />
+                            </ListItem>
+                          </Grid>  
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='waga' primary={p.weight + ' kg'} />
+                            </ListItem>
+                          </Grid>  
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='wysokość' primary={p.height + ' cm'} />
+                            </ListItem>
+                          </Grid>  
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='szerokość' primary={p.width + ' cm'} />
+                            </ListItem>
+                          </Grid>  
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='długość' primary={p.length + ' cm'} />
+                            </ListItem>
+                          </Grid>  
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='ilość palet' primary={p.amount} />
+                            </ListItem>
+                          </Grid> 
+                          <div className="rowBar"></div> 
+                        </Grid>
+                      )
+                    })
+                  }
+
+                  {
+                    formValues.car.map((c, idx) => {
+                      return (
+                        <Grid container spacing={2} key={idx}>
+                          <Grid item>
+                            <img className={classes.imgWidth} src={truckImg} alt='icon'/>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItemSum}>
+                              <ListItemText secondary='rodzaj auta' primary={c.type } />
+                            </ListItem>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='marka' primary={c.brand } />
+                            </ListItem>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='model' primary={c.model } />
+                            </ListItem>
+                          </Grid>  
+                          <div className="rowBar"></div>
                         </Grid>  
-                        <Grid item>
-                          <p className='p-label'>waga paczki</p>
-                        </Grid>
-                        <Grid item>
-                          <p className='p-label'>wysokość paczki</p>
-                        </Grid>
-                        <Grid item>
-                          <p className='p-label'>szerokość paczki</p>
-                        </Grid>
-                        <Grid item>
-                          <p className='p-label'>długość paczki</p>
-                        </Grid>
-                        <Grid item>
-                          <p className='p-label'>ilość takich paczek</p>
-                        </Grid>
-                      </Grid>
-                    )
-                  })
-                }
+                      )
+                    })
+                  }
 
+                  {
+                    formValues.removal.map((f, idx) => {
 
-              </Grid>
+                      return (
+                        <Grid container spacing={2} key={idx}>
+                          <Grid item>
+                            <img className={classes.imgWidth} src={couchImg} alt='icon'/>
+                          </Grid>
+                          <Grid item>
+                            
+                            <ListItem className={classes.listItemSum}>
+                              <ListItemText secondary='mebel' primary={f.name} />
+                            </ListItem>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='ilość' primary={f.amount} />
+                            </ListItem>
+                          </Grid>
+                          <div className="rowBar"></div>
+                        </Grid>
+                      )
+                    })
+                  }
 
+                </Grid>
             </Grid>
-
           </Paper>
-
       </Box>
-
-
     </>
   );
 }

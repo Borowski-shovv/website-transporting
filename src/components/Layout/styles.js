@@ -14,6 +14,11 @@ import { red, blue } from '@material-ui/core/colors';
         fontWeight: 'bold',
         
       }
+    },
+    overrides: {
+      secondaryTypographyProps: {
+        color: red,
+      }
     }
   });
   theme = responsiveFontSizes(theme);

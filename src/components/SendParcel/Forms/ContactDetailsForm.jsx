@@ -70,6 +70,7 @@ export default function ContactDetailsForm(props) {
          
         </Grid>
       </Paper>
+      <Paper className={classes.CustomPaper}>
       <Grid container spacing={3}>
 
         <Grid item xs={12} sm={6}>
@@ -79,8 +80,8 @@ export default function ContactDetailsForm(props) {
               </Grid>
               <Grid item xs={12}> 
                 <SelectField
-                variant='outlined'
-                  className={classes.bgcWhite}
+                  
+                  // className={classes.bgcWhite}
                   label={'Typ usługi'}
                   name='servicesType'
                   data={servicesType}
@@ -94,14 +95,14 @@ export default function ContactDetailsForm(props) {
 
         <Grid item xs={12} sm={6}>
             <Typography variant="h6" gutterBottom>
-            Wstaw zdjęcia Twojej przysłki
+              Wstaw zdjęcia Twojej przysłki
             </Typography>
            
             <MultipleFileUploadField name="files" />
         </Grid>
       
       </Grid>
-      
+      </Paper>
  
       
     

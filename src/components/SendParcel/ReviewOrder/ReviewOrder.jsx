@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormikContext } from 'formik';
 import { Typography, Grid, makeStyles } from '@material-ui/core';
 import ProductDetails from './ProductDetails';
-
+import './ReviewOrder.css';
 
 // renderowanie warunkowe 
 // sprawdzenie czy uzytkownik jest zalogowany jezeli jest to wyswietlic podsumowanie zamowienia

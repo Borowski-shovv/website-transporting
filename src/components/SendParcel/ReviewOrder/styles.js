@@ -4,6 +4,11 @@ export default makeStyles(theme => ({
     paddingTop: 0,
     paddingBottom: 0,
   },
+  listItemSum: {
+    width: 165,
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
   total: {
     fontWeight: '700'
   },
@@ -13,5 +18,12 @@ export default makeStyles(theme => ({
   summaryAddressCard: {
     justifyContent: 'center',
     padding: '30px 0px',
+  },
+  imgWidth: {
+    width: 40,
+    margin: '20px 0 10px 20px'
+  },
+  ListSecondaryText: {
+    fontSize: '13px'
   }
 }));

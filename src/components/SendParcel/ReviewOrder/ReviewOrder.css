@@ -1,0 +1,16 @@
+.MuiListItemText-secondary {
+    font-size: 13px;
+}
+
+.rowBar {
+    width: 100%;
+    height: 2px;
+    background: rgba(244, 67, 54, 0.3);
+    margin: 0 12px 8px 12px;
+}
+
+.summaryTable .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}

@@ -132,10 +132,11 @@ export default [
     [contactNumber2.name]: Yup.string().required(`${contactNumber2.requiredErrorMsg}`),
   }),
    Yup.object().shape({
-    files: Yup.array(
-        Yup.object({
-          url: Yup.string().required()
-    }))
+    // files: Yup.array(
+    //     Yup.object({
+    //       url: Yup.string().required()
+    // }))
+    servicesType: Yup.string().required()
   }),
 
 ];
