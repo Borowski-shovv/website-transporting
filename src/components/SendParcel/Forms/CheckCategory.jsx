@@ -42,6 +42,10 @@ const useStyles = makeStyles(theme => ({
     },
     deleteItem: {
         marginLeft: 'auto'
+    },
+    errorMsg: {
+        color: '#f44336',
+        marginRight: 'auto'
     }
   }))
 
@@ -92,8 +96,6 @@ export default function CheckCategory(props) {
     const { formField: { email } } = props;
     const { values: formValues, errors } = useFormikContext();
 
-    const existing = formValues.parcelCategory.includes('paczka')
-    console.log('existing', existing)
     return (
         <>
         <div className="Step1-wrapper">
@@ -101,6 +103,9 @@ export default function CheckCategory(props) {
                 Chcę przewieźć
             </Typography>
             <Paper elevation={3} className={classes.CustomPaper}>
+                <Typography variant="body2" gutterBottom>
+                    Wybierz kategorie przesyłki, (możesz wybrać więcej niż jedną)
+                </Typography>
                 <Grid container justify="center" spacing={2} alignItems="center">
                     <Grid item xs={12} sm={2}>
                         <p className={classes.categoryName}>Paczka</p>
@@ -122,12 +127,14 @@ export default function CheckCategory(props) {
                         <p className={classes.categoryName}>Transport ponadgabarytowy</p>
                         <MyCheckbox categoryname="ponadgabarytowy" className="ponadgabarytowy" name="parcelCategory" value="ponadgabarytowy"/>
                     </Grid>
-                    <ErrorMessage name="parcelCategory" />
+                    <ErrorMessage name="parcelCategory">
+                    {msg => <div className={classes.errorMsg}>{msg}</div>}
+                    </ErrorMessage>
                 </Grid>
             </Paper>
            
                 {
-                formValues.parcelCategory.includes('paczka') ? 
+                formValues.parcelCategory.includes('paczka') || formValues.parcel.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                     <Grid container >
                         <Grid xs={12} item>
@@ -204,7 +211,7 @@ export default function CheckCategory(props) {
                 : null
                 }
 
-                {formValues.parcelCategory.includes('paleta') ? 
+                {formValues.parcelCategory.includes('paleta') || formValues.pallet.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                         <Grid container>
                             <Grid xs={12} item>
@@ -282,7 +289,7 @@ export default function CheckCategory(props) {
                     </Paper>
                 : null}
              
-                {formValues.parcelCategory.includes('auto') ? 
+                {formValues.parcelCategory.includes('auto') || formValues.car.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                            <Grid container>
                                <Grid xs={12} item>
@@ -352,7 +359,7 @@ export default function CheckCategory(props) {
                        </Paper>
                 : null}
 
-                {formValues.parcelCategory.includes('przeprowadzka') ? 
+                {formValues.parcelCategory.includes('przeprowadzka') || formValues.removal.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                         <Grid container>                           
                                <Grid xs={12} item>
@@ -360,33 +367,94 @@ export default function CheckCategory(props) {
                                        name="removal"
                                        render={arrayHelpers => (
                                            <div>
-                                                        {formValues.removal.map((removal, index) => (
+                                                {formValues.removal.map((removal, index) => (
                                                             <div className="addNewParcel-wrapper" key={index}>                                                        
                                                                 <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
-                                                                        <Grid item>
-                                                                    <p className="p-label">rodzaj mebla*</p>
-                                                                    <UnitField className="long-input" variant="outlined" name={`removal[${index}].name`}/>
-                                                                </Grid>
-                                                                <Grid item >
-                                                                    <p className="p-label">ilość*</p>
-                                                                    <UnitField
-                                                                        type="number"
-                                                                        variant="outlined" 
-                                                                        name={`removal[${index}].amount`} 
-                                                                    />  
+                                                                    <Grid item>
+                                                                        <p className="p-label">rodzaj mebla*</p>
+                                                                        <UnitField className="long-input" variant="outlined" name={`removal[${index}].name`}/>
+                                                                    </Grid>
+                                                                    <Grid item >
+                                                                        <p className="p-label">ilość*</p>
+                                                                        <UnitField
+                                                                            type="number"
+                                                                            variant="outlined" 
+                                                                            name={`removal[${index}].amount`} 
+                                                                        />  
                                                                     </Grid><p  className="p-unit">szt</p>
                                                                     <Button
-                                                                    className={classes.deleteItem}
-                                                                    type="button"
-                                                                    onClick={() => arrayHelpers.remove(index)}
-                                                                >
-                                                                    <RemoveCircleIcon color="primary"/>   
-                                                                </Button>
+                                                                        className={classes.deleteItem}
+                                                                        type="button"
+                                                                        onClick={() => arrayHelpers.remove(index)}
+                                                                    >
+                                                                        <RemoveCircleIcon color="primary"/>   
+                                                                    </Button>
                                                                 </Grid>
-                                                        </div>
+                                                            </div>
                                                    ))}
                                                    <Grid item>
-                                                    {typeof errors.removal === 'string' ? <Typography color="error">{errors.removal}</Typography> : null}
+                                                        {typeof errors.removal === 'string' ? <Typography color="error">{errors.removal}</Typography> : null}
+                                                    </Grid>
+                                                
+                                                   <Button 
+                                                       variant="contained" 
+                                                       color="primary" 
+                                                       className={classes.marginTopBtn}
+                                                       type="button" 
+                                                       onClick={() => arrayHelpers.push({ name: '', amount: ''})}
+                                                    >
+                                                           Dodaj mebel 
+                                                           <AddOutlinedIcon style={{ color: 'white' }}/>
+                                                   </Button>
+                                           </div>
+                                       )}
+                                   />   
+                               </Grid>
+                        </Grid> 
+                    </Paper>
+                : null}
+
+                {
+                formValues.parcelCategory.includes('ponadgabarytowy') || formValues.oversized.length > 0 ?   
+                    <Paper elevation={3} className={classes.CustomPaper}>
+                            <Grid container>
+                                <Grid xs={12} item>
+                                   <FieldArray 
+                                       name="oversized"
+                                       render={arrayHelpers => (
+                                           <div>
+                                                {formValues.oversized.map((oversized, index) => (
+                                                            <div className="oversizedParcel-wrapper" key={index}>                                                        
+                                                                <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>    
+                                                                    <Grid item xs={12} md={6}>
+                                                                    <p className="p-label">Co chcesz przewieźć ?*</p>
+                                                                        <UnitField 
+                                                                            multiline 
+                                                                            variant="outlined" 
+                                                                            name={`oversized[${index}].comment`} 
+                                                                            fullWidth
+                                                                        />  
+                                                                    </Grid>
+                                                                    <Grid item sm={1}>
+                                                                        <p className="p-label">ilość*</p>
+                                                                        <UnitField
+                                                                            type="number"
+                                                                            variant="outlined" 
+                                                                            name={`oversized[${index}].amount`} 
+                                                                        />  
+                                                                    </Grid><p className="p-unit">szt</p>
+                                                                    <Button
+                                                                        className={classes.deleteItem}
+                                                                        type="button"
+                                                                        onClick={() => arrayHelpers.remove(index)}
+                                                                    >
+                                                                        <RemoveCircleIcon color="primary"/>   
+                                                                    </Button>
+                                                                </Grid>
+                                                            </div>
+                                                   ))}
+                                                   <Grid item>
+                                                    {typeof errors.oversized === 'string' ? <Typography color="error">{errors.oversized}</Typography> : null}
                                                 </Grid>
                                                 
                                                    <Button 
@@ -394,39 +462,21 @@ export default function CheckCategory(props) {
                                                        color="primary" 
                                                        className={classes.marginTopBtn}
                                                        type="button" 
-                                                       onClick={() => arrayHelpers.push({ name: '', amount: ''})}>
-                                                           Dodaj mebel <AddOutlinedIcon style={{ color: 'white' }}
+                                                       onClick={() => arrayHelpers.push({ comment: '', amount: ''})}>
+                                                           Dodaj przedmiot <AddOutlinedIcon style={{ color: 'white' }}
                                                        />
                                                    </Button>
                                            </div>
                                        )}
                                    />   
                                </Grid>
-                           </Grid> 
-                    </Paper>
-                : null}
-
-                {
-                formValues.parcelCategory.includes('ponadgabarytowy') ?  
-                    <Paper elevation={3} className={classes.CustomPaper}>
-                            <Grid container>
-                                <Grid item xs={12} md={6}>
-                                    <InputField 
-                                        variant="outlined" 
-                                        multiline 
-                                        rows={4} 
-                                        name='comment' 
-                                        label={'Co chcesz przewieźć ?'} 
-                                        fullWidth 
-                                    />
-                                </Grid>
                 
                             </Grid>
                         </Paper>
                 : null
                 }
 
-                {formValues.parcel.length > 0 || formValues.pallet.length > 0 || formValues.car.length > 0 || formValues.removal.length > 0 ? 
+                {formValues.parcel.length > 0 || formValues.pallet.length > 0 || formValues.car.length > 0 || formValues.removal.length > 0 || formValues.oversized.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                         <Typography variant="h6" gutterBottom>
                             Twoja przesyłka

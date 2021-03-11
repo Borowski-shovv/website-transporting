@@ -45,23 +45,24 @@ export default [
           kindOfpackage: Yup.string().required('Wybierz typ opakowania.')
         })
       )
-      .min(1, 'Dodaj paczkę i uzupełnij dane dotyczące Twojej paczki')
+      .min(1, 'Dodaj paczkę i uzupełnij dane')
     }),
     pallet: Yup 
       .mixed()
       .when("parcelCategory", {   
         is: (parcelCategory => parcelCategory.find(p => p === 'paleta')),
-      then: Yup.array().of(
-        Yup.object().shape({
-          type: Yup.string().min(1).required(),
-          weight: Yup.number().required('Waga palety jest wymagana'),
-          height: Yup.number().required('Wysokość palety jest wymagana.'),
-          width: Yup.number().required('Szerokość palety jest wymagana.'),
-          length: Yup.number().required('Długość palety jest wymagana.'),
-          amount: Yup.number().required('Wpisz ilość palet.'),
-        })
+        then: Yup.array().of(
+          Yup.object().shape({
+            type: Yup.string().min(1).required(),
+            weight: Yup.number().required('Waga palety jest wymagana'),
+            height: Yup.number().required('Wysokość palety jest wymagana.'),
+            width: Yup.number().required('Szerokość palety jest wymagana.'),
+            length: Yup.number().required('Długość palety jest wymagana.'),
+            amount: Yup.number().required('Wpisz ilość palet.'),
+          })
+        
       )
-      .min(1, 'Dodaj paletę i uzupełnij specyfikacje palety')
+      .min(1, 'Dodaj paletę i uzupełnij dane')
     }),
     car: Yup
       .mixed()
@@ -89,7 +90,19 @@ export default [
           })
         )
         .min(1, 'Dodaj mebel, który chcesz przewieźć')
-      }) 
+      }), 
+    oversized: Yup
+      .mixed()
+      .when("parcelCategory", {
+        is: (parcelCategory => parcelCategory.find(i => i === 'ponadgabarytowy')),
+        then: Yup.array().of(
+          Yup.object().shape({
+            comment: Yup.string().required(),
+            amount: Yup.number().required()
+          })
+        )
+        .min(1, 'Dodaj przedmiot, który chcesz przewieźć')
+      })
   }),
   Yup.object().shape({
     [firstName.name]: Yup.string().required(`${firstName.requiredErrorMsg}`),

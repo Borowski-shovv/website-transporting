@@ -41,16 +41,14 @@ export default {
   files: [],
   numberOfPackages: '',
   parcel: [
-    // {
-    //   name: '',
+    //  {
     //   weight: '',
     //   height: '',
     //   width: '', 
     //   length: '',
-    //   lengthh: '',
-    //   amount: '', 
-    //   kindOfpackage: '',
-    // }  
+    //   amount: '',
+    //   kindOfpackage: ''
+    // }
   ],
   pallet: [
     // {
@@ -69,11 +67,8 @@ export default {
     //   model: '',
     // }
   ],
-  removal: [
-    // {
-    //   type: '',
-    // }
-  ],
+  removal: [],
+  oversized: [],
   rules: false,
   servicesType: '',
 };
