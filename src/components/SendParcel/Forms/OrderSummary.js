@@ -14,15 +14,15 @@ const useStyles = makeStyles(theme => ({
 function OrderSummary() {
     const { values: formValues} =  useFormikContext();
     const classes = useStyles();
-    console.log('wartosci do podsumowania', formValues)
+    // console.log('wartosci do podsumowania', formValues)
 
     return (
         <>
             <Grid container>       
                 <Grid xs={12} item> 
                 {
-                formValues.parcelCategory === 'paczka' ||  formValues.parcelCategory === 'paleta'
-                || formValues.parcelCategory === 'auto' || formValues.parcelCategory === 'przeprowadzka' ? 
+                // formValues.parcelCategory === 'paczka' ||  formValues.parcelCategory === 'paleta'
+                // || formValues.parcelCategory === 'auto' || formValues.parcelCategory === 'przeprowadzka' ? 
                     <>
                         {
                             formValues.parcel.map((p,idx) => {
@@ -270,7 +270,7 @@ function OrderSummary() {
                         }
 
                     </>
-                    : null
+                    // : null
                 }
 
      

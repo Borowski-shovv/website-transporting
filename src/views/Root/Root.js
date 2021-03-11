@@ -14,7 +14,7 @@ import store from '../../store/index';
 // import PricesView from '../PricesView/PricesView';
 import OrderView from '../OrderView/OrderView';
 // import CheckoutView from '../CheckoutView/checkout';
-// import LoginView from '../LoginView/LoginView';
+ import LoginView from '../LoginView/LoginView';
 
 //common components 
 import Footer from '../../components/Footer/Footer';
@@ -39,7 +39,7 @@ const routes = [
   // { path: '/cennik', name: 'Cennik', Component: PricesView},
   { path: '/zamowienie', name: 'Cennik', Component: OrderView},
   // { path: '/koszyk', name: 'Koszyk', Component: CheckoutView},
-  // { path: '/zaloguj', name: 'Logowanie', Component: LoginView},
+ { path: '/zaloguj', name: 'Logowanie', Component: LoginView},
 ];
 
 function Root() {

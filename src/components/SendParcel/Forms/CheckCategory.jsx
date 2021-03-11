@@ -8,6 +8,10 @@ import OrderSummary from './OrderSummary';
 import { makeStyles } from '@material-ui/core';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 
+//testy
+import { useField, ErrorMessage } from 'formik';
+import { FormControlLabel, Checkbox } from '@material-ui/core';
+
 const useStyles = makeStyles(theme => ({
     clientChoice: {
        textAlign: 'center',
@@ -88,6 +92,8 @@ export default function CheckCategory(props) {
     const { formField: { email } } = props;
     const { values: formValues, errors } = useFormikContext();
 
+    const existing = formValues.parcelCategory.includes('paczka')
+    console.log('existing', existing)
     return (
         <>
         <div className="Step1-wrapper">
@@ -98,29 +104,30 @@ export default function CheckCategory(props) {
                 <Grid container justify="center" spacing={2} alignItems="center">
                     <Grid item xs={12} sm={2}>
                         <p className={classes.categoryName}>Paczka</p>
-                        <InputRadio categoryname="paczka" className="paczka" type="radio" name="parcelCategory" id="paczka" value="paczka"/>
+                        <MyCheckbox categoryname="paczka" className="paczka" name="parcelCategory" value="paczka"/>
                     </Grid>
                     <Grid item xs={12} sm={2}>
                         <p className={classes.categoryName}>Paleta</p>
-                        <InputRadio categoryname="paleta" className="paleta" type="radio" name="parcelCategory" id="paleta" value="paleta"/>
+                        <MyCheckbox categoryname="paleta" className="paleta" name="parcelCategory" value="paleta"/>
                     </Grid>
                     <Grid item xs={12} sm={2}>
                         <p className={classes.categoryName}>Auto</p>
-                        <InputRadio categoryname="auto" className="auto" type="radio" name="parcelCategory" id="auto" value="auto"/>
+                        <MyCheckbox categoryname="auto" className="auto" name="parcelCategory" value="auto"/>
                     </Grid>
                     <Grid item xs={12} sm={2}>
                         <p className={classes.categoryName}>Przeprowadzka</p>
-                        <InputRadio categoryname="przeprowadzka" className="przeprowadzka" type="radio" name='parcelCategory' id="przeprowadzka" value="przeprowadzka"/>
+                        <MyCheckbox categoryname="przeprowadzka" className="przeprowadzka" name="parcelCategory" value="przeprowadzka"/>
                     </Grid>
                     <Grid item xs={12} sm={2}>
                         <p className={classes.categoryName}>Transport ponadgabarytowy</p>
-                        <InputRadio categoryname="ponadgabarytowy" className="ponadgabarytowy" type="radio" name='parcelCategory' id="ponadgabarytowy" value="ponadgabarytowy"/>
+                        <MyCheckbox categoryname="ponadgabarytowy" className="ponadgabarytowy" name="parcelCategory" value="ponadgabarytowy"/>
                     </Grid>
+                    <ErrorMessage name="parcelCategory" />
                 </Grid>
             </Paper>
            
                 {
-                formValues.parcelCategory === "paczka" ? 
+                formValues.parcelCategory.includes('paczka') ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                     <Grid container >
                         <Grid xs={12} item>
@@ -131,11 +138,6 @@ export default function CheckCategory(props) {
                                             {formValues.parcel.map((parcel, index) => (
                                                 <div className="addNewParcel-wrapper" key={index}>
                                                     <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
-                                                        {/* <Grid item>
-                                                            <p className="p-label">Co chcesz przewieźć ?</p>
-                                                            <UnitField className="long-input" variant="outlined" name={`parcel[${index}].name`}/> 
-                                                            {/* <UnitField name={`parcel[${index}].name`} variant="outlined"/> 
-                                                        </Grid> */}
                                                          <Grid item >
                                                             <p className="p-label">sposób zapakowania*</p>
                                                             <PackageType
@@ -172,6 +174,7 @@ export default function CheckCategory(props) {
                                                        
                                                         
                                                         <Button
+                                                          className={classes.deleteItem}
                                                             type="button"
                                                             onClick={() => arrayHelpers.remove(index)}
                                                         >
@@ -201,7 +204,7 @@ export default function CheckCategory(props) {
                 : null
                 }
 
-                {formValues.parcelCategory === "paleta" ? 
+                {formValues.parcelCategory.includes('paleta') ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                         <Grid container>
                             <Grid xs={12} item>
@@ -279,7 +282,7 @@ export default function CheckCategory(props) {
                     </Paper>
                 : null}
              
-                {formValues.parcelCategory === "auto" ? 
+                {formValues.parcelCategory.includes('auto') ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                            <Grid container>
                                <Grid xs={12} item>
@@ -349,7 +352,7 @@ export default function CheckCategory(props) {
                        </Paper>
                 : null}
 
-                {formValues.parcelCategory === "przeprowadzka" ? 
+                {formValues.parcelCategory.includes('przeprowadzka') ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                         <Grid container>                           
                                <Grid xs={12} item>
@@ -404,7 +407,7 @@ export default function CheckCategory(props) {
                 : null}
 
                 {
-                formValues.parcelCategory === "ponadgabarytowy" ?  
+                formValues.parcelCategory.includes('ponadgabarytowy') ?  
                     <Paper elevation={3} className={classes.CustomPaper}>
                             <Grid container>
                                 <Grid item xs={12} md={6}>
@@ -442,4 +445,18 @@ export default function CheckCategory(props) {
             </div>
         </>
     )
+}
+
+function MyCheckbox(props) {
+    const [field] = useField({
+      name: props.name,
+      type: 'checkbox',
+      value: props.value
+    });
+    return (
+      <FormControlLabel
+        control={<Checkbox {...props} {...field} />}
+        label={props.label}
+      />
+    );
 }

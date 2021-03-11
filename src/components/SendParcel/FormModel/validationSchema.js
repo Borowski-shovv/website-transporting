@@ -21,23 +21,19 @@ const { formField: {
     contactNumber2,
     // parcelCategory
   }, 
-
-
 } = sendParcelModel;
 
 const visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 
-
 export default [
   Yup.object().shape({
     [email.name]: Yup.string().email().required("Wypisz swój adres email."),
-    parcelCategory: Yup.string().required("Wybierz kategorie przesyłki."),
-    // parcelCategory: Yup.array(Yup.string().oneOf(['paczka', 'paleta', 'auto', 'przeprowadzka', 'ponadgabarytowy'])).min(1, "Wybierz kategorie przesyłki."),
+    // parcelCategory: Yup.string().required("Wybierz kategorie przesyłki."),
+    parcelCategory: Yup.array(Yup.string().oneOf(['paczka', 'paleta', 'auto', 'przeprowadzka', 'ponadgabarytowy'])).min(1, "Wybierz kategorie przesyłki.").nullable(),
     parcel: Yup 
-      .mixed()
-      .when("parcelCategory", {
-      is: (parcelCategory => parcelCategory === 'paczka'),
-      // is: (parcelCategory => parcelCategory.find(c => c === 'paczka')),
+    .mixed()
+    .when("parcelCategory", { 
+      is: (parcelCategory => parcelCategory.find(p => p === 'paczka')),
       then:  Yup.array().of(
         Yup.object().shape({
           // name: Yup.string().min(2, 'Nazwa jest za krótka.').required('Napisz co przewozisz.'),
@@ -54,7 +50,7 @@ export default [
     pallet: Yup 
       .mixed()
       .when("parcelCategory", {   
-      is: (parcelCategory => parcelCategory === 'paleta'),
+        is: (parcelCategory => parcelCategory.find(p => p === 'paleta')),
       then: Yup.array().of(
         Yup.object().shape({
           type: Yup.string().min(1).required(),
@@ -70,12 +66,12 @@ export default [
     car: Yup
       .mixed()
       .when("parcelCategory", {
-        is: (parcelCategory => parcelCategory === 'auto'),
+        is: (parcelCategory => parcelCategory.find(c => c === 'auto')),
         then: Yup.array().of(
           Yup.object().shape({
             type: Yup.string().required(),
-            brand: Yup.string().required(),
-            model: Yup.string().required(),
+            brand: Yup.string().required().min(2).max(20),
+            model: Yup.string().required().min(2).max(20),
             weight: Yup.number(),
             length: Yup.number()
           })
@@ -85,7 +81,7 @@ export default [
     removal: Yup
       .mixed()
       .when("parcelCategory", {
-        is: (parcelCategory => parcelCategory === 'przeprowadzka'),
+        is: (parcelCategory => parcelCategory.find(f => f === 'przeprowadzka')),
         then: Yup.array().of(
           Yup.object().shape({
             name: Yup.string().required(),
@@ -137,7 +133,4 @@ export default [
    Yup.object().shape({
       rules: Yup.bool().oneOf([true], 'To pole jest wymagane'),
   }),
-
 ];
-
-

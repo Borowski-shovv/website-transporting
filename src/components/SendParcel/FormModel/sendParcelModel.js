@@ -84,10 +84,10 @@ export default {
         label: 'Numer kontaktowy odbiorcy paczki*',
         requiredErrorMsg: 'Numer kontaktowy odbiorcy jest wymagany'
       },
-      parcelCategory: {
-        name: 'parcelCategory',
-        requiredErrorMsg: 'Wybierz kategorie paczki'
-      },
+      // parcelCategory: {
+      //   name: 'parcelCategory',
+      //   requiredErrorMsg: 'Wybierz kategorie paczki'
+      // },
     },
     files: [],
     parcel: [],

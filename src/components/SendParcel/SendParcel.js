@@ -24,13 +24,13 @@ import './SendParcel.css';
 
 const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', 'Podsumowanie'];
 
-const { formId, formField, formParcelCategory, files} = sendParcelModel;
+const { formId, formField, files} = sendParcelModel;
 
 
 function _renderStepContent(step) {
   switch (step) {
     case 0:
-      return <CheckCategory formParcelCategory={formParcelCategory} formField={formField} />;
+      return <CheckCategory formField={formField} />;
     case 1:
       return <AddressForm formField={formField} />;
     case 2:

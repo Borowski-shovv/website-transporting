@@ -54,8 +54,9 @@ export default function InputRadio(props) {
             }
               label={label}
           />
+           {_renderHelperText()}
           {/* wyswietl komunikat tylko przy pierwszym obrazku, pod warunkiem ze zaden nie zostal klikniety a klient chce isc dalej*/}
-          {field.value === 'paczka' ? _renderHelperText() : null} 
+          {/* {field.value === 'paczka' ? _renderHelperText() : null}  */}
         </FormControl>
       
     </>
