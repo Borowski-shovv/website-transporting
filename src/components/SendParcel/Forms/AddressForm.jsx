@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, Typography, Box, Paper } from '@material-ui/core';
 import { InputField, CheckboxField, SelectField } from '../FormFields';
 import { useFormikContext } from 'formik';
 import './AddressForm.css';
 import {useStyle} from '../../Layout/styles';
+import Axios from 'axios';
 
 const countries = [
   {
@@ -21,27 +22,52 @@ const countries = [
 // contextFormiAPi value dostane emaila
 // wysylanie geta z emailem axiosem
 
-export default function AddressForm(props) {
-  const {
-    formField: {
-      firstName,
-      firstName2,
-      address1,
-      address2,
-      city,
-      city2,  
-      zipcode,
-      zipcode2,
-      country,
-      country2,
-      contactPerson,
-      contactPerson2,
-      contactNumber,
-      contactNumber2,
-    }
-  } = props;
+export default function AddressForm(props) { 
+
+    const {
+      formField: {
+        firstName,
+        firstName2,
+        address1,
+        address2,
+        city,
+        city2,  
+        zipcode,
+        zipcode2,
+        country,
+        country2,
+        contactPerson,
+        contactPerson2,
+        contactNumber,
+        contactNumber2,
+      }
+    } = props;
+    
+    
+    const checkUserExist = async (userEmail) => {
+      await Axios.get('https://najtanszapaczkaszwecja.pl/api/user', 
+      {
+      params: 
+        {
+          email: userEmail
+        }
+      })
+      .then(res => console.log(res))
+      // console.log('funkcja wysylajaca uzytkownika', userEmail)
+    };
+    
+    //zapisanie statusu uzytkownika do globalnego stanu
+    // na podstawie statusu uzytkownika wygenerowanie widoku przed podsumowaniem wysylki
+  
+    const { values: formValues } = useFormikContext();
+    const userEmail = formValues.userEmail
+    checkUserExist(userEmail)
+
+    
   const classes = useStyle();
-  // const { values: formValues } = useFormikContext();
+  // console.log('email uzytkownika', formValues.userEmail)
+
+
 
   return (
     <React.Fragment>

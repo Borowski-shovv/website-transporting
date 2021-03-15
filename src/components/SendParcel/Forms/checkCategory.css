@@ -116,3 +116,18 @@ input[type="radio"]:checked {
     width: 150px !important;
 }
 
+@media (max-width: 599px) {
+    label.MuiFormControlLabel-root {
+        width: 45px;
+        height: 45px;
+    }
+
+    .makeStyles-categoryName-11 {
+        text-align: left;
+    }
+
+    .Step1-wrapper .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

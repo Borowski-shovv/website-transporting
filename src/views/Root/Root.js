@@ -1,8 +1,8 @@
-import React from 'react';
-import './Root.css';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from '../../store/index';
+import UserContext from '../../context/userContext';
+import './Root.css';
+import Axios from 'axios';
 
 // pages
 // import AboutUsPage from '../AboutUsPage/AboutUsPage';
@@ -18,7 +18,6 @@ import OrderView from '../OrderView/OrderView';
 
 //common components 
 import Footer from '../../components/Footer/Footer';
-
 
 import '../../assets/libraries/font-awesome.min.css';
 import '../../assets/themify-icons/themify-icons.css';
@@ -39,15 +38,45 @@ const routes = [
   // { path: '/cennik', name: 'Cennik', Component: PricesView},
   { path: '/zamowienie', name: 'Cennik', Component: OrderView},
   // { path: '/koszyk', name: 'Koszyk', Component: CheckoutView},
- { path: '/zaloguj', name: 'Logowanie', Component: LoginView},
+ { path: '/logowanie', name: 'Logowanie', Component: LoginView},
 ];
 
 function Root() {
+  const [userData, setUserData] = useState({
+    token: undefined,
+    user: undefined,
+  });
+
+  // useEffect(() => {
+  //   const checkLoggedIn = async () => {
+  //     let token = localStorage.getItem('auth-token');
+  //     if (token === null) {
+  //       localStorage.setItem('auth-token', '');
+  //       token = '';
+  //     }
+  //     const tokenResponse = await Axios.post('/users/tokenIsValid', null, {
+  //       headers: { 'x-auth-token': token },
+  //     });
+  //     // console.log(tokenResponse.data);
+  //     if (tokenResponse.data) {
+  //       const userRes = await Axios.get('/users', { 
+  //         headers: { 'x-auth-token': token },
+  //       });
+        
+  //       setUserData({
+  //         token,
+  //         user: userRes.data,
+  //       });  
+  //     }
+  //   };
+
+  //   checkLoggedIn();
+  // }, []);
+
   return (
-    <Provider store={store}>
-      
-      <Router>
-        <ScrollToTop>       
+       <Router>
+        <ScrollToTop>     
+        <UserContext.Provider value={{ userData, setUserData }}>  
         <Switch>
           {routes.map(({ path, Component }) => (
             <Route key="name" path={path} exact>
@@ -61,14 +90,12 @@ function Root() {
         {/* <Footer /> */}
           <CookieConsent acceptOnScroll={true}
             acceptOnScrollPercentage={50} contentStyle={{flex: "0 auto", margin: "0px", padding: "0px 15px", textAlign: "center"}}  buttonText="ZGODA" style={{alignItems: "center", justifyContent:"center", background: "#24292e", fontSize: '12px'}}  buttonStyle={{margin: '5px', display: 'flex', background: "#bf1e2e", color: "white", fontSize: "13px" }}>
-            
               Ta strona korzysta z plików cookie, aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, zgodę na ich użycie.
-            
           </CookieConsent>
+          </UserContext.Provider>
           </ScrollToTop> 
       </Router>
-     
-    </Provider>
+
   );
 }
 

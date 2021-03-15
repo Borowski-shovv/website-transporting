@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
        marginTop: '50px',
     },
     categoryName: {
-        textAlign: 'center',
+        // textAlign: 'center',
         marginTop: 0,
         color: '#838383',
     },
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     },
     CustomPaper: {
         marginBottom: '20px',
-        padding: '30px'
+        padding: '20px'
     },
     marginTopBtn: {
         marginTop: '20px',
@@ -145,7 +145,7 @@ export default function CheckCategory(props) {
                                             {formValues.parcel.map((parcel, index) => (
                                                 <div className="addNewParcel-wrapper" key={index}>
                                                     <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
-                                                         <Grid item >
+                                                         <Grid item>
                                                             <p className="p-label">sposób zapakowania*</p>
                                                             <PackageType
                                                                 className="long-input"
@@ -154,29 +154,30 @@ export default function CheckCategory(props) {
                                                                 data={kindOfPackage}
                                                             />
                                                         </Grid>
-                                                        <Grid item>
+                                                        <Grid item xs={4} sm={1}>
                                                             <p className="p-label">waga*</p>
                                                             <UnitField type="number" variant="outlined" name={`parcel[${index}].weight`}  />
-                                                        </Grid><p className="p-unit">kg</p>
-                                                        <Grid item>
+                                                        </Grid>
+                                                        <p className="p-unit">kg</p>
+
+                                                        <Grid item xs={4} sm={1}>
                                                             <p className="p-label">wysokość*</p>
                                                             <UnitField type="number" variant="outlined" name={`parcel[${index}].height`} />
                                                         </Grid><p className="p-unit">cm</p>
-                                                        <Grid item>
+
+                                                        <Grid item xs={4} sm={1}>
                                                             <p className="p-label">szerokość*</p>
                                                             <UnitField type="number" variant="outlined" name={`parcel[${index}].width`} />
                                                         </Grid><p className="p-unit">cm</p>
-                                                        <Grid item  >
+
+                                                        <Grid item xs={4} sm={1}>
                                                             <p className="p-label">długość*</p>
                                                             <UnitField type="number" variant="outlined" name={`parcel[${index}].length`} />
                                                         </Grid><p className="p-unit">cm</p>
-                                                        <Grid item>
+
+                                                        <Grid item xs={4} sm={1}>
                                                             <p className="p-label">ilość*</p>
-                                                            <UnitField 
-                                                                type="number"
-                                                                variant="outlined" 
-                                                                name={`parcel[${index}].amount`} 
-                                                            />  
+                                                            <UnitField type="number" variant="outlined" name={`parcel[${index}].amount`} />  
                                                         </Grid><p className="p-unit">szt</p>
                                                        
                                                         
@@ -417,7 +418,7 @@ export default function CheckCategory(props) {
                 {
                 formValues.parcelCategory.includes('ponadgabarytowy') || formValues.oversized.length > 0 ?   
                     <Paper elevation={3} className={classes.CustomPaper}>
-                            <Grid container>
+                        <Grid container>
                                 <Grid xs={12} item>
                                    <FieldArray 
                                        name="oversized"
@@ -472,7 +473,7 @@ export default function CheckCategory(props) {
                                </Grid>
                 
                             </Grid>
-                        </Paper>
+                    </Paper>
                 : null
                 }
 
@@ -492,7 +493,7 @@ export default function CheckCategory(props) {
                         </Grid>
                     </Grid>
                 </Paper>
-            </div>
+            </div> 
         </>
     )
 }

@@ -1,7 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as Yup from 'yup';
-// import { mixed } from 'yup';
-// import moment from 'moment';
 import sendParcelModel from './sendParcelModel';
 const { formField: {
     email,
@@ -29,23 +27,22 @@ export default [
   Yup.object().shape({
     [email.name]: Yup.string().email().required("Wypisz swój adres email."),
     // parcelCategory: Yup.string().required("Wybierz kategorie przesyłki."),
-    parcelCategory: Yup.array(Yup.string().oneOf(['paczka', 'paleta', 'auto', 'przeprowadzka', 'ponadgabarytowy'])).min(1, "Wybierz kategorie przesyłki.").nullable(),
+    parcelCategory: Yup.array(Yup.string().oneOf(['paczka', 'paleta', 'auto', 'przeprowadzka', 'ponadgabarytowy'])).min(1, "Wybierz kategorie przesyłki.").required(),
     parcel: Yup 
     .mixed()
     .when("parcelCategory", { 
-      is: (parcelCategory => parcelCategory.find(p => p === 'paczka')),
+      is: (parcelCategory => parcelCategory.find(p => p === 'paczka') ),
       then:  Yup.array().of(
         Yup.object().shape({
-          // name: Yup.string().min(2, 'Nazwa jest za krótka.').required('Napisz co przewozisz.'),
           weight: Yup.number().min(1).required('Waga paczki jest wymagana.'),
           height: Yup.number().min(1).required('Wysokość paczki jest wymagana.'),
           width: Yup.number().min(1).required('Szerokość paczki jest wymagana.'),
           length: Yup.number().min(1).required('Długość paczki jest wymagana.'),
           amount: Yup.number().min(1).required('Wpisz ilość paczek.'),
           kindOfpackage: Yup.string().required('Wybierz typ opakowania.')
-        })
-      )
-      .min(1, 'Dodaj paczkę i uzupełnij dane')
+        }),
+        )
+      .min(1, 'Dodaj paczkę i uzupełnij dane').required()
     }),
     pallet: Yup 
       .mixed()
@@ -60,7 +57,6 @@ export default [
             length: Yup.number().required('Długość palety jest wymagana.'),
             amount: Yup.number().required('Wpisz ilość palet.'),
           })
-        
       )
       .min(1, 'Dodaj paletę i uzupełnij dane')
     }),
