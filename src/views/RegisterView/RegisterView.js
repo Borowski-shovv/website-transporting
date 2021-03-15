@@ -7,7 +7,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
@@ -51,36 +50,37 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordVerify, setPasswordVerify] = useState('');
   const [error, setError] = useState('');
   const classes = useStyles();
   const history = useHistory();
 
-  const handleSubmit = async (e) => {
-        e.preventDefault();
+//   const handleSubmit = async (e) => {
+//         e.preventDefault();
     
-        let url = 'https://najtanszapaczkaszwecja.pl/api/users/get';
+//         let url = 'https://najtanszapaczkaszwecja.pl/api/users/get';
         
-        try {
+//         try {
           
-          //basic auth -> pozwala wyslać zapytanie na backend zeby uwierzytelnic wiarygodnosc
-          const loginUser = {email, password}
-          const loginRes = await Axios.post(url, loginUser, {
-            auth: {
-              username: 'shovv', 
-              password: '$HOVV2020'
-            }
-          })
+//           //basic auth -> pozwala wyslać zapytanie na backend zeby uwierzytelnic wiarygodnosc
+//           const loginUser = {email, password}
+//           const loginRes = await Axios.post(url, loginUser, {
+//             auth: {
+//               username: 'shovv', 
+//               password: '$HOVV2020'
+//             }
+//           })
           
-          console.log(loginRes);
-          localStorage.setItem("auth-token", loginRes.data.token)
-          history.push('/');
+//           console.log(loginRes);
+//           localStorage.setItem("auth-token", loginRes.data.token)
+//           history.push('/');
           
-          } catch(err) {
-            err.response.data.msg && setError(err.response.data.msg)
-          }
+//           } catch(err) {
+//             err.response.data.msg && setError(err.response.data.msg)
+//           }
     
-        console.log('after fetch')
-      }
+//         console.log('after fetch')
+//       }
     
 
   return (
@@ -93,9 +93,9 @@ export default function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Logowanie
+            Rejestracja
           </Typography>
-          <form className={classes.form} onSubmit={handleSubmit}>
+          {/* <form className={classes.form} onSubmit={handleSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -119,6 +119,18 @@ export default function Login() {
               id="password"
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="checkpassword"
+              label="Powtórz hasło"
+              type="password"
+              id="checkpassword"
+              autoComplete="current-password"
+              onChange={(e) => setPasswordVerify(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -145,7 +157,7 @@ export default function Login() {
                 </Link>
               </Grid>
             </Grid>
-          </form>
+          </form> */}
           <div className="error-msg">
             {error}             
           </div>
