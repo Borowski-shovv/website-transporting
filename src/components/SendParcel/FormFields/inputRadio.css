@@ -2,7 +2,7 @@ div.MuiFormControl-root.paczka input[type="radio"]:checked {
     border: 5px solid red;
 }
 
-label.MuiFormControlLabel-root {
+label.MuiFormControlLabel-root.radioBtnParcelCategoryLabel {
     height: 75px;
     width: 75px;
 }

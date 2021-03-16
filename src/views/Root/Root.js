@@ -14,7 +14,8 @@ import Axios from 'axios';
 // import PricesView from '../PricesView/PricesView';
 import OrderView from '../OrderView/OrderView';
 // import CheckoutView from '../CheckoutView/checkout';
- import LoginView from '../LoginView/LoginView';
+import LoginView from '../LoginView/LoginView';
+import RegisterView from '../RegisterView/RegisterFormik';
 
 //common components 
 import Footer from '../../components/Footer/Footer';
@@ -39,6 +40,7 @@ const routes = [
   { path: '/zamowienie', name: 'Cennik', Component: OrderView},
   // { path: '/koszyk', name: 'Koszyk', Component: CheckoutView},
  { path: '/logowanie', name: 'Logowanie', Component: LoginView},
+ { path: '/rejestracja', name: 'Rejestracja', Component: RegisterView}
 ];
 
 function Root() {

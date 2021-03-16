@@ -506,6 +506,7 @@ function MyCheckbox(props) {
     });
     return (
       <FormControlLabel
+        className="radioBtnParcelCategoryLabel"
         control={<Checkbox {...props} {...field} />}
         label={props.label}
       />
