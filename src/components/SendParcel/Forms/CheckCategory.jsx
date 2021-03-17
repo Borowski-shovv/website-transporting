@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Grid, Typography, Button, Paper} from '@material-ui/core';
-import { InputField, InputRadio, UnitField, PackageType } from '../FormFields';
+import { InputField, UnitField, PackageType } from '../FormFields';
 import { useFormikContext, FieldArray } from 'formik';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import './checkCategory.css';
 import OrderSummary from './OrderSummary';
 import { makeStyles } from '@material-ui/core';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
+import UserContext from '../../../context/userContext';
 
 //testy
 import { useField, ErrorMessage } from 'formik';
@@ -95,6 +96,8 @@ export default function CheckCategory(props) {
     const classes = useStyles()
     const { formField: { email } } = props;
     const { values: formValues, errors } = useFormikContext();
+    const { userData } = useContext(UserContext);
+    //console.log(userData.user)
 
     return (
         <>
@@ -486,6 +489,7 @@ export default function CheckCategory(props) {
                     </Paper>
                 : null}
 
+                {/* { userData.user ? null :  ( */}
                 <Paper elevation={3} className={classes.CustomPaper}>
                     <Grid container spacing={2}>
                         <Grid className="email-grid-wrapper" container direction="row" item xs={12} sm={6}> 
@@ -493,6 +497,8 @@ export default function CheckCategory(props) {
                         </Grid>
                     </Grid>
                 </Paper>
+               {/*  ) } */}
+              
             </div> 
         </>
     )

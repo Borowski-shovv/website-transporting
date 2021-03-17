@@ -12,7 +12,8 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { withRouter, Link } from "react-router-dom";
 import Logo from '../assets/images/solidfach.svg';
 import UserContext from '../context/userContext';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import AuthOptions from "../auth/AuthOptions";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -49,17 +50,13 @@ const Header = props => {
   const { userData, setUserData} = useContext(UserContext)
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [anchorProfile, setAnchorProfile] = React.useState(null);
   const open = Boolean(anchorEl);
-  const openProfile = Boolean(anchorProfile);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
-console.log(userData.token)
+  console.log(userData.token)
+
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
-  };
-  const handleMenuProfile = event => {
-    setAnchorProfile(event.currentTarget);
   };
 
   const handleMenuClick = pageURL => {
@@ -73,22 +70,18 @@ console.log(userData.token)
 
   const menuItems = [
     {
-      menuTitle: "Home",
+      menuTitle: "Start",
       pageURL: "/"
     },
-    {
-      menuTitle: "Logowanie",
-      pageURL: "/logowanie"
-    },
-    {
-      menuTitle: "Rejestracja",
-      pageURL: "/rejestracja"
-    }
+    // {
+    //   menuTitle: "Logowanie",
+    //   pageURL: "/logowanie"
+    // },
+    // {
+    //   menuTitle: "Rejestracja",
+    //   pageURL: "/rejestracja"
+    // }
   ];
-
-  const handleClose = () => {
-    setAnchorProfile(null);
-  };
 
   return (
     <div className={classes.root}>
@@ -128,11 +121,14 @@ console.log(userData.token)
                 {menuItems.map(menuItem => {
                   const { menuTitle, pageURL } = menuItem;
                   return (
+                    <>
                     <MenuItem key={menuTitle} onClick={() => handleMenuClick(pageURL)}>
                       {menuTitle}
                     </MenuItem>
+                    </>
                   );
                 })}
+                <AuthOptions />
               </Menu>
             </>
           ) : (
@@ -152,55 +148,7 @@ console.log(userData.token)
               >
                 Wyceń paczkę
               </Button>            
-              {userData.token ? (
-                <div>
-                    <IconButton
-                        aria-label="account of current user"
-                        aria-controls="menu-appbar"
-                        aria-haspopup="true"
-                        onClick={handleMenuProfile}
-                        color="inherit"
-                    >
-                        <AccountCircle />
-                    </IconButton>
-                    <Menu
-                        id="menu-appbar"
-                        anchorEl={anchorProfile}
-                        anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                        }}
-                        open={openProfile}
-                        onClose={handleClose}
-                    >
-                        <MenuItem onClick={handleClose}>Moje konto</MenuItem>
-                        <MenuItem onClick={handleClose}>Wyloguj</MenuItem>
-                    </Menu>
-                </div>  
-                ) : (
-                    <>
-                    <Button
-                        // variant="contained"
-                        className={classes.navLink}
-                        onClick={() => handleButtonClick("/logowanie")}
-                    >
-                        Logowanie
-                    </Button>
-                    <Button
-                        // variant="contained"
-                        className={classes.navLink}
-                        onClick={() => handleButtonClick("/rejestracja")}
-                    >
-                        Rejestracja
-                    </Button>
-                    </>
-                )
-            }
+              <AuthOptions />
             </div>
           )}
         </Toolbar>

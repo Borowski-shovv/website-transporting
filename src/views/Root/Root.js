@@ -14,7 +14,6 @@ import Header from '../../components/Navbar';
 // import OfferView from '../OfferView/OfferView';
 // import GalleryView from '../GalleryView/GalleryView';
 // import PricesView from '../PricesView/PricesView';
-// import CheckoutView from '../CheckoutView/checkout';
 import OrderView from '../OrderView/OrderView';
 import Login from '../../auth/Login';
 import Register from '../../auth/Register';
@@ -40,7 +39,6 @@ const routes = [
   // { path: '/galeria', name: 'Galeria', Component: GalleryView},
   // { path: '/cennik', name: 'Cennik', Component: PricesView},
   { path: '/wycena', name: 'Cennik', Component: OrderView},
-  // { path: '/koszyk', name: 'Koszyk', Component: CheckoutView},
  { path: '/logowanie', name: 'Logowanie', Component: Login},
  { path: '/rejestracja', name: 'Rejestracja', Component: Register}
 ];
@@ -56,6 +54,7 @@ function Root() {
       //1. sprawdzenie w local storage czy istnieje klucz tokena i czy nie jest pusty 
       let token = localStorage.getItem('user-token');
       let userId = localStorage.getItem('user-id');
+      let userEmail = localStorage.getItem('user-email');
 
       if (token === null) {
         localStorage.setItem('user-token', '');
@@ -64,6 +63,11 @@ function Root() {
 
       if(userId === null) {
         localStorage.setItem('user-id', '');
+        userId = '';
+      }
+
+      if(userEmail === null) {
+        localStorage.setItem('user-email', '');
         userId = '';
       }
 
@@ -79,12 +83,15 @@ function Root() {
           password: '$HOVV2020'
         },
       });
-       console.log(tokenResponse.data);
+      //  console.log(tokenResponse.data);
 
 
       if(tokenResponse.data.valid) {
+        // console.log(userEmail)
+
         setUserData({
           token: token,
+          user: userEmail,
         })
       }
 
