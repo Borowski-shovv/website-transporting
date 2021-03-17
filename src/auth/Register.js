@@ -10,8 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import bridge from '../../assets/images/road.jpg';
-import CheckboxField from '../../components/SendParcel/FormFields/CheckboxField'
+import bridge from '../assets/images/road.jpg';
+import CheckboxField from '../components/SendParcel/FormFields/CheckboxField'
 import { ErrorMessage, Formik, Form, Field } from 'formik';
 import { array, boolean,ref, number, object, string, ValidationError } from 'yup';
 
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Register() {
-    const [error, setError] = useState('');
+  const [error, setError] = useState('');
   const classes = useStyles();
   const history = useHistory();
 
@@ -73,7 +73,7 @@ export default function Register() {
                   password: '$HOVV2020'
                 },
               })
-              localStorage.setItem("auth-token", loginRes.data.token)
+            // localStorage.setItem("auth-token", loginRes.data.token)
             //   history.push('/');
             console.log(loginRes);
               } catch(err) {
@@ -121,7 +121,7 @@ export default function Register() {
                 address:
                     string()
                     .required('To pole jest wymagane'),
-                zipcode: number().required('To pole jest wymagane'),
+                zipcode: string().required('To pole jest wymagane'),
                 city: string().required('To pole jest wymagane'),
                 country: string().required('To pole jest wymagane'),
                 password: string().required('To pole jest wymagane').min(6, 'Hasło musi zawierać conajmniej 6 znaków'),
@@ -129,12 +129,13 @@ export default function Register() {
                    .oneOf([ref('password'), null], 'Hasła nie mogą się różnić')
             })
        }
-       onSubmit={values => {
+       onSubmit={(values, {resetForm}) => {
          // same shape as initial values
          handleSubmit(values);
+         resetForm({});
        }}
      >
-       {({ values, errors, touched }) => (
+       {({ values, errors, touched, resetForm }) => (
          <Form className={classes.form}>
               <FormGroup>
                 <Field 

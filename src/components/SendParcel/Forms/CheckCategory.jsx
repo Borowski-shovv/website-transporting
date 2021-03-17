@@ -3,7 +3,7 @@ import { Grid, Typography, Button, Paper} from '@material-ui/core';
 import { InputField, InputRadio, UnitField, PackageType } from '../FormFields';
 import { useFormikContext, FieldArray } from 'formik';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
-import './CheckCategory.css';
+import './checkCategory.css';
 import OrderSummary from './OrderSummary';
 import { makeStyles } from '@material-ui/core';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +12,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import bridge from '../../assets/images/road.jpg'
+import bridge from '../assets/images/bridge.jpg';
+import UserContext from '../context/userContext';
 
 import Axios from 'axios';
 import { useHistory } from 'react-router-dom';
@@ -55,13 +56,14 @@ export default function Login() {
   const classes = useStyles();
   const history = useHistory();
 
+  const { setUserData } = useContext(UserContext);
+
   const handleSubmit = async (e) => {
         e.preventDefault();
     
-        let url = 'https://najtanszapaczkaszwecja.pl/api/users/get';
+        let url = 'https://najtanszapaczkaszwecja.pl/api/user/login';
         
         try {
-          
           //basic auth -> pozwala wyslać zapytanie na backend zeby uwierzytelnic wiarygodnosc
           const loginUser = {email, password}
           const loginRes = await Axios.post(url, loginUser, {
@@ -70,10 +72,27 @@ export default function Login() {
               password: '$HOVV2020'
             }
           })
+
+          setUserData({
+            token: loginRes.data.token,
+            id: loginRes.data.id,
+            user: loginRes.data.email,
+          });
           
           console.log(loginRes);
-          localStorage.setItem("auth-token", loginRes.data.token)
-          history.push('/');
+          localStorage.setItem("user-token", loginRes.data.token)
+          localStorage.setItem("user-id", loginRes.data.id)
+          localStorage.setItem("user-email", loginRes.data.email)
+          
+          setEmail('');
+          setPassword('');
+
+          
+          if(loginRes.data.errorMessage) {
+              setError(loginRes.data.errorMessage)
+          } else {
+            history.push('/')
+          }
           
           } catch(err) {
             err.response.data.msg && setError(err.response.data.msg)
@@ -82,7 +101,6 @@ export default function Login() {
         console.log('after fetch')
       }
     
-
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -107,6 +125,7 @@ export default function Login() {
               autoComplete="email"
               autoFocus
               onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
             <TextField
               variant="outlined"
@@ -117,13 +136,16 @@ export default function Login() {
               label="Hasło"
               type="password"
               id="password"
-              autoComplete="current-password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Pamiętaj mnie"
-            />
+            /> */}
+             <div className="error-msg">
+                <Typography color="error">{error} </Typography>             
+            </div>
             <Button
               type="submit"
               fullWidth
@@ -146,9 +168,7 @@ export default function Login() {
               </Grid>
             </Grid>
           </form>
-          <div className="error-msg">
-            {error}             
-          </div>
+         
         </div>
       </Grid>
     </Grid>
