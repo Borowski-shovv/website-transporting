@@ -84,10 +84,14 @@ export default function Register() {
                 },
               })
             // localStorage.setItem("auth-token", loginRes.data.token)
-              history.push('/aktywacja');
-              console.log(loginRes);
+              // history.push('/aktywacja');
+              console.log('odpowiedz servera po rejestracji',loginRes);
+
+
               if(loginRes.data.error === 7) {
                 setError('Konto o padnym adresie email już istnieje.')
+              } else {
+                history.push('/aktywacja')
               }
               } catch(err) {
                 err.response.data.msg && setError(err.response.data.msg)
@@ -113,6 +117,13 @@ export default function Register() {
                 email: '',
                 password: '',
                 passwordVerify: '',
+                name: '',
+                phone: '',
+                address: '',
+                zipcode: '',
+                city: '',
+                country: '',
+
             }}
             validationSchema={object({
                 name: 
@@ -142,13 +153,13 @@ export default function Register() {
                    .oneOf([ref('password'), null], 'Hasła nie mogą się różnić')
             })
        }
-       onSubmit={(values, {resetForm}) => {
+       onSubmit={(values,) => {
          // same shape as initial values
          handleSubmit(values);
-         resetForm({});
+        
        }}
      >
-       {({ values, errors, touched, resetForm }) => (
+       {({ values, errors, touched }) => (
          <Form className={classes.form}>
               <FormGroup>
                 <Field 
@@ -172,6 +183,9 @@ export default function Register() {
                 />
                 {errors.email && touched.email ? (<Typography color="error">{errors.email}</Typography>) : null}
               </FormGroup>
+              <div className="error-msg">
+                <Typography color="error">{error} </Typography>             
+              </div>
               <FormGroup>
                 <Field 
                     name="phone" 
@@ -265,9 +279,6 @@ export default function Register() {
               <Box mt={1} mb={2}>
         <CheckboxField className="CheckBoxRules" name="type" type="checkbox" label="Konto firmowe" />
       </Box>
-            <div className="error-msg">
-                <Typography color="error">{error} </Typography>             
-            </div>
            <Button className={classes.button} variant="contained" type="submit">Zarejestruj się</Button>
            {/* <pre>{JSON.stringify({values, errors}, null, 4)}</pre> */}
          </Form>

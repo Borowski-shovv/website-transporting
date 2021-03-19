@@ -79,7 +79,7 @@ export default function Login() {
             user: loginRes.data.email,
           });
           
-          console.log(loginRes);
+          // console.log(loginRes);
           localStorage.setItem("user-token", loginRes.data.token)
           localStorage.setItem("user-id", loginRes.data.id)
           localStorage.setItem("user-email", loginRes.data.email)
@@ -87,7 +87,6 @@ export default function Login() {
           setEmail('');
           setPassword('');
 
-          
           if(loginRes.data.errorMessage) {
               setError(loginRes.data.errorMessage)
           } else {
@@ -98,7 +97,7 @@ export default function Login() {
             err.response.data.msg && setError(err.response.data.msg)
           }
     
-        console.log('after fetch')
+        // console.log('after fetch')
       }
     
   return (

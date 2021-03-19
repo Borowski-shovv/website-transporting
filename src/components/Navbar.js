@@ -53,7 +53,7 @@ const Header = props => {
   const open = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
-  console.log(userData.token)
+  // console.log(userData.token)
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);

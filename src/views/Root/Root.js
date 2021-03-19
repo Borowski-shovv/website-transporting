@@ -16,7 +16,7 @@ import Header from '../../components/Navbar';
 // import GalleryView from '../GalleryView/GalleryView';
 // import PricesView from '../PricesView/PricesView';
 // 
-import UserEmailActivation from '../../auth/UserEmailActivation';
+import UserEmailActivation from '../../auth/AfterEmailActivation';
 // 
 import UserEmailAfterRegistration from '../../auth/UserEmailAfterRegistration';
 import OrderView from '../OrderView/OrderView';
