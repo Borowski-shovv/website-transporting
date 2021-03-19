@@ -14,7 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import bridge from '../assets/images/bridge.jpg';
 import UserContext from '../context/userContext';
-
 import Axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
@@ -47,9 +46,12 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  green: {
+    color: 'green'
+  }
 }));
 
-export default function Login() {
+export default function Login({valid}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -106,6 +108,14 @@ export default function Login() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
+          <Grid item>
+            {valid ? 
+              <Typography variant="body1" className={classes.green}>
+                Twoje konto zostało pomyślnie aktywowane.
+              </Typography> 
+              : null
+            }
+          </Grid>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -161,7 +171,7 @@ export default function Login() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="rejestracja" variant="body2">
                   {"Nie masz jeszcze konta? Zarejestruj się"}
                 </Link>
               </Grid>

@@ -1,6 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { useParams } from "react-router-dom";
 import Axios from 'axios';
+import Login from '../auth/Login';
+
 
 function UserEmailActivation() {
     const [ activationError, setActivationError ] = useState('');
@@ -41,13 +43,13 @@ function UserEmailActivation() {
     return (
 
         <div>
-            {activationError && activationError === 11 ? "Twoje konto zostało już aktywowane. Przejdź do strony logowania > Button" : null}
+            {activationError && activationError === 11 ? "Twoje konto zostało już aktywowane" : null}
             {activationError && activationError === 10 ? "Podany token jest niepoprawny" : null}
             {activationError && activationError === 9 ? "Problem z zapis do bazy danych. Skontaktuj się do bazy danych" : null}
             {activationError && activationError === 5 ? "Niepoprawne dane wejściowe" : null}
 
-            {valid ? <h2>Dziękujemy za aktywacje konta. Przejdź do strony logowania  BUTTON</h2> : null }
-
+            {/* {valid ? <h2>Dziękujemy za aktywacje konta.</h2> : null } */}
+            <Login valid={valid}/>
         </div>
     )
 }

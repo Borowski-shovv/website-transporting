@@ -47,7 +47,9 @@ const useStyles = makeStyles(theme => ({
 
 const Header = props => {
   const { history } = props;
-  const { userData, setUserData} = useContext(UserContext)
+  const { userData, setUserData} = useContext(UserContext);
+  
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
