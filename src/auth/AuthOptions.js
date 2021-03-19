@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
 })
 )
 
-
 function AuthOptions() {
     const { userData, setUserData} = useContext(UserContext);
     const [anchorProfile, setAnchorProfile] = React.useState(null);
@@ -49,7 +48,6 @@ function AuthOptions() {
     const handleButtonClick = pageURL => {
         history.push(pageURL);
       };
-
 
     return (
         <div>

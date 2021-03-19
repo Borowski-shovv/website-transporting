@@ -39,6 +39,17 @@ function uploadFile(file, onProgress) {
             console.log(resp.files)
         }
 
+<<<<<<< Updated upstream
+=======
+        // const username = "shovv";
+        // const password = "$HOVV2020";
+
+        // const authData = base64_encode(username + ':' + password);
+
+        // xhr.setRequestHeader("Authorization", "Basic " + authData)
+        // xhr.setRequestHeader("content-type", "application/json");
+
+>>>>>>> Stashed changes
         xhr.onerror = (evt) => rej(evt);
 
         xhr.upload.onprogress = (event) => {

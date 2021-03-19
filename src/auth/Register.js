@@ -20,9 +20,9 @@ import Axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-  },
+  // root: {
+  //   height: '100vh',
+  // },
   image: {
     backgroundImage: `url(${bridge})`,
     backgroundRepeat: 'no-repeat',
@@ -50,6 +50,19 @@ const useStyles = makeStyles((theme) => ({
   },
   checkbox: {
       width: 'auto',
+<<<<<<< Updated upstream
+=======
+  },
+  formControl: {
+    marginTop: '8px',
+  },
+  input: {
+    padding: '14.5px 14px'
+  },
+  button: {
+    backgroundColor: '#bf1e2e',
+    color: 'white',
+>>>>>>> Stashed changes
   }
 }));
 
@@ -74,8 +87,16 @@ export default function Register() {
                 },
               })
             // localStorage.setItem("auth-token", loginRes.data.token)
+<<<<<<< Updated upstream
             //   history.push('/');
             console.log(loginRes);
+=======
+              history.push('/aktywacja');
+              console.log(loginRes);
+              if(loginRes.data.error === 7) {
+                setError('Konto o padnym adresie email już istnieje.')
+              }
+>>>>>>> Stashed changes
               } catch(err) {
                 err.response.data.msg && setError(err.response.data.msg)
               }
@@ -252,8 +273,16 @@ export default function Register() {
               <Box mt={1} mb={2}>
         <CheckboxField className="CheckBoxRules" name="type" type="checkbox" label="Konto firmowe" />
       </Box>
+<<<<<<< Updated upstream
            <Button  variant="contained" type="submit">Zarejestruj się</Button>
            <pre>{JSON.stringify({values, errors}, null, 4)}</pre>
+=======
+            <div className="error-msg">
+                <Typography color="error">{error} </Typography>             
+            </div>
+           <Button className={classes.button} variant="contained" type="submit">Zarejestruj się</Button>
+           {/* <pre>{JSON.stringify({values, errors}, null, 4)}</pre> */}
+>>>>>>> Stashed changes
          </Form>
        )}
      </Formik>

@@ -23,7 +23,12 @@ const countries = [
 // wysylanie geta z emailem axiosem
 
 export default function AddressForm(props) { 
+<<<<<<< Updated upstream
 
+=======
+    const [error, setError] = useState('');
+    const { setFormikEmailInput } = useContext(AuthCustomer);
+>>>>>>> Stashed changes
     const {
       formField: {
         firstName,
@@ -42,6 +47,38 @@ export default function AddressForm(props) {
         contactNumber2,
       }
     } = props;
+<<<<<<< Updated upstream
+=======
+
+
+    useEffect(() => {
+      const checkUserExist = async (userEmail) => {
+        //sprawdzenie uzytkownika, ktory wypelnia formularz;
+        await Axios.get('https://najtanszapaczkaszwecja.pl/api/user', 
+        {
+        params: { email: userEmail },
+        auth: { username: 'shovv', password: '$HOVV2020'}
+        })
+        .then(res => {
+          if (res && res.data.email) {
+            setFormikEmailInput(res.data.email)
+          };
+          
+          if(res && res.data.error) {
+            setError(res.data.error)
+          };
+        }
+        
+        )
+        
+        //ZAPISANIE STATUSU DO CONTEXTU I NA PODSTAWIE TEGO WYSWIETLENIE LUB NIE PODSUMOWANIA
+        // console.log('funkcja wysylajaca uzytkownika', userEmail)
+        // informacja dotyczaca emaila 
+      };
+      
+      checkUserExist(userEmail)
+    }, [])
+>>>>>>> Stashed changes
     
     
     const checkUserExist = async (userEmail) => {
