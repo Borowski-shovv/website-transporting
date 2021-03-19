@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Grid, Typography, Box, Paper } from '@material-ui/core';
 import { InputField, CheckboxField, SelectField } from '../FormFields';
 import { useFormikContext } from 'formik';
 import './AddressForm.css';
 import {useStyle} from '../../Layout/styles';
 import Axios from 'axios';
+import userContext from '../../../context/userContext'
 
 const countries = [
   {
@@ -23,12 +24,8 @@ const countries = [
 // wysylanie geta z emailem axiosem
 
 export default function AddressForm(props) { 
-<<<<<<< Updated upstream
-
-=======
     const [error, setError] = useState('');
-    const { setFormikEmailInput } = useContext(AuthCustomer);
->>>>>>> Stashed changes
+    const { setFormikEmailInput } = useContext(userContext);
     const {
       formField: {
         firstName,
@@ -47,8 +44,6 @@ export default function AddressForm(props) {
         contactNumber2,
       }
     } = props;
-<<<<<<< Updated upstream
-=======
 
 
     useEffect(() => {
@@ -78,7 +73,6 @@ export default function AddressForm(props) {
       
       checkUserExist(userEmail)
     }, [])
->>>>>>> Stashed changes
     
     
     const checkUserExist = async (userEmail) => {

@@ -15,13 +15,10 @@ import Header from '../../components/Navbar';
 // import OfferView from '../OfferView/OfferView';
 // import GalleryView from '../GalleryView/GalleryView';
 // import PricesView from '../PricesView/PricesView';
-<<<<<<< Updated upstream
-=======
 // 
 import UserEmailActivation from '../../auth/UserEmailActivation';
 // 
 import UserEmailAfterRegistration from '../../auth/UserEmailAfterRegistration';
->>>>>>> Stashed changes
 import OrderView from '../OrderView/OrderView';
 import Login from '../../auth/Login';
 import Register from '../../auth/Register';
@@ -45,12 +42,9 @@ const routes = [
   // { path: '/kontakt', name: 'Kontakt', Component: ContactView},
   // { path: '/galeria', name: 'Galeria', Component: GalleryView},
   // { path: '/cennik', name: 'Cennik', Component: PricesView},
-<<<<<<< Updated upstream
-=======
   // { path: '/resetowaniehasla', name:'Resetowanie hasla', Component: PasswordReset },
   { path: '/aktywacja', name: 'Aktywacja po rejestracji', Component:  UserEmailAfterRegistration},
   { path: '/aktywacja/:id', name: 'Aktywacja', Component: UserEmailActivation},
->>>>>>> Stashed changes
   { path: '/wycena', name: 'Cennik', Component: OrderView},
  { path: '/logowanie', name: 'Logowanie', Component: Login},
  { path: '/rejestracja', name: 'Rejestracja', Component: Register}
@@ -61,10 +55,7 @@ function Root() {
     token: undefined,
     user: undefined,
   });
-<<<<<<< Updated upstream
-=======
   const [formikEmailInput, setFormikEmailInput] = useState('')
->>>>>>> Stashed changes
 
   useEffect(() => {
     const checkLoggedIn = async () => {
@@ -133,11 +124,7 @@ function Root() {
   return (
        <Router>
         <ScrollToTop>     
-<<<<<<< Updated upstream
-        <UserContext.Provider value={{ userData, setUserData }}>  
-=======
         <UserContext.Provider value={{ userData, setUserData, formikEmailInput, setFormikEmailInput }}>  
->>>>>>> Stashed changes
         <Header />
      
             <Switch>
