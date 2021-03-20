@@ -5,49 +5,28 @@ import './Root.css';
 import Axios from 'axios';
 import Header from '../../components/Navbar';
 
-
-
-// pages
-// import AboutUsPage from '../AboutUsPage/AboutUsPage';
-// import HomeView from '../HomeView/HomeView';
-// import ContactView from '../ContactView/ContactView';
-// import RegulaminView from '../RegulaminView/RegulaminView';
-// import OfferView from '../OfferView/OfferView';
-// import GalleryView from '../GalleryView/GalleryView';
-// import PricesView from '../PricesView/PricesView';
-// 
-import UserEmailActivation from '../../auth/AfterEmailActivation';
-// 
+import PasswordReset from '../../auth/ResetPassword';
+import PasswordResetToken from '../../auth/ResetPasswordToken';
+import EmailActivationToken from '../../auth/EmailActivationToken';
 import UserEmailAfterRegistration from '../../auth/UserEmailAfterRegistration';
 import OrderView from '../OrderView/OrderView';
 import Login from '../../auth/Login';
 import Register from '../../auth/Register';
 
-//common components 
-import Footer from '../../components/Footer/Footer';
-
 import '../../assets/libraries/font-awesome.min.css';
 import '../../assets/themify-icons/themify-icons.css';
-// scroll top
 import ScrollTopButton from '../../components/ScrollToTop/ScrollToTop';
 import ScrollToTop from 'react-router-scroll-top'
-// cookies
 import CookieConsent from "react-cookie-consent";
 
 const routes = [
-  // { path: '/', name: 'Home', Component: HomeView },
-  // { path: '/oferta', name: 'Oferta', Component: OfferView},
-  // { path: '/firma', name: 'Firma', Component: AboutUsPage },
-  // { path: '/regulamin', name: 'Regulamin', Component: RegulaminView},
-  // { path: '/kontakt', name: 'Kontakt', Component: ContactView},
-  // { path: '/galeria', name: 'Galeria', Component: GalleryView},
-  // { path: '/cennik', name: 'Cennik', Component: PricesView},
-  // { path: '/resetowaniehasla', name:'Resetowanie hasla', Component: PasswordReset },
+  { path: '/reset_hasla', name: 'Resetowanie hasła', Component: PasswordReset},
+  { path: '/reset_hasla/:id', name: 'Resetowanie hasła', Component: PasswordResetToken},
   { path: '/aktywacja', name: 'Aktywacja po rejestracji', Component:  UserEmailAfterRegistration},
-  { path: '/aktywacja/:id', name: 'Aktywacja', Component: UserEmailActivation},
+  { path: '/aktywacja/:id', name: 'Aktywacja', Component: EmailActivationToken},
   { path: '/wycena', name: 'Cennik', Component: OrderView},
- { path: '/logowanie', name: 'Logowanie', Component: Login},
- { path: '/rejestracja', name: 'Rejestracja', Component: Register}
+  { path: '/logowanie', name: 'Logowanie', Component: Login},
+  { path: '/rejestracja', name: 'Rejestracja', Component: Register}
 ];
 
 function Root() {

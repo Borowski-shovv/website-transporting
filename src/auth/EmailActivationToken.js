@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { useParams } from "react-router-dom";
 import Axios from 'axios';
-import Login from '../auth/Login';
+import Login from './Login';
 
 
-function UserEmailActivation() {
+function EmailActivationToken() {
     const [ activationError, setActivationError ] = useState('');
     const [ valid, setValid ] = useState()
     let { id } = useParams();
@@ -54,4 +54,4 @@ function UserEmailActivation() {
     )
 }
 
-export default UserEmailActivation;
+export default EmailActivationToken;
