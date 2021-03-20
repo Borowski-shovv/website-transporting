@@ -128,7 +128,7 @@ function ResetPasswordToken() {
                             name="password" 
                             as={TextField}
                             type="password"
-                            label="Hasło"
+                            label="Nowe hasło"
                             variant="outlined"
                             margin="normal"
                             fullWidth
@@ -140,7 +140,7 @@ function ResetPasswordToken() {
                             name="passwordVerify" 
                             as={TextField}
                             type="password"
-                            label="Potwierdź hasło"
+                            label="Potwierdź nowe hasło"
                             variant="outlined"
                             margin="normal"
                             fullWidth

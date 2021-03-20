@@ -45,10 +45,13 @@ const useStyles = makeStyles((theme) => ({
   },
   green: {
     color: 'green'
+  },
+  red: {
+    color: 'red'
   }
 }));
 
-export default function Login({valid}) {
+export default function Login({valid, activationError}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -95,9 +98,7 @@ export default function Login({valid}) {
           } catch(err) {
             err.response.data.msg && setError(err.response.data.msg)
           }
-    
-        // console.log('after fetch')
-      }
+  }
     
   return (
     <Grid container component="main" className={classes.root}>
@@ -106,6 +107,25 @@ export default function Login({valid}) {
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Grid item>
+            { activationError === 11 ? 
+              <Typography variant="body1" className={classes.red}>
+                Twoje konto zostało już aktywowane
+              </Typography> :
+              null
+            }
+            { activationError === 10 ? 
+              <Typography variant="body1" className={classes.red}>
+                Podany token jest niepoprawny
+              </Typography> :
+              null
+            }
+            { activationError === 9 ? 
+              <Typography variant="body1" className={classes.red}>
+                Problem z zapisem do bazy danych. Skontaktuj się z administratorem strony
+              </Typography> :
+              null
+            }
+
             {valid ? 
               <Typography variant="body1" className={classes.green}>
                 Twoje konto zostało pomyślnie aktywowane.
@@ -163,18 +183,17 @@ export default function Login({valid}) {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="/reset_hasla" variant="body2">
                   Zapomniałeś hasła?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="rejestracja" variant="body2">
+                <Link href="/rejestracja" variant="body2">
                   {"Nie masz jeszcze konta? Zarejestruj się"}
                 </Link>
               </Grid>
             </Grid>
           </form>
-         
         </div>
       </Grid>
     </Grid>

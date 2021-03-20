@@ -6,7 +6,7 @@ import Login from './Login';
 
 function EmailActivationToken() {
     const [ activationError, setActivationError ] = useState('');
-    const [ valid, setValid ] = useState()
+    const [ valid, setValid ] = useState();
     let { id } = useParams();
     
     useEffect(() => {
@@ -32,25 +32,16 @@ function EmailActivationToken() {
                 if(response.data.error) {
                     setActivationError(response.data.error);
                 }
+                console.log(response);
             })
         };
-
         getActivationToken();
     
     }, [id]);
 
     console.log(activationError);
     return (
-
-        <div>
-            {activationError && activationError === 11 ? "Twoje konto zostało już aktywowane" : null}
-            {activationError && activationError === 10 ? "Podany token jest niepoprawny" : null}
-            {activationError && activationError === 9 ? "Problem z zapis do bazy danych. Skontaktuj się do bazy danych" : null}
-            {activationError && activationError === 5 ? "Niepoprawne dane wejściowe" : null}
-
-            {/* {valid ? <h2>Dziękujemy za aktywacje konta.</h2> : null } */}
-            <Login valid={valid}/>
-        </div>
+        <Login activationError={activationError} valid={valid}/>
     )
 }
 
