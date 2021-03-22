@@ -33,8 +33,9 @@ function Root() {
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
+    id: undefined,
   });
-  const [formikEmailInput, setFormikEmailInput] = useState('')
+  const [filledEmailInfo, setEmailFilledInfo] = useState();
 
   useEffect(() => {
     const checkLoggedIn = async () => {
@@ -103,7 +104,8 @@ function Root() {
   return (
        <Router>
         <ScrollToTop>     
-        <UserContext.Provider value={{ userData, setUserData, formikEmailInput, setFormikEmailInput }}>  
+        <UserContext.Provider value={{ userData, setUserData, filledEmailInfo,
+            setEmailFilledInfo, }}>  
         <Header />
      
             <Switch>

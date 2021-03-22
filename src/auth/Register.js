@@ -57,10 +57,14 @@ const useStyles = makeStyles((theme) => ({
   button: {
     backgroundColor: '#bf1e2e',
     color: 'white',
+  },
+  green: {
+    color: 'green'
   }
 }));
 
 export default function Register() {
+  const [registrationInfo, setRegistrationInfo] = useState('');
   const [error, setError] = useState('');
   const classes = useStyles();
   const history = useHistory();
@@ -70,7 +74,6 @@ export default function Register() {
     let url = 'https://najtanszapaczkaszwecja.pl/api/users/create';
             // make API call
             try {
-              //basic auth -> pozwala wyslać zapytanie na backend zeby uwierzytelnic wiarygodnosc
               const newUserData = {"name": values.name,"email": values.email,"phone": values.phone,"address": values.address,"zip_code": values.zipcode,"city": values.city, "country":values.country,"password": values.password, 'type': values.isFirm}
               const loginRes = await Axios.post(url, newUserData, {
                 auth: {
@@ -78,16 +81,22 @@ export default function Register() {
                   password: '$HOVV2020'
                 },
               })
-            // localStorage.setItem("auth-token", loginRes.data.token)
-              // history.push('/aktywacja');
+            
               console.log('odpowiedz servera po rejestracji',loginRes);
 
 
               if(loginRes.data.error === 7) {
                 setError('Konto o padnym adresie email już istnieje.')
-              } else {
-                history.push('/aktywacja')
+              } else if(loginRes.data.error === 8) {
+                setError('Konto o padnym adresie email już istnieje.')
+              } else if(loginRes.data.error === null) {
+                setRegistrationInfo('Dziękujemy za utworzenie konta. Na Twój email wysłaliśmy link aktywacyjny. Wejdź w ten link, aby aktywować konto.')
               }
+              
+              
+              // else {
+              //   history.push('/aktywacja')
+              // }
               } catch(err) {
                 err.response.data.msg && setError(err.response.data.msg)
               }
@@ -148,11 +157,12 @@ export default function Register() {
                 passwordVerify: string()
                    .oneOf([ref('password'), null], 'Hasła nie mogą się różnić')
               })}
-            onSubmit={(values,) => {
+            onSubmit={(values, {resetForm}) => {
               handleSubmit(values);
+              resetForm({})
             }}
           >
-            {({ values, errors, touched }) => (
+            {({ values, errors, touched, isSubmitting, isValidating }) => (
               <Form className={classes.form}>
                     <FormGroup>
                       <Field 
@@ -165,6 +175,9 @@ export default function Register() {
                       />
                       {errors.name && touched.name ? (<Typography color="error">{errors.name}</Typography>) : null}
                     </FormGroup>
+                    <Box mt={1} mb={2}>
+                        <CheckboxField className="CheckBoxRules" name="type" type="checkbox" label="Konto firmowe" />
+                    </Box>
                     <FormGroup>
                       <Field 
                           name="email" 
@@ -190,17 +203,7 @@ export default function Register() {
                       />
                       {errors.phone && touched.phone ? (<Typography color="error">{errors.phone}</Typography>) : null}
                     </FormGroup>
-                    <FormGroup>
-                      <Field 
-                          name="address" 
-                          as={TextField}
-                          label="Adres"
-                          variant="outlined"
-                          margin="normal"
-                          fullWidth
-                      />
-                      {errors.address && touched.address ? (<Typography color="error">{errors.address}</Typography>) : null}
-                    </FormGroup>
+                   
                     <FormGroup>
                       <Field 
                           name="address" 
@@ -269,10 +272,11 @@ export default function Register() {
                       />
                       {errors.passwordVerify && touched.passwordVerify ? (<Typography color="error">{errors.passwordVerify}</Typography>) : null}
                     </FormGroup>
-                    <Box mt={1} mb={2}>
-                        <CheckboxField className="CheckBoxRules" name="type" type="checkbox" label="Konto firmowe" />
-                    </Box>
-                <Button className={classes.button} variant="contained" type="submit">Zarejestruj się</Button>
+                   
+                    <div className="reset-info">
+                            <Typography className={classes.green}>{registrationInfo} </Typography>             
+                    </div>
+                <Button className={classes.button} disabled={isSubmitting || isValidating} variant="contained" type="submit">Zarejestruj się</Button>
                 {/* <pre>{JSON.stringify({values, errors}, null, 4)}</pre> */}
               </Form>
             )}
