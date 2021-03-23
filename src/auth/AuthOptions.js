@@ -34,6 +34,7 @@ function AuthOptions() {
         localStorage.setItem('user-email', '')
         localStorage.setItem('user-id', '')
         localStorage.setItem('user-token', '')
+        localStorage.setItem('order_id', '')
     }
 
     const handleMenuProfile = event => {

@@ -92,9 +92,26 @@ export default function Login({valid, activationError}) {
               setError(loginRes.data.errorMessage)
           } 
           
-          // else {
-          //   history.push('/')
-          // }
+          //przypisanie orderu do uzytkownika ktory sie loguje
+          let orderId = localStorage.getItem('order_id')
+                
+          if(orderId === null) {
+              localStorage.setItem('order_id', '');
+              orderId = '';
+          }
+          
+          const data = {"order_id": orderId, "user_id": loginRes.data.id }
+          console.log('data, ktora jest wysylana po zalogowaniu na backend', data)
+          Axios.post('https://najtanszapaczkaszwecja.pl/api/orders/assign', data,  {
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            auth: {
+              username: 'shovv', 
+              password: '$HOVV2020'
+            }
+            })
+          .then(res => console.log('odpowiedz po zalogowaniu', res))
           
           } catch(err) {
             err.response.data.msg && setError(err.response.data.msg)

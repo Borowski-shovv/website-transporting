@@ -63,35 +63,6 @@ function EmailActivationToken() {
 
         };
 
-        const addOrderToUser = async () => {
-           
-            // let orderId = localStorage.getItem('order_id')
-           
-            // if(orderId === null) {
-            //     localStorage.setItem('order_id', '');
-            //     orderId = '';
-            // }
-    
-            // let url = 'https://najtanszapaczkaszwecja.pl/api/orders/assign';
-            // try {
-            //     const data = { orderId, userid }
-             
-            //     const connectOrderAndUser = await Axios.post(url, data, {
-            //         headers: { 
-            //             'Content-Type': 'application/json'
-            //         },
-            //         auth: {
-            //           username: 'shovv', 
-            //           password: '$HOVV2020'
-            //         }
-            //     })
-    
-            //     console.log(connectOrderAndUser) 
-    
-            // } catch(err) {
-            //     console.log(err)
-            // }
-        }
         getActivationToken()
     }, [id]);
     
