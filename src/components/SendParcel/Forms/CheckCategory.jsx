@@ -52,19 +52,19 @@ const useStyles = makeStyles(theme => ({
 
 const kindOfPackage = [
     {
-      value: 1,
+      value: "1",
       label: 'karton lub koperta'
     },
     {
-      value: 2,
+      value: "2",
       label: 'folia stretch'
     },
     {
-        value: 3,
+        value: "3",
         label: 'folia bąbelkowa'
     },
     {
-        value: 4,
+        value: "4",
         label: 'przesyłka niestandardowa'
     }
 ];
@@ -82,11 +82,11 @@ const carType = [
 
 const palletType = [
     {
-        value: 1,
+        value: "1",
         label: 'europaleta'
     },
     {
-        value: 2,
+        value: "2",
         label: 'inna',
     }
 
@@ -159,28 +159,28 @@ export default function CheckCategory(props) {
                                                         </Grid>
                                                         <Grid item xs={4} sm={1}>
                                                             <p className="p-label">waga*</p>
-                                                            <UnitField type="number" variant="outlined" name={`packages[${index}].packageWeight`}  />
+                                                            <UnitField variant="outlined" name={`packages[${index}].packageWeight`}  />
                                                         </Grid>
                                                         <p className="p-unit">kg</p>
 
                                                         <Grid item xs={4} sm={1}>
                                                             <p className="p-label">wysokość*</p>
-                                                            <UnitField type="number" variant="outlined" name={`packages[${index}].packageHeight`} />
+                                                            <UnitField variant="outlined" name={`packages[${index}].packageHeight`} />
                                                         </Grid><p className="p-unit">cm</p>
 
                                                         <Grid item xs={4} sm={1}>
                                                             <p className="p-label">szerokość*</p>
-                                                            <UnitField type="number" variant="outlined" name={`packages[${index}].packageWidth`} />
+                                                            <UnitField variant="outlined" name={`packages[${index}].packageWidth`} />
                                                         </Grid><p className="p-unit">cm</p>
 
                                                         <Grid item xs={4} sm={1}>
                                                             <p className="p-label">długość*</p>
-                                                            <UnitField type="number" variant="outlined" name={`packages[${index}].packageLength`} />
+                                                            <UnitField variant="outlined" name={`packages[${index}].packageLength`} />
                                                         </Grid><p className="p-unit">cm</p>
 
                                                         <Grid item xs={4} sm={1}>
                                                             <p className="p-label">ilość*</p>
-                                                            <UnitField type="number" variant="outlined" name={`packages[${index}].packageAmount`} />  
+                                                            <UnitField variant="outlined" name={`packages[${index}].packageAmount`} />  
                                                         </Grid><p className="p-unit">szt</p>
                                                        
                                                         
@@ -215,15 +215,15 @@ export default function CheckCategory(props) {
                 : null
                 }
 
-                {formValues.parcelCategory.includes('paleta') || formValues.pallet.length > 0 ? 
+                {formValues.parcelCategory.includes('paleta') || formValues.pallets.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                         <Grid container>
                             <Grid xs={12} item>
                                 <FieldArray 
-                                    name="pallet"
+                                    name="pallets"
                                     render={arrayHelpers => (
                                         <div>
-                                            {formValues.pallet.map((pallet, index) => (
+                                            {formValues.pallets.map((pallets, index) => (
                                                 <div className="addNewParcel-wrapper" key={index}>
                                                         <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
                                                             <Grid item >
@@ -231,33 +231,33 @@ export default function CheckCategory(props) {
                                                                 <PackageType
                                                                     className="long-input"
                                                                     variant="outlined"
-                                                                    name={`pallet[${index}].palletType`}
+                                                                    name={`pallets[${index}].palletType`}
                                                                     data={palletType}
                                                                 />
                                                             </Grid>
                                                            
                                                             <Grid item >
                                                                 <p className="p-label">waga*</p>
-                                                                <UnitField type="number" variant="outlined" name={`pallet[${index}].palletWeight`} />
+                                                                <UnitField variant="outlined" name={`pallets[${index}].palletWeight`} />
                                                             </Grid><p className="p-unit">kg</p>
                                                             <Grid item >
                                                                 <p className="p-label">wysokość*</p>
-                                                                <UnitField type="number" variant="outlined" name={`pallet[${index}].palletHeight`} />
+                                                                <UnitField variant="outlined" name={`pallets[${index}].palletHeight`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item  >
                                                                 <p className="p-label">szerokość*</p>
-                                                                <UnitField type="number" variant="outlined" name={`pallet[${index}].palletWidth`} />
+                                                                <UnitField variant="outlined" name={`pallets[${index}].palletWidth`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item  >
                                                                 <p className="p-label">długość*</p>
-                                                                <UnitField type="number" variant="outlined" name={`pallet[${index}].palletLength`} />
+                                                                <UnitField variant="outlined" name={`pallets[${index}].palletLength`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item >
                                                                 <p className="p-label">ilość*</p>
                                                                 <UnitField
-                                                                    type="number"
+                                                                
                                                                     variant="outlined" 
-                                                                    name={`pallet[${index}].palletAmount`} 
+                                                                    name={`pallets[${index}].palletAmount`} 
                                                                 /> 
                                                             </Grid><p className="p-unit">szt</p>
                                                         
@@ -273,7 +273,7 @@ export default function CheckCategory(props) {
                                                 ))}
 
                                                 <Grid item>
-                                                    {typeof errors.pallet === 'string' ? <Typography color="error">{errors.pallet}</Typography> : null}
+                                                    {typeof errors.pallets === 'string' ? <Typography color="error">{errors.pallets}</Typography> : null}
                                                 </Grid>
 
                                                 <Button 
@@ -479,7 +479,7 @@ export default function CheckCategory(props) {
                 : null
                 }
 
-                {formValues.packages.length > 0 || formValues.pallet.length > 0 || formValues.vehicles.length > 0 || formValues.furnitures.length > 0 || formValues.cargo.length > 0 ? 
+                {formValues.packages.length > 0 || formValues.pallets.length > 0 || formValues.vehicles.length > 0 || formValues.furnitures.length > 0 || formValues.cargo.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
                         <Typography variant="h6" gutterBottom>
                             Twoja przesyłka

@@ -15,9 +15,9 @@ import Axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-  },
+  // root: {
+  //   height: '100vh',
+  // },
   image: {
     backgroundImage: `url(${bridge})`,
     backgroundRepeat: 'no-repeat',
@@ -81,7 +81,6 @@ export default function Login({valid, activationError}) {
             user: loginRes.data.email,
           });
           
-          // console.log(loginRes);
           localStorage.setItem("user-token", loginRes.data.token)
           localStorage.setItem("user-id", loginRes.data.id)
           localStorage.setItem("user-email", loginRes.data.email)
@@ -91,9 +90,11 @@ export default function Login({valid, activationError}) {
 
           if(loginRes.data.errorMessage) {
               setError(loginRes.data.errorMessage)
-          } else {
-            history.push('/')
-          }
+          } 
+          
+          // else {
+          //   history.push('/')
+          // }
           
           } catch(err) {
             err.response.data.msg && setError(err.response.data.msg)

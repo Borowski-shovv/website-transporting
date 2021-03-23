@@ -11,19 +11,19 @@ const days = ['Ndz', 'Pon', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob']
 
 const servicesType = [
   {
-    value: 1,
+    value: "1",
     label: 'tylko transport',
   },
   {
-    value: 2,
+    value: "2",
     label: 'transport i pomoc kierowcy w zniesieniu i wniesieniu',
   },
   {
-    value: 3,
+    value: "3",
     label: 'transport i pomoc kilku osób w zniesieniu i wniesieniu',
   },
   {
-    value: 4,
+    value: "4",
     label: 'kompleksowa obsługa (bez mojego udziału w znoszeniu i wnoszeniu)'
   },
 ]

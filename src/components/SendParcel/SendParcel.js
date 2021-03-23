@@ -8,7 +8,7 @@ import {
   CircularProgress,
   Paper
 } from '@material-ui/core';
-
+import Axios from 'axios';
 import AddressForm from './Forms/AddressForm';
 import CheckCategory from './Forms/CheckCategory';
 import ReviewOrder from './ReviewOrder';
@@ -62,17 +62,55 @@ const SendParcel = () => {
   const currentValidationSchema = validationSchema[activeStep];
   const isLastStep = activeStep === steps.length - 1;
 
-
   async function _submitForm(values, actions) {
 
     setActiveStep(activeStep + 1);
+    console.log(values.packages)
+    let url = 'https://najtanszapaczkaszwecja.pl/api/order/create';
 
-    return new Promise((res) => setTimeout(() => {
-      res();
-      //wyslanie formularza do backendu
-      // console.log('dane wysylanej paczki', values)
-      // console.log('odpowiedz po wyslaniu')
-    }, 2000))
+    try {
+      const orderValues = {
+        "email": values.email,
+        "senderName": values.senderName,
+        "senderAddress": values.senderAddress,
+        "senderZip": values.senderZip,
+        "senderCity": values.senderCity,
+        "senderCountry": values.senderCountry,
+        "senderPhone":  values.senderPhone,
+        "senderContact": values.senderContact,
+        "recipientName": values.recipientName,
+        "recipientAddress": values.recipientAddress,
+        "recipientZip": values.recipientZip,
+        "recipientCity": values.recipientCity,
+        "recipientCountry": values.recipientCountry,
+        "recipientPhone": values.recipientPhone,
+        "recipientContact": values.recipientContact,
+        "serviceType": values.servicesType,
+        "shipmentDate": values.shipmentDate,
+        "pickupDate": values.pickupDate,
+        "comment": values.comment,
+        "files": values.files,
+        "packages": values.packages,
+        "pallets": values.pallets,
+        "vehicles": values.vehicles,
+        "furnitures": values.furnitures,
+        "cargo": values.cargo,  
+      }
+      // console.log('wartosci wrzucane do posta przed wyslaniem',orderValues)
+      const orderRes = await Axios.post(url, orderValues, {
+        auth: {
+          username: 'shovv', 
+          password: '$HOVV2020'
+        },
+      })
+      localStorage.setItem("order_id", orderRes.data.order_id)
+      console.log('odpowiedz z servera po wyslaniu formularza z przesylka',orderRes)
+      console.log(orderRes.data.order_id);
+
+    } catch(err) {
+      console.log(err)
+    }
+
   }
 
   function _handleSubmit(values, actions) {

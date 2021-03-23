@@ -108,7 +108,7 @@ export default function AddressForm(props) {
                 </Grid>
                 <Grid item xs={10}>
                   <InputField
-                    type="number"
+                    // type="number"
                     name={senderPhone.name}
                     label={senderPhone.label}
                     fullWidth
@@ -164,7 +164,7 @@ export default function AddressForm(props) {
                 </Grid>
                 <Grid item xs={10}>
                   <InputField
-                    type="number"
+                    // type="number"
                     name={recipientPhone.name}
                     label={recipientPhone.label}
                     fullWidth

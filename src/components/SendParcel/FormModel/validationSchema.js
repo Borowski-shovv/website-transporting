@@ -24,7 +24,7 @@ const visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 
 export default [
   Yup.object().shape({
-    [email.name]: Yup.string().email().required("Wypisz swój adres email."),
+    [email.name]: Yup.string().email("Wpisz prawidłowy adres email").required("Wypisz swój adres email."),
     // parcelCategory: Yup.string().required("Wybierz kategorie przesyłki."),
     parcelCategory: Yup.array(Yup.string().oneOf(['paczka', 'paleta', 'auto', 'przeprowadzka', 'ponadgabarytowy'])).min(1, "Wybierz kategorie przesyłki.").required(),
     packages: Yup 
@@ -33,17 +33,17 @@ export default [
       is: (parcelCategory => parcelCategory.find(p => p === 'paczka') ),
       then: Yup.array().of(
         Yup.object().shape({
-          packageWeight: Yup.number().min(1).required('Waga paczki jest wymagana.'),
-          packageHeight: Yup.number().min(1).required('Wysokość paczki jest wymagana.'),
-          packageWidth: Yup.number().min(1).required('Szerokość paczki jest wymagana.'),
-          packageLength: Yup.number().min(1).required('Długość paczki jest wymagana.'),
+          packageWeight: Yup.string().min(1).required('Waga paczki jest wymagana.'),
+          packageHeight: Yup.string().min(1).required('Wysokość paczki jest wymagana.'),
+          packageWidth: Yup.string().min(1).required('Szerokość paczki jest wymagana.'),
+          packageLength: Yup.string().min(1).required('Długość paczki jest wymagana.'),
           packageAmount: Yup.number().min(1).required('Wpisz ilość paczek.'),
           packageType: Yup.string().required('Wybierz typ opakowania.')
         }),
         )
       .min(1, 'Dodaj paczkę i uzupełnij dane').required()
     }),
-    pallet: Yup 
+    pallets: Yup 
       .mixed()
       .when("parcelCategory", {   
         is: (parcelCategory => parcelCategory.find(p => p === 'paleta')),
@@ -127,6 +127,8 @@ export default [
   }),
   Yup.object().shape({
     servicesType: Yup.string().nullable().required('Wybierz typ usługi'),
+    shipmentDate: Yup.string().required('To pole jest wymagane'),
+    pickupDate: Yup.string().required('To pole jest wymagane'),
   }),
    Yup.object().shape({
       rules: Yup.bool().oneOf([true], 'To pole jest wymagane'),

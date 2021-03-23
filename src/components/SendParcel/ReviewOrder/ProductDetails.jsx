@@ -157,7 +157,7 @@ function ProductDetails({formValues}) {
                     })
                   }
                   {
-                    formValues.pallet.map((p, idx) => {
+                    formValues.pallets.map((p, idx) => {
                       return (
                         <Grid container spacing={2} key={idx}>
                           <Grid item>

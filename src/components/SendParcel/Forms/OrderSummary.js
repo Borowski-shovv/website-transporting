@@ -90,7 +90,7 @@ function OrderSummary() {
                         }
 
                         {
-                            formValues.pallet.map((p, idx) => {
+                            formValues.pallets.map((p, idx) => {
                                 return (
                                     <div className="summaryOrderRow" key={idx}>
                                         <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={1}>
