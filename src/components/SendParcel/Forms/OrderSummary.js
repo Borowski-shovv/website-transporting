@@ -13,7 +13,7 @@ function OrderSummary() {
                 {
                     <>
                         {
-                            formValues.parcel.map((p,idx) => {
+                            formValues.packages.map((p,idx) => {
                                 return (
                                     <div className="summaryOrderRow" key={idx}>
                                         <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={1}>
@@ -24,7 +24,13 @@ function OrderSummary() {
                                                             Sposób pakowania:
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>{p.kindOfpackage}</Grid>
+                                                    <Grid item>
+                                                        {p.packageType == 1 ? <div>karton lub koperta</div> : null}
+                                                        {p.packageType == 2 ? <div>folia stretch</div> : null}
+                                                        {p.packageType == 3 ? <div>folia bąbelkowa</div> : null}
+                                                        {p.packageType == 4 ? <div>przesyłka niestandardowa</div> : null}
+                                                    
+                                                    </Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item xs={12} sm={2}>
@@ -34,7 +40,7 @@ function OrderSummary() {
                                                         Waga:
                                                     </Typography>
                                                     </Grid>
-                                                    <Grid item>{p.weight + ' kg'}</Grid>
+                                                    <Grid item>{p.packageWeight + ' kg'}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item xs={12} sm={2}>
@@ -44,7 +50,7 @@ function OrderSummary() {
                                                             Wysokość:
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>{p.height + ' cm'}</Grid>
+                                                    <Grid item>{p.packageHeight + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item xs={12} sm={2}>
@@ -54,7 +60,7 @@ function OrderSummary() {
                                                         Szerokość:
                                                     </Typography>
                                                     </Grid>
-                                                    <Grid item>{p.width + ' cm'}</Grid>
+                                                    <Grid item>{p.packageWidth + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item xs={12} sm={2}>
@@ -64,7 +70,7 @@ function OrderSummary() {
                                                         Długość:
                                                     </Typography>
                                                     </Grid>
-                                                    <Grid item>{p.length + ' cm'}</Grid>
+                                                    <Grid item>{p.packageLength + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item xs={12} sm={2}>
@@ -74,7 +80,7 @@ function OrderSummary() {
                                                             Ilość:
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item xs={6}>{p.amount + ' szt'}</Grid>
+                                                    <Grid item xs={6}>{p.packageAmount + ' szt'}</Grid>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
@@ -91,11 +97,14 @@ function OrderSummary() {
                                         <Grid item sm={2}>
                                                 <Grid className="long-column" container direction="column">
                                                     <Grid item>
-                                                    <Typography variant="h6" gutterBottom>
-                                                        Rodzaj palety:
-                                                    </Typography>
+                                                        <Typography variant="h6" gutterBottom>
+                                                            Rodzaj palety:
+                                                        </Typography>
                                                     </Grid>
-                                                    <Grid  item>{p.type}</Grid>
+                                                    <Grid item>
+                                                        {p.palletType == 1 ? <div>europaleta</div> : null}
+                                                        {p.palletType == 2 ? <div>inna</div> : null}
+                                                    </Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -105,7 +114,7 @@ function OrderSummary() {
                                                         Waga:
                                                     </Typography>
                                                     </Grid>
-                                                    <Grid item>{p.weight + ' kg'}</Grid>
+                                                    <Grid item>{p.palletWeight + ' kg'}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -115,7 +124,7 @@ function OrderSummary() {
                                                             Wysokość:
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>{p.height + ' cm'}</Grid>
+                                                    <Grid item>{p.palletHeight + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -125,7 +134,7 @@ function OrderSummary() {
                                                         Szerokość:
                                                     </Typography>
                                                     </Grid>
-                                                    <Grid item>{p.width + ' cm'}</Grid>
+                                                    <Grid item>{p.palletWidth + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -135,7 +144,7 @@ function OrderSummary() {
                                                         Długość:
                                                     </Typography>
                                                     </Grid>
-                                                    <Grid item>{p.length + ' cm'}</Grid>
+                                                    <Grid item>{p.palletLength + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -145,7 +154,7 @@ function OrderSummary() {
                                                         Ilość:
                                                     </Typography>
                                                     </Grid>
-                                                    <Grid item>{p.amount + ' szt'}</Grid>
+                                                    <Grid item>{p.palletAmount + ' szt'}</Grid>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
@@ -155,7 +164,7 @@ function OrderSummary() {
                         }
 
                         {
-                            formValues.car.map((c, idx) => {
+                            formValues.vehicles.map((v, idx) => {
                                 return (
                                     <div className="summaryOrderRow" key={idx}>
                                           <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={1}>
@@ -166,7 +175,10 @@ function OrderSummary() {
                                                         Rodzaj auta:
                                                     </Typography>
                                                     </Grid>
-                                                    <Grid  item>{c.type}</Grid>
+                                                    <Grid item>
+                                                        {v.vehicleType == 1 ? <div>osobowe</div> : null}
+                                                        {v.vehicleType == 2 ? <div>dostawcze</div> : null}
+                                                    </Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -176,7 +188,7 @@ function OrderSummary() {
                                                         Marka auta:
                                                     </Typography>
                                                     </Grid>
-                                                    <Grid  item>{c.brand}</Grid>
+                                                    <Grid item>{v.vehicleBrand}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -186,7 +198,7 @@ function OrderSummary() {
                                                         Model auta:
                                                     </Typography>
                                                     </Grid>
-                                                    <Grid item>{c.model}</Grid>
+                                                    <Grid item>{v.vehicleModel}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -196,7 +208,7 @@ function OrderSummary() {
                                                             Przybliżona masa:
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>{c.weight + ' kg'}</Grid>
+                                                    <Grid item>{v.vehicleWeight + ' kg'}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -206,7 +218,7 @@ function OrderSummary() {
                                                             Długość:
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>{c.length + ' m'}</Grid>
+                                                    <Grid item>{v.vehicleLength + ' m'}</Grid>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
@@ -216,7 +228,7 @@ function OrderSummary() {
                         }
 
                         {
-                            formValues.removal.map((f, idx) => {
+                            formValues.furnitures.map((f, idx) => {
                                 return (
                                     <div className="summaryOrderRow" key={idx}>
                                           <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={1}>
@@ -227,7 +239,7 @@ function OrderSummary() {
                                                             Rodzaj mebla:
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>{f.name}</Grid>
+                                                    <Grid item>{f.furnitureName}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -237,7 +249,7 @@ function OrderSummary() {
                                                             Ilość:
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>{f.amount}</Grid>
+                                                    <Grid item>{f.furnitureAmount}</Grid>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
@@ -246,7 +258,7 @@ function OrderSummary() {
                             })
                         }
                         {
-                            formValues.oversized.map((i, idx) => {
+                            formValues.cargo.map((c, idx) => {
                                 return (
                                     <div className="summaryOrderRow" key={idx}>
                                           <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={1}>
@@ -257,7 +269,7 @@ function OrderSummary() {
                                                             Twoja przesyłka:
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>{i.name}</Grid>
+                                                    <Grid item>{c.cargoName}</Grid>
                                                 </Grid>
                                             </Grid>
                                             <Grid item sm={2}>
@@ -267,7 +279,7 @@ function OrderSummary() {
                                                             Ilość:
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>{i.amount}</Grid>
+                                                    <Grid item>{c.cargoAmount}</Grid>
                                                 </Grid>
                                             </Grid>
                 

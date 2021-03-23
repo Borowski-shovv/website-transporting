@@ -30,5 +30,8 @@ export default makeStyles(theme => ({
   },
   CheckBoxRules: {
     width: 'auto',
+  },
+  columnWidth: {
+    minWidth: '221px'
   }
 }));

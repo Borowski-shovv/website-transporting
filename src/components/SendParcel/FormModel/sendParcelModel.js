@@ -4,92 +4,84 @@ export default {
     formId: 'sendOrder',
     formField: {
       email: {
-        name: 'userEmail',
+        name: 'email',
         label: 'Email*',
         requiredErrorMsg: 'Wpisz swój adres email.',
       },
-      firstName: {
-        name: 'firstName',
+      senderName: {
+        name: 'senderName',
         label: 'Imię i nazwisko lub nazwa firmy*',
         requiredErrorMsg: 'Imię jest wymagane.'
       },
-      firstName2: {
-        name: 'firstName2',
+      recipientName: {
+        name: 'recipientName',
         label: 'Imię i nazwisko lub nazwa firmy*',
         requiredErrorMsg: 'Imię jest wymagane.'
       },
-      contactPerson: {
-        name: 'contactPerson',
+      senderContact: {
+        name: 'senderContact',
         label: 'Osoba kontaktowa*',
         requiredErrorMsg: 'Osoba kontaktowa jest wymagana.'
       },
-      contactPerson2: {
-        name: 'contactPerson2',
+      recipientContact: {
+        name: 'recipientContact',
         label: 'Osoba kontaktowa*',
         requiredErrorMsg: 'Osoba kontaktowa jest wymagana.'
       },
-      address1: {
-        name: 'address1',
+      senderAddress: {
+        name: 'senderAddress',
         label: 'Adres odbioru Twojej przesyłki*',
         requiredErrorMsg: 'Adres odbioru Twojej przesyłki jest wymagany.'
       },
-      address2: {
-        name: 'address2',
+      recipientAddress: {
+        name: 'recipientAddress',
         label: 'Adres dostawy Twojej przesyłki*',
         requiredErrorMsg: 'Adres dostawy Twojej przesyłki jest wymagany.'
       },
-      city: {
-        name: 'city',
+      senderCity: {
+        name: 'senderCity',
         label: 'Miasto*',
         requiredErrorMsg: 'Miasto odbioru Twojej przesyłki jest wymagane.'
       },
-      city2: {
-        name: 'city2',
+      recipientCity: {
+        name: 'recipientCity',
         label: 'Miasto*',
         requiredErrorMsg: 'Miasto odbioru Twojej przesyłki jest wymagane.'
       },
-      state: {
-        name: '',
-        label: 'State/Province/Region'
-      },
-      zipcode: {
-        name: 'zipcode',
+      senderZip: {
+        name: 'senderZip',
         label: 'Kod pocztowy*',
         requiredErrorMsg: 'Kod pocztowy jest wymagany',
         invalidErrorMsg: 'Zipcode is not valid (e.g. 70000)'
       },
-      zipcode2: {
-        name: 'zipcode2',
+      recipientZip: {
+        name: 'recipientZip',
         label: 'Kod pocztowy*',
         requiredErrorMsg: 'Kod pocztowy jest wymagany',
         invalidErrorMsg: 'Zipcode is not valid (e.g. 70000)'
       },
-      country: {
-        name: 'country',
+      senderCountry: {
+        name: 'senderCountry',
         label: 'Państwo*',
-        requiredErrorMsg: 'Wybierz państwo z którego będzie odbierana Twoja przesyłka'
+        requiredErrorMsg: 'Wybierz państwo nadania Twojej przesyłki'
       },
-      country2: {
-        name: 'country2',
+      recipientCountry: {
+        name: 'recipientCountry',
         label: 'Państwo*',
-        requiredErrorMsg: 'Wybierz państwo z którego będzie odbierana Twoja przesyłka'
+        requiredErrorMsg: 'Wybierz państwo odbioru Twojej przesyłki'
       },
-      contactNumber: {
-        name: 'contactNumber',
+      senderPhone: {
+        name: 'senderPhone',
         label: 'Numer kontaktowy nadawcy paczki*',
         requiredErrorMsg: 'Numer kontaktowy nadawcy jest wymagany'
       },
-      contactNumber2: {
-        name: 'contactNumber2',
+      recipientPhone: {
+        name: 'recipientPhone',
         label: 'Numer kontaktowy odbiorcy paczki*',
         requiredErrorMsg: 'Numer kontaktowy odbiorcy jest wymagany'
       },
-      // parcelCategory: {
-      //   name: 'parcelCategory',
-      //   requiredErrorMsg: 'Wybierz kategorie paczki'
-      // },
     },
-    files: [],
-    parcel: [],
+    // files: [],
+    packages: [],
   };
   

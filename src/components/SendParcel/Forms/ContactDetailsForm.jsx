@@ -4,25 +4,26 @@ import { InputField, SelectField, PackageType } from '../FormFields';
 import DatePicker from '../FormFields/DatePicker';
 import './ContactDetailsForm.css';
 import { MultipleFileUploadField } from '../FormFields/UploadField/MultipleFileUploadField';
+import plLocale from 'date-fns/locale/pl';
 
 const months = ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']
 const days = ['Ndz', 'Pon', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob']
 
 const servicesType = [
   {
-    value: 'tylko transport',
+    value: 1,
     label: 'tylko transport',
   },
   {
-    value: 'transport i pomoc kierowcy w zniesieniu i wniesieniu',
+    value: 2,
     label: 'transport i pomoc kierowcy w zniesieniu i wniesieniu',
   },
   {
-    value: 'transport i pomoc kilku osób w zniesieniu i wniesieniu',
+    value: 3,
     label: 'transport i pomoc kilku osób w zniesieniu i wniesieniu',
   },
   {
-    value: 'kompleksowa obsługa (bez mojego udziału w znoszeniu i wnoszeniu)',
+    value: 4,
     label: 'kompleksowa obsługa (bez mojego udziału w znoszeniu i wnoszeniu)'
   },
 ]
@@ -59,10 +60,10 @@ export default function ContactDetailsForm(props) {
         </Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
-            <DatePicker locale={locale} minDate={new Date()} name="preferowana data nadania" label="Preferowana data nadania paczki"/>
+            <DatePicker locale={locale} minDate={new Date()} name="pickupDate" label="Preferowana data nadania paczki"/>
           </Grid>
           <Grid item xs={12} md={6}>
-              <DatePicker locale={locale} minDate={new Date()} name="preferowana data odbioru" label="Preferowana data odbioru paczki"/>
+              <DatePicker locale={locale} minDate={new Date()} name="shipmentDate" label="Preferowana data odbioru paczki"/>
           </Grid>
          
         </Grid>
@@ -72,7 +73,7 @@ export default function ContactDetailsForm(props) {
         <Grid item xs={12} sm={6}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                <InputField variant="outlined" multiline rows={4} name='clientComment' label={'Dodatkowe informacje dotyczące przesyłki'} fullWidth />
+                <InputField variant="outlined" multiline rows={4} name='comment' label={'Dodatkowe informacje dotyczące przesyłki'} fullWidth />
               </Grid>
               <Grid item xs={12}> 
                 <SelectField

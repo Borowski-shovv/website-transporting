@@ -23,10 +23,24 @@ import './SendParcel.css';
 
 
 const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', 'Podsumowanie'];
+//const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Podsumowanie'];
 
 const { formId, formField, files} = sendParcelModel;
 
-
+// function _renderStepContent(step) {
+//   switch (step) {
+//     case 0:
+//       return <CheckCategory formField={formField} />;
+//     case 1:
+//       return <AddressForm formField={formField} />;
+//     case 2:
+//       return <ContactDetailsForm files={files} formField={formField}/>;
+//     case 3:
+//       return <ReviewOrder />;
+//     default:
+//       return <div>Nie znaleziono</div>;
+//   }
+// }
 function _renderStepContent(step) {
   switch (step) {
     case 0:
@@ -55,8 +69,9 @@ const SendParcel = () => {
 
     return new Promise((res) => setTimeout(() => {
       res();
-      console.log('odpowiedz po wyslaniu')
-      console.log('dane z formularza', values)
+      //wyslanie formularza do backendu
+      // console.log('dane wysylanej paczki', values)
+      // console.log('odpowiedz po wyslaniu')
     }, 2000))
   }
 
@@ -128,7 +143,7 @@ const SendParcel = () => {
                 </div>
               </div>
 
-              {/* <pre>{JSON.stringify({values, errors}, null, 4)}</pre> */}
+              <pre>{JSON.stringify({values, errors}, null, 4)}</pre>
             </Form>
           )}
         </Formik>

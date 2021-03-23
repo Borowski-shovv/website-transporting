@@ -12,7 +12,6 @@ import UserEmailAfterRegistration from '../../auth/UserEmailAfterRegistration';
 import OrderView from '../OrderView/OrderView';
 import Login from '../../auth/Login';
 import Register from '../../auth/Register';
-
 import '../../assets/libraries/font-awesome.min.css';
 import '../../assets/themify-icons/themify-icons.css';
 import ScrollTopButton from '../../components/ScrollToTop/ScrollToTop';
@@ -90,7 +89,6 @@ function Root() {
       //       headers: { 'x-auth-token': token },
       //       auth: { username: 'shovv', password: '$HOVV2020'}
       //   });
-        
       //   setUserData({
       //     token,
       //     user: userRes.data,
@@ -99,7 +97,7 @@ function Root() {
     };
 
     checkLoggedIn();
-  }, []);
+  }, [userData]);
 
   return (
        <Router>

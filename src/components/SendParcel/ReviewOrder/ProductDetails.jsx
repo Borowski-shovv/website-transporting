@@ -1,14 +1,45 @@
 import React from 'react';
-import { Typography, List, ListItem, ListItemText, Grid, Paper, Box } from '@material-ui/core';
+import { Typography, List, ListItem, ListItemText, Grid, Paper, Box, makeStyles } from '@material-ui/core';
 import useStyles from './styles';
 import boxImg from '../../../assets/images/formImages/box.svg';
 import palletImg from '../../../assets/images/formImages/wholesale.svg';
 import truckImg from '../../../assets/images/formImages/truck.svg';
 import couchImg from '../../../assets/images/formImages/couch.svg';
 import { CheckboxField } from '../FormFields';
+import classNames from 'classnames';
+
+// {p.packageType == 1 ? <div>karton lub koperta</div> : null}
+// {p.packageType == 2 ? <div>folia stretch</div> : null}
+// {p.packageType == 3 ? <div>folia bąbelkowa</div> : null}
+// {p.packageType == 4 ? <div>przesyłka niestandardowa</div> : null}
+
+// const useStyles = makeStyles({
+//   TitleCenter: {
+//     textAlign: 'center',
+//     marginTop: 30,
+//   },
+// });
 
 function ProductDetails({formValues}) {
   const classes = useStyles();
+  // console.log(formValues)
+
+  const handlePackageType = (type) => {
+
+        switch (type) {
+          case 1:
+            return 'karton lub koperta'
+          case 2:
+            return 'folia stretch'
+          case 3:
+            return 'folia bąbelkowa'
+          case 4:
+            return 'przesyłka niestandardowa'
+          default:
+            break;
+        }
+  }
+  
   return (
     <>
       <Box mt={5}>
@@ -21,25 +52,25 @@ function ProductDetails({formValues}) {
                     </Typography>
                     <Grid item>
                       <ListItem className={classes.listItem}>
-                        <ListItemText secondary='Imię i nazwisko lub nazwa firmy' primary={formValues.firstName} />
+                        <ListItemText secondary='Imię i nazwisko lub nazwa firmy' primary={formValues.senderName} />
+                      </ListItem>
+                      <ListItem className={classNames(classes.listItem, classes.columnWidth)}>
+                        <ListItemText secondary='Adres odbioru przesyłki' primary={formValues.senderAddress} />
                       </ListItem>
                       <ListItem className={classes.listItem}>
-                        <ListItemText secondary='Adres odbioru przesyłki' primary={formValues.address1} />
+                        <ListItemText secondary='Miasto' primary={formValues.senderCity} />
                       </ListItem>
                       <ListItem className={classes.listItem}>
-                        <ListItemText secondary='Miasto' primary={formValues.city} />
+                        <ListItemText secondary='Kod pocztowy' primary={formValues.senderZip} />
                       </ListItem>
                       <ListItem className={classes.listItem}>
-                        <ListItemText secondary='Kod pocztowy' primary={formValues.zipcode} />
+                        <ListItemText secondary='Osoba do kontaktu' primary={formValues.senderContact} />
                       </ListItem>
                       <ListItem className={classes.listItem}>
-                        <ListItemText secondary='Osoba do kontaktu' primary={formValues.contactPerson} />
+                        <ListItemText secondary='Numer telefonu' primary={formValues.senderPhone} />
                       </ListItem>
                       <ListItem className={classes.listItem}>
-                        <ListItemText secondary='Numer telefonu' primary={formValues.contactNumber} />
-                      </ListItem>
-                      <ListItem className={classes.listItem}>
-                        <ListItemText secondary='Państwo' primary={formValues.country} />
+                        <ListItemText secondary='Państwo' primary={formValues.senderCountry} />
                       </ListItem>
                     </Grid>
                   </Grid>
@@ -53,25 +84,25 @@ function ProductDetails({formValues}) {
                       </Typography>
                       <Grid item>
                         <ListItem className={classes.listItem}>
-                          <ListItemText secondary='Imię i nazwisko lub nazwa firmy' primary={formValues.firstName2} />
+                          <ListItemText secondary='Imię i nazwisko lub nazwa firmy' primary={formValues.recipientName} />
                         </ListItem>
                         <ListItem className={classes.listItem}>
-                          <ListItemText secondary='Adres odbioru przesyłki' primary={formValues.address2} />
+                          <ListItemText secondary='Adres odbioru przesyłki' primary={formValues.recipientAddress} />
                         </ListItem>
                         <ListItem className={classes.listItem}>
-                          <ListItemText secondary='Miasto' primary={formValues.city2} />
+                          <ListItemText secondary='Miasto' primary={formValues.recipientCity} />
                         </ListItem>
                         <ListItem className={classes.listItem}>
-                          <ListItemText secondary='Kod pocztowy' primary={formValues.zipcode2} />
+                          <ListItemText secondary='Kod pocztowy' primary={formValues.recipientZip} />
                         </ListItem>
                         <ListItem className={classes.listItem}>
-                          <ListItemText secondary='Osoba do kontaktu' primary={formValues.contactPerson2} />
+                          <ListItemText secondary='Osoba do kontaktu' primary={formValues.recipientContact} />
                         </ListItem>
                         <ListItem className={classes.listItem}>
-                          <ListItemText secondary='Numer telefonu' primary={formValues.contactNumber2} />
+                          <ListItemText secondary='Numer telefonu' primary={formValues.recipientPhone} />
                         </ListItem>
                         <ListItem className={classes.listItem}>
-                          <ListItemText secondary='Państwo' primary={formValues.country2} />
+                          <ListItemText secondary='Państwo' primary={formValues.recipientCountry} />
                         </ListItem>
                       </Grid>
                     </Grid>
@@ -79,12 +110,12 @@ function ProductDetails({formValues}) {
               </Grid>
             </Grid>
       </Box>
-      <Box mt={5} className="summaryTable">
+        <Box mt={5} className="summaryTable">
           <Paper elevation={3} >
             <Grid container >
                 <Grid xs={12} item>
                   {
-                    formValues.parcel.map((p, idx) => {
+                    formValues.packages.map((p, idx) => {
                       return (
                         <Grid container spacing={2} key={idx}>
                           <Grid item>
@@ -92,35 +123,35 @@ function ProductDetails({formValues}) {
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='sposób zapakowania' primary={p.kindOfpackage} />
+                              <ListItemText secondary='sposób zapakowania' primary={handlePackageType(p.packageType)} />
                             </ListItem>
                           </Grid>  
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='waga' primary={p.weight + ' kg'} />
+                              <ListItemText secondary='waga' primary={p.packageWeight + ' kg'} />
                             </ListItem>
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='wysokość' primary={p.weight + ' cm'} />
+                              <ListItemText secondary='wysokość' primary={p.packageHeight + ' cm'} />
                             </ListItem>
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='szerokość' primary={p.weight + ' cm'} />
+                              <ListItemText secondary='szerokość' primary={p.packageWidth + ' cm'} />
                             </ListItem>
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='długość' primary={p.weight + ' cm'} />
+                              <ListItemText secondary='długość' primary={p.packageLength + ' cm'} />
                             </ListItem>
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='ilość' primary={p.amount} />
+                              <ListItemText secondary='ilość' primary={p.packageAmount} />
                             </ListItem>
                           </Grid>
-                          <div className="rowBar"></div>
+                
                         </Grid>
                       )
                     })
@@ -134,32 +165,32 @@ function ProductDetails({formValues}) {
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItemSum}>
-                              <ListItemText secondary='rodzaj palety' primary={p.type } />
+                              <ListItemText secondary='rodzaj palety' primary={p.palletType } />
                             </ListItem>
                           </Grid>  
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='waga' primary={p.weight + ' kg'} />
+                              <ListItemText secondary='waga' primary={p.palletWeight + ' kg'} />
                             </ListItem>
                           </Grid>  
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='wysokość' primary={p.height + ' cm'} />
+                              <ListItemText secondary='wysokość' primary={p.palletHeight + ' cm'} />
                             </ListItem>
                           </Grid>  
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='szerokość' primary={p.width + ' cm'} />
+                              <ListItemText secondary='szerokość' primary={p.palletWidth + ' cm'} />
                             </ListItem>
                           </Grid>  
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='długość' primary={p.length + ' cm'} />
+                              <ListItemText secondary='długość' primary={p.palletLength + ' cm'} />
                             </ListItem>
                           </Grid>  
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='ilość palet' primary={p.amount} />
+                              <ListItemText secondary='ilość palet' primary={p.palletAmount} />
                             </ListItem>
                           </Grid> 
                           <div className="rowBar"></div> 
@@ -169,7 +200,7 @@ function ProductDetails({formValues}) {
                   }
 
                   {
-                    formValues.car.map((c, idx) => {
+                    formValues.vehicles.map((v, idx) => {
                       return (
                         <Grid container spacing={2} key={idx}>
                           <Grid item>
@@ -177,17 +208,27 @@ function ProductDetails({formValues}) {
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItemSum}>
-                              <ListItemText secondary='rodzaj auta' primary={c.type } />
+                              <ListItemText secondary='rodzaj auta' primary={v.vehicleType } />
                             </ListItem>
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='marka' primary={c.brand } />
+                              <ListItemText secondary='marka' primary={v.vehicleBrand } />
                             </ListItem>
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='model' primary={c.model } />
+                              <ListItemText secondary='model' primary={v.vehicleModel } />
+                            </ListItem>
+                          </Grid>  
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='waga' primary={v.vehicleWeight } />
+                            </ListItem>
+                          </Grid>  
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='długość' primary={v.vehicleLength } />
                             </ListItem>
                           </Grid>  
                           <div className="rowBar"></div>
@@ -195,9 +236,8 @@ function ProductDetails({formValues}) {
                       )
                     })
                   }
-
                   {
-                    formValues.removal.map((f, idx) => {
+                    formValues.furnitures.map((f, idx) => {
 
                       return (
                         <Grid container spacing={2} key={idx}>
@@ -207,12 +247,35 @@ function ProductDetails({formValues}) {
                           <Grid item>
                             
                             <ListItem className={classes.listItemSum}>
-                              <ListItemText secondary='mebel' primary={f.name} />
+                              <ListItemText secondary='mebel' primary={f.furnitureName} />
                             </ListItem>
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='ilość' primary={f.amount} />
+                              <ListItemText secondary='ilość' primary={f.furnitureAmount} />
+                            </ListItem>
+                          </Grid>
+                          <div className="rowBar"></div>
+                        </Grid>
+                      )
+                    })
+                  }
+                  {
+                    formValues.cargo.map((c,idx) => {
+                      return (
+                        <Grid container spacing={2} key={idx}>
+                          <Grid item>
+                            <img className={classes.imgWidth} src={couchImg} alt='icon'/>
+                          </Grid>
+                          <Grid item>
+                            
+                            <ListItem className={classes.listItemSum}>
+                              <ListItemText secondary='nazwa ładunku' primary={c.cargoName} />
+                            </ListItem>
+                          </Grid>
+                          <Grid item>
+                            <ListItem className={classes.listItem}>
+                              <ListItemText secondary='ilość' primary={c.cargoAmount} />
                             </ListItem>
                           </Grid>
                           <div className="rowBar"></div>
@@ -221,13 +284,14 @@ function ProductDetails({formValues}) {
                     })
                   }
 
+
                 </Grid>
             </Grid>
           </Paper>
       </Box>
         
       <Box mt={5}>
-        <CheckboxField className="CheckBoxRules" name="rules" type="checkbox" label="Akceptuję postanowienia Regulaminu i Polityki prywatności" />
+        <CheckboxField className="CheckBoxRules" color="primary" name="rules" type="checkbox" label="Akceptuję postanowienia Regulaminu i Polityki prywatności" />
       </Box>
     </>
   );
