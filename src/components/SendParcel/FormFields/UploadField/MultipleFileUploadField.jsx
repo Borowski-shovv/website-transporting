@@ -22,10 +22,12 @@ const useStyles = makeStyles((theme) => ({
 export function MultipleFileUploadField({name}) {
     const [_, __, helpers] = useField(name)
     const [files, setFiles] = useState([]);
+    // const [ imgName, setImgName ] = useState([]);
+
     const classes = useStyles();
 
     const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
-            const mappedAcc = acceptedFiles.map(file => ({file, errors: []}))
+            const mappedAcc = acceptedFiles.map(file => ({file,errors: []}))
             setFiles(curr => [...curr, ...mappedAcc, ...rejectedFiles]);
     }, [])
 
@@ -34,7 +36,6 @@ export function MultipleFileUploadField({name}) {
         // helpers.setTouched(true);
     }, [files])
 
-    
     function onUpload(file, url) {
         setFiles((curr) => curr.map(fw => {
             if(fw.file === file) {
@@ -48,7 +49,6 @@ export function MultipleFileUploadField({name}) {
         setFiles((curr) => curr.filter((fw) => fw.file !== file));
     }
 
-
     const {getRootProps, getInputProps} = useDropzone({onDrop, accept: 'image/*', maxSize: 2000 * 1024}) //300KB
 
   return (
@@ -56,7 +56,7 @@ export function MultipleFileUploadField({name}) {
         <Grid xs={12} item>
             <div {...getRootProps({className: classes.dropzone})}>
                 <input {...getInputProps()} />
-                <p>Przeciągnij i upuść Twoje zdjęcia w tym miejscu, lub naciśnij, aby wybrać zdjęcie</p>
+                <p>Przeciągnij i upuść zdjęcie w tym miejscu, lub naciśnij, aby wybrać zdjęcie.</p>
             </div>
         </Grid>
         {
@@ -75,7 +75,9 @@ export function MultipleFileUploadField({name}) {
                                     onUpload={onUpload} 
                                     onDelete={onDelete} 
                                     key={i} 
-                                    file={fileWrapper.file} 
+                                    file={fileWrapper.file}
+                                    // name={name}
+                                    // setImgNameProps={files => setImgName(files)}
                                 />
                             )
                     }
@@ -83,7 +85,9 @@ export function MultipleFileUploadField({name}) {
                 
             ))     
             
-        }       
+        }   
+        {/* <p>wartość stanu: {imgName}</p> */}
+        {/* {JSON.stringify(files)}     */}
     </>
   )
 }

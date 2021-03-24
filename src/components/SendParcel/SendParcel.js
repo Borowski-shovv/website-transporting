@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Stepper,
   Step,
@@ -20,6 +20,7 @@ import formInitialValues from './FormModel/formInitialValues';
 import { Formik, Form } from 'formik';
 import useStyles from './styles';
 import './SendParcel.css';
+import appContext from '../../context/userContext';
 
 
 const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', 'Podsumowanie'];
@@ -27,20 +28,7 @@ const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', '
 
 const { formId, formField, files} = sendParcelModel;
 
-// function _renderStepContent(step) {
-//   switch (step) {
-//     case 0:
-//       return <CheckCategory formField={formField} />;
-//     case 1:
-//       return <AddressForm formField={formField} />;
-//     case 2:
-//       return <ContactDetailsForm files={files} formField={formField}/>;
-//     case 3:
-//       return <ReviewOrder />;
-//     default:
-//       return <div>Nie znaleziono</div>;
-//   }
-// }
+
 function _renderStepContent(step) {
   switch (step) {
     case 0:
@@ -61,6 +49,9 @@ const SendParcel = () => {
   const [activeStep, setActiveStep] = useState(0);
   const currentValidationSchema = validationSchema[activeStep];
   const isLastStep = activeStep === steps.length - 1;
+  const { userData ,formikImages,  setFormikImages} = useContext(appContext);
+
+
 
   async function _submitForm(values, actions) {
 
@@ -89,7 +80,7 @@ const SendParcel = () => {
         "shipmentDate": values.shipmentDate,
         "pickupDate": values.pickupDate,
         "comment": values.comment,
-        "files": values.files,
+        "files": formikImages,
         "packages": values.packages,
         "pallets": values.pallets,
         "vehicles": values.vehicles,
@@ -106,6 +97,8 @@ const SendParcel = () => {
       localStorage.setItem("order_id", orderRes.data.order_id)
       console.log('odpowiedz z servera po wyslaniu formularza z przesylka',orderRes)
       console.log(orderRes.data.order_id);
+
+      setFormikImages([]);
 
     } catch(err) {
       console.log(err)
@@ -146,8 +139,11 @@ const SendParcel = () => {
         <CheckoutSuccess />
         ) : (
           <Formik
-          initialValues={formInitialValues}
+          initialValues={
+            formInitialValues
+          }
           validationSchema={currentValidationSchema}
+          
           onSubmit={_handleSubmit}
           >
      

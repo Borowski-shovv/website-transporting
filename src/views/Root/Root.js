@@ -35,6 +35,7 @@ function Root() {
     id: undefined,
   });
   const [filledEmailInfo, setEmailFilledInfo] = useState();
+  const [formikImages, setFormikImages] = useState([]);
 
   useEffect(() => {
     const checkLoggedIn = async () => {
@@ -103,7 +104,7 @@ function Root() {
        <Router>
         <ScrollToTop>     
         <UserContext.Provider value={{ userData, setUserData, filledEmailInfo,
-            setEmailFilledInfo, }}>  
+            setEmailFilledInfo, formikImages, setFormikImages}}>  
         <Header />
      
             <Switch>
