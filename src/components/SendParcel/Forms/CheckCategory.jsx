@@ -159,28 +159,28 @@ export default function CheckCategory(props) {
                                                         </Grid>
                                                         <Grid item xs={4} sm={1}>
                                                             <p className="p-label">waga*</p>
-                                                            <UnitField variant="outlined" name={`packages[${index}].packageWeight`}  />
+                                                            <UnitField type="number" variant="outlined" name={`packages[${index}].packageWeight`}  />
                                                         </Grid>
                                                         <p className="p-unit">kg</p>
 
                                                         <Grid item xs={4} sm={1}>
                                                             <p className="p-label">wysokość*</p>
-                                                            <UnitField variant="outlined" name={`packages[${index}].packageHeight`} />
+                                                            <UnitField type="number" variant="outlined" name={`packages[${index}].packageHeight`} />
                                                         </Grid><p className="p-unit">cm</p>
 
                                                         <Grid item xs={4} sm={1}>
                                                             <p className="p-label">szerokość*</p>
-                                                            <UnitField variant="outlined" name={`packages[${index}].packageWidth`} />
+                                                            <UnitField type="number" variant="outlined" name={`packages[${index}].packageWidth`} />
                                                         </Grid><p className="p-unit">cm</p>
 
                                                         <Grid item xs={4} sm={1}>
                                                             <p className="p-label">długość*</p>
-                                                            <UnitField variant="outlined" name={`packages[${index}].packageLength`} />
+                                                            <UnitField type="number" variant="outlined" name={`packages[${index}].packageLength`} />
                                                         </Grid><p className="p-unit">cm</p>
 
                                                         <Grid item xs={4} sm={1}>
                                                             <p className="p-label">ilość*</p>
-                                                            <UnitField variant="outlined" name={`packages[${index}].packageAmount`} />  
+                                                            <UnitField type="number" variant="outlined" name={`packages[${index}].packageAmount`} />  
                                                         </Grid><p className="p-unit">szt</p>
                                                        
                                                         
@@ -238,24 +238,24 @@ export default function CheckCategory(props) {
                                                            
                                                             <Grid item >
                                                                 <p className="p-label">waga*</p>
-                                                                <UnitField variant="outlined" name={`pallets[${index}].palletWeight`} />
+                                                                <UnitField type="number" variant="outlined" name={`pallets[${index}].palletWeight`} />
                                                             </Grid><p className="p-unit">kg</p>
                                                             <Grid item >
                                                                 <p className="p-label">wysokość*</p>
-                                                                <UnitField variant="outlined" name={`pallets[${index}].palletHeight`} />
+                                                                <UnitField type="number" variant="outlined" name={`pallets[${index}].palletHeight`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item  >
                                                                 <p className="p-label">szerokość*</p>
-                                                                <UnitField variant="outlined" name={`pallets[${index}].palletWidth`} />
+                                                                <UnitField type="number" variant="outlined" name={`pallets[${index}].palletWidth`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item  >
                                                                 <p className="p-label">długość*</p>
-                                                                <UnitField variant="outlined" name={`pallets[${index}].palletLength`} />
+                                                                <UnitField type="number" variant="outlined" name={`pallets[${index}].palletLength`} />
                                                             </Grid><p className="p-unit">cm</p>
                                                             <Grid item >
                                                                 <p className="p-label">ilość*</p>
                                                                 <UnitField
-                                                                
+                                                                    type="number"
                                                                     variant="outlined" 
                                                                     name={`pallets[${index}].palletAmount`} 
                                                                 /> 

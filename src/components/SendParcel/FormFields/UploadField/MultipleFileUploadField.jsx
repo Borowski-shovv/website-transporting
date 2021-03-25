@@ -76,8 +76,6 @@ export function MultipleFileUploadField({name}) {
                                     onDelete={onDelete} 
                                     key={i} 
                                     file={fileWrapper.file}
-                                    // name={name}
-                                    // setImgNameProps={files => setImgName(files)}
                                 />
                             )
                     }
