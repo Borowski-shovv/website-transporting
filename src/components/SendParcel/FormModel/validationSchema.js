@@ -33,10 +33,10 @@ export default [
       is: (parcelCategory => parcelCategory.find(p => p === 'paczka') ),
       then: Yup.array().of(
         Yup.object().shape({
-          packageWeight: Yup.string().min(1).required('Waga paczki jest wymagana.'),
-          packageHeight: Yup.string().min(1).required('Wysokość paczki jest wymagana.'),
-          packageWidth: Yup.string().min(1).required('Szerokość paczki jest wymagana.'),
-          packageLength: Yup.string().min(1).required('Długość paczki jest wymagana.'),
+          packageWeight: Yup.number().min(1).required('Waga paczki jest wymagana.'),
+          packageHeight: Yup.number().min(1).required('Wysokość paczki jest wymagana.'),
+          packageWidth: Yup.number().min(1).required('Szerokość paczki jest wymagana.'),
+          packageLength: Yup.number().min(1).required('Długość paczki jest wymagana.'),
           packageAmount: Yup.number().min(1).required('Wpisz ilość paczek.'),
           packageType: Yup.string().required('Wybierz typ opakowania.')
         }),
@@ -127,8 +127,8 @@ export default [
   }),
   Yup.object().shape({
     servicesType: Yup.string().nullable().required('Wybierz typ usługi'),
-    shipmentDate: Yup.string().required('To pole jest wymagane'),
-    pickupDate: Yup.string().required('To pole jest wymagane'),
+    shipmentDate: Yup.date().required('To pole jest wymagane'),
+    pickupDate: Yup.date().nullable().required('To pole jest wymagane'),
   }),
    Yup.object().shape({
       rules: Yup.bool().oneOf([true], 'To pole jest wymagane'),

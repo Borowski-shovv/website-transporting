@@ -4,10 +4,7 @@ import { InputField, SelectField, PackageType } from '../FormFields';
 import DatePicker from '../FormFields/DatePicker';
 import './ContactDetailsForm.css';
 import { MultipleFileUploadField } from '../FormFields/UploadField/MultipleFileUploadField';
-import plLocale from 'date-fns/locale/pl';
 
-const months = ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']
-const days = ['Ndz', 'Pon', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob']
 
 const servicesType = [
   {
@@ -28,14 +25,6 @@ const servicesType = [
   },
 ]
 
-const locale = {
-  localize: {
-    month: n => months[n],
-    day: n => days[n]
-  },
-  formatLong: {}
-}
-
 const useStyles = makeStyles(theme => ({
   CustomPaper: {
       marginBottom: '20px',
@@ -44,13 +33,13 @@ const useStyles = makeStyles(theme => ({
   },
   mrgTop: {
     marginTop: 20,
-  }
- 
+  }, 
 }))
+
+
 
 export default function ContactDetailsForm(props) {
   const classes = useStyles();
-  // const { values: formValues, values, setFieldValue } = useFormikContext();
 
   return (
     <React.Fragment>
@@ -60,12 +49,11 @@ export default function ContactDetailsForm(props) {
         </Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
-            <DatePicker locale={locale} minDate={new Date()} name="pickupDate" label="Preferowana data nadania paczki"/>
+            <DatePicker  name="pickupDate" minDate={new Date()} label="Preferowana data nadania paczki"/>
           </Grid>
           <Grid item xs={12} md={6}>
-              <DatePicker locale={locale} minDate={new Date()} name="shipmentDate" label="Preferowana data odbioru paczki"/>
+            <DatePicker name="shipmentDate" minDate={new Date()} label="Preferowana data odebrania paczki"/>
           </Grid>
-         
         </Grid>
       </Paper>
       <Paper elevation={3} className={classes.CustomPaper}>

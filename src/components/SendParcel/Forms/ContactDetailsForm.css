@@ -39,3 +39,11 @@
 .react-datepicker-popper {
     z-index: 2;
 }
+
+.date-picker-styles {
+    margin-top: 20px;
+}
+
+.date-picker-styles .MuiFormControl-root.MuiTextField-root {
+    width: 100%;
+}

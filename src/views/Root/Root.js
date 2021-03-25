@@ -17,6 +17,9 @@ import '../../assets/themify-icons/themify-icons.css';
 import ScrollTopButton from '../../components/ScrollToTop/ScrollToTop';
 import ScrollToTop from 'react-router-scroll-top'
 import CookieConsent from "react-cookie-consent";
+import DateFnsUtils from '@date-io/date-fns'; // choose your lib
+import { MuiPickersUtilsProvider} from '@material-ui/pickers';
+import plLocale from 'date-fns/locale/pl';
 
 const routes = [
   { path: '/reset_hasla', name: 'Resetowanie hasła', Component: PasswordReset},
@@ -106,7 +109,7 @@ function Root() {
         <UserContext.Provider value={{ userData, setUserData, filledEmailInfo,
             setEmailFilledInfo, formikImages, setFormikImages}}>  
         <Header />
-     
+          <MuiPickersUtilsProvider locale={plLocale} utils={DateFnsUtils}>
             <Switch>
               {routes.map(({ path, Component }) => (
                 <Route key="name" path={path} exact>
@@ -116,7 +119,7 @@ function Root() {
                 </Route>
               ))}
             </Switch> 
-        
+            </MuiPickersUtilsProvider>
         <ScrollTopButton></ScrollTopButton>
         {/* <Footer /> */}
           <CookieConsent acceptOnScroll={true}

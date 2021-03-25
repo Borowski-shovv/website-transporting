@@ -49,6 +49,6 @@ export default {
   rules: false,
   servicesType: '',
   comment: '',
-  shipmentDate: '',
-  pickupDate: '',
+  shipmentDate: null,
+  pickupDate: null,
 };

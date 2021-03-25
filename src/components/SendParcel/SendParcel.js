@@ -44,6 +44,17 @@ function _renderStepContent(step) {
   }
 }
 
+// function _renderStepContent(step) {
+//   switch (step) {
+//     case 0:
+//       return <ContactDetailsForm files={files} formField={formField}/>;
+//     case 1:
+//       return <ReviewOrder />;
+//     default:
+//       return <div>Nie znaleziono</div>;
+//   }
+// }
+
 const SendParcel = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
@@ -56,7 +67,7 @@ const SendParcel = () => {
   async function _submitForm(values, actions) {
 
     setActiveStep(activeStep + 1);
-    console.log(values.packages)
+    // console.log(values.packages)
     let url = 'https://najtanszapaczkaszwecja.pl/api/order/create';
 
     try {
@@ -87,7 +98,7 @@ const SendParcel = () => {
         "furnitures": values.furnitures,
         "cargo": values.cargo,  
       }
-      // console.log('wartosci wrzucane do posta przed wyslaniem',orderValues)
+      console.log('wartosci wrzucane do posta przed wyslaniem',orderValues)
       const orderRes = await Axios.post(url, orderValues, {
         auth: {
           username: 'shovv', 
@@ -95,6 +106,7 @@ const SendParcel = () => {
         },
       })
       localStorage.setItem("order_id", orderRes.data.order_id)
+
       console.log('odpowiedz z servera po wyslaniu formularza z przesylka',orderRes)
       console.log(orderRes.data.order_id);
 
@@ -139,15 +151,14 @@ const SendParcel = () => {
         <CheckoutSuccess />
         ) : (
           <Formik
-          initialValues={
-            formInitialValues
-          }
-          validationSchema={currentValidationSchema}
-          
-          onSubmit={_handleSubmit}
+            initialValues={
+              formInitialValues
+            }
+            validationSchema={currentValidationSchema}
+            onSubmit={_handleSubmit}
           >
      
-          {({ isSubmitting, values, errors }) => (
+          {({ isSubmitting, values, errors, setFieldValue  }) => (
             <Form id={formId} autoComplete="off">
             
                 {_renderStepContent(activeStep)}
