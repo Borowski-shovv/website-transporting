@@ -22,9 +22,8 @@ import useStyles from './styles';
 import './SendParcel.css';
 import appContext from '../../context/userContext';
 
-
 const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Preferowane terminy', 'Podsumowanie'];
-//const steps = ['Kategoria przesyłki', 'Dane adresowe', 'Podsumowanie'];
+
 
 const { formId, formField, files} = sendParcelModel;
 
@@ -44,16 +43,6 @@ function _renderStepContent(step) {
   }
 }
 
-// function _renderStepContent(step) {
-//   switch (step) {
-//     case 0:
-//       return <ContactDetailsForm files={files} formField={formField}/>;
-//     case 1:
-//       return <ReviewOrder />;
-//     default:
-//       return <div>Nie znaleziono</div>;
-//   }
-// }
 
 const SendParcel = () => {
   const classes = useStyles();

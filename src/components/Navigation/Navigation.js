@@ -13,9 +13,8 @@ const Navigation = () => {
     <>
       <header className="top-area" id="home">
         <div className="top-area-bg" data-stellar-background-ratio="0.6"></div>
-        <div className="header-top-area">
+       
           <div className="mainmenu-area" id="mainmenu-area">
-            <div className="mainmenu-area-bg"></div>
             <nav className="navbar fixed-top">
               <div className="info-bar">
                   <a href="tel:+48735130862" className="info-bar-number">
@@ -39,7 +38,7 @@ const Navigation = () => {
               </div>
             </nav>
           </div>
-        </div>
+      
         <Link className="scroll-down-btn" to="/">
           <span></span>
         </Link>

@@ -4,7 +4,7 @@ import UserContext from '../../context/userContext';
 import './Root.css';
 import Axios from 'axios';
 
-import Navbar from '../../components/Navbar';
+// import Navbar from '../../components/Navbar';
 import Navigation from '../../components/Navigation/Navigation';
 import UserPanel from '../../views/UserPanel/UserPanel';
 import PasswordReset from '../../auth/ResetPassword';
@@ -24,8 +24,6 @@ import { MuiPickersUtilsProvider} from '@material-ui/pickers';
 import plLocale from 'date-fns/locale/pl';
 // import HomeView from '../../views/HomeView/HomeView';
 import PrivateRoute from '../../components/privateRoute';
-
-
 
 const routes = [
   // { path: '/', name: 'Start', Compontent: HomeView},
@@ -119,9 +117,9 @@ function Root() {
             <Switch>
               {routes.map(({ path, Component }) => (
                 <Route key="name" path={path} exact>
-                  <div className="page">
+                
                       <Component />
-                  </div>
+                 
                 </Route>
               ))}
               <PrivateRoute exact path="/konto" component={UserPanel} />

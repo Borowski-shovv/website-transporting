@@ -29,10 +29,9 @@ import { red, blue } from '@material-ui/core/colors';
     }
   }
 
-
-
   const useStyle = makeStyles(() => ({
     root: {
+
       width: 'auto',
       marginLeft: theme.spacing(2),
       marginRight: theme.spacing(2),
