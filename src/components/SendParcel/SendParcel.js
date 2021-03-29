@@ -62,8 +62,6 @@ const SendParcel = () => {
   const isLastStep = activeStep === steps.length - 1;
   const { userData ,formikImages,  setFormikImages} = useContext(appContext);
 
-
-
   async function _submitForm(values, actions) {
 
     setActiveStep(activeStep + 1);

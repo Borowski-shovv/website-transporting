@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import UserContext from '../context/userContext';
 import IconButton from "@material-ui/core/IconButton";
@@ -7,6 +7,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -20,71 +21,92 @@ const useStyles = makeStyles(theme => ({
 
 function AuthOptions() {
     const { userData, setUserData} = useContext(UserContext);
-    const [anchorProfile, setAnchorProfile] = React.useState(null);
-    const openProfile = Boolean(anchorProfile);
+    // const [anchorProfile, setAnchorProfile] = React.useState(null);
+    // const openProfile = Boolean(anchorProfile);
     const history = useHistory(); 
     const classes = useStyles();
 
     const logout = () => {
-        setUserData({
-            token: undefined,
-            user: undefined
-        })
-
+        
         localStorage.setItem('user-email', '')
         localStorage.setItem('user-id', '')
         localStorage.setItem('user-token', '')
         localStorage.setItem('order_id', '')
+
+        setUserData({
+            token: undefined,
+            user: undefined,
+            id: undefined,
+        })
+
+        // handleButtonClick('/')
+        // console.log('click')
     }
 
-    const handleMenuProfile = event => {
-        setAnchorProfile(event.currentTarget);
-      };
+    // const handleMenuProfile = event => {
+    //     setAnchorProfile(event.currentTarget);
+    // };
 
-    const handleClose = () => {
-
-        setAnchorProfile(null);
-    };
+    // const handleClose = () => {
+    //     setAnchorProfile(null);
+    // };
 
     const handleButtonClick = pageURL => {
         history.push(pageURL);
-      };
+    };
 
     return (
-        <div>
+        <>
              {userData.token ? (
-                <div>
-                    <IconButton
-                        aria-label="account of current user"
-                        aria-controls="menu-appbar"
-                        aria-haspopup="true"
-                        onClick={handleMenuProfile}
-                        color="inherit"
-                    >
-                        <AccountCircle />
-                    </IconButton>
-                    <Menu
-                        id="menu-appbar"
-                        anchorEl={anchorProfile}
-                        anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                        }}
-                        open={openProfile}
-                        onClose={handleClose}
-                    >
-                        <MenuItem onClick={handleClose}>Moje konto</MenuItem>
-                        <MenuItem onClick={logout}>Wyloguj</MenuItem>
-                    </Menu>
-                </div>  
-                ) : (
-                    <>
+                // <div>
+                //      <Button
+                //             // variant="contained"
+                //             className={classes.navLink}
+                //             onClick={() => handleButtonClick("/konto")}
+                //         >
+                //             Moje konto
+                //         </Button>
+                //         <Button
+                //             // variant="contained"
+                //             className={classes.navLink}
+                //             onClick={logout}
+                //         >
+                //             Wyloguj
+                //         </Button>
+                // </div>  
+                <>
+                    <li>
+                        <NavLink 
+                        activeClassName="navigationItemLinkActive"
+                        className="navigationItemLink" to="/konto"><span> Moje konto</span></NavLink>
+
                         <Button
+                            // variant="contained"
+                            className={classes.navLink}
+                            onClick={logout}
+                        >
+                            Wyloguj
+                        </Button>
+                    </li>
+                </>
+                ) : (
+                    <>  
+                    <li>
+                        <NavLink 
+                            activeClassName="navigationItemLinkActive"
+                            className="navigationItemLink" 
+                            to="/logowanie">Logowanie
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink 
+                            activeClassName="navigationItemLinkActive"
+                            className="navigationItemLink" 
+                            to="/rejestracja">Rejestracja
+                        </NavLink>
+                    </li>
+
+                        {/* <Button
                             // variant="contained"
                             className={classes.navLink}
                             onClick={() => handleButtonClick("/logowanie")}
@@ -97,11 +119,11 @@ function AuthOptions() {
                             onClick={() => handleButtonClick("/rejestracja")}
                         >
                             Rejestracja
-                        </Button>
+                        </Button> */}
                     </>
                 )
             }
-        </div>
+        </>
     )
 }
 

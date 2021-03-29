@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import bridge from '../assets/images/road.jpg';
 import CheckboxField from '../components/SendParcel/FormFields/CheckboxField'
 import { Formik, Form, Field } from 'formik';
-import { ref, object, string } from 'yup';
+import { ref, object, string, mixed } from 'yup';
 import { FormGroup, Box } from '@material-ui/core';
 import Axios from 'axios';
 import { useHistory } from 'react-router-dom';
@@ -68,13 +68,14 @@ export default function Register() {
   const [error, setError] = useState('');
   const classes = useStyles();
   const history = useHistory();
+  const [ conditionalInputs, setConditionalInputs ] = useState();
 
   const handleSubmit = async (values) => {
      
     let url = 'https://najtanszapaczkaszwecja.pl/api/users/create';
             // make API call
             try {
-              const newUserData = {"name": values.name,"email": values.email,"phone": values.phone,"address": values.address,"zip_code": values.zipcode,"city": values.city, "country":values.country,"password": values.password, 'type': values.isFirm}
+              const newUserData = {"name": values.name,"email": values.email,"phone": values.phone,"address": values.address,"zip_code": values.zipcode,"city": values.city, "country":values.country,"password": values.password, 'type': values.isFirm, 'company': values.companyName, 'nip': values.nip}
               const loginRes = await Axios.post(url, newUserData, {
                 auth: {
                   username: 'shovv', 
@@ -91,11 +92,8 @@ export default function Register() {
               } else if(loginRes.data.error === null) {
                 setRegistrationInfo('Dziękujemy za utworzenie konta. Na Twój email wysłaliśmy link aktywacyjny. Wejdź w ten link, aby aktywować konto.')
               }
-              
-              
-              // else {
-              //   history.push('/aktywacja')
-              // }
+            
+
               } catch(err) {
                 err.response.data.msg && setError(err.response.data.msg)
               }
@@ -103,7 +101,6 @@ export default function Register() {
   }
 
   return (
-    
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -128,6 +125,10 @@ export default function Register() {
                 zipcode: '',
                 city: '',
                 country: '',
+                isFirm: false,
+                nip: '',
+                companyName: '',
+
             }}
             validationSchema={
               object({
@@ -136,6 +137,15 @@ export default function Register() {
                     .required('To pole jest wymagane')
                     .min(5, 'To pole musi zawierać conajmniej 5 znaków')
                     .max(30, 'To pole może zawierać maksymalnie 30 znaków'),
+                companyName: 
+                    mixed().when('isFirm', {
+                      is: true,
+                      then: string().required('To pole jest wymagane').min(2, 'To pole musi zawierać minimum 2 znaki').max(20),
+                    }),
+                nip:  mixed().when('isFirm', {
+                  is: true,
+                  then: string().required('To pole jest wymagane'),
+                }),
                 email: 
                     string()
                     .email('Wpisz prawidłowy adres email')
@@ -176,8 +186,34 @@ export default function Register() {
                       {errors.name && touched.name ? (<Typography color="error">{errors.name}</Typography>) : null}
                     </FormGroup>
                     <Box mt={1} mb={2}>
-                        <CheckboxField className="CheckBoxRules" name="type" type="checkbox" label="Konto firmowe" />
+                        <CheckboxField className="CheckBoxRules" name="isFirm" type="checkbox" label="Konto firmowe" />
                     </Box>
+                    { values.isFirm && 
+                      <>
+                          <FormGroup>
+                            <Field 
+                                name="companyName" 
+                                as={TextField}
+                                label="Nazwa firmy"
+                                variant="outlined"
+                                margin="normal"
+                                fullWidth
+                            />
+                            {errors.companyName && touched.companyName ? (<Typography color="error">{errors.companyName}</Typography>) : null}
+                          </FormGroup>
+                          <FormGroup>
+                          <Field 
+                              name="nip" 
+                              as={TextField}
+                              label="NIP"
+                              variant="outlined"
+                              margin="normal"
+                              fullWidth
+                          />
+                          {errors.nip && touched.nip ? (<Typography color="error">{errors.nip}</Typography>) : null}
+                        </FormGroup>
+                      </>
+                    }
                     <FormGroup>
                       <Field 
                           name="email" 
@@ -203,7 +239,6 @@ export default function Register() {
                       />
                       {errors.phone && touched.phone ? (<Typography color="error">{errors.phone}</Typography>) : null}
                     </FormGroup>
-                   
                     <FormGroup>
                       <Field 
                           name="address" 
@@ -277,7 +312,7 @@ export default function Register() {
                             <Typography className={classes.green}>{registrationInfo} </Typography>             
                     </div>
                 <Button className={classes.button} disabled={isSubmitting || isValidating} variant="contained" type="submit">Zarejestruj się</Button>
-                {/* <pre>{JSON.stringify({values, errors}, null, 4)}</pre> */}
+                <pre>{JSON.stringify({values, errors}, null, 4)}</pre>
               </Form>
             )}
           </Formik>

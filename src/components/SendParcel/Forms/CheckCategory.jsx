@@ -103,7 +103,7 @@ export default function CheckCategory(props) {
         <>
         <div className="Step1-wrapper">
             <Typography variant="h6" gutterBottom className={classes.titleCenter}>
-                Chcę przewieźć
+                Chcę przewieźćc
             </Typography>
             <Paper elevation={3} className={classes.CustomPaper}>
                 <Typography variant="body2" gutterBottom>

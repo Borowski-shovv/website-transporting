@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import UserContext from '../../context/userContext';
 import './Root.css';
 import Axios from 'axios';
-import Header from '../../components/Navbar';
 
+import Navbar from '../../components/Navbar';
+import Navigation from '../../components/Navigation/Navigation';
+import UserPanel from '../../views/UserPanel/UserPanel';
 import PasswordReset from '../../auth/ResetPassword';
 import PasswordResetToken from '../../auth/ResetPasswordToken';
 import EmailActivationToken from '../../auth/EmailActivationToken';
@@ -20,8 +22,13 @@ import CookieConsent from "react-cookie-consent";
 import DateFnsUtils from '@date-io/date-fns'; // choose your lib
 import { MuiPickersUtilsProvider} from '@material-ui/pickers';
 import plLocale from 'date-fns/locale/pl';
+// import HomeView from '../../views/HomeView/HomeView';
+import PrivateRoute from '../../components/privateRoute';
+
+
 
 const routes = [
+  // { path: '/', name: 'Start', Compontent: HomeView},
   { path: '/reset_hasla', name: 'Resetowanie hasła', Component: PasswordReset},
   { path: '/reset_hasla/:id', name: 'Resetowanie hasła', Component: PasswordResetToken},
   { path: '/aktywacja', name: 'Aktywacja po rejestracji', Component:  UserEmailAfterRegistration},
@@ -34,8 +41,8 @@ const routes = [
 function Root() {
   const [userData, setUserData] = useState({
     token: undefined,
-    user: undefined,
     id: undefined,
+    user: undefined,
   });
   const [filledEmailInfo, setEmailFilledInfo] = useState();
   const [formikImages, setFormikImages] = useState([]);
@@ -76,7 +83,6 @@ function Root() {
       });
       //  console.log(tokenResponse.data);
 
-
       if(tokenResponse.data.valid) {
         // console.log(userEmail)
 
@@ -108,7 +114,7 @@ function Root() {
         <ScrollToTop>     
         <UserContext.Provider value={{ userData, setUserData, filledEmailInfo,
             setEmailFilledInfo, formikImages, setFormikImages}}>  
-        <Header />
+        <Navigation />
           <MuiPickersUtilsProvider locale={plLocale} utils={DateFnsUtils}>
             <Switch>
               {routes.map(({ path, Component }) => (
@@ -118,8 +124,12 @@ function Root() {
                   </div>
                 </Route>
               ))}
+              <PrivateRoute exact path="/konto" component={UserPanel} />
             </Switch> 
+
             </MuiPickersUtilsProvider>
+
+
         <ScrollTopButton></ScrollTopButton>
         {/* <Footer /> */}
           <CookieConsent acceptOnScroll={true}
@@ -129,7 +139,6 @@ function Root() {
           </UserContext.Provider>
           </ScrollToTop> 
       </Router>
-
   );
 }
 

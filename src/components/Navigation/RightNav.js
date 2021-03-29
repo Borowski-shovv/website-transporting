@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-
+import AuthOptions from '../../auth/AuthOptions';
 
 const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
   overflow: hidden;
-  margin-top: 5px;
   li {
     position: relative;
+    padding: 10px;
   }
 
   a {
@@ -60,22 +60,18 @@ const RightNav = ({ open }) => {
  
   return (
     <>
-    <Ul className="btn-10" open={open}>
+    <Ul open={open}>
     <li>
       <NavLink exact 
       activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/"><span>Strona główna</span></NavLink>
+      className="navigationItemLink" to="/"><span>Start</span></NavLink>
     </li>
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
       className="navigationItemLink" to="/oferta"><span>Oferta</span></NavLink>
     </li>
-    <li>
-      <NavLink 
-      activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/firma"><span>Firma</span></NavLink>
-    </li>
+   
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
@@ -84,23 +80,14 @@ const RightNav = ({ open }) => {
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/zamowienie"><span>Nadaj przesyłkę</span></NavLink>
-    </li>
-    <li>
-      <NavLink 
-      activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/galeria"><span>Galeria</span></NavLink>
+      className="navigationItemLink" to="/wycena"><span>Wyceń paczkę</span></NavLink>
     </li>
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
       className="navigationItemLink" to="/kontakt"><span>Kontakt</span></NavLink>
     </li>
-    <li>
-      <NavLink 
-      activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/zaloguj"><span>Zaloguj</span></NavLink>
-    </li>
+    <AuthOptions />
   </Ul>
   </>
   );

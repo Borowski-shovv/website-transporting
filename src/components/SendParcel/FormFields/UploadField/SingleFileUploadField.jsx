@@ -5,7 +5,7 @@ import axios from 'axios';
 import {useField, FieldArray} from 'formik';
 import appContext from '../../../../context/userContext';
 
-export function SingleFileUploadWithProgress({file, onDelete, onUpload, }) {
+export function SingleFileUploadWithProgress({file, onDelete, onUpload}) {
     const [progress, setProgress] = useState(0)
   
     const { setFormikImages } = useContext(appContext);
