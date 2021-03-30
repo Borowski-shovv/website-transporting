@@ -8,7 +8,6 @@ import seflag from '../../assets/images/se.png';
 
 
 const Navigation = () => {
-  
   return (
     <>
       <header className="top-area" id="home">

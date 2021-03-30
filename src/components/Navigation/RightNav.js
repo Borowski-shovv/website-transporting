@@ -56,7 +56,7 @@ const Ul = styled.ul`
   }
 `;
 
-const RightNav = ({ open }) => {
+const RightNav = ({ open, setOpen }) => {
  
   return (
     <>
@@ -64,30 +64,44 @@ const RightNav = ({ open }) => {
     <li>
       <NavLink exact 
       activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/"><span>Start</span></NavLink>
+      className="navigationItemLink" 
+      to="/"
+      onClick={(open) => setOpen(!open)}
+      ><span>Start</span></NavLink>
     </li>
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/oferta"><span>Oferta</span></NavLink>
+      className="navigationItemLink" 
+      to="/oferta"
+      onClick={() => setOpen(!open)}
+      ><span>Oferta</span></NavLink>
     </li>
    
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/cennik"><span>Cennik</span></NavLink>
+      className="navigationItemLink" to="/cennik"
+      onClick={() => setOpen(!open)}
+      ><span>Cennik</span></NavLink>
     </li>
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/wycena"><span>Wyceń paczkę</span></NavLink>
+      className="navigationItemLink" 
+      to="/wycena"
+      onClick={() => setOpen(!open)}
+      ><span>Wyceń paczkę</span></NavLink>
     </li>
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/kontakt"><span>Kontakt</span></NavLink>
+      className="navigationItemLink" 
+      to="/kontakt"
+      onClick={() => setOpen(!open)}
+      ><span>Kontakt</span></NavLink>
     </li>
-    <AuthOptions />
+    <AuthOptions open={open} setOpen={(open) => setOpen(open)}/>
   </Ul>
   </>
   );

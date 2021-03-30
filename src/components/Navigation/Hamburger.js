@@ -55,7 +55,7 @@ const Hamburger = () => {
         <div></div>
         <div></div>
       </StyledBurger>
-      <RightNav open={open} />
+      <RightNav open={open} setOpen={(open) => setOpen(open)}/>
     </>
   );
 };

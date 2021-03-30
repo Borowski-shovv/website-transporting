@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 })
 )
 
-function AuthOptions() {
+function AuthOptions({open, setOpen}) {
     const { userData, setUserData} = useContext(UserContext);
     const history = useHistory(); 
     const classes = useStyles();
@@ -37,6 +37,8 @@ function AuthOptions() {
         localStorage.setItem('order_id', '')
 
         handleButtonClick('/')
+
+        setOpen(!open)
     }
 
     const handleButtonClick = pageURL => {
@@ -50,7 +52,10 @@ function AuthOptions() {
                     <li>
                         <NavLink 
                         activeClassName="navigationItemLinkActive"
-                        className="navigationItemLink" to="/konto"><span> Moje konto</span></NavLink>
+                        className="navigationItemLink" 
+                        to="/konto"
+                        onClick={open => setOpen(!open)}
+                        ><span> Moje konto</span></NavLink>
                     </li>
                     <li>
                         <Button
@@ -67,14 +72,18 @@ function AuthOptions() {
                         <NavLink 
                             activeClassName="navigationItemLinkActive"
                             className="navigationItemLink" 
-                            to="/logowanie">Logowanie
+                            to="/logowanie"
+                            onClick={open => setOpen(!open)}
+                            >Logowanie
                         </NavLink>
                     </li>
                     <li>
                         <NavLink 
                             activeClassName="navigationItemLinkActive"
                             className="navigationItemLink" 
-                            to="/rejestracja">Rejestracja
+                            to="/rejestracja"
+                            onClick={open => setOpen(!open)}
+                            >Rejestracja
                         </NavLink>
                     </li>
                     </>
