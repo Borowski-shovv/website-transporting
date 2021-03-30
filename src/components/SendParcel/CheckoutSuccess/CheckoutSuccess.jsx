@@ -29,7 +29,6 @@ function CheckoutSuccess() {
             const data = {"order_id": orderId, "user_id": userId }
             console.log('CHECKOUTSUCCESS - DANE PRZED WYSLANIEM', data)
             
-       
               const assign = await Axios.post('https://najtanszapaczkaszwecja.pl/api/orders/assign', data,  {
                   headers: { 
                     'Content-Type': 'application/json'

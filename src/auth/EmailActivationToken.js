@@ -32,7 +32,8 @@ function EmailActivationToken() {
                 }
                 console.log('1. pierwszy res', response)
                 return response
-            }).then(dataUser => {
+            })
+            .then(dataUser => {
                 console.log('2. drugi res data', dataUser)
 
                 let orderId = localStorage.getItem('order_id')
@@ -53,7 +54,7 @@ function EmailActivationToken() {
                           username: 'shovv', 
                           password: '$HOVV2020'
                         }
-                      }).then(res => console.log('4. odpowiedz po drugim wyslaniu', res))
+                      }).then(res =>  localStorage.setItem('order_id', ''))
                 )
             }
                 
@@ -62,6 +63,7 @@ function EmailActivationToken() {
         };
 
         getActivationToken()
+       
     }, [id]);
     
   
