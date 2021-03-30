@@ -22,11 +22,11 @@ import CookieConsent from "react-cookie-consent";
 import DateFnsUtils from '@date-io/date-fns'; // choose your lib
 import { MuiPickersUtilsProvider} from '@material-ui/pickers';
 import plLocale from 'date-fns/locale/pl';
-// import HomeView from '../../views/HomeView/HomeView';
+import HomeView from '../../views/HomeView/HomeView';
 import PrivateRoute from '../../components/privateRoute';
 
 const routes = [
-  // { path: '/', name: 'Start', Compontent: HomeView},
+  { path: '/', name: 'Start', Component: HomeView},
   { path: '/reset_hasla', name: 'Resetowanie hasła', Component: PasswordReset},
   { path: '/reset_hasla/:id', name: 'Resetowanie hasła', Component: PasswordResetToken},
   { path: '/aktywacja', name: 'Aktywacja po rejestracji', Component:  UserEmailAfterRegistration},

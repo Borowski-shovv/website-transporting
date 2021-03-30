@@ -124,7 +124,10 @@ const SendParcel = () => {
   return(
     <React.Fragment>
     <Typography component="h1" variant="h4" align="center" className={classes.titleForm}>
-      Wyceń przesyłkę
+      Złóż zamówienie
+    </Typography>
+    <Typography variant="body1" gutterBottom className={classes.infoParagraph}>
+      Po wypełnieniu formularza nasz konsultant skontaktuje się z Tobą w celu ustalenia szczegółów transportu oraz przedstawienia wyceny.
     </Typography>
     <Paper >
       <Stepper activeStep={activeStep} className={classes.stepper}>
@@ -177,7 +180,7 @@ const SendParcel = () => {
                 </div>
               </div>
 
-              <pre>{JSON.stringify({values, errors}, null, 4)}</pre>
+              {/* <pre>{JSON.stringify({values, errors}, null, 4)}</pre> */}
             </Form>
           )}
         </Formik>

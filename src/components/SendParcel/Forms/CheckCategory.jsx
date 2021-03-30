@@ -103,11 +103,12 @@ export default function CheckCategory(props) {
         <>
         <div className="Step1-wrapper">
             <Typography variant="h6" gutterBottom className={classes.titleCenter}>
-                Chcę przewieźćc
+                Chcę przewieźć
             </Typography>
+          
             <Paper elevation={3} className={classes.CustomPaper}>
                 <Typography variant="body2" gutterBottom>
-                    Wybierz kategorie przesyłki, (możesz wybrać więcej niż jedną)
+                    Wybierz kategorie przesyłki (możesz wybrać więcej niż jedną opcję)
                 </Typography>
                 <Grid container justify="center" spacing={2} alignItems="center">
                     <Grid item xs={12} sm={2}>

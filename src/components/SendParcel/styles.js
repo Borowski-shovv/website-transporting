@@ -23,7 +23,15 @@ export default makeStyles(theme => ({
     left: '50%'
   },
   titleForm: {
-    marginBottom: theme.spacing(3)
+    marginBottom: theme.spacing(3),
+    fontWeight: 'bold',
+  },
+  infoParagraph: {
+    width: '70%',
+    margin: '0 auto',
+    marginBottom: theme.spacing(3),
+    textAlign: 'center',
+    
   }
   
 }));
