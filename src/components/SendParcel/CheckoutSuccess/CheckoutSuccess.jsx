@@ -8,39 +8,48 @@ import { useHistory } from 'react-router-dom';
 ////wysylanie paczki
 
 function CheckoutSuccess() {
-  const { userData } = useContext(UserContext);
+  const { userData, orderId } = useContext(UserContext);
   const [error, setError] = useState('');
   const history = useHistory();
+
   //PRZPISANIE PACZKI DO ZALOGOWANEGO USERA
 
   useEffect(() => {
-          try {
-          let orderId = localStorage.getItem('order_id')
-          let userId = localStorage.getItem('user-id');
+        let orderId = localStorage.getItem('order_id')
+        let userId = localStorage.getItem('user-id');
 
-          if(orderId === null) {
-              localStorage.setItem('order_id', '');
-              orderId = '';
-          }
-          
-          const data = {"order_id": orderId, "user_id": userId }
-          console.log('CHECKOUTSUCCESS - DANE PRZED WYSLANIEM', data)
-          
-          Axios.post('https://najtanszapaczkaszwecja.pl/api/orders/assign', data,  {
-            headers: { 
-              'Content-Type': 'application/json'
-            },
-            auth: {
-              username: 'shovv', 
-              password: '$HOVV2020'
+        // if(orderId === null) {
+        //     localStorage.setItem('order_id', '');
+        //     orderId = '';
+        // }
+
+          const asignOrderToUser = async () => {
+            try {
+            
+            const data = {"order_id": orderId, "user_id": userId }
+            console.log('CHECKOUTSUCCESS - DANE PRZED WYSLANIEM', data)
+            
+       
+              const assign = await Axios.post('https://najtanszapaczkaszwecja.pl/api/orders/assign', data,  {
+                  headers: { 
+                    'Content-Type': 'application/json'
+                  },
+                  auth: {
+                    username: 'shovv', 
+                    password: '$HOVV2020'
+                  }
+                  })
+                .then(res => {
+                  localStorage.setItem('order_id', '')
+                  
+                    console.log('PRZYPISANIE ORDER DO UZYTKOWNIKA ktory jest ZALOGOWANY', res) 
+                })
+              } catch(err) {
+                err.response.data.msg && setError(err.response.data.msg)
+              }     
             }
-            })
-          .then(res => console.log('PRZYPISANIE ORDER DO UZYTKOWNIKA ktory jest ZALOGOWANY', res))
-          
-          } catch(err) {
-            err.response.data.msg && setError(err.response.data.msg)
-          }
-  }, [])
+            asignOrderToUser()
+  }, [orderId])
 
   return (
     <React.Fragment>
@@ -52,7 +61,7 @@ function CheckoutSuccess() {
         <Typography variant="subtitle1">
           Skontaktujemy się z Tobą w celu ustalenia szczegółów transportu Twojej przesyłki
         </Typography>
-        <p>W razie pytań możesz skontaktować się z nami pod numerem: 123 123 123</p>
+        <p>W razie pytań możesz skontaktować się z nami pod numerem: +48 735 130 862 </p>
         <Button onClick={() => history.push('/')} variant="contained" color="primary">Wróć do strony głównej</Button>
       </> :
         (

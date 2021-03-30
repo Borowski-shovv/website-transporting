@@ -44,12 +44,13 @@ function _renderStepContent(step) {
 }
 
 
+
 const SendParcel = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const currentValidationSchema = validationSchema[activeStep];
   const isLastStep = activeStep === steps.length - 1;
-  const { userData ,formikImages,  setFormikImages} = useContext(appContext);
+  const { userData ,formikImages, setFormikImages, setOrderId} = useContext(appContext);
 
   async function _submitForm(values, actions) {
 
@@ -92,6 +93,7 @@ const SendParcel = () => {
           password: '$HOVV2020'
         },
       })
+      setOrderId(orderRes.data.order_id)
       localStorage.setItem("order_id", orderRes.data.order_id)
 
       console.log('odpowiedz z servera po wyslaniu formularza z przesylka',orderRes)

@@ -44,6 +44,7 @@ function Root() {
   });
   const [filledEmailInfo, setEmailFilledInfo] = useState();
   const [formikImages, setFormikImages] = useState([]);
+  const [orderId, setOrderId] = useState();
 
   useEffect(() => {
     const checkLoggedIn = async () => {
@@ -89,19 +90,6 @@ function Root() {
           user: userEmail,
         })
       }
-
-      //3 jezeli zwrócona jest prawda z tokenem
-      // zapytaj o informacje dotyczace uzytkownika zwiazanego z tym tokenem
-      // if (tokenResponse.data) {
-      //   const userRes = await Axios.get('/users', { 
-      //       headers: { 'x-auth-token': token },
-      //       auth: { username: 'shovv', password: '$HOVV2020'}
-      //   });
-      //   setUserData({
-      //     token,
-      //     user: userRes.data,
-      //   });  
-      // }
     };
 
     checkLoggedIn();
@@ -111,7 +99,7 @@ function Root() {
        <Router>
         <ScrollToTop>     
         <UserContext.Provider value={{ userData, setUserData, filledEmailInfo,
-            setEmailFilledInfo, formikImages, setFormikImages}}>  
+            setEmailFilledInfo, formikImages, setFormikImages, orderId, setOrderId}}>  
         <Navigation />
           <MuiPickersUtilsProvider locale={plLocale} utils={DateFnsUtils}>
             <Switch>

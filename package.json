@@ -16,6 +16,7 @@
     "base-64": "^1.0.0",
     "classnames": "^2.2.6",
     "date-fns": "^2.19.0",
+    "embla-carousel": "^4.3.0",
     "formik": "^2.2.6",
     "gsap": "^3.6.0",
     "leaflet": "^1.6.0",

@@ -27,7 +27,6 @@ function EmailActivationToken() {
                 if(response.data.valid) {
                     setValid(response.data.valid)
                 }
-                
                 if(response.data.error) {
                     setActivationError(response.data.error);
                 }
@@ -55,7 +54,6 @@ function EmailActivationToken() {
                           password: '$HOVV2020'
                         }
                       }).then(res => console.log('4. odpowiedz po drugim wyslaniu', res))
-
                 )
             }
                 
