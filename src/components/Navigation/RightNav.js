@@ -77,14 +77,6 @@ const RightNav = ({ open, setOpen }) => {
       onClick={() => setOpen(!open)}
       ><span>Oferta</span></NavLink>
     </li>
-   
-    <li>
-      <NavLink 
-      activeClassName="navigationItemLinkActive"
-      className="navigationItemLink" to="/cennik"
-      onClick={() => setOpen(!open)}
-      ><span>Cennik</span></NavLink>
-    </li>
     <li>
       <NavLink 
       activeClassName="navigationItemLinkActive"

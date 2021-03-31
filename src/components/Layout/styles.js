@@ -11,7 +11,8 @@ import { red, blue } from '@material-ui/core/colors';
     palette: { 
       type: 'light', 
       primary: red, 
-      secondary: blue},
+      secondary: blue
+    },
     typography: {
       h6: {
         fontWeight: 'bold',
@@ -24,7 +25,6 @@ import { red, blue } from '@material-ui/core/colors';
   theme.overrides = {
     MuiButton: {
       containedPrimary: {
-        
       }
     }
   }

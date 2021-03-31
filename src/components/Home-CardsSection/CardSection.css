@@ -1,45 +1,4 @@
 
-.blog-area {
-    padding-bottom: 50px;
-}
-.single-blog {
-    border-radius: 5px;
-    -webkit-box-shadow: 0 3px 7px #ddd;
-    box-shadow: 0 3px 7px #ddd;
-    overflow: hidden;
-}
-
-.blog-details {
-    background: #fff none repeat scroll 0 0;
-    padding: 30px 20px;
-    position: relative;
-}
-
-.blog-meta {
-    background: #bf1e2e none repeat scroll 0 0;
-    border-radius: 0 50px 50px 0;
-    font-size: 24px;
-    height: 50px;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: -25px;
-    width: 70px;
-}
-
-.blog-meta a {
-    color: #fff;
-    display: block;
-    height: 100%;
-    padding-top: 13px;
-    width: 100%;
-}
-
-.blog-details h3 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
 
 .read-more {
     background: transparent none repeat scroll 0 0;
@@ -73,9 +32,6 @@
     color: #fff;
 }
 
-.blog-details h3 a {
-    color: #3c4a62;
-}
 
 .blog-details h3 a:hover,
 .blog-details h3 a:focus {
@@ -83,12 +39,13 @@
 }
 
 .card-title {
-    font-size: 30px;
-    margin: 50px auto 50px;
+    font-size: 28px;
+    margin: 20px auto 50px;
     padding-bottom: 30px;
     letter-spacing: 1px;
     color: #bf1e2e;
     text-align: center;
+    font-weight: 600;
 }
 
 .card-title::before {
@@ -117,3 +74,4 @@
     max-width: 1500px;
     margin: 0 auto;
 }
+

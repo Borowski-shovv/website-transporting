@@ -31,7 +31,6 @@ export default makeStyles(theme => ({
     margin: '0 auto',
     marginBottom: theme.spacing(3),
     textAlign: 'center',
-    
   }
   
 }));

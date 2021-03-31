@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import UserContext from '../../context/userContext';
 import './Root.css';
 import Axios from 'axios';
-
-// import Navbar from '../../components/Navbar';
+import OfferView from '../../views/OfferView/OfferView';
 import Footer from '../../components/Footer/Footer';
 import Navigation from '../../components/Navigation/Navigation';
 import UserPanel from '../../views/UserPanel/UserPanel';
@@ -28,6 +27,7 @@ import PrivateRoute from '../../views/privateRoute';
 
 const routes = [
   { path: '/', name: 'Start', Component: HomeView},
+  { path: '/oferta', name: 'Oferta', Component: OfferView},
   { path: '/reset_hasla', name: 'Resetowanie hasła', Component: PasswordReset},
   { path: '/reset_hasla/:id', name: 'Resetowanie hasła', Component: PasswordResetToken},
   { path: '/aktywacja', name: 'Aktywacja po rejestracji', Component:  UserEmailAfterRegistration},

@@ -129,7 +129,7 @@ const SendParcel = () => {
     <Typography variant="body1" gutterBottom className={classes.infoParagraph}>
       Po wypełnieniu formularza nasz konsultant skontaktuje się z Tobą w celu ustalenia szczegółów transportu oraz przedstawienia wyceny.
     </Typography>
-    <Paper >
+    <Paper elevation={3}>
       <Stepper activeStep={activeStep} className={classes.stepper}>
         {steps.map(label => (
           <Step key={label}>

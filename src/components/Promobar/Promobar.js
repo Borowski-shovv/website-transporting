@@ -1,51 +1,62 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Promobar.module.scss';
-// import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Grid, Typography, Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 // import AOS from 'aos';
 // import 'aos/dist/aos.css';
 
-// const Promobar = () => {
-//   useEffect(() => {
-//     // AOS.init({
-//     //   duration: 2000,
-//     // });
-//     // AOS.refresh();
-//   });
+const useStyles = makeStyles({
+    root: {
+        backgroundColor: '#bf1e2e',
+        padding: '50px 0',
+    },
+    title: {
+        color: '#fff',
+        fontSize: 28,
+        fontWeight: 400,
+        marginBottom: 20,
+    },
+    text: {
+        color: '#fff',
+        fontFamily: 'Poppins, sans-serif',
+        marginBottom: 25,
+        textAlign: 'center',
+    },
+    button: {
+      margin: '0 auto',
+    }
+})
 
-//   return (
-//     <div className={styles.promoBottomArea}>
-//       <div
-//         className={styles.promoBottomAreaBg}
-//         data-stellar-background-ratio="0.6"
-//       ></div>
-//       <Container>
-//         <Row>
-//           <Col
-//             md={{ span: 12 }}
-//             lg={{ span: 12 }}
-//             sm={12}
-//             xs={12}
-//             className={styles.textCenter}
-//           >
-//             <div data-aos="fade-in" className="container">
-//               <div className={styles.promBottomContent}>
-//                 <h3 className={styles.promoTitle}>Darmowa wycena w 15 minut</h3>
-//                 <p className={styles.promoText}>
-//                   Zbieramy przesyłki z całej Polski i dostarczamy je na
-//                   terenie całej Szwecji
-//                 </p>
-//                 <p></p>
-//                 <Link to="/kontakt" className={styles.readMore}>
-//                   Kontakt
-//                 </Link>
-//               </div>
-//             </div>
-//           </Col>
-//         </Row>
-//       </Container>
-//     </div>
-//   );
-// };
+const Promobar = () => {
 
-// export default Promobar;
+
+  const classes = useStyles()
+
+  return (
+   <section className={classes.root}>
+      <Container>
+        <Grid container justify="center" data-aos="fade-in">
+          <Grid 
+            item
+            container
+            direction='column'
+            justify="center"
+            alignItems="center"
+          >
+                <h3 className={classes.title}>Darmowa wycena</h3>
+                <Typography variant="body2" className={classes.text}>
+                  Złóż zamówienie, a nasz konsultant skontaktuje się z Tobą w ciągu 15 minut z wyceną Twojej przesyłki
+                </Typography>
+                
+                <Button variant="contained" href="/wycena" className={classes.button}>
+                  Wyceń paczkę
+                </Button>
+          </Grid>
+        </Grid>
+      </Container>
+   </section>
+   
+  );
+};
+
+export default Promobar;
