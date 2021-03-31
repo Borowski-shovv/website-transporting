@@ -3,7 +3,7 @@ import OwlCarousel from 'react-owl-carousel';
 import { Link } from 'react-router-dom';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import './Owldemo.css';
+// import './Owldemo.css';
 import '../../assets/libraries/animate.css';
 import '../../assets/libraries/font-awesome.min.css';
 
