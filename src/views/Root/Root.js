@@ -5,6 +5,7 @@ import './Root.css';
 import Axios from 'axios';
 
 // import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer/Footer';
 import Navigation from '../../components/Navigation/Navigation';
 import UserPanel from '../../views/UserPanel/UserPanel';
 import PasswordReset from '../../auth/ResetPassword';
@@ -23,7 +24,7 @@ import DateFnsUtils from '@date-io/date-fns'; // choose your lib
 import { MuiPickersUtilsProvider} from '@material-ui/pickers';
 import plLocale from 'date-fns/locale/pl';
 import HomeView from '../../views/HomeView/HomeView';
-import PrivateRoute from '../../components/privateRoute';
+import PrivateRoute from '../../views/privateRoute';
 
 const routes = [
   { path: '/', name: 'Start', Component: HomeView},
@@ -112,12 +113,10 @@ function Root() {
               ))}
               <PrivateRoute exact path="/konto" component={UserPanel} />
             </Switch> 
+          </MuiPickersUtilsProvider>
 
-            </MuiPickersUtilsProvider>
-
-
-        <ScrollTopButton></ScrollTopButton>
-        {/* <Footer /> */}
+          <ScrollTopButton></ScrollTopButton>
+          <Footer />
           <CookieConsent acceptOnScroll={true}
             acceptOnScrollPercentage={50} contentStyle={{flex: "0 auto", margin: "0px", padding: "0px 15px", textAlign: "center"}}  buttonText="ZGODA" style={{alignItems: "center", justifyContent:"center", background: "#24292e", fontSize: '12px'}}  buttonStyle={{margin: '5px', display: 'flex', background: "#bf1e2e", color: "white", fontSize: "13px" }}>
               Ta strona korzysta z plików cookie, aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, zgodę na ich użycie.

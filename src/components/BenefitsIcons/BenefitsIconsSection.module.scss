@@ -26,7 +26,7 @@
             bottom: 0;
             z-index: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.6);
         }
             
         .wrapper {
@@ -39,10 +39,10 @@
           }
           
           .sectionTitle h2 {
-              color: white;
+            margin-bottom: 0;
+            color: white;
             font-size: 28px;
             font-weight: 400;
-            margin-bottom: 20px;
             padding-bottom: 20px;
             position: relative;
             font-family: 'Oswald', sans-serif;
@@ -94,7 +94,7 @@
             text-align: center;
             font-size: 30px;
             border-radius: 50%;
-            margin-bottom: 40px; }
+            margin-bottom: 30px; }
           
             .howItWorkItem h2 {
             font-size: 18px;
@@ -111,6 +111,7 @@
         .ulCheck {
             margin-bottom: 50px; }
             .ulCheck li {
+              color: white;
               position: relative;
               padding-left: 35px;
               margin-bottom: 15px;
@@ -122,16 +123,11 @@
                 font-family: "icomoon";
                 content: "\e5ca";
                 position: absolute; }
-            .ulCheck.white li:before {
-              color: #fff; }
-            .ul-check.success li:before {
-              color: #8bc34a; }
-            .ul-check.primary li:before {
-              color: #f89d13; }
 
-              .benefits {
-                margin: 50px 0;
-              }
+
+              // .benefits {
+              //   margin: 50px 0;
+              // }
               
               .benefit {
                 font-size: 15px;
@@ -139,7 +135,7 @@
                 align-items: center;
                 justify-content: center;
                 color: white;
-                opacity: 0.6;
+                // opacity: 0.6;
               }
               
               .benefit img {

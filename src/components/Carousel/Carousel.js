@@ -16,13 +16,15 @@ const useStyles = makeStyles((theme) => ({
     },
     slideImg: {
         width: '100%',
+        height: '500px',
+        objectFit: 'cover',
         [theme.breakpoints.down("sm")]: {
         height: '70vh',
         objectFit: 'cover',
         }
     },
     carouselContent: {
-        width: '300px',
+        width: '400px',
         position: 'absolute',
         top: '50%',
         left: '50%',
@@ -30,7 +32,11 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        [theme.breakpoints.down("sm")]: {
+            width: '100%',
+            padding: '0 20px',
+        }
     },
     title: {
         color: 'white',
@@ -42,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     text: {
         color: 'white',
         textAlign: 'center',
+        textShadow: '0px 1px 3px #000',
     },
     button: {
         color: 'white',
