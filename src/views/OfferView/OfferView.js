@@ -4,6 +4,7 @@ import './OfferView.css';
 import PricesTable from '../../components/PricesTable/PricesTable';
 import OfferSection from '../../components/OfferSection/OfferSection';
 import MapSection from '../../components/MapSection/MapSection';
+import AboutSolidFach from '../../components/AboutSolidFach/AboutSolidFach';
 
 const OfferView = () => {
 
@@ -12,7 +13,8 @@ const OfferView = () => {
             <OfferSection />
             <PricesTable />
             <ServicesSection /> 
-            <MapSection />       
+            <MapSection />
+            <AboutSolidFach />
         </>
     )
 };

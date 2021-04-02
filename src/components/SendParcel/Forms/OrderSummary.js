@@ -17,8 +17,8 @@ function OrderSummary() {
                                 return (
                                     <div className="summaryOrderRow" key={idx}>
                                         <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={1}>
-                                            <Grid item xs={12} sm={2}>
-                                                <Grid className="long-column" container>
+                                            <Grid item sm={2}>
+                                                <Grid className="long-column" container direction="column">
                                                     <Grid item>
                                                         <Typography variant="h6" gutterBottom>
                                                             Sposób pakowania:
@@ -33,8 +33,8 @@ function OrderSummary() {
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
-                                            <Grid item xs={12} sm={2}>
-                                                <Grid container>
+                                            <Grid item xs={6} sm={2}>
+                                                <Grid container direction="column">
                                                     <Grid item>
                                                     <Typography variant="h6" gutterBottom>
                                                         Waga:
@@ -43,8 +43,8 @@ function OrderSummary() {
                                                     <Grid item>{p.packageWeight + ' kg'}</Grid>
                                                 </Grid>
                                             </Grid>
-                                            <Grid item xs={12} sm={2}>
-                                                <Grid container >
+                                            <Grid item xs={6} sm={2}>
+                                                <Grid container direction="column">
                                                     <Grid item>
                                                         <Typography variant="h6" gutterBottom>
                                                             Wysokość:
@@ -53,8 +53,8 @@ function OrderSummary() {
                                                     <Grid item>{p.packageHeight + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
-                                            <Grid item xs={12} sm={2}>
-                                                <Grid container>
+                                            <Grid item xs={6} sm={2}>
+                                                <Grid container direction="column">
                                                     <Grid item>
                                                     <Typography variant="h6" gutterBottom>
                                                         Szerokość:
@@ -63,8 +63,8 @@ function OrderSummary() {
                                                     <Grid item>{p.packageWidth + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
-                                            <Grid item xs={12} sm={2}>
-                                                <Grid container >
+                                            <Grid item xs={6} sm={2}>
+                                                <Grid container direction="column">
                                                     <Grid item>
                                                     <Typography variant="h6" gutterBottom>
                                                         Długość:
@@ -73,8 +73,8 @@ function OrderSummary() {
                                                     <Grid item>{p.packageLength + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
-                                            <Grid item xs={12} sm={2}>
-                                                <Grid className='summaryValue' container>
+                                            <Grid item xs={6} sm={2}>
+                                                <Grid className='summaryValue' container direction="column">
                                                     <Grid item xs={6}>
                                                         <Typography variant="h6" gutterBottom>
                                                             Ilość:
@@ -94,7 +94,7 @@ function OrderSummary() {
                                 return (
                                     <div className="summaryOrderRow" key={idx}>
                                         <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={1}>
-                                        <Grid item sm={2}>
+                                            <Grid item sm={2}>
                                                 <Grid className="long-column" container direction="column">
                                                     <Grid item>
                                                         <Typography variant="h6" gutterBottom>
@@ -107,7 +107,7 @@ function OrderSummary() {
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
-                                            <Grid item sm={2}>
+                                            <Grid item xs={6} sm={2}>
                                                 <Grid container direction="column">
                                                     <Grid item>
                                                     <Typography variant="h6" gutterBottom>
@@ -117,7 +117,7 @@ function OrderSummary() {
                                                     <Grid item>{p.palletWeight + ' kg'}</Grid>
                                                 </Grid>
                                             </Grid>
-                                            <Grid item sm={2}>
+                                            <Grid item  xs={6} sm={2}>
                                                 <Grid container direction="column">
                                                     <Grid item>
                                                         <Typography variant="h6" gutterBottom>
@@ -127,7 +127,7 @@ function OrderSummary() {
                                                     <Grid item>{p.palletHeight + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
-                                            <Grid item sm={2}>
+                                            <Grid item xs={6} sm={2}>
                                                 <Grid container direction="column">
                                                     <Grid item>
                                                     <Typography variant="h6" gutterBottom>
@@ -137,7 +137,7 @@ function OrderSummary() {
                                                     <Grid item>{p.palletWidth + ' cm'}</Grid>
                                                 </Grid>
                                             </Grid>
-                                            <Grid item sm={2}>
+                                            <Grid item xs={6} sm={2}>
                                                 <Grid container direction="column">
                                                     <Grid item>
                                                     <Typography variant="h6" gutterBottom>

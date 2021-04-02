@@ -22,9 +22,15 @@ import { red, blue } from '@material-ui/core/colors';
   });
   theme = responsiveFontSizes(theme);
 
+  
   theme.overrides = {
     MuiButton: {
       containedPrimary: {
+      }
+    },
+    MuiFormLabel: {
+      root: {
+        fontSize: 14,
       }
     }
   }
@@ -58,6 +64,11 @@ import { red, blue } from '@material-ui/core/colors';
     addressPaper: {
       justifyContent: 'center',
       padding: '30px 0px',
+    },
+    addressMobilePaper: {
+      [theme.breakpoints.down(600)] : {
+        marginTop: 20
+      }
     }
   }));
   export { theme, useStyle };

@@ -4,7 +4,7 @@ import { InputField, SelectField, PackageType } from '../FormFields';
 import DatePicker from '../FormFields/DatePicker';
 import './ContactDetailsForm.css';
 import { MultipleFileUploadField } from '../FormFields/UploadField/MultipleFileUploadField';
-
+import { useFormikContext } from 'formik';
 
 const servicesType = [
   {
@@ -40,7 +40,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function ContactDetailsForm(props) {
   const classes = useStyles();
-
+  const { errors } = useFormikContext();
+  console.log(errors)
   return (
     <React.Fragment>
       <Paper elevation={3} className={classes.CustomPaper}>
@@ -49,10 +50,12 @@ export default function ContactDetailsForm(props) {
         </Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
-            <DatePicker  name="pickupDate" minDate={new Date()} label="Preferowana data nadania paczki"/>
+            <DatePicker name="pickupDate" minDate={new Date()} label="Preferowana data nadania*"/>
+            {errors.pickupDate ? (<Typography color="error">{errors.pickupDate}</Typography>) : null}
           </Grid>
           <Grid item xs={12} md={6}>
-            <DatePicker name="shipmentDate" minDate={new Date()} label="Preferowana data odebrania paczki"/>
+            <DatePicker name="shipmentDate" minDate={new Date()} label="Preferowana data odebrania*"/>
+            {errors.shipmentDate ? (<Typography color="error">{errors.shipmentDate}</Typography>) : null}
           </Grid>
         </Grid>
       </Paper>

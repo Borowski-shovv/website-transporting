@@ -40,7 +40,7 @@
 
 .card-title {
     font-size: 28px;
-    margin: 20px auto 50px;
+    margin: 0px auto 50px;
     padding-bottom: 30px;
     letter-spacing: 1px;
     color: #bf1e2e;
@@ -75,3 +75,8 @@
     margin: 0 auto;
 }
 
+@media (max-width: 600px) {
+    .card-title {
+        margin-bottom: 20px;
+    }
+}

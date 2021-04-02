@@ -72,12 +72,12 @@ export default {
       },
       senderPhone: {
         name: 'senderPhone',
-        label: 'Numer kontaktowy nadawcy paczki*',
+        label: 'Numer kontaktowy nadawcy*',
         requiredErrorMsg: 'Numer kontaktowy nadawcy jest wymagany'
       },
       recipientPhone: {
         name: 'recipientPhone',
-        label: 'Numer kontaktowy odbiorcy paczki*',
+        label: 'Numer kontaktowy odbiorcy*',
         requiredErrorMsg: 'Numer kontaktowy odbiorcy jest wymagany'
       },
     },

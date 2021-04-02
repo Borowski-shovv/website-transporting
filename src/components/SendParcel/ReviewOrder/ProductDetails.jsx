@@ -23,22 +23,6 @@ import classNames from 'classnames';
 function ProductDetails({formValues}) {
   const classes = useStyles();
   // console.log(formValues)
-
-  const handlePackageType = (type) => {
-
-        switch (type) {
-          case 1:
-            return 'karton lub koperta'
-          case 2:
-            return 'folia stretch'
-          case 3:
-            return 'folia bąbelkowa'
-          case 4:
-            return 'przesyłka niestandardowa'
-          default:
-            break;
-        }
-  }
   
   return (
     <>
@@ -123,7 +107,12 @@ function ProductDetails({formValues}) {
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItem}>
-                              <ListItemText secondary='sposób zapakowania' primary={handlePackageType(p.packageType)} />
+                              <ListItemText secondary='sposób zapakowania' 
+                              primary={p.packageType == 1 ? <div>karton lub koperta</div> : null ||
+                              p.packageType == 2 ? <div>folia stretch</div> : null ||
+                              p.packageType == 3 ? <div>folia bąbelkowa</div> : null ||
+                              p.packageType == 4 ? <div>przesyłka niestandardowa</div> : null
+                              } />
                             </ListItem>
                           </Grid>  
                           <Grid item>
@@ -165,7 +154,9 @@ function ProductDetails({formValues}) {
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItemSum}>
-                              <ListItemText secondary='rodzaj palety' primary={p.palletType } />
+                              <ListItemText secondary='rodzaj palety' primary={p.palletType == 1 ? <div>europaleta</div> : null 
+                                || p.palletType == 2 ? <div>inna</div> : null}
+                              />
                             </ListItem>
                           </Grid>  
                           <Grid item>
@@ -193,7 +184,7 @@ function ProductDetails({formValues}) {
                               <ListItemText secondary='ilość palet' primary={p.palletAmount} />
                             </ListItem>
                           </Grid> 
-                          <div className="rowBar"></div> 
+
                         </Grid>
                       )
                     })
@@ -208,7 +199,8 @@ function ProductDetails({formValues}) {
                           </Grid>
                           <Grid item>
                             <ListItem className={classes.listItemSum}>
-                              <ListItemText secondary='rodzaj auta' primary={v.vehicleType } />
+                              <ListItemText secondary='rodzaj auta' primary={v.vehicleType == 1 ? <div>osobowy</div> : null ||
+                            v.vehicleType == 2 ? <div>dostawczy</div> : null } />
                             </ListItem>
                           </Grid>
                           <Grid item>
@@ -291,7 +283,7 @@ function ProductDetails({formValues}) {
       </Box>
         
       <Box mt={5}>
-        <CheckboxField className="CheckBoxRules" color="primary" name="rules" type="checkbox" label="Akceptuję postanowienia Regulaminu i Polityki prywatności" />
+        <CheckboxField className="CheckBoxRules" color="secondary" name="rules" type="checkbox" label="Akceptuję postanowienia Regulaminu i Polityki prywatności" />
       </Box>
     </>
   );

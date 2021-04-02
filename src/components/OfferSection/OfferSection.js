@@ -6,9 +6,6 @@ import { makeStyles } from '@material-ui/styles';
 import './OfferSection.css';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        padding: '50px 0',
-    },
     button: {
         backgroundColor: '#bf1e2e',
         color: 'white',
@@ -24,15 +21,13 @@ const useStyles = makeStyles((theme) => ({
 function OfferSection() {
     const classes = useStyles();
     return (
-        <section className={classes.root}>
+        <section className="section-wrapper">
         <Container>
             <Grid container >
                 <Grid item xs={12} sm={6} container >
-                  
                         <h3 className='card-title'>
                             Oferta     
                         </h3>
-                    
                     <p>
                     Przy przewozie kilku ładunków przygotujemy dla Ciebie atrakcyjną ofertę cenową, skontaktuj się z nami e-mailowo lub telefonicznie aby poznać szczegóły. Serdecznie zapraszamy do współpracy!
                     </p>

@@ -5,12 +5,12 @@ import './ServicesSection.css';
 
 const ServicesSection = () => {
     return (
-        <div className="site-section bg-light">
+        <section className="section-wrapper">
         <Container>
-        <div className="section-title">
-          <h3 className="card-title">
-            Usługi
-          </h3>
+          <div className="section-title">
+            <h3 className="card-title">
+              Usługi
+            </h3>
           </div>
           <Grid container className="align-items-stretch">
             <Grid item container md={6} lg={4} >
@@ -81,7 +81,7 @@ const ServicesSection = () => {
   
           </Grid>
         </Container>
-      </div>
+      </section>
     );
 }
 

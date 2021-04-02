@@ -1,103 +1,29 @@
 
 
 
-.about-container {
-    margin: 50px 0;
+
+.section-wrapper {
+    padding: 50px 0;
 }
 
-#about .about-extra {
-    margin-top: 20px;
-  }
-  
-#about h3 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-#about ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-#about li {
-    position: relative;
-    padding-left: 50px;
-    margin-bottom: 15px;
-    padding-top: 15px;
-  }
-  
-#about li::before {
-    font-family: 'FontAwesome'; 
-    content: '\f00c';
-    position: absolute;
-    top: 50%;
-    margin-top: -20px;
-    left: 10px;
-    font-size: 30px;
-    text-align: center;
-    color: #c2352d;
-  }
-
-/* PRICES SECTION */
-  .prices {
-    padding: 50px 0;
-    background: #24292e;
-  }
-
-  .prices table {
-      border: 2px solid black;
-      text-align: center;
-      width: 100%;
-      height: 100%;
-  }
-
-  table tbody {
-      border: 1px solid black;
-  }
-
-  th {
-      border: 1px solid black;
-      padding: 8px 16px;
-      text-transform: uppercase;
-      font-size: 20px;
-      color: white;
-  }
-
-  tr {
-      border: 1px solid black;
-  }
-
-  td {
-      border: 1px solid black;
-      padding: 8px 16px;
-      color: white;
-      font-size: 18px;
-  }
-
-  .promo {
-      background: #c2352d;
-      text-transform: uppercase;
-      color: white;
-      font-weight: 700;
-      font-size: 18px;
-  }
-
-  .prices h3 {
-      text-align: center;
-      color: white;
-  }
-
-  .prices p {
-      text-align: center;
-      color: white;
-  }
+@media (max-width: 600px) {
+    .section-wrapper {
+        padding: 20px 0;
+    }
+}
 
  .map-section {
+     padding: 50px 0;
     min-height: 50vh;
     position: relative;
-    padding: 50px;
     background: black;
  } 
+
+ @media (max-width: 600px) {
+    .map-section {
+        padding: 20px 0;
+    }
+ }
 
 .map-section:after {
     content: '';

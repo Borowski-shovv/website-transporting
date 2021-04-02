@@ -140,16 +140,16 @@ export default function CheckCategory(props) {
                 {
                 formValues.parcelCategory.includes('paczka') || formValues.packages.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
-                    <Grid container >
+                    <Grid container>
                         <Grid xs={12} item>
                             <FieldArray 
                                 name="packages"
                                 render={arrayHelpers => (
                                     <div>
                                             {formValues.packages.map((packages, index) => (
-                                                <div className="addNewpackages-wrapper" key={index}>
+                                                <div className="addNewParcel-wrapper" key={index}>
                                                     <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>
-                                                         <Grid item>
+                                                        <Grid item>
                                                             <p className="p-label">sposób zapakowania*</p>
                                                             <PackageType
                                                                 className="long-input"
@@ -158,28 +158,29 @@ export default function CheckCategory(props) {
                                                                 data={kindOfPackage}
                                                             />
                                                         </Grid>
-                                                        <Grid item xs={4} sm={1}>
+                                                        <Grid item>
                                                             <p className="p-label">waga*</p>
                                                             <UnitField type="number" variant="outlined" name={`packages[${index}].packageWeight`}  />
                                                         </Grid>
                                                         <p className="p-unit">kg</p>
 
-                                                        <Grid item xs={4} sm={1}>
+                                                        <Grid item>
                                                             <p className="p-label">wysokość*</p>
                                                             <UnitField type="number" variant="outlined" name={`packages[${index}].packageHeight`} />
-                                                        </Grid><p className="p-unit">cm</p>
+                                                        </Grid>
+                                                        <p className="p-unit">cm</p>
 
-                                                        <Grid item xs={4} sm={1}>
+                                                        <Grid item>
                                                             <p className="p-label">szerokość*</p>
                                                             <UnitField type="number" variant="outlined" name={`packages[${index}].packageWidth`} />
                                                         </Grid><p className="p-unit">cm</p>
 
-                                                        <Grid item xs={4} sm={1}>
+                                                        <Grid item>
                                                             <p className="p-label">długość*</p>
                                                             <UnitField type="number" variant="outlined" name={`packages[${index}].packageLength`} />
                                                         </Grid><p className="p-unit">cm</p>
 
-                                                        <Grid item xs={4} sm={1}>
+                                                        <Grid item>
                                                             <p className="p-label">ilość*</p>
                                                             <UnitField type="number" variant="outlined" name={`packages[${index}].packageAmount`} />  
                                                         </Grid><p className="p-unit">szt</p>
@@ -428,18 +429,18 @@ export default function CheckCategory(props) {
                                        render={arrayHelpers => (
                                            <div>
                                                 {formValues.cargo.map((cargo, index) => (
-                                                            <div className="oversizedParcel-wrapper" key={index}>                                                        
+                                                            <div className="addNewParcel-wrapper" key={index}>                                                        
                                                                 <Grid style={{backgroundColor: '#f7f7f7'}} container spacing={3}>    
-                                                                    <Grid item xs={12} md={6}>
+                                                                    <Grid item>
                                                                     <p className="p-label">Co chcesz przewieźć ?*</p>
                                                                         <UnitField 
-                                                                            multiline 
+                                                                            className="long-input"
                                                                             variant="outlined" 
                                                                             name={`cargo[${index}].cargoName`} 
                                                                             fullWidth
                                                                         />  
                                                                     </Grid>
-                                                                    <Grid item sm={1}>
+                                                                    <Grid item>
                                                                         <p className="p-label">ilość*</p>
                                                                         <UnitField
                                                                             type="number"

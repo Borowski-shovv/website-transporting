@@ -127,7 +127,7 @@ export default [
   }),
   Yup.object().shape({
     servicesType: Yup.string().nullable().required('Wybierz typ usługi'),
-    shipmentDate: Yup.date().required('To pole jest wymagane'),
+    shipmentDate: Yup.date().nullable().required('To pole jest wymagane'),
     pickupDate: Yup.date().nullable().required('To pole jest wymagane'),
   }),
    Yup.object().shape({

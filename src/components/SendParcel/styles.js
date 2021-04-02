@@ -25,12 +25,17 @@ export default makeStyles(theme => ({
   titleForm: {
     marginBottom: theme.spacing(3),
     fontWeight: 'bold',
+
   },
   infoParagraph: {
     width: '70%',
     margin: '0 auto',
     marginBottom: theme.spacing(3),
     textAlign: 'center',
+    [theme.breakpoints.down("sm")]: {
+        width: '100%',
+        fontSize: 14,
+    }
   }
   
 }));

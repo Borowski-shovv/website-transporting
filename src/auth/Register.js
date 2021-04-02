@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    margin: theme.spacing(4, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '14.5px 14px'
   },
   button: {
+    marginTop: 20,
     backgroundColor: '#bf1e2e',
     color: 'white',
   },
@@ -185,7 +186,7 @@ export default function Register() {
                       />
                       {errors.name && touched.name ? (<Typography color="error">{errors.name}</Typography>) : null}
                     </FormGroup>
-                    <Box mt={1} mb={2}>
+                    <Box mt={1} mb={1}>
                         <CheckboxField className="CheckBoxRules" name="isFirm" type="checkbox" label="Konto firmowe" />
                     </Box>
                     { values.isFirm && 
@@ -312,7 +313,7 @@ export default function Register() {
                             <Typography className={classes.green}>{registrationInfo} </Typography>             
                     </div>
                 <Button className={classes.button} disabled={isSubmitting || isValidating} variant="contained" type="submit">Zarejestruj się</Button>
-                <pre>{JSON.stringify({values, errors}, null, 4)}</pre>
+                {/* <pre>{JSON.stringify({values, errors}, null, 4)}</pre> */}
               </Form>
             )}
           </Formik>

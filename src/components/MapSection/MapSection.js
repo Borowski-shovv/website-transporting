@@ -1,36 +1,43 @@
 import React from 'react';
-import {Container, Grid} from '@material-ui/core';
+import {Container, Grid, Typography} from '@material-ui/core';
 import serviceBg from '../../assets/images/service-cargo-bg.png';
 import trasyImg from '../../assets/images/vectorrmap.svg';
+import { makeStyles } from '@material-ui/styles';
+
+const useStyles = makeStyles({
+    text: {
+        color: 'white',
+        fontFamily: 'Poppins, sans-serif',
+    }
+})
 
 function MapSection() {
+    const classes = useStyles();
+
     return (
         <section className="map-section">
                         <Container>
-                            <Grid container spaxing={3}>
-                                <Grid container item xs={12} md={6} className="mapa-content  order-2">
-                                    <div className="section-title">
-                                        <h2>
-                                            TRASY     
-                                        </h2>
-                                    </div>
-                                    <p>
-                                Mapa przedstawia najczęściej pokonywane przez nas szlaki drogowe. w Szwecji jesteśmy w stanie dowieźć Twoją przesyłkę w każde miejsce
-                                    </p>
-                                    <ul>
-                                        <li>Dzięki doświadczeniu, które zdobyliśmy podczas lat pracy, wybieramy najbardziej optymalne trasy, abyś jak najkrócej czekał na swoją przesyłkę</li>
-                                        <li>Z każdym powierzonym nam mieniem obchodzimy się z należytą ostrożnością</li>
-                                        <li>Na czas transportu zabezpieczamy każdy przedmiot matą transportową oraz pasami transportowymi.</li>
-                                        <li>Dowieziemy ładunek w każde miejsce w Polsce oraz Szwecji </li>
-                                    </ul>
+                            <Grid container spacing={3}>
+                                <Grid container item justify="center" xs={12} md={6} className="">
+                                        <div className="section-title">
+                                            <h3 className="card-title">
+                                                TRASY     
+                                            </h3>
+                                        </div>
+                                        <Typography className={classes.text} variant="body2">
+                                            Mapa przedstawia najczęściej pokonywane przez nas szlaki drogowe. w Szwecji jesteśmy w stanie dowieźć Twoją przesyłkę w każde miejsce
+                                        </Typography>
+                                        <ul className='list'>
+                                            <li className={classes.text}>Dzięki doświadczeniu, które zdobyliśmy podczas lat pracy, wybieramy najbardziej optymalne trasy, abyś jak najkrócej czekał na swoją przesyłkę</li>
+                                            <li className={classes.text}>Z każdym powierzonym nam mieniem obchodzimy się z należytą ostrożnością</li>
+                                            <li className={classes.text}>Na czas transportu zabezpieczamy każdy przedmiot matą transportową oraz pasami transportowymi.</li>
+                                            <li className={classes.text}>Dowieziemy ładunek w każde miejsce w Polsce oraz Szwecji </li>
+                                        </ul>
+                                   
                                 </Grid>
 
-                                <Grid container item xs={12} md={6} className="mapa" >
-                                    <img
-                                        src={trasyImg} 
-                                    
-                                        alt=""
-                                    />
+                                <Grid container justify="center" item xs={12} md={6} className="mapa" >
+                                    <img src={trasyImg} alt="mapa" />
                                 </Grid>
                             </Grid>
                         </Container>

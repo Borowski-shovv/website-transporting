@@ -13,11 +13,12 @@ import bridge from '../assets/images/bridge.jpg';
 import UserContext from '../context/userContext';
 import Axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import './Login.css'
 
 const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   height: '100vh',
-  // },
+  root: {
+  
+  },
   image: {
     backgroundImage: `url(${bridge})`,
     backgroundRepeat: 'no-repeat',
@@ -120,7 +121,7 @@ export default function Login({valid, activationError}) {
   }
     
   return (
-    <Grid container component="main" className={classes.root}>
+    <Grid container className='login-content'>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>

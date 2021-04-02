@@ -24,10 +24,12 @@ import { MuiPickersUtilsProvider} from '@material-ui/pickers';
 import plLocale from 'date-fns/locale/pl';
 import HomeView from '../../views/HomeView/HomeView';
 import PrivateRoute from '../../views/privateRoute';
+import ContactView from '../../views/ContactView/ContactView';
 
 const routes = [
   { path: '/', name: 'Start', Component: HomeView},
   { path: '/oferta', name: 'Oferta', Component: OfferView},
+  { path: '/kontakt', name: 'Kontakt', Component: ContactView},
   { path: '/reset_hasla', name: 'Resetowanie hasła', Component: PasswordReset},
   { path: '/reset_hasla/:id', name: 'Resetowanie hasła', Component: PasswordResetToken},
   { path: '/aktywacja', name: 'Aktywacja po rejestracji', Component:  UserEmailAfterRegistration},

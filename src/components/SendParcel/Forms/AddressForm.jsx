@@ -121,7 +121,7 @@ export default function AddressForm(props) {
             </Paper>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Paper>
+            <Paper className={classes.addressMobilePaper}>
               <Grid container spacing={3} className={classes.addressPaper}>
                 <Typography variant="h6" gutterBottom>
                   Dane adresowe odbiorcy

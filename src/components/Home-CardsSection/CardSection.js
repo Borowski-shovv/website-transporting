@@ -38,7 +38,7 @@ const useStyles = makeStyles({
         fontSize: 14,
         fontFamily: 'Poppins, sans-serif',
         marginTop: 15,
-        color: 'rgba(0, 0, 0, 0.87)',
+        color: '#687284',
         textAlign: 'center',
     },
     button: {
@@ -59,7 +59,6 @@ const useStyles = makeStyles({
     },
 
 })
-
 
 const CardSection = () => {
     const classes = useStyles();

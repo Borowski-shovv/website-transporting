@@ -6,14 +6,16 @@ import {Field, ErrorMessage} from 'formik';
 import { makeStyles } from '@material-ui/core';
 import classNames from 'classnames';
 
+
 const useStyles = makeStyles(theme => ({
     dateInput: {
         width: '100%'
     },
-  }))
-  
+}))
+
 function DatePicker(props) {
     const {label, name, ...rest} = props
+   
     const classes = useStyles()
     return (
         <div className="form-control date-picker-styles">

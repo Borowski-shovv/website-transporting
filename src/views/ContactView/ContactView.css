@@ -5,11 +5,19 @@
 }
 
 .form-wrapper {
-    margin-top: 50px;
+    margin: 50px 0;
+}
+
+
+@media (max-width: 600px) {
+    .form-wrapper {
+        margin: 20px 0;
+    }
 }
 
 .contact-info{
     margin-bottom: 25px;
+    display: flex;
 }
 
 .contact-info__icon{
@@ -20,7 +28,10 @@
     color: #8f9195;
     font-size: 27px;
 }
-    
+
+.media-body {
+    height: max-content;
+}
   
 .media-body h3 {
         font-size: 16px;
@@ -34,7 +45,7 @@
 }
 
 .email-contact {
-    font-size: 11px;
+    font-size: 14px;
     color: black;
     font-weight: 700;
     text-transform: uppercase;
@@ -53,3 +64,11 @@
     padding: 7px;
     font-weight: bold;
   }
+
+.form-wrapper a {
+    font-size: 14px;
+    color: black;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+} 
