@@ -72,12 +72,19 @@ input[type="radio"]:checked {
     align-items: flex-end;
     padding-bottom: 5px;
     margin-right: 15px;
+    margin-left: 10px;
     margin-bottom: 0;
     color: rgba(0,0,0,0.54);
 }
 
+/* @media (min-width: 600px) {
+    .p-unit {
+        margin-left: 10px;
+    }
+} */
+
 .addNewParcel-wrapper {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .addNewParcel-wrapper .MuiGrid-root.MuiGrid-container {
@@ -88,16 +95,16 @@ input[type="radio"]:checked {
     padding: 6px;
 }
 
-.addNewParcel-wrapper .MuiFormControl-root.MuiTextField-root {
+/* .addNewParcel-wrapper .MuiFormControl-root.MuiTextField-root {
     width: 60px;
-}
+} */
 
  .addNewParcel-wrapper .MuiOutlinedInput-input {
     padding: 10.5px 5px;
 }
 
-.addNewParcel-wrapper .long-input {
-    width: 150px !important;
+.long-input {
+    width: 100%;
 }
 
 .addNewParcel-wrapper .MuiButtonBase-root.MuiButton-root {
@@ -112,9 +119,9 @@ input[type="radio"]:checked {
     font-size: 13px;
 }
 
-.long-column {
+/* .long-column {
     width: 150px !important;
-}
+} */
 
 @media (max-width: 599px) {
     label.MuiFormControlLabel-root {

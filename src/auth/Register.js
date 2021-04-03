@@ -141,7 +141,9 @@ export default function Register() {
                 companyName: 
                     mixed().when('isFirm', {
                       is: true,
-                      then: string().required('To pole jest wymagane').min(2, 'To pole musi zawierać minimum 2 znaki').max(20),
+                      then: string().required('To pole jest wymagane')
+                      .min(2, 'To pole musi zawierać minimum 2 znaki')
+                      .max(20, 'To pole musi zawierać maksymalnie 20 znaków'),
                     }),
                 nip:  mixed().when('isFirm', {
                   is: true,
@@ -152,7 +154,7 @@ export default function Register() {
                     .email('Wpisz prawidłowy adres email')
                     .required('To pole jest wymagane')
                     .min(5, 'Twój email musi zawierać minimum 5 znaków')
-                    .max(30),
+                    .max(30, 'To pole musi zawierać maksymalnie 30 znaków'),
                 phone:
                     string()
                     .required('To pole jest wymagane')
@@ -203,15 +205,16 @@ export default function Register() {
                             {errors.companyName && touched.companyName ? (<Typography color="error">{errors.companyName}</Typography>) : null}
                           </FormGroup>
                           <FormGroup>
-                          <Field 
-                              name="nip" 
-                              as={TextField}
-                              label="NIP"
-                              variant="outlined"
-                              margin="normal"
-                              fullWidth
-                          />
-                          {errors.nip && touched.nip ? (<Typography color="error">{errors.nip}</Typography>) : null}
+                            <Field 
+                                type="number"
+                                name="nip" 
+                                as={TextField}
+                                label="NIP"
+                                variant="outlined"
+                                margin="normal"
+                                fullWidth
+                            />
+                            {errors.nip && touched.nip ? (<Typography color="error">{errors.nip}</Typography>) : null}
                         </FormGroup>
                       </>
                     }

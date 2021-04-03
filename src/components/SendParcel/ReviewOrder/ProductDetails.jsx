@@ -5,6 +5,7 @@ import boxImg from '../../../assets/images/formImages/box.svg';
 import palletImg from '../../../assets/images/formImages/wholesale.svg';
 import truckImg from '../../../assets/images/formImages/truck.svg';
 import couchImg from '../../../assets/images/formImages/couch.svg';
+import trailerImg from '../../../assets/images/formImages/trailer.svg';
 import { CheckboxField } from '../FormFields';
 import classNames from 'classnames';
 
@@ -223,7 +224,7 @@ function ProductDetails({formValues}) {
                               <ListItemText secondary='długość' primary={v.vehicleLength } />
                             </ListItem>
                           </Grid>  
-                          <div className="rowBar"></div>
+                          
                         </Grid>  
                       )
                     })
@@ -257,7 +258,7 @@ function ProductDetails({formValues}) {
                       return (
                         <Grid container spacing={2} key={idx}>
                           <Grid item>
-                            <img className={classes.imgWidth} src={couchImg} alt='icon'/>
+                            <img className={classes.imgWidth} src={trailerImg} alt='icon'/>
                           </Grid>
                           <Grid item>
                             
@@ -270,7 +271,7 @@ function ProductDetails({formValues}) {
                               <ListItemText secondary='ilość' primary={c.cargoAmount} />
                             </ListItem>
                           </Grid>
-                          <div className="rowBar"></div>
+                         
                         </Grid>
                       )
                     })

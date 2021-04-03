@@ -41,7 +41,7 @@ export default [
           packageType: Yup.string().required('Wybierz typ opakowania.')
         }),
         )
-      .min(1, 'Dodaj paczkę i uzupełnij dane').required()
+      .min(1, 'Dodaj paczkę i uzupełnij dane, jeżeli typ zamówienia jest inny, odznacz paczkę (ikonę) w typie zamówienia').required()
     }),
     pallets: Yup 
       .mixed()
@@ -96,7 +96,7 @@ export default [
             cargoAmount: Yup.number().required()
           })
         )
-        .min(1, 'Dodaj przedmiot, który chcesz przewieźć')
+        .min(1, 'Dodaj ładunek ponadgabarytowy, który chcesz przewieźć')
       })
   }),
   Yup.object().shape({

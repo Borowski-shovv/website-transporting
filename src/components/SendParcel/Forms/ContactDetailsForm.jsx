@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ContactDetailsForm(props) {
   const classes = useStyles();
-  const { errors } = useFormikContext();
+  const { errors, touched } = useFormikContext();
   console.log(errors)
   return (
     <React.Fragment>
@@ -51,11 +51,11 @@ export default function ContactDetailsForm(props) {
         <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
             <DatePicker name="pickupDate" minDate={new Date()} label="Preferowana data nadania*"/>
-            {errors.pickupDate ? (<Typography color="error">{errors.pickupDate}</Typography>) : null}
+            {errors.pickupDate && touched.pickupDate ? (<Typography color="error">{errors.pickupDate}</Typography>) : null}
           </Grid>
           <Grid item xs={12} md={6}>
             <DatePicker name="shipmentDate" minDate={new Date()} label="Preferowana data odebrania*"/>
-            {errors.shipmentDate ? (<Typography color="error">{errors.shipmentDate}</Typography>) : null}
+            {errors.shipmentDate && touched.shipmentDate ? (<Typography color="error">{errors.shipmentDate}</Typography>) : null}
           </Grid>
         </Grid>
       </Paper>
