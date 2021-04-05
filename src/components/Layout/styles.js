@@ -24,8 +24,9 @@ import { red, blue } from '@material-ui/core/colors';
 
   
   theme.overrides = {
-    MuiButton: {
-      containedPrimary: {
+    MuiCheckbox: {
+      checked: {
+        color: '#f44336 !important'
       }
     },
     MuiFormLabel: {

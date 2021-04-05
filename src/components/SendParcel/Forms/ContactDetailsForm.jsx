@@ -37,7 +37,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-
 export default function ContactDetailsForm(props) {
   const classes = useStyles();
   const { errors, touched } = useFormikContext();

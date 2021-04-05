@@ -55,9 +55,9 @@ const useStyles = makeStyles(theme => ({
     imgWidth: {
         width: 40,
     },
-    TextAlign: {
-        textAlign: 'center',
-    },
+    // TextAlignTitle: {
+    //     textAlign: 'center',
+    // },
     
   }))
 
@@ -234,7 +234,7 @@ export default function CheckCategory(props) {
 
                 {formValues.parcelCategory.includes('paleta') || formValues.pallets.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
-                        <Grid container xs={12} justify="center">
+                        <Grid container item xs={12} justify="center">
                             <Grid item>
                                 <img className={classes.imgWidth} src={palletImg} alt='icon'/>
                             </Grid>
@@ -517,7 +517,7 @@ export default function CheckCategory(props) {
 
                 {formValues.packages.length > 0 || formValues.pallets.length > 0 || formValues.vehicles.length > 0 || formValues.furnitures.length > 0 || formValues.cargo.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
-                        <Typography variant="h6" textAlign="center" gutterBottom className={classes.TextAlign}>
+                        <Typography variant="h6" textAlign="center" gutterBottom className={classes.TextAlignTitle}>
                             Twoje zamówienie
                         </Typography>
                         <OrderSummary/> 

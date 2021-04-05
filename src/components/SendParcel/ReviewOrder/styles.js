@@ -23,7 +23,7 @@ export default makeStyles(theme => ({
   },
   imgWidth: {
     width: 40,
-    margin: '20px 0 10px 20px'
+    margin: '10px 0 0 20px'
   },
   ListSecondaryText: {
     fontSize: '13px'
@@ -33,5 +33,22 @@ export default makeStyles(theme => ({
   },
   columnWidth: {
     minWidth: '221px'
-  }
+  },
+  row: {
+    padding: 8,
+    [theme.breakpoints.down('sm')] : {
+        borderBottom: '1px solid gray',
+    }
+  },
+  cell: {
+      flexDirection: 'column',
+      alignItem: 'center',
+      justifyContent: 'space-between',
+      [theme.breakpoints.down('sm')] : {
+          flexDirection: 'row'
+      }
+  },
+  titleSummary: {
+    fontSize: 13,
+},
 }));

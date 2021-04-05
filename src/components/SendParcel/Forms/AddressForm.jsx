@@ -49,6 +49,7 @@ export default function AddressForm(props) {
         params: { email },
         auth: { username: 'shovv', password: '$HOVV2020' },
       }).then((res) => {
+        console.log(res)
         if (res && res.data.error) {
           setEmailFilledInfo(res.data.error);
         }

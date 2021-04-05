@@ -271,7 +271,7 @@ function OrderSummary() {
                                             <Grid item container xs={12}>
                                                     <img className={classes.imgWidth} src={couchImg} alt='icon'/>
                                             </Grid>
-                                            <Grid className={classes.row} item container xs={12} sm={3}>
+                                            <Grid className={classes.row} item container xs={12} sm={2}>
                                                 <Grid className={classes.cell} container >
                                                     <Grid item>
                                                         <Typography className={classes.title} gutterBottom variant="h6">
@@ -302,7 +302,7 @@ function OrderSummary() {
                                             <Grid item container xs={12}>
                                                     <img className={classes.imgWidth} src={trailerImg} alt='icon'/>
                                             </Grid>
-                                            <Grid className={classes.row} item container xs={12} sm={3}>
+                                            <Grid className={classes.row} item container xs={12} sm={2}>
                                                 <Grid className={classes.cell} container>
                                                     <Grid item>
                                                         <Typography className={classes.title} gutterBottom variant="h6">
