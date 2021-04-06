@@ -100,7 +100,7 @@ const MyCarousel = (props) => {
     ]
 
     return (
-        <Carousel className={classes.root} autoPlay={false} interval={3000} animation="slide"
+        <Carousel className={classes.root} autoPlay={true} interval={3000} animation="slide"
         indicatorIconButtonProps={{
             style: {
                 display: 'none',
@@ -108,7 +108,7 @@ const MyCarousel = (props) => {
         }}>
          
                 {
-                    items.map( (item, i) => <Item className='KURWA' key={i} item={item} /> )
+                    items.map( (item, i) => <Item key={i} item={item} /> )
                 }
      
         </Carousel>

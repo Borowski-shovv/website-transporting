@@ -77,11 +77,6 @@ input[type="radio"]:checked {
     color: rgba(0,0,0,0.54);
 }
 
-/* @media (min-width: 600px) {
-    .p-unit {
-        margin-left: 10px;
-    }
-} */
 
 .addNewParcel-wrapper {
     margin-top: 30px;
@@ -95,9 +90,6 @@ input[type="radio"]:checked {
     padding: 6px;
 }
 
-/* .addNewParcel-wrapper .MuiFormControl-root.MuiTextField-root {
-    width: 60px;
-} */
 
  .addNewParcel-wrapper .MuiOutlinedInput-input {
     padding: 10.5px 5px;
@@ -119,9 +111,6 @@ input[type="radio"]:checked {
     font-size: 13px;
 }
 
-/* .long-column {
-    width: 150px !important;
-} */
 
 @media (max-width: 599px) {
     label.MuiFormControlLabel-root {
@@ -136,5 +125,26 @@ input[type="radio"]:checked {
     .Step1-wrapper .MuiGrid-spacing-xs-2 > .MuiGrid-item {
         flex-direction: row;
         justify-content: space-between;
+        /* klikalna paczka */
+        position: relative;
     }
+
+    .Step1-wrapper .MuiGrid-spacing-xs-2 > .MuiGrid-item label.MuiFormControlLabel-root {
+        right: 0;
+        top: 50%;
+        position:absolute;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+        background-position: center right;
+    }
+
+    .Step1-wrapper .MuiGrid-spacing-xs-2 > .MuiGrid-item label.MuiFormControlLabel-root span.paczka, 
+    .Step1-wrapper .MuiGrid-spacing-xs-2 > .MuiGrid-item label.MuiFormControlLabel-root span.paleta, 
+    .Step1-wrapper .MuiGrid-spacing-xs-2 > .MuiGrid-item label.MuiFormControlLabel-root span.auto, 
+    .Step1-wrapper .MuiGrid-spacing-xs-2 > .MuiGrid-item label.MuiFormControlLabel-root span.przeprowadzka, 
+    .Step1-wrapper .MuiGrid-spacing-xs-2 > .MuiGrid-item label.MuiFormControlLabel-root span.ponadgabarytowy {
+        background-position: right !important;
+    }
+
 }
