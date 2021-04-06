@@ -517,7 +517,7 @@ export default function CheckCategory(props) {
 
                 {formValues.packages.length > 0 || formValues.pallets.length > 0 || formValues.vehicles.length > 0 || formValues.furnitures.length > 0 || formValues.cargo.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
-                        <Typography variant="h6" textAlign="center" gutterBottom className={classes.TextAlignTitle}>
+                        <Typography variant="h6" gutterBottom className={classes.TextAlignTitle}>
                             Twoje zamówienie
                         </Typography>
                         <OrderSummary/> 

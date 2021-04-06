@@ -76,6 +76,8 @@ export default function Login({valid, activationError}) {
             }
           })
 
+          console.log(loginRes)
+
           setUserData({
             token: loginRes.data.token,
             id: loginRes.data.id,
@@ -113,7 +115,7 @@ export default function Login({valid, activationError}) {
               password: '$HOVV2020'
             }
             })
-          // .then(res => console.log('PRZYPISANIE ORDER DO UZYTKOWNIKA', res))
+           .then(res => console.log('PRZYPISANIE ORDER DO UZYTKOWNIKA', res))
           
           } catch(err) {
             err.response.data.msg && setError(err.response.data.msg)
