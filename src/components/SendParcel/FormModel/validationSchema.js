@@ -33,7 +33,7 @@ export default [
       is: (parcelCategory => parcelCategory.find(p => p === 'paczka') ),
       then: Yup.array().of(
         Yup.object().shape({
-          packageWeight: Yup.number().min(1).required('Waga paczki jest wymagana.'),
+          packageWeight: Yup.number().min(0).required('Waga paczki jest wymagana.'),
           packageHeight: Yup.number().min(1).required('Wysokość paczki jest wymagana.'),
           packageWidth: Yup.number().min(1).required('Szerokość paczki jest wymagana.'),
           packageLength: Yup.number().min(1).required('Długość paczki jest wymagana.'),
@@ -41,7 +41,7 @@ export default [
           packageType: Yup.string().required('Wybierz typ opakowania.')
         }),
         )
-      .min(1, 'Dodaj paczkę i uzupełnij dane, jeżeli typ zamówienia jest inny, odznacz paczkę (ikonę) w typie zamówienia').required()
+      // .min(1, 'Dodaj paczkę i uzupełnij dane, jeżeli typ zamówienia jest inny, odznacz paczkę (ikonę) w typie zamówienia').required()
     }),
     pallets: Yup 
       .mixed()
@@ -57,7 +57,7 @@ export default [
             palletAmount: Yup.number().required('Wpisz ilość palet.'),
           })
       )
-      .min(1, 'Dodaj paletę i uzupełnij dane')
+      // .min(1, 'Dodaj paletę i uzupełnij dane')
     }),
     vehicles: Yup
       .mixed()
@@ -72,7 +72,7 @@ export default [
             vehicleLength: Yup.number()
           })
         )
-        .min(1, 'Dodaj auto, które chcesz przewieźć')
+        // .min(1, 'Dodaj auto, które chcesz przewieźć')
       }), 
       furnitures: Yup
       .mixed()
@@ -84,7 +84,7 @@ export default [
             furnitureAmount: Yup.string().required(),
           })
         )
-        .min(1, 'Dodaj mebel, który chcesz przewieźć')
+        // .min(1, 'Dodaj mebel, który chcesz przewieźć')
       }), 
       cargo: Yup
       .mixed()
@@ -96,7 +96,7 @@ export default [
             cargoAmount: Yup.number().required()
           })
         )
-        .min(1, 'Dodaj ładunek ponadgabarytowy, który chcesz przewieźć')
+        // .min(1, 'Dodaj ładunek ponadgabarytowy, który chcesz przewieźć')
       })
   }),
   Yup.object().shape({

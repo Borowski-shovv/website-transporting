@@ -10,8 +10,12 @@ import { red, blue } from '@material-ui/core/colors';
   let theme = createMuiTheme({
     palette: { 
       type: 'light', 
-      primary: red, 
-      secondary: blue
+      primary: {
+        main: red[500],
+      },
+      secondary: {
+        main: blue[500]
+      }
     },
     typography: {
       h6: {
@@ -22,8 +26,11 @@ import { red, blue } from '@material-ui/core/colors';
   });
   theme = responsiveFontSizes(theme);
 
-  
+
+
+
   theme.overrides = {
+
     MuiCheckbox: {
       checked: {
         color: '#f44336 !important'

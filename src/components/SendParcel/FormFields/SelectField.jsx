@@ -28,7 +28,7 @@ function SelectField(props) {
       <InputLabel>{label}</InputLabel>
       <Select {...field} value={selectedValue ? selectedValue : ''}>
         {data.map((item, index) => (
-          <MenuItem key={index} value={item.value}>
+          <MenuItem style={{whiteSpace: 'normal'}} key={index} value={item.value}>
             {item.label}
           </MenuItem>
         ))}

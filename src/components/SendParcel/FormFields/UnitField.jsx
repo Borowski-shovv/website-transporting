@@ -16,9 +16,7 @@ export default function UnitField(props) {
 
   return (
     <TextField
-    // type="number"
       error={meta.touched && meta.error && true}
-
       {...field}
       {...rest}
     />

@@ -62,6 +62,14 @@ export default function AddressForm(props) {
     checkUserExist(userEmail);
   }, []);
 
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [])
+
   return (
     <React.Fragment>
       <Box mt={5}>

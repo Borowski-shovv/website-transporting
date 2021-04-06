@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
 import { InputField, SelectField, PackageType } from '../FormFields';
 import DatePicker from '../FormFields/DatePicker';
@@ -38,6 +38,15 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function ContactDetailsForm(props) {
+
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [])
+
   const classes = useStyles();
   const { errors, touched } = useFormikContext();
   console.log(errors)

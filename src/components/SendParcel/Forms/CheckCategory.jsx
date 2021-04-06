@@ -172,23 +172,19 @@ export default function CheckCategory(props) {
                                                             />
                                                         </Grid>
                                                         <Grid item xs={12} sm={2} container alignItems="center">
-                                                            <UnitField fullWidth label="waga (kg)*" type="number" name={`packages[${index}].packageWeight`}  />
-                                                          
+                                                            <UnitField fullWidth min="1" label="waga (kg)*" type="number" name={`packages[${index}].packageWeight`}  />
                                                         </Grid>
 
                                                         <Grid item xs={12} sm={2} container alignItems="center">
                                                             <UnitField fullWidth type="number" label="wysokość (cm)*" name={`packages[${index}].packageHeight`} />
-                                                          
                                                         </Grid>
 
                                                         <Grid item xs={12} sm={2} container alignItems="center">
                                                             <UnitField fullWidth type="number" label="szerokość (cm)*" name={`packages[${index}].packageWidth`} />
-                                                           
                                                         </Grid>
 
                                                         <Grid item xs={12} sm={2} container alignItems="center">
                                                             <UnitField fullWidth type="number" label="długość (cm)*" name={`packages[${index}].packageLength`} />
-                                                           
                                                         </Grid>
 
                                                         <Grid item xs={12} sm={2} container alignItems="center">
