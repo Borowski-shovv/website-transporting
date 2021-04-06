@@ -172,11 +172,11 @@ export default function CheckCategory(props) {
                                                             />
                                                         </Grid>
                                                         <Grid item xs={12} sm={2} container alignItems="center">
-                                                            <UnitField fullWidth min="1" label="waga (kg)*" type="number" name={`packages[${index}].packageWeight`}  />
+                                                            <UnitField fullWidth label="waga (kg)*" InputProps={{ inputProps: { min: 0 } }} type="number" name={`packages[${index}].packageWeight`}  />
                                                         </Grid>
 
                                                         <Grid item xs={12} sm={2} container alignItems="center">
-                                                            <UnitField fullWidth type="number" label="wysokość (cm)*" name={`packages[${index}].packageHeight`} />
+                                                            <UnitField fullWidth type="number" InputProps={{ inputProps: { min: 0 } }} label="wysokość (cm)*" name={`packages[${index}].packageHeight`} />
                                                         </Grid>
 
                                                         <Grid item xs={12} sm={2} container alignItems="center">

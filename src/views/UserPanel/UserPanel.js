@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../../context/userContext';
+import './UserPanel.css';
+import {Container} from '@material-ui/core';
 
 function UserPanel() {
     const { userData } = useContext(UserContext);
@@ -11,8 +13,10 @@ function UserPanel() {
     // });
 
     return (
-        <div style={{paddingTop: '200px'}}>
-            <h1>Panel klienta</h1>
+        <div className="user-panel--wrapper">
+            <Container>
+                <h2>Panel klienta</h2>
+            </Container>
         </div>
     )
 }

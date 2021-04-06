@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import { Button, Box, Typography } from '@material-ui/core';
 import React, { useContext } from 'react';
 import Login from '../../../auth/Login';
 import Register from '../../../auth/Register';
@@ -34,9 +34,18 @@ function UserOfflineAction() {
             {
               userData.user === undefined ? (
                 <>
-                  <h5>5 = uzytkownik istnieje, popros o logowanie</h5>
-                  <h1>Aby wycenić Twoją przesyłkę musisz być zalogowany</h1>
-                  <Login />
+                  <Box mt={5}>
+                    <Typography variant="h5" gutterBottom>
+                      Dziekujemy za wypełnienie formularza, już prawie koniec!
+                    </Typography>
+                    <Typography variant="subtitle1">
+                      Zaloguj się, aby dokończyć wycenę.
+                    </Typography>
+                    <p>W razie pytań możesz skontaktować się z nami pod numerem: +48 735 130 862 </p>
+                  </Box>
+                  <Box mt={5}>
+                    <Login />
+                  </Box>
                 </>
               ) : null
             }

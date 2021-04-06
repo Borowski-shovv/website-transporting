@@ -116,6 +116,8 @@ export default function Login({valid, activationError}) {
             }
             })
            .then(res => console.log('PRZYPISANIE ORDER DO UZYTKOWNIKA', res))
+
+           history.push('/konto')
           
           } catch(err) {
             err.response.data.msg && setError(err.response.data.msg)
@@ -204,12 +206,12 @@ export default function Login({valid, activationError}) {
               Zaloguj
             </Button>
             <Grid container>
-              <Grid item xs>
+              <Grid item xs={12} sm={6}>
                 <Link href="/reset_hasla" variant="body2">
                   Zapomniałeś hasła?
                 </Link>
               </Grid>
-              <Grid item>
+              <Grid item xs={12} sm={6}>
                 <Link href="/rejestracja" variant="body2">
                   {"Nie masz jeszcze konta? Zarejestruj się"}
                 </Link>

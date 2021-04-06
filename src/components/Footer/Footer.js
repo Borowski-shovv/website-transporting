@@ -54,7 +54,7 @@ const Footer = () => {
 								<div className="manufacturer">
 									<div className="footer-copyright">Copyright &copy; 2020 Wszelkie prawa zastrzeżone</div>
 									<div className="shovv-logo">
-									WDROŻENIE:
+									PROJEKT I REALIZACJA:
 
 									<Link
 										to={{pathname: "https://shovv.pl"}}

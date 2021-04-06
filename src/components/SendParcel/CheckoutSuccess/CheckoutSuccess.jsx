@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 import UserContext from '../../../context/userContext';
 import UserOfflineActions from './UserOfflineActions';
 import Axios from 'axios'
@@ -54,14 +54,16 @@ function CheckoutSuccess() {
     <React.Fragment>
       { userData.user ?
       <>
-        <Typography variant="h5" gutterBottom>
-          Dziekujemy za nadanie przesyłki
-        </Typography>
-        <Typography variant="subtitle1">
-          Skontaktujemy się z Tobą w celu ustalenia szczegółów transportu Twojej przesyłki
-        </Typography>
-        <p>W razie pytań możesz skontaktować się z nami pod numerem: +48 735 130 862 </p>
-        <Button onClick={() => history.push('/')} variant="contained" color="primary">Wróć do strony głównej</Button>
+        <Box mt={5}>
+          <Typography variant="h5" gutterBottom>
+            Dziekujemy za nadanie przesyłki
+          </Typography>
+          <Typography variant="subtitle1">
+            Skontaktujemy się z Tobą w celu ustalenia szczegółów transportu Twojej przesyłki
+          </Typography>
+          <p>W razie pytań możesz skontaktować się z nami pod numerem: +48 735 130 862 </p>
+          <Button onClick={() => history.push('/')} variant="contained" color="primary">Wróć do strony głównej</Button>
+        </Box>
       </> :
         (
           <UserOfflineActions />

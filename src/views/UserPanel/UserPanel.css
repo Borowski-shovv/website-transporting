@@ -1,0 +1,7 @@
+
+@media (min-width: 600px) {
+    .user-panel--wrapper {
+        min-height: calc(100vh - 346px - 72.25px);
+    }
+
+}
