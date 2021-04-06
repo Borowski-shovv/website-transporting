@@ -180,15 +180,15 @@ export default function CheckCategory(props) {
                                                         </Grid>
 
                                                         <Grid item xs={12} sm={2} container alignItems="center">
-                                                            <UnitField fullWidth type="number" label="szerokość (cm)*" name={`packages[${index}].packageWidth`} />
+                                                            <UnitField fullWidth type="number" InputProps={{ inputProps: { min: 0 } }} label="szerokość (cm)*" name={`packages[${index}].packageWidth`} />
                                                         </Grid>
 
                                                         <Grid item xs={12} sm={2} container alignItems="center">
-                                                            <UnitField fullWidth type="number" label="długość (cm)*" name={`packages[${index}].packageLength`} />
+                                                            <UnitField fullWidth type="number" InputProps={{ inputProps: { min: 0 } }} label="długość (cm)*" name={`packages[${index}].packageLength`} />
                                                         </Grid>
 
                                                         <Grid item xs={12} sm={2} container alignItems="center">
-                                                            <UnitField fullWidth type="number" label="ilość (szt)*" name={`packages[${index}].packageAmount`} />  
+                                                            <UnitField fullWidth type="number" InputProps={{ inputProps: { min: 0 } }} label="ilość (szt)*" name={`packages[${index}].packageAmount`} />  
                                                            
                                                         </Grid>
                                                        
@@ -251,23 +251,24 @@ export default function CheckCategory(props) {
                                                                 />
                                                             </Grid>
                                                             <Grid item xs={12} sm={2} container alignItems="center">
-                                                                <UnitField fullWidth type="number" label="waga (kg)*" name={`pallets[${index}].palletWeight`} />
+                                                                <UnitField fullWidth type="number" InputProps={{ inputProps: { min: 0 } }} label="waga (kg)*" name={`pallets[${index}].palletWeight`} />
                                                                
                                                             </Grid>
                                                             <Grid item xs={12} sm={2} container alignItems="center">
-                                                                <UnitField fullWidth type="number" label="wysokość (cm)*" name={`pallets[${index}].palletHeight`} />
+                                                                <UnitField fullWidth type="number" InputProps={{ inputProps: { min: 0 } }} label="wysokość (cm)*" name={`pallets[${index}].palletHeight`} />
                                                                
                                                             </Grid>
                                                             <Grid item  xs={12} sm={2} container alignItems="center">
-                                                                <UnitField fullWidth type="number" label="szerokość (cm)*" name={`pallets[${index}].palletWidth`} />
+                                                                <UnitField fullWidth type="number" InputProps={{ inputProps: { min: 0 } }} label="szerokość (cm)*" name={`pallets[${index}].palletWidth`} />
                                                                
                                                             </Grid>
                                                             <Grid item xs={12} sm={2} container alignItems="center" >
-                                                                <UnitField fullWidth type="number" label="długość (cm)*" name={`pallets[${index}].palletLength`} />
+                                                                <UnitField fullWidth type="number" InputProps={{ inputProps: { min: 0 } }} label="długość (cm)*" name={`pallets[${index}].palletLength`} />
                                                             </Grid>
                                                             <Grid item xs={12} sm={2} container alignItems="center" >
                                                                 <UnitField
-                                                                fullWidth
+                                                                    fullWidth
+                                                                    InputProps={{ inputProps: { min: 0 } }}
                                                                     type="number"
                                                                     label="ilość (szt)*" 
                                                                     name={`pallets[${index}].palletAmount`} 
@@ -341,10 +342,10 @@ export default function CheckCategory(props) {
                                                                     <UnitField fullWidth xs={12} sm={2} label="model*" name={`vehicles[${index}].vehicleModel`}/>
                                                                 </Grid>
                                                                 <Grid item xs={12} sm={2} >
-                                                                    <UnitField fullWidth type="number" label="masa (kg)" name={`vehicles[${index}].vehicleWeight`} />
+                                                                    <UnitField fullWidth type="number" InputProps={{ inputProps: { min: 0 } }} label="masa (kg)" name={`vehicles[${index}].vehicleWeight`} />
                                                                 </Grid>
                                                                 <Grid item xs={12} sm={2}>
-                                                                    <UnitField fullWidth type="number" label="długość (m)" name={`vehicles[${index}].vehicleLength`} />
+                                                                    <UnitField fullWidth type="number" InputProps={{ inputProps: { min: 0 } }} label="długość (m)" name={`vehicles[${index}].vehicleLength`} />
                                                                 </Grid>
                                                                 <Button
                                                                     className={classes.deleteItem}
@@ -402,6 +403,7 @@ export default function CheckCategory(props) {
                                                                         
                                                                         <UnitField
                                                                             fullWidth
+                                                                            InputProps={{ inputProps: { min: 0 } }}
                                                                             type="number"
                                                                             label="ilość*"
                                                                             name={`furnitures[${index}].furnitureAmount`} 
@@ -470,6 +472,7 @@ export default function CheckCategory(props) {
                                                                     <Grid xs={12} sm={2} container alignItems="center" item>
                                                                         <UnitField
                                                                             fullWidth
+                                                                            InputProps={{ inputProps: { min: 0 } }}
                                                                             label="ilość*"
                                                                             type="number"
                                                                             name={`cargo[${index}].cargoAmount`} 
