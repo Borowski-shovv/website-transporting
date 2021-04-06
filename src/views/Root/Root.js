@@ -10,7 +10,7 @@ import UserPanel from '../../views/UserPanel/UserPanel';
 import PasswordReset from '../../auth/ResetPassword';
 import PasswordResetToken from '../../auth/ResetPasswordToken';
 import EmailActivationToken from '../../auth/EmailActivationToken';
-import UserEmailAfterRegistration from '../../auth/UserEmailAfterRegistration';
+// import UserEmailAfterRegistration from '../../auth/UserEmailAfterRegistration';
 import OrderView from '../OrderView/OrderView';
 import Login from '../../auth/Login';
 import Register from '../../auth/Register';
@@ -25,14 +25,14 @@ import plLocale from 'date-fns/locale/pl';
 import HomeView from '../../views/HomeView/HomeView';
 import PrivateRoute from '../../views/privateRoute';
 import ContactView from '../../views/ContactView/ContactView';
-
+import NotFound from '../../views/404View/NotFound';
 const routes = [
   { path: '/', name: 'Start', Component: HomeView},
   { path: '/oferta', name: 'Oferta', Component: OfferView},
   { path: '/kontakt', name: 'Kontakt', Component: ContactView},
   { path: '/reset_hasla', name: 'Resetowanie hasła', Component: PasswordReset},
   { path: '/reset_hasla/:id', name: 'Resetowanie hasła', Component: PasswordResetToken},
-  { path: '/aktywacja', name: 'Aktywacja po rejestracji', Component:  UserEmailAfterRegistration},
+  // { path: '/aktywacja', name: 'Aktywacja po rejestracji', Component:  UserEmailAfterRegistration},
   { path: '/aktywacja/:id', name: 'Aktywacja', Component: EmailActivationToken},
   { path: '/wycena', name: 'Cennik', Component: OrderView},
   { path: '/logowanie', name: 'Logowanie', Component: Login},
@@ -114,6 +114,7 @@ function Root() {
                  
                 </Route>
               ))}
+              <Route component={NotFound} />
               <PrivateRoute exact path="/konto" component={UserPanel} />
             </Switch> 
           </MuiPickersUtilsProvider>

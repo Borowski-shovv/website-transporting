@@ -20,7 +20,7 @@ const Navigation = () => {
                   <img src={plflag} alt=""/><i className="fa fa-phone"></i><span>+48 735 130 862</span>
                   </a>
                   <a  href="tel:+48764012966" className="info-bar-number">
-                    <img src={seflag} alt=""/><i className="fa fa-phone"></i><span>+48 764 012 966</span>
+                    <img src={seflag} alt=""/><i className="fa fa-phone"></i><span>+46 764 012 966</span>
                   </a>
                   <a  href="mailto:biuro@transport-szwecja.com" className="info-bar-number">
                     <i className="fa fa-mail-forward"></i><span>biuro@transport-szwecja.com</span>

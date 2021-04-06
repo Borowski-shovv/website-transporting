@@ -16,7 +16,7 @@ const Footer = () => {
 								<h3>Kontakt</h3>
 								<p><i className="fa fa-home"></i>ul. Strzelecka 6, <br></br>15-345 Białystok</p>
 								<a href="tel:+48735130862"><i className="fa fa-phone"></i>+48 735 130 862</a>					
-								<a href="tel:+48764012966"><i className="fa fa-phone"></i>+48 764 012 966</a>					
+								<a href="tel:+48764012966"><i className="fa fa-phone"></i>+46 764 012 966</a>					
 								<a href="mailto:biuro@transport-szwecja.com"><i className="fa fa-envelope"></i>biuro@transport-szwecja.com</a>
 							</Grid>
 							<Grid item container xs={12} sm={6} md={3} className="footer-sidebar-wrap">
