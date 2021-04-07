@@ -1,27 +1,37 @@
 import React from 'react';
+import { Container, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles({
+    root: {
+        marginTop: 20  
+    }
+})
 
 const RegulaminView = () => {
+
+    const classes = useStyles();
+
     return (
         <>
-        
-            <div className="container">
-                <div class="priacyPolicy">
+            <Container className={classes.root}>
+                <Typography variant="h6">Regulamin</Typography>
+                <div >
                     <ol type="1">
-                    <li class="paragraph">Postanowienia ogólne
-                    <ol type="1">
-                    <li>Niniejszy Regulamin określa warunki i zasady świadczenia usług przez firmę Solidfach Michał Wasiluk.</li>
-                    <li>Zakres działalności firmy Solidfach Michał Wasiluk obejmuje obszar Polski i Szwecji.</li>
-                    <li>Solidfach Michał Wasiluk świadczy usługi na rzecz osób fizycznych, prawnych, jak i jednostek organizacyjnych nie posiadających osobowości prawnej.</li>
-                    </ol>
-                </li>
-                <li class="paragraph">Zakres obowiązywania
+                        <li className="paragraph">Postanowienia ogólne
+                            <ol type="1">
+                                <li>Niniejszy Regulamin określa warunki i zasady świadczenia usług przez firmę Solidfach Michał Wasiluk.</li>
+                                <li>Zakres działalności firmy Solidfach Michał Wasiluk obejmuje obszar Polski i Szwecji.</li>
+                                <li>Solidfach Michał Wasiluk świadczy usługi na rzecz osób fizycznych, prawnych, jak i jednostek organizacyjnych nie posiadających osobowości prawnej.</li>
+                            </ol>
+                        </li>
+                        <li>Zakres obowiązywania
                 <ol type="1">
                 <li>Podpisanie Listu Przewozowego przez Nadawcę stanowi dowód zapoznania się i akceptację treści niniejszego Regulaminu. Od tego momentu wszystkie postanowienia niniejszego Regulaminu stają się wiążące dla obu stron chyba, że postanowienia odrębnej umowy zawartej pomiędzy stronami stanowią inaczej.</li>
                 <li>W sprawach nieokreślonych w warunkach niniejszego Regulaminu zastosowanie mają Konwencja CMR i Ustawa Prawo Przewozowe jako podstawy prawne do określania praw, obowiązków i odpowiedzialności stron zlecenia transportowego.</li>
                 </ol>
                 </li>
-                <li class="paragraph">Wyłączenia z przewozu
+                <li>Wyłączenia z przewozu
                 <ol type="1">
                 <li>Z przewozu wyłącza się:
                 <ol type="a">
@@ -39,14 +49,14 @@ const RegulaminView = () => {
                 </li>
                 </ol>
                 </li>
-                <li class="paragraph">Solidfach Michał Wasiluk może odmówić wykonania usługi w następujących przypadkach:
+                <li>Solidfach Michał Wasiluk może odmówić wykonania usługi w następujących przypadkach:
                 <ol type="1">
                 <li>Niemożności jej wykonania z uwagi na określony czas lub miejsce dostarczenia przesyłki.</li>
                 <li>Niewłaściwego zabezpieczenia przesyłki przez Nadawcę.</li>
                 <li>Gdy istnieje uzasadnione podejrzenie, iż deklaracja zawartości i/lub wagi przesyłki nie zgadza się ze stanem faktycznym.</li>
                 </ol>
                 </li>
-                <li class="paragraph">Warunki świadczenia usług
+                <li>Warunki świadczenia usług
                 <ol type="1">
                 <li>Przesyłka po telefonicznym bądź e-mailowym zgłoszeniu przez Nadawcę lub Zleceniodawcę jest odbierana spod wskazanego adresu w danej miejscowości, bądź może zostać nadana w którymkolwiek z Punktów Obsługi Klienta w godzinach otwarcia.</li>
                 <li>Solidfach Michał Wasiluk przesyła przesyłki w przewidywanym terminie doręczenia lub gwarantowanym terminie, o ile strony w formie pisemnej nie postanowią inaczej. Nadawca może wydać inną dyspozycję co do terminu doręczenia przesyłki, który może być krótszy niż terminy gwarantowane przez Solidfach Michał Wasiluk, jeżeli Solidfach Michał Wasiluk wyrazi na to zgodę potwierdzoną na Liście Przewozowym.</li>
@@ -65,7 +75,7 @@ const RegulaminView = () => {
                 <li>Ewentualne reklamacje Zleceniodawca może zgłosić w czasie krótszym niż 1 dzień od terminu wykonania Zlecenia. Zleceniodawca i Zleceniobiorca zgodnie oświadczają, iż wszelkie spory rozstrzygane będą polubownie. Sądem miejscowo właściwym do rozpoznania wszelkich sporów będzie Sąd w Białymstoku.</li>
                 </ol>
                 </li>
-                <li class="paragraph">Opakowanie Przesyłki
+                <li>Opakowanie Przesyłki
                 <ol type="1">
                 <li>Nadawca jest obowiązany do nadania firmie Solidfach Michał Wasiluk Przesyłki  w stanie umożliwiającym jej prawidłowy przewóz i wydanie bez ubytku lub uszkodzenia.</li>
                 <li>Rzeczy, które ze względu na ich właściwości wymagają specjalnego opakowania Nadawca jest obowiązany nadać firmie Solidfach Michał Wasiluk w opakowaniu, które w szczególności powinno być:
@@ -80,7 +90,7 @@ const RegulaminView = () => {
                 <li>Opakowanie Przesyłki wlicza się do jej masy.</li>
                 </ol>
                 </li>
-                <li class="paragraph">Nadanie Przesyłki
+                <li>Nadanie Przesyłki
                 <ol type="1">
                 <li>Przyjęcie Przesyłki od Nadawcy odbywa się na podstawie Listu Przewozowego Solidfach Michał Wasiluk.</li>
                 <li>Nadawca gwarantuje, iż zawartość każdej Przesyłki jest prawidłowo i zgodnie ze stanem rzeczywistym zadeklarowana oraz opisana w Zleceniu i/lub Liście Przewozowym.</li>
@@ -92,31 +102,31 @@ const RegulaminView = () => {
                 <li>W przypadku naruszenia przez Nadawcę postanowień &sect;3 firmie Solidfach Michał Wasiluk przysługuje prawo do weryfikacji naliczonych opłat za świadczone usługi poprzez dokonanie odpowiedniej zmiany ceny wykonywanej usługi, zgodnie z Cennikiem lub Zleceniem.</li>
                 </ol>
                 </li>
-                <li class="paragraph">Oznaczenie przesyłki
+                <li>Oznaczenie przesyłki
                 <ol type="1">
                 <li>Nadawca ma obowiązek zamieścić na Przesyłce, bądź jej opakowaniu podany na Liście Przewozowym adres, który musi być czytelny, nie może nosić śladów wycierania lub skreśleń, a w szczególności musi posiadać kod pocztowy, przy czym Solidfach Michał Wasiluk zapewnia dostęp do pocztowych książek kodowych we wszystkich punktach przyjmowania przesyłek.</li>
                 </ol>
                 </li>
-                <li class="paragraph">Zawartość przesyłki
+                <li>Zawartość przesyłki
                 <ol type="1">
                 <li>Przyjęcie przez Solidfach Michał Wasiluk przesyłki do przewozu nie uzasadnia domniemania, iż jej opakowanie oraz zawartość odpowiada warunkom zawartym w Regulaminie.</li>
                 <li>Solidfach Michał Wasiluk ma prawo otworzyć Przesyłkę i sprawdzić ją pod kątem zawartości.</li>
                 <li>W przypadku znalezienia w przesyłce zawartości niezgodnej z przepisami Solidfach Michał Wasiluk podejmuje kontakt z nadawcą. Dalsza realizacja Przesyłki zostaje wstrzymana do czasu podjęcia ustaleń z Nadawcą.</li>
                 </ol>
                 </li>
-                <li class="paragraph">Uszkodzenie przesyłki
+                <li>Uszkodzenie przesyłki
                 <ol type="1">
                 <li>W przypadku uszkodzenia lub ubytku Przesyłki przedstawiciel firmy Solidfach Michał Wasiluk obowiązany jest spisać Protokół luz zrobić odpowiednią adnotację na Liście Przewozowym w obecności Odbiorcy, w którym ujęta będzie data i godzina doręczenia oraz opis uszkodzenia lub ubytku przesyłki. Prawidłowo sporządzony Protokół (podpisany przez Odbiorcę i przedstawiciela firmy Solidfach Michał Wasiluk) jest podstawą do zapłacenia odszkodowania. Wskutek przyjęcia przez Odbiorcę Przesyłki bez zastrzeżeń wygasają wszelkie roszczenia przeciwko firmie Solidfach Michał Wasiluk.</li>
                 </ol>
                 </li>
-                <li class="paragraph">Wartość przesyłki
+                <li>Wartość przesyłki
                 <ol type="1">
                 <li>Nadawca zobowiązany jest podać w Liście Przewozowym rzeczywistą wartość Przesyłki i opis zawartości, jeśli przekracza ona kwotę 100,00 zł pod rygorem utraty roszczeń przeciwko firmie Solidfach Michał Wasiluk przekraczających tę kwotę.</li>
                 <li>W przypadku zadeklarowania rzeczywistej wartości Przesyłki wyższej niż 100,00 zł Solidfach Michał Wasiluk zobowiązany jest do ubezpieczenia Przesyłki w imieniu i na rzecz jej właściciela. Koszt ubezpieczenia ponosi Płatnik.</li>
                 <li>Nadawca i Odbiorca podpisując List Przewozowy z zadeklarowaną wartością Przesyłki i opisem zawartości potwierdza tym samym, iż zapoznał się z warunkami zawartej na jego rzecz umowy ubezpieczenia i akceptuje je jako obowiązujące w przewozie przesyłek o zadeklarowanej wartości powyżej 100,00 zł.</li>
                 </ol>
                 </li>
-                <li class="paragraph">Odpowiedzialność
+                <li>Odpowiedzialność
                 <ol type="1">
                 <li>Solidfach Michał Wasiluk ponosi odpowiedzialność za utratę, ubytek lub uszkodzenie Przesyłki powstałe od przyjęcia jej do przewozu aż do jej wydania oraz za opóźnienie w przewozie, w zakresie określonym w niniejszym Regulaminie.</li>
                 <li>Solidfach Michał Wasiluk nie ponosi odpowiedzialności, o której mowa w pkt 13.1., jeżeli utrata, ubytek lub uszkodzenie albo opóźnienie w przewozie Przesyłki powstały z przyczyn leżących po stronie Nadawcy lub Odbiorcy, w szczególności z powodu niezastosowania się przez Nadawcę lub Odbiorcę do postanowień niniejszego Regulaminu, nie wywołanych winą firmy Solidfach Michał Wasiluk albo wskutek siły wyższej. Pod pojęciem siły wyższej należy rozumieć m.in. wszelkie katastrofy i kataklizmy, strajki, blokady dróg, lub inne nieprzewidziane, niezależne od firmy Solidfach Michał Wasiluk zdarzenia.</li>
@@ -128,15 +138,15 @@ const RegulaminView = () => {
                 <li>Waga Przesyłki nie zgadza się z wagą deklarowaną na Liście Przewozowym.</li>
                 </ol>
                 </li>
-                <li>Solidfach Michał Wasiluk nie ponosi odpowiedzialności za szkody pośrednie i utracone korzyści wynikłe na skutek niewykonania lub nienależytego wykonania usługi, zarówno w stosunku do Odbiorcy, Nadawcy jak i osób trzecich.</li>
-                <li>W razie, gdy do wypłaty odszkodowania zobowiązana jest instytucja ubezpieczeniowa, Solidfach Michał Wasiluk nie ponosi odpowiedzialności, o której mowa w niniejszym paragrafie.</li>
-                <li>Odpowiedzialność firmy Solidfach Michał Wasiluk za pobrane od Odbiorcy środki pieniężne rozpoczyna się z chwilą potwierdzenia przez Solidfach Michał Wasiluk ich pobrania i jest ograniczona do wysokości pobranej kwoty.</li>
-                <li>Dochodzenie roszczeń w postępowaniu sądowym przysługuje uprawnionemu po bezskutecznym wyczerpaniu drogi reklamacyjnej.</li>
+                    <li>Solidfach Michał Wasiluk nie ponosi odpowiedzialności za szkody pośrednie i utracone korzyści wynikłe na skutek niewykonania lub nienależytego wykonania usługi, zarówno w stosunku do Odbiorcy, Nadawcy jak i osób trzecich.</li>
+                    <li>W razie, gdy do wypłaty odszkodowania zobowiązana jest instytucja ubezpieczeniowa, Solidfach Michał Wasiluk nie ponosi odpowiedzialności, o której mowa w niniejszym paragrafie.</li>
+                    <li>Odpowiedzialność firmy Solidfach Michał Wasiluk za pobrane od Odbiorcy środki pieniężne rozpoczyna się z chwilą potwierdzenia przez Solidfach Michał Wasiluk ich pobrania i jest ograniczona do wysokości pobranej kwoty.</li>
+                    <li>Dochodzenie roszczeń w postępowaniu sądowym przysługuje uprawnionemu po bezskutecznym wyczerpaniu drogi reklamacyjnej.</li>
                 </ol>
                 </li>
                 </ol>
                 </div>
-            </div>
+            </Container>
         </>
     );
 }

@@ -26,7 +26,12 @@ import HomeView from '../../views/HomeView/HomeView';
 import PrivateRoute from '../../views/privateRoute';
 import ContactView from '../../views/ContactView/ContactView';
 import NotFound from '../../views/404View/NotFound';
+import RulesView from '../../views/RegulaminView/RegulaminView';
+import PrivacyPolicy from '../../views/PrivacyPolicyView/PrivacyPolicy';
+
 const routes = [
+  { path: '/regulamin', name: 'Regulamin', Component: RulesView},
+  { path: '/polityka-prywatnosci', name: 'Polityka prywatnosci', Component: PrivacyPolicy},
   { path: '/', name: 'Start', Component: HomeView},
   { path: '/oferta', name: 'Oferta', Component: OfferView},
   { path: '/kontakt', name: 'Kontakt', Component: ContactView},
