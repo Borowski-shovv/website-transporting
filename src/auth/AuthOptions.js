@@ -23,15 +23,12 @@ function AuthOptions({open, setOpen}) {
     const history = useHistory(); 
     const classes = useStyles();
 
-    useEffect(() => {
-        
-    }, [])
+    let token = localStorage.getItem('user-token')
 
     const logout = () => {
         setUserData({
             token: undefined,
             user: undefined,
-            id: undefined,
         })
 
         localStorage.setItem('user-email', '')
@@ -48,14 +45,14 @@ function AuthOptions({open, setOpen}) {
 
     return (
         <>
-             {userData.token !== undefined ? (
+            {token !== '' ? (
                 <>
                     <li>
                         <NavLink 
-                        activeClassName="navigationItemLinkActive"
-                        className="navigationItemLink" 
-                        to="/konto"
-                        onClick={open => setOpen(!open)}
+                            activeClassName="navigationItemLinkActive"
+                            className="navigationItemLink" 
+                            to="/konto"
+                            onClick={open => setOpen(!open)}
                         ><span> Moje konto</span></NavLink>
                     </li>
                     <li>
@@ -76,7 +73,8 @@ function AuthOptions({open, setOpen}) {
                             className="navigationItemLink" 
                             to="/logowanie"
                             onClick={open => setOpen(!open)}
-                            >Logowanie
+                        >
+                            Logowanie
                         </NavLink>
                     </li>
                     <li>
@@ -85,7 +83,8 @@ function AuthOptions({open, setOpen}) {
                             className="navigationItemLink" 
                             to="/rejestracja"
                             onClick={open => setOpen(!open)}
-                            >Rejestracja
+                        >
+                            Rejestracja
                         </NavLink>
                     </li>
                     </>

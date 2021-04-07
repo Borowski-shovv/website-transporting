@@ -43,9 +43,6 @@ const Form = () => {
             const data = {"email": inputEmail, "name": inputName, "message": inputMsg}
 
             let recaptcha = localStorage.getItem('_grecaptcha')
-            console.log(recaptcha === '', '1')
-            console.log(recaptcha === null, '2')
-            console.log(recaptcha === undefined, '3')
 
             if (recaptcha === null || recaptcha === '' || recaptcha === undefined) {
                 localStorage.setItem('_grecaptcha', '');

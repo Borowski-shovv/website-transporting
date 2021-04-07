@@ -73,7 +73,7 @@ function Root() {
 
       if(userEmail === null) {
         localStorage.setItem('user-email', '');
-        userId = '';
+        userEmail = '';
       }
 
       //2. wyslanie tokena do servera
@@ -109,7 +109,7 @@ function Root() {
         <ScrollToTop>     
         <UserContext.Provider value={{ userData, setUserData, filledEmailInfo,
             setEmailFilledInfo, formikImages, setFormikImages, orderId, setOrderId}}>  
-        <Navigation />
+          <Navigation userData={userData}/>
           <MuiPickersUtilsProvider locale={plLocale} utils={DateFnsUtils}>
             <PrivateRoute exact path="/konto" component={UserPanel} />
             <Switch>

@@ -119,7 +119,7 @@ export default function Login({valid, activationError}) {
             })
            .then(res => console.log('PRZYPISANIE ORDER DO UZYTKOWNIKA', res))
 
-          //  history.push('/konto')
+          history.push('/konto')
           
           } catch(err) {
             err.response.data.msg && setError(err.response.data.msg)
