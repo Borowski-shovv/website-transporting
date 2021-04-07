@@ -3,9 +3,22 @@ import axios from "axios";
 import {Link} from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import './Form.css';
-import {Grid, Container} from '@material-ui/core';
+import {Grid, Container, Button} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles({
+    submit: {
+        marginTop: '20px',
+        backgroundColor: '#f44336',
+        color: '#fff',
+        '&:hover': {
+            backgroundColor: 'rgb(170, 46, 37)',
+        }
+    },
+})
+
 
 const Form = () => {
     const [inputName, setInputName] = useState('');
@@ -14,6 +27,8 @@ const Form = () => {
     const [error, setError] = useState(null);
     const [inputMsg, setInputMsg] = useState('');
     const [formData, setFormData] = useState({});
+
+    const classes = useStyles()
 
     const onChange = (value) => {
       console.log("Captcha value:", value)
@@ -96,7 +111,7 @@ const Form = () => {
                                     sitekey="Your client site key"
                                     onChange={onChange}
                                 />
-                                <input className="read-more" type="submit" onClick={e => handleFormSubmit(e)} value="Wyślij" />
+                                <Button variant="contained" className={classes.submit} type="submit" onClick={e => handleFormSubmit(e)}>Wyślij</Button>
                             </div>
                             <div>
                                 {mailSent && <div className="success">Twoja wiadomość została pomyślnie wysłana</div>}

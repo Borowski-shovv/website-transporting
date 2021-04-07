@@ -16,9 +16,6 @@ import { useHistory } from 'react-router-dom';
 import './Login.css'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-  
-  },
   image: {
     backgroundImage: `url(${bridge})`,
     backgroundRepeat: 'no-repeat',
@@ -35,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: '#f44336',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -43,6 +40,11 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#f44336',
+    color: '#fff',
+    '&:hover': {
+       backgroundColor: 'rgb(170, 46, 37)',
+    }
   },
   green: {
     color: 'green'
@@ -200,7 +202,7 @@ export default function Login({valid, activationError}) {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              
               className={classes.submit}
             >
               Zaloguj
