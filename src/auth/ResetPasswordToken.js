@@ -58,7 +58,7 @@ function ResetPasswordToken() {
     console.log(id)
     const handleSubmit = async (values) => {
 
-        let url = 'https://najtanszapaczkaszwecja.pl/api/user/new_password';
+        let url = 'https://transport-szwecja.com/api/user/new_password';
        
         try {
              const data = {"token": id, 'password': values.password };

@@ -66,7 +66,7 @@ export default function Login({valid, activationError}) {
   const handleSubmit = async (e) => {
         e.preventDefault();
     
-        let url = 'https://najtanszapaczkaszwecja.pl/api/user/login';
+        let url = 'https://transport-szwecja.com/api/user/login';
         
         try {
           //basic auth -> pozwala wyslać zapytanie na backend zeby uwierzytelnic wiarygodnosc
@@ -108,7 +108,7 @@ export default function Login({valid, activationError}) {
           const data = {"order_id": orderId, "user_id": loginRes.data.id }
           // console.log('data, ktora jest wysylana po zalogowaniu na backend', data)
           
-          Axios.post('https://najtanszapaczkaszwecja.pl/api/orders/assign', data,  {
+          Axios.post('https://transport-szwecja.com//api/orders/assign', data,  {
             headers: { 
               'Content-Type': 'application/json'
             },

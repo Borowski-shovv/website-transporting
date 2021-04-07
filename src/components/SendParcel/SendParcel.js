@@ -56,7 +56,7 @@ const SendParcel = () => {
 
     setActiveStep(activeStep + 1);
     // console.log(values.packages)
-    let url = 'https://najtanszapaczkaszwecja.pl/api/order/create';
+    let url = 'https://transport-szwecja.com/api/order/create';
 
     try {
       const orderValues = {

@@ -56,7 +56,7 @@ const PasswordReset = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let url = 'https://najtanszapaczkaszwecja.pl/api/user/reset_password';
+        let url = 'https://transport-szwecja.com/api/user/reset_password';
 
         try {
             const userEmail = {"email": email };

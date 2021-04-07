@@ -79,7 +79,7 @@ function Root() {
       //2. wyslanie tokena do servera
       // zapytanie zwraca true/false
       const tokenData = {"user_id": userId, "token": token}
-      const tokenResponse = await Axios.post('https://najtanszapaczkaszwecja.pl/api/user/validate_token', tokenData, {
+      const tokenResponse = await Axios.post('https://transport-szwecja.com/api/user/validate_token', tokenData, {
         headers: { 
           'Content-Type': 'application/json'
         },

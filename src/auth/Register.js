@@ -76,7 +76,7 @@ export default function Register() {
 
   const handleSubmit = async (values) => {
      
-    let url = 'https://najtanszapaczkaszwecja.pl/api/users/create';
+    let url = 'https://transport-szwecja.com/api/users/create';
             // make API call
             try {
               const newUserData = {"name": values.name,"email": values.email,"phone": values.phone,"address": values.address,"zip_code": values.zipcode,"city": values.city, "country":values.country,"password": values.password, 'type': values.isFirm, 'company': values.companyName, 'nip': values.nip}

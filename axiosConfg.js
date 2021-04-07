@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
     // .. where we make our configurations
-        baseURL: 'https://najtanszapaczkaszwecja.pl'
+        baseURL: 'https://transport-szwecja.com/'
     });
 
 instance.defaults.headers.common['Authorization'] = 

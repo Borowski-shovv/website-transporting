@@ -46,7 +46,7 @@ export default function AddressForm(props) {
   useEffect(() => {
     const checkUserExist = async (email, userData) => {
       console.log(email)
-      await Axios.get('https://najtanszapaczkaszwecja.pl/api/user', {
+      await Axios.get('https://transport-szwecja.com/api/user', {
         params: { email },
         auth: { username: 'shovv', password: '$HOVV2020' },
       }).then((res) => {

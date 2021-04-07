@@ -18,7 +18,7 @@ export function SingleFileUploadWithProgress({file, onDelete, onUpload}) {
             formData.append('file', file);
 
             //const fileData = {'name': file.name, 'path': file.path }
-            const url = 'https://najtanszapaczkaszwecja.pl/api/upload';
+            const url = 'https://transport-szwecja.com/api/upload';
 
             const ResponseUploadImg = await axios.post(url, formData, {
                 auth: {
@@ -34,10 +34,7 @@ export function SingleFileUploadWithProgress({file, onDelete, onUpload}) {
             console.log(ResponseUploadImg)
            
             const imagePath = ResponseUploadImg.data.files[0]
-            //setNewImagePath(imagePath)
-            
-            // setFiles(imgName)
-            // helpers.setValue((value) => [...value, imagePath]);
+
             setFormikImages((img) => [...img, imagePath])
         }
 
@@ -53,53 +50,3 @@ export function SingleFileUploadWithProgress({file, onDelete, onUpload}) {
     
     )
 }
-
-// function uploadFile(file, onProgress) {
-//     // const url = 'https://api.cloudinary.com/v1_1/demo/image/upload';
-//     const url = 'https://najtanszapaczkaszwecja.pl/api/upload';
-//     // const key = 'docs_upload_example_us_preset';
-
-//     return new Promise((res,rej) => {
-//         const xhr = new XMLHttpRequest();
-//         xhr.open('POST', url);
-
-
-//         //on success
-//         xhr.onload = () => {
-        
-//             res();
-//             console.log(res)
-//             // console.log('co to jest', resp.files)
-//         }
-
-//         const username = "shovv";
-//         const password = "$HOVV2020";
-
-     
-//         // const authData = btoa(username + ':' + password);
-//         // console.log(authData);
-//         // xhr.setRequestHeader('PHP_AUTH_USER', 'shovv' )
-//         // xhr.setRequestHeader('PHP_AUTH_PASSWORD', '$HOVV2020' )
-
-//         //on error
-//         xhr.onerror = (evt) => rej(evt);
-
-//         //on progress
-//         xhr.upload.onprogress = (event) => {
-//             if(event.lengthComputable) {
-//                 const percentage = (event.loaded / event.total) * 100;
-//                 onProgress(Math.round(percentage));
-//             }
-//         }
-
-//         const formData = new FormData();
-
-//         formData.append('file', file);
-
-//         //key jest potrzebny do cloudinary
-//         //formData.append('upload_preset', key);
-
-//         xhr.send(formData)
-//     })
-// } 
-

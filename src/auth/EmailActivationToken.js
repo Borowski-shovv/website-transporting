@@ -14,7 +14,7 @@ function EmailActivationToken() {
           if(id === undefined) return;
             
           const emailActivationToken = {"token": id};
-          await Axios.post('https://najtanszapaczkaszwecja.pl/api/user/activation', emailActivationToken, {
+          await Axios.post('https://transport-szwecja.com/api/user/activation', emailActivationToken, {
             headers: { 
                 'Content-Type': 'application/json'
             },
@@ -46,7 +46,7 @@ function EmailActivationToken() {
                 const data = {"order_id": orderId, "user_id": dataUser.data.user_id }
                 console.log('3. drugi res przesylana data', data)
                 return (
-                    Axios.post('https://najtanszapaczkaszwecja.pl/api/orders/assign', data,  {
+                    Axios.post('https://transport-szwecja.com//api/orders/assign', data,  {
                         headers: { 
                             'Content-Type': 'application/json'
                         },
