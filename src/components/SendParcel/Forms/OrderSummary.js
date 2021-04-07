@@ -132,7 +132,7 @@ function OrderSummary() {
                                                     <img className={classes.imgWidth} src={palletImg} alt='icon'/>
                                                 </Grid>
                                                 <Grid className={classes.row} item container xs={12} sm={2}>
-                                                    <Grid item container  justify="space-between">
+                                                    <Grid container className={classes.cell}>
                                                         <Grid item>
                                                             <Typography className={classes.title} gutterBottom variant="h6">
                                                                 Rodzaj palety:

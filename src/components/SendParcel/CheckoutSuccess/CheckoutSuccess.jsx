@@ -5,6 +5,7 @@ import UserOfflineActions from './UserOfflineActions';
 import Axios from 'axios'
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
+import './CheckoutSuccess';
 ////wysylanie paczki
 
 function CheckoutSuccess() {
@@ -54,7 +55,7 @@ function CheckoutSuccess() {
     <React.Fragment>
       { userData.user ?
       <>
-        <Box mt={5}>
+        <Box mt={5} textAlign="center" className='thankyou-wrapper'>
           <Typography variant="h5" gutterBottom>
             Dziekujemy za nadanie przesyłki
           </Typography>
