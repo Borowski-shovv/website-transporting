@@ -108,7 +108,7 @@ const Form = () => {
                             />
                             <div className="">
                                 <ReCAPTCHA
-                                    sitekey="Your client site key"
+                                    sitekey="6Ldc5Z8aAAAAAHPk6ZWYRm9ZjW3KZbhCaaP8uIvk"
                                     onChange={onChange}
                                 />
                                 <Button variant="contained" className={classes.submit} type="submit" onClick={e => handleFormSubmit(e)}>Wyślij</Button>

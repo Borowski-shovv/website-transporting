@@ -108,7 +108,7 @@ export default function Login({valid, activationError}) {
           const data = {"order_id": orderId, "user_id": loginRes.data.id }
           // console.log('data, ktora jest wysylana po zalogowaniu na backend', data)
           
-          Axios.post('https://transport-szwecja.com//api/orders/assign', data,  {
+          Axios.post('https://transport-szwecja.com/api/orders/assign', data,  {
             headers: { 
               'Content-Type': 'application/json'
             },

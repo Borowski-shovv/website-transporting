@@ -80,7 +80,7 @@ const CardSection = () => {
                                 image={card1}
                                 />
                                 <CardContent className={classes.root}>
-                                    <Link className={classes.titleLink} to="/oferta">Złóż zamówienie</Link>
+                                    <Link className={classes.titleLink} to="/oferta">Wyceń przesyłkę</Link>
                                     <Typography
                                         variant="body2"
                                         className={classes.title}
@@ -91,7 +91,7 @@ const CardSection = () => {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button href="/wycena" className={classes.button} color="primary" variant="contained">Złóż zamówienie</Button>
+                                    <Button href="/wycena" className={classes.button} color="primary" variant="contained">Wyceń przesyłkę</Button>
                                 </CardActions>
                             </Card>
                         </Grid>

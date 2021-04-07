@@ -65,13 +65,13 @@ function Item(props) {
     const history = useHistory()
 
     return (
-        <div className="coto">
+        <div className="">
             <img className={classes.slideImg} src={props.item.img} alt={props.item.name}></img>
             <div className={classes.carouselContent}>
                 <h2 className={classes.title}>{props.item.name}</h2>
                 <p className={classes.text}>{props.item.description}</p> 
                 <Button className={classes.button} onClick={() => history.push('/wycena')} variant="contained">
-                    Złóż zamówienie
+                    Wyceń przesyłkę
                 </Button> 
             </div>
         </div>
@@ -100,7 +100,7 @@ const MyCarousel = (props) => {
     ]
 
     return (
-        <Carousel className={classes.root} autoPlay={true} interval={3000} animation="slide"
+        <Carousel className={classes.root} autoPlay={true} interval={3000} animation="fade"
         indicatorIconButtonProps={{
             style: {
                 display: 'none',
