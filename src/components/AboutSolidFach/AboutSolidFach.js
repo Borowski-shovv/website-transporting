@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/styles';
 const useStyles = makeStyles({
     text: {
         margin: '0 0 20px 0',
-        fontFamily: 'Poppins, sans-serif'
+        fontFamily: 'Roboto, sans-serif'
     }
 })
 

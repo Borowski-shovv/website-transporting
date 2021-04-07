@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     },
     text: {
         color: '#fff',
-        fontFamily: 'Poppins, sans-serif',
+        fontFamily: 'Roboto, sans-serif',
         marginBottom: 25,
         textAlign: 'center',
     },

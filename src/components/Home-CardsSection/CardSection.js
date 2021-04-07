@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     },
     title: {
         fontSize: 14,
-        fontFamily: 'Poppins, sans-serif',
+        fontFamily: 'Roboto, sans-serif',
         marginTop: 15,
         color: '#687284',
         textAlign: 'center',

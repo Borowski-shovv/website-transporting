@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/styles';
 const useStyles = makeStyles({
     text: {
         color: 'white',
-        fontFamily: 'Poppins, sans-serif',
+        fontFamily: 'Roboto, sans-serif',
     }
 })
 
