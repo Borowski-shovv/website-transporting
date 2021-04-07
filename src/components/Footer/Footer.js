@@ -44,7 +44,7 @@ const Footer = () => {
 								<img className="footer-logo" src={solidFach} alt="" />
 								<p>SOLIDFACH jesteśmy solidną firmą, nasze zasady: zawsze na czas, bezpiecznie i fachowo</p>
 								<div className="social-buttons">
-									<Link to={{pathname: "https://facebook.com/"}} target="_blank"><i className="fa fa-facebook"></i></Link>
+									<Link to={{pathname: "https://www.facebook.com/solidfachtransport"}} target="_blank"><i className="fa fa-facebook"></i></Link>
 									<Link to={{pathname: "https://www.instagram.com/solidfach_plse/"}} target="_blank"><i className="fa fa-instagram"></i></Link>
 								</div>
 							</Grid>
