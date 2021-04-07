@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import axios from "axios";
+import Axios from "axios";
 import {Link} from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import './Form.css';
@@ -23,10 +23,10 @@ const useStyles = makeStyles({
 const Form = () => {
     const [inputName, setInputName] = useState('');
     const [inputEmail, setInputEmail] = useState('');
-    const [mailSent, setmailSent] = useState(false);
-    const [error, setError] = useState(null);
     const [inputMsg, setInputMsg] = useState('');
-    const [formData, setFormData] = useState({});
+
+    const [mailSend, setMailSend] = useState(false);
+    const [error, setError] = useState(false);
 
     const classes = useStyles()
 
@@ -34,28 +34,42 @@ const Form = () => {
       console.log("Captcha value:", value)
     }
 
-    const handleFormSubmit = e => { 
+    const handleFormSubmit = async (e) => { 
         e.preventDefault();
-        axios({
-          method: "post",
-          url: `${process.env.REACT_APP_API}`,
-          headers: { "content-type": "application/json" },
-          data: formData
-        })
-          .then(result => {
-            if (result.data.sent) {
-              setmailSent(result.data.sent)
-              setError(false)
-            } else {
-              setError(true)
-            }
-          })
-          .catch(error => setError( error.message ));
 
-          setInputName('');
-          setInputMsg('');
-          setInputEmail('');
-          setFormData({});
+        let url = 'https://transport-szwecja.com/api/contact'
+
+        try {
+            const data = {"email": inputEmail, "name": inputName, "message": inputMsg}
+
+            let recaptcha = localStorage.getItem('_grecaptcha')
+            console.log(recaptcha === '', '1')
+            console.log(recaptcha === null, '2')
+            console.log(recaptcha === undefined, '3')
+
+            if (recaptcha === null || recaptcha === '' || recaptcha === undefined) {
+                localStorage.setItem('_grecaptcha', '');
+                recaptcha = '';
+
+                setError(true)
+            } else if(recaptcha !== '') {
+                const sendMessage = await Axios.post(url, data, {
+                    auth: {
+                        username: 'shovv',
+                        password: '$HOVV2020'
+                    }
+                }).then(response => {
+                    response.data.valid && setMailSend(true)
+                    setError(false)
+                    setInputName('')
+                    setInputEmail('')
+                    setInputMsg('')
+                    localStorage.removeItem('_grecaptcha');
+                })
+            }
+        } catch(err) {
+            console.log(err)
+        }
     };
  
     return (
@@ -68,7 +82,7 @@ const Form = () => {
                         <div className="section-title">
                             <h3 className="card-title">Napisz do nas </h3>
                         </div>
-                        <form action="#" className="form">
+                        <form onSubmit={handleFormSubmit} className="form">
                             <TextField
                                 variant="outlined"
                                 margin="normal"
@@ -105,17 +119,18 @@ const Form = () => {
                                 fullWidth
                                 name="msg"
                                 margin="normal"
+                                required
                             />
                             <div className="">
                                 <ReCAPTCHA
                                     sitekey="6Ldc5Z8aAAAAAHPk6ZWYRm9ZjW3KZbhCaaP8uIvk"
                                     onChange={onChange}
                                 />
-                                <Button variant="contained" className={classes.submit} type="submit" onClick={e => handleFormSubmit(e)}>Wyślij</Button>
+                                <Button variant="contained" className={classes.submit} type="submit">Wyślij</Button>
                             </div>
                             <div>
-                                {mailSent && <div className="success">Twoja wiadomość została pomyślnie wysłana</div>}
-                                {error && <div className="error">Uzupełnij wszystkie wymagane pola</div>}
+                                {mailSend && <div className="success">Twoja wiadomość została pomyślnie wysłana! Dziękujemy</div>}
+                                {error && <div className="error">Zaznacz, że nie jesteś robotem</div>}
                             </div>
                         </form>
                     </Grid>

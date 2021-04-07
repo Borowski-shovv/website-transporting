@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect, useContext} from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import AuthOptions from '../../auth/AuthOptions';
+
 
 const Ul = styled.ul`
   list-style: none;
@@ -57,7 +58,7 @@ const Ul = styled.ul`
 `;
 
 const RightNav = ({ open, setOpen }) => {
- 
+
   return (
     <>
     <Ul open={open}>

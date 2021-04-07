@@ -42,7 +42,7 @@ const routes = [
   { path: '/wycena', name: 'Cennik', Component: OrderView},
   { path: '/logowanie', name: 'Logowanie', Component: Login},
   { path: '/rejestracja', name: 'Rejestracja', Component: Register}
-];
+]; 
 
 function Root() {
   const [userData, setUserData] = useState({
@@ -111,16 +111,14 @@ function Root() {
             setEmailFilledInfo, formikImages, setFormikImages, orderId, setOrderId}}>  
         <Navigation />
           <MuiPickersUtilsProvider locale={plLocale} utils={DateFnsUtils}>
+            <PrivateRoute exact path="/konto" component={UserPanel} />
             <Switch>
               {routes.map(({ path, Component }) => (
-                <Route key="name" path={path} exact>
-                
-                      <Component />
-                 
+                <Route key="name" path={path} exact>    
+                  <Component />
                 </Route>
               ))}
-              <Route component={NotFound} />
-              <PrivateRoute exact path="/konto" component={UserPanel} />
+              
             </Switch> 
           </MuiPickersUtilsProvider>
 

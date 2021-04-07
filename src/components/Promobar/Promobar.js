@@ -45,11 +45,11 @@ const Promobar = () => {
           >
                 <h3 className={classes.title}>Darmowa wycena</h3>
                 <Typography variant="body2" className={classes.text}>
-                  Złóż zamówienie, a nasz konsultant skontaktuje się z Tobą w ciągu 15 minut z wyceną Twojej przesyłki
+                  Złóż zamówienie, a nasz konsultant skontaktuje się z Tobą w ciągu 15 minut z wyceną Twojej przesyłki.
                 </Typography>
                 
                 <Button variant="contained" href="/wycena" className={classes.button}>
-                  Wyceń paczkę
+                  Wyceń przesyłkę
                 </Button>
           </Grid>
         </Grid>

@@ -23,8 +23,11 @@ function AuthOptions({open, setOpen}) {
     const history = useHistory(); 
     const classes = useStyles();
 
-    const logout = () => {
+    useEffect(() => {
         
+    }, [])
+
+    const logout = () => {
         setUserData({
             token: undefined,
             user: undefined,
@@ -36,14 +39,12 @@ function AuthOptions({open, setOpen}) {
         localStorage.setItem('user-token', '')
         localStorage.setItem('order_id', '')
 
-        handleButtonClick('/')
+       
+        history.push('/');
+      
 
         setOpen(!open)
     }
-
-    const handleButtonClick = pageURL => {
-        history.push(pageURL);
-    };
 
     return (
         <>
@@ -58,12 +59,13 @@ function AuthOptions({open, setOpen}) {
                         ><span> Moje konto</span></NavLink>
                     </li>
                     <li>
-                        <Button
-                            className={classes.navLink}
+                         <NavLink 
+                            className="navigationItemLink" 
                             onClick={logout}
+                            to="/"
                         >
-                            Wyloguj
-                        </Button>
+                            <span>Wyloguj</span>
+                        </NavLink>
                     </li>
                 </>
                 ) : (
