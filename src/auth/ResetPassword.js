@@ -14,9 +14,6 @@ import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      height: '100vh',
-    },
     image: {
       backgroundImage: `url(${ship})`,
       backgroundRepeat: 'no-repeat',
@@ -33,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
       margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: '#f44336',
     },
     form: {
       width: '100%', // Fix IE 11 issue.
@@ -41,6 +38,11 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
+       backgroundColor: '#f44336',
+        color: '#fff',
+        '&:hover': {
+        backgroundColor: 'rgb(170, 46, 37)',
+        }
     },
     green: {
       color: 'green'
@@ -96,19 +98,12 @@ const PasswordReset = () => {
     }
 
     return (
-        <Grid container component="main" className={classes.root}>
+        <Grid container component="main" className="login-content">
             <CssBaseline />
             <Grid item xs={false} sm={4} md={7} className={classes.image} />
             <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                 <div className={classes.paper}>
-                {/* <Grid item>
-                    {valid ? 
-                    <Typography variant="body1" className={classes.green}>
-                        Twoje konto zostało pomyślnie aktywowane.
-                    </Typography> 
-                    : null
-                    }
-                </Grid> */}
+              
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
@@ -116,7 +111,7 @@ const PasswordReset = () => {
                     Resetowanie hasła
                 </Typography>
                 <Box mt={2}>
-                    <Typography component="h5" variant="body1">
+                    <Typography variant="body1">
                         Wpisz adres email konta, któremu chcesz zresetować hasło.
                     </Typography>
                 </Box>
