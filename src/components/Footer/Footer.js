@@ -23,7 +23,7 @@ const Footer = () => {
 									<h3>
 										Informacje i pomoc
 									</h3>
-									<Link to="/wycena">Złóż zamówienie</Link>
+									<Link to="/wycena">Wyceń przesyłkę</Link>
 									
 									<Link to="/regulamin">Regulamin</Link>
 								

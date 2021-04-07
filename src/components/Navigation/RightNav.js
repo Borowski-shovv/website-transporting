@@ -83,7 +83,7 @@ const RightNav = ({ open, setOpen }) => {
       className="navigationItemLink" 
       to="/wycena"
       onClick={() => setOpen(!open)}
-      ><span>Wyceń paczkę</span></NavLink>
+      ><span>Wyceń przesyłkę</span></NavLink>
     </li>
     <li>
       <NavLink 
