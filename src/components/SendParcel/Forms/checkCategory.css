@@ -127,6 +127,7 @@ input[type="radio"]:checked {
         justify-content: space-between;
         /* klikalna paczka */
         position: relative;
+        margin-top: 10px;
     }
 
     .Step1-wrapper .MuiGrid-spacing-xs-2 > .MuiGrid-item label.MuiFormControlLabel-root {

@@ -77,7 +77,7 @@ export default function AddressForm(props) {
           <Grid item xs={12} md={6}>
             <Paper>
               <Grid container spacing={3} className={classes.addressPaper}>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" className={classes.moduleTitle} gutterBottom>
                   Dane adresowe nadawcy
                 </Typography>
                 <Grid item xs={10}>
@@ -133,7 +133,7 @@ export default function AddressForm(props) {
           <Grid item xs={12} md={6}>
             <Paper className={classes.addressMobilePaper}>
               <Grid container spacing={3} className={classes.addressPaper}>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" className={classes.moduleTitle} gutterBottom>
                   Dane adresowe odbiorcy
                 </Typography>
                 <Grid item xs={10}>

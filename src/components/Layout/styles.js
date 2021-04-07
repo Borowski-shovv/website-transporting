@@ -20,7 +20,6 @@ import { red, blue } from '@material-ui/core/colors';
     typography: {
       h6: {
         fontWeight: 'bold',
-        
       }
     },
   });
@@ -77,6 +76,10 @@ import { red, blue } from '@material-ui/core/colors';
       [theme.breakpoints.down(600)] : {
         marginTop: 20
       }
+    },
+    moduleTitle: {
+      width: '70%',
+      textAlign: 'center',
     }
   }));
   export { theme, useStyle };

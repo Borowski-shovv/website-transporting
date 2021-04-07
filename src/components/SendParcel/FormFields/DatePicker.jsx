@@ -19,7 +19,6 @@ function DatePicker(props) {
     const classes = useStyles()
     return (
         <div className="form-control date-picker-styles">
-            {/* <label className="datePicker-label" htmlFor={name}>{label}</label> */}
             <Field name={name} className={classes.deepInput}>
                 {
                     ({form, field}) => {
@@ -35,10 +34,12 @@ function DatePicker(props) {
                                 onChange={val => setFieldValue(name, val)}
                                 {...rest}
                                 label={label}
+                                
+                                clearLabel="Wyczyść"
+                                cancelLabel="Wyjdź"
                             />
 
                         )
-                        //<DateView id={name} {...field} {...rest} selected={value} onChange={val => setFieldValue(name, val)}/>
                     }
                 }
             </Field>

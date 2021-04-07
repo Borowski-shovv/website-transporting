@@ -314,7 +314,7 @@ export default function CheckCategory(props) {
              
                 {formValues.parcelCategory.includes('auto') || formValues.vehicles.length > 0 ? 
                     <Paper elevation={3} className={classes.CustomPaper}>
-                           <Grid container xs={12} justify="center">
+                           <Grid container item xs={12} justify="center">
                                 <Grid item >
                                     <img className={classes.imgWidth} src={truckImg} alt='icon'/>
                                 </Grid>
@@ -462,9 +462,7 @@ export default function CheckCategory(props) {
                                                                     <Grid xs={12} sm={3} container alignItems="center" item>
                                                                     
                                                                         <UnitField 
-                                                                        
                                                                             label="co chcesz przewieźć ?*"
-                                                                            
                                                                             name={`cargo[${index}].cargoName`} 
                                                                             fullWidth
                                                                         />  

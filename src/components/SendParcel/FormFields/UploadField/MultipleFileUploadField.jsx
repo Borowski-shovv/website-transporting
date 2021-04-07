@@ -49,7 +49,7 @@ export function MultipleFileUploadField({name}) {
         setFiles((curr) => curr.filter((fw) => fw.file !== file));
     }
 
-    const {getRootProps, getInputProps} = useDropzone({onDrop, accept: 'image/*', maxSize: 2000 * 1024}) //300KB
+    const {getRootProps, getInputProps} = useDropzone({onDrop, accept: 'image/*', maxSize: 1795 * 2480}) //300KB
 
   return (
     <>
